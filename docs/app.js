@@ -51,6 +51,7 @@ let currentMapMode = 'candidates';
 let tableData      = [];
 let tableSortCol   = 'org_name';
 let tableSortDir   = 'asc';
+const wardDataCache = new Map();
 
 // ── Boot ──────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -122,7 +123,7 @@ function renderSummaryCards() {
     {
       value: s.unknown_candidates.toLocaleString(),
       cls: 'unknown',
-      label: 'Unknown gender',
+      label: 'Uncategorised gender',
       sub: pctStr(s.unknown_candidates, s.total_candidates) + ' of all candidates',
     },
   ];
@@ -224,9 +225,8 @@ function updateInfoBox(feature) {
 
   const unknownPct = Math.round(council.unknown / council.total * 100);
   const warnHtml   = unknownPct >= 30
-    ? `<div class="mi-warn">&#9888; ${unknownPct}% unknown gender — treat percentages with caution</div>`
+    ? `<div class="mi-warn">&#9888; ${unknownPct}% Uncategorised gender — treat percentages with caution</div>`
     : '';
-
   const femalePctStr   = council.pct_female         !== null ? council.pct_female + '%'         : '—';
   const electedPctStr  = council.pct_female_elected !== null ? council.pct_female_elected + '%' : '—';
 
@@ -236,7 +236,7 @@ function updateInfoBox(feature) {
       <tr><td class="mi-section" colspan="2">Candidates (${council.total})</td></tr>
       <tr><td>Female</td><td>${council.female} <span style="color:#c9304f">(${femalePctStr})</span></td></tr>
       <tr><td>Male</td><td>${council.male}</td></tr>
-      <tr><td>Unknown</td><td>${council.unknown} (${unknownPct}%)</td></tr>
+      <tr><td>Uncategorised</td><td>${council.unknown} (${unknownPct}%)</td></tr>
       <tr><td class="mi-section" colspan="2">Elected (${council.elected_total})</td></tr>
       <tr><td>Female</td><td>${council.elected_female} <span style="color:#c9304f">(${electedPctStr})</span></td></tr>
       <tr><td>Male</td><td>${council.elected_male}</td></tr>
@@ -307,7 +307,7 @@ function buildChart(canvasId, scrollId, labels, rows) {
       datasets: [
         makeDataset('Female',  'f', COL_FEMALE,  rows),
         makeDataset('Male',    'm', COL_MALE,    rows),
-        makeDataset('Unknown', 'u', COL_UNKNOWN, rows),
+        makeDataset('Uncategorised', 'u', COL_UNKNOWN, rows),
       ],
     },
     options: {
@@ -388,6 +388,16 @@ function initTable() {
   tableData = appData.by_council;
   renderTable();
 
+  wireModalHandlers();
+
+  document.getElementById('table-body').addEventListener('click', e => {
+    const row = e.target.closest('tr[data-council-slug]');
+    if (!row) return;
+    const slug = row.dataset.councilSlug;
+    const council = tableData.find(c => c.ward_slug === slug);
+    if (council) openCouncilDrilldown(council);
+  });
+
   document.getElementById('table-search').addEventListener('input', e => {
     renderTable(e.target.value.trim().toLowerCase());
   });
@@ -445,7 +455,7 @@ function renderTable(filter = '') {
 
     const turnout = c.avg_turnout !== null ? c.avg_turnout + '%' : '—';
 
-    return `<tr>
+    return `<tr data-council-slug="${c.ward_slug || ''}">
       <td>${c.org_name}</td>
       <td>${c.total}</td>
       <td>${c.female}</td>
@@ -457,4 +467,170 @@ function renderTable(filter = '') {
       <td>${turnout}</td>
     </tr>`;
   }).join('');
+}
+
+// ── Ward drilldown modal ─────────────────────────────────────────────────
+function wireModalHandlers() {
+  const overlay = document.getElementById('modal-overlay');
+  const closeBtn = document.getElementById('modal-close');
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !overlay.hidden) closeModal();
+  });
+}
+
+function openModal(title, html) {
+  const overlay = document.getElementById('modal-overlay');
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-body').innerHTML = html;
+  overlay.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').hidden = true;
+  document.body.style.overflow = '';
+}
+
+async function openCouncilDrilldown(council) {
+  if (!council.ward_slug) {
+    openModal(council.org_name, '<p>No ward-level file is available for this council.</p>');
+    return;
+  }
+
+  openModal(council.org_name, '<p>Loading ward data...</p>');
+
+  try {
+    let payload = wardDataCache.get(council.ward_slug);
+    if (!payload) {
+      const response = await fetch(`data/wards/${encodeURIComponent(council.ward_slug)}.json`);
+      if (!response.ok) throw new Error(`Failed to load ward file (${response.status})`);
+      payload = await response.json();
+      wardDataCache.set(council.ward_slug, payload);
+    }
+    renderWardList(council, payload);
+  } catch (err) {
+    openModal(council.org_name, `<p style="color:#b00020">Could not load ward data: ${err.message}</p>`);
+  }
+}
+
+function renderWardList(council, payload) {
+  const wards = (payload.wards || []).slice().sort((a, b) => a.ward.localeCompare(b.ward));
+  if (!wards.length) {
+    openModal(council.org_name, '<p>No ward-level rows found for this council.</p>');
+    return;
+  }
+
+  const cards = wards.map((ward, i) => {
+    const counts = ward.candidates.reduce((acc, c) => {
+      if (c.g === 'female') acc.f += 1;
+      else if (c.g === 'male') acc.m += 1;
+      else acc.u += 1;
+      return acc;
+    }, { f: 0, m: 0, u: 0 });
+
+    const turnout = ward.turnout_pct !== null && ward.turnout_pct !== undefined
+      ? `Turnout: ${ward.turnout_pct}%`
+      : 'Turnout: —';
+
+    return `
+      <button class="ward-btn" data-ward-index="${i}">
+        <strong>${ward.ward}</strong>
+        <div class="ward-meta">Seats: ${ward.seats || '—'} | Candidates: ${ward.candidates.length}</div>
+        <div class="ward-meta">F ${counts.f} | M ${counts.m} | U ${counts.u}</div>
+        <div class="ward-meta">${turnout}</div>
+      </button>
+    `;
+  }).join('');
+
+  openModal(council.org_name, `<div class="ward-grid">${cards}</div>`);
+
+  const body = document.getElementById('modal-body');
+  body.querySelectorAll('.ward-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ward = wards[Number(btn.dataset.wardIndex)];
+      openWardDetail(council, payload, ward);
+    });
+  });
+}
+
+function formatGenderLabel(g) {
+  if (g === 'female') return { text: 'Female', cls: 'gender-f' };
+  if (g === 'male') return { text: 'Male', cls: 'gender-m' };
+  return { text: 'Uncategorised', cls: 'gender-u' };
+}
+
+function formatMethodLabel(method) {
+  const methodText = {
+    existing: 'Recorded',
+    gender_guesser: 'gender_guesser',
+    ons: 'ONS names',
+    unknown: 'Uncategorised',
+  };
+  const text = methodText[method] || method || 'Uncategorised';
+  return `<span class="method-badge method-${method || 'unknown'}">${text}</span>`;
+}
+
+function openWardDetail(council, payload, ward) {
+  const candidates = (ward.candidates || []).slice().sort((a, b) => {
+    const ar = a.r || 9999;
+    const br = b.r || 9999;
+    if (ar !== br) return ar - br;
+    return (a.n || '').localeCompare(b.n || '');
+  });
+
+  const totalVotes = candidates.reduce((sum, c) => sum + (Number(c.v) || 0), 0);
+
+  const rows = candidates.map(c => {
+    const pct = totalVotes > 0 ? ((Number(c.v) || 0) / totalVotes * 100).toFixed(1) + '%' : '—';
+    const g = formatGenderLabel(c.g);
+    const electedCell = c.e
+      ? '<span class="elected-tick">&#10003;</span>'
+      : '<span class="not-elected-cross">&#10007;</span>';
+
+    return `
+      <tr class="${c.e ? 'elected-row' : ''}">
+        <td>${c.n || '—'}</td>
+        <td>${c.p || '—'}</td>
+        <td class="num">${c.v !== null && c.v !== undefined ? Number(c.v).toLocaleString() : '—'}</td>
+        <td class="num">${pct}</td>
+        <td class="num">${electedCell}</td>
+        <td><span class="${g.cls}">${g.text}</span></td>
+        <td>${formatMethodLabel(c.m)}</td>
+      </tr>
+    `;
+  }).join('');
+
+  const turnout = ward.turnout_pct !== null && ward.turnout_pct !== undefined
+    ? `${ward.turnout_pct}%`
+    : '—';
+
+  const html = `
+    <button class="modal-back" id="modal-back">&#8592; Back to wards</button>
+    <div class="ward-results-title">${ward.ward}</div>
+    <div class="ward-results-meta">Seats: ${ward.seats || '—'} | Candidates: ${candidates.length} | Turnout: ${turnout}</div>
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Party</th>
+          <th class="num">Votes</th>
+          <th class="num">%</th>
+          <th class="num">Elected</th>
+          <th>Gender</th>
+          <th>Assignment method</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+
+  openModal(`${council.org_name} - ${ward.ward}`, html);
+  document.getElementById('modal-back').addEventListener('click', () => {
+    renderWardList(council, payload);
+  });
 }

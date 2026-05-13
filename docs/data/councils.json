@@ -15,6 +15,7 @@
   "by_council": [
     {
       "org_name": "Adur",
+      "ward_slug": "adur",
       "lad_code": "E07000223",
       "lad_name": "Adur",
       "nuts1": "South East (England)",
@@ -33,6 +34,7 @@
     },
     {
       "org_name": "Barnsley",
+      "ward_slug": "barnsley",
       "lad_code": "E08000038",
       "lad_name": "Barnsley",
       "nuts1": "Yorkshire and The Humber",
@@ -51,6 +53,7 @@
     },
     {
       "org_name": "Basildon",
+      "ward_slug": "basildon",
       "lad_code": "E07000066",
       "lad_name": "Basildon",
       "nuts1": "East of England",
@@ -69,6 +72,7 @@
     },
     {
       "org_name": "Basingstoke and Deane",
+      "ward_slug": "basingstoke-and-deane",
       "lad_code": "E07000084",
       "lad_name": "Basingstoke and Deane",
       "nuts1": "South East (England)",
@@ -87,6 +91,7 @@
     },
     {
       "org_name": "Birmingham",
+      "ward_slug": "birmingham",
       "lad_code": "E08000025",
       "lad_name": "Birmingham",
       "nuts1": "West Midlands (England)",
@@ -105,6 +110,7 @@
     },
     {
       "org_name": "Blackburn with Darwen",
+      "ward_slug": "blackburn-with-darwen",
       "lad_code": "E06000008",
       "lad_name": "Blackburn with Darwen",
       "nuts1": "North West (England)",
@@ -123,6 +129,7 @@
     },
     {
       "org_name": "Bolton",
+      "ward_slug": "bolton",
       "lad_code": "E08000001",
       "lad_name": "Bolton",
       "nuts1": "North West (England)",
@@ -141,6 +148,7 @@
     },
     {
       "org_name": "Bradford",
+      "ward_slug": "bradford",
       "lad_code": "E08000032",
       "lad_name": "Bradford",
       "nuts1": "Yorkshire and The Humber",
@@ -159,6 +167,7 @@
     },
     {
       "org_name": "Brentwood",
+      "ward_slug": "brentwood",
       "lad_code": "E07000068",
       "lad_name": "Brentwood",
       "nuts1": "East of England",
@@ -177,6 +186,7 @@
     },
     {
       "org_name": "Broxbourne",
+      "ward_slug": "broxbourne",
       "lad_code": "E07000095",
       "lad_name": "Broxbourne",
       "nuts1": "East of England",
@@ -195,6 +205,7 @@
     },
     {
       "org_name": "Burnley",
+      "ward_slug": "burnley",
       "lad_code": "E07000117",
       "lad_name": "Burnley",
       "nuts1": "North West (England)",
@@ -213,6 +224,7 @@
     },
     {
       "org_name": "Bury",
+      "ward_slug": "bury",
       "lad_code": "E08000002",
       "lad_name": "Bury",
       "nuts1": "North West (England)",
@@ -231,6 +243,7 @@
     },
     {
       "org_name": "Calderdale",
+      "ward_slug": "calderdale",
       "lad_code": "E08000033",
       "lad_name": "Calderdale",
       "nuts1": "Yorkshire and The Humber",
@@ -249,6 +262,7 @@
     },
     {
       "org_name": "Cambridge",
+      "ward_slug": "cambridge",
       "lad_code": "E07000008",
       "lad_name": "Cambridge",
       "nuts1": "East of England",
@@ -267,6 +281,7 @@
     },
     {
       "org_name": "Cannock Chase",
+      "ward_slug": "cannock-chase",
       "lad_code": "E07000192",
       "lad_name": "Cannock Chase",
       "nuts1": "West Midlands (England)",
@@ -285,6 +300,7 @@
     },
     {
       "org_name": "Chelmsford City Council",
+      "ward_slug": "chelmsford-city-council",
       "lad_code": "E07000070",
       "lad_name": "Chelmsford",
       "nuts1": "East of England",
@@ -303,6 +319,7 @@
     },
     {
       "org_name": "Cheltenham",
+      "ward_slug": "cheltenham",
       "lad_code": "E07000078",
       "lad_name": "Cheltenham",
       "nuts1": "South West (England)",
@@ -321,6 +338,7 @@
     },
     {
       "org_name": "Cherwell",
+      "ward_slug": "cherwell",
       "lad_code": "E07000177",
       "lad_name": "Cherwell",
       "nuts1": "South East (England)",
@@ -339,6 +357,7 @@
     },
     {
       "org_name": "Chesterfield Borough Council",
+      "ward_slug": "chesterfield-borough-council",
       "lad_code": "E07000034",
       "lad_name": "Chesterfield",
       "nuts1": "East Midlands (England)",
@@ -357,6 +376,7 @@
     },
     {
       "org_name": "Chorley",
+      "ward_slug": "chorley",
       "lad_code": "E07000118",
       "lad_name": "Chorley",
       "nuts1": "North West (England)",
@@ -375,6 +395,7 @@
     },
     {
       "org_name": "City of Lincoln Council",
+      "ward_slug": "city-of-lincoln-council",
       "lad_code": "E07000138",
       "lad_name": "Lincoln",
       "nuts1": "East Midlands (England)",
@@ -393,6 +414,7 @@
     },
     {
       "org_name": "City of Westminster",
+      "ward_slug": "city-of-westminster",
       "lad_code": "E09000033",
       "lad_name": "Westminster",
       "nuts1": "London",
@@ -411,6 +433,7 @@
     },
     {
       "org_name": "Colchester",
+      "ward_slug": "colchester",
       "lad_code": "E07000071",
       "lad_name": "Colchester",
       "nuts1": "East of England",
@@ -429,6 +452,7 @@
     },
     {
       "org_name": "Coventry",
+      "ward_slug": "coventry",
       "lad_code": "E08000026",
       "lad_name": "Coventry",
       "nuts1": "West Midlands (England)",
@@ -447,6 +471,7 @@
     },
     {
       "org_name": "Crawley",
+      "ward_slug": "crawley",
       "lad_code": "E07000226",
       "lad_name": "Crawley",
       "nuts1": "South East (England)",
@@ -465,6 +490,7 @@
     },
     {
       "org_name": "Dudley",
+      "ward_slug": "dudley",
       "lad_code": "E08000027",
       "lad_name": "Dudley",
       "nuts1": "West Midlands (England)",
@@ -483,6 +509,7 @@
     },
     {
       "org_name": "East Hertfordshire District Council",
+      "ward_slug": "east-hertfordshire-district-council",
       "lad_code": "E07000242",
       "lad_name": "East Hertfordshire",
       "nuts1": "East of England",
@@ -501,6 +528,7 @@
     },
     {
       "org_name": "East Surrey Council",
+      "ward_slug": "east-surrey-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "South East (England)",
@@ -519,6 +547,7 @@
     },
     {
       "org_name": "East Sussex County Council",
+      "ward_slug": "east-sussex-county-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "South East (England)",
@@ -537,6 +566,7 @@
     },
     {
       "org_name": "Eastleigh",
+      "ward_slug": "eastleigh",
       "lad_code": "E07000086",
       "lad_name": "Eastleigh",
       "nuts1": "South East (England)",
@@ -555,6 +585,7 @@
     },
     {
       "org_name": "Epping Forest",
+      "ward_slug": "epping-forest",
       "lad_code": "E07000072",
       "lad_name": "Epping Forest",
       "nuts1": "East of England",
@@ -573,6 +604,7 @@
     },
     {
       "org_name": "Essex County Council",
+      "ward_slug": "essex-county-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "East of England",
@@ -591,6 +623,7 @@
     },
     {
       "org_name": "Exeter",
+      "ward_slug": "exeter",
       "lad_code": "E07000041",
       "lad_name": "Exeter",
       "nuts1": "South West (England)",
@@ -609,6 +642,7 @@
     },
     {
       "org_name": "Fareham",
+      "ward_slug": "fareham",
       "lad_code": "E07000087",
       "lad_name": "Fareham",
       "nuts1": "South East (England)",
@@ -627,6 +661,7 @@
     },
     {
       "org_name": "Gateshead",
+      "ward_slug": "gateshead",
       "lad_code": "E08000037",
       "lad_name": "Gateshead",
       "nuts1": "North East (England)",
@@ -645,6 +680,7 @@
     },
     {
       "org_name": "Gloucestershire County Council",
+      "ward_slug": "gloucestershire-county-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "South West (England)",
@@ -663,6 +699,7 @@
     },
     {
       "org_name": "Gosport",
+      "ward_slug": "gosport",
       "lad_code": "E07000088",
       "lad_name": "Gosport",
       "nuts1": "South East (England)",
@@ -681,6 +718,7 @@
     },
     {
       "org_name": "Great Yarmouth",
+      "ward_slug": "great-yarmouth",
       "lad_code": "E07000145",
       "lad_name": "Great Yarmouth",
       "nuts1": "East of England",
@@ -699,6 +737,7 @@
     },
     {
       "org_name": "Guildford Borough Council",
+      "ward_slug": "guildford-borough-council",
       "lad_code": "E07000209",
       "lad_name": "Guildford",
       "nuts1": "South East (England)",
@@ -717,6 +756,7 @@
     },
     {
       "org_name": "Halton",
+      "ward_slug": "halton",
       "lad_code": "E06000006",
       "lad_name": "Halton",
       "nuts1": "North West (England)",
@@ -735,6 +775,7 @@
     },
     {
       "org_name": "Hampshire County Council",
+      "ward_slug": "hampshire-county-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "South East (England)",
@@ -753,6 +794,7 @@
     },
     {
       "org_name": "Harlow",
+      "ward_slug": "harlow",
       "lad_code": "E07000073",
       "lad_name": "Harlow",
       "nuts1": "East of England",
@@ -771,6 +813,7 @@
     },
     {
       "org_name": "Hart",
+      "ward_slug": "hart",
       "lad_code": "E07000089",
       "lad_name": "Hart",
       "nuts1": "South East (England)",
@@ -789,6 +832,7 @@
     },
     {
       "org_name": "Hartlepool",
+      "ward_slug": "hartlepool",
       "lad_code": "E06000001",
       "lad_name": "Hartlepool",
       "nuts1": "North East (England)",
@@ -807,6 +851,7 @@
     },
     {
       "org_name": "Hastings",
+      "ward_slug": "hastings",
       "lad_code": "E07000062",
       "lad_name": "Hastings",
       "nuts1": "South East (England)",
@@ -825,6 +870,7 @@
     },
     {
       "org_name": "Havant",
+      "ward_slug": "havant",
       "lad_code": "E07000090",
       "lad_name": "Havant",
       "nuts1": "South East (England)",
@@ -843,6 +889,7 @@
     },
     {
       "org_name": "Hertfordshire County Council",
+      "ward_slug": "hertfordshire-county-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "East of England",
@@ -861,6 +908,7 @@
     },
     {
       "org_name": "Hertsmere Borough Council",
+      "ward_slug": "hertsmere-borough-council",
       "lad_code": "E07000098",
       "lad_name": "Hertsmere",
       "nuts1": "East of England",
@@ -879,6 +927,7 @@
     },
     {
       "org_name": "Horsham District Council",
+      "ward_slug": "horsham-district-council",
       "lad_code": "E07000227",
       "lad_name": "Horsham",
       "nuts1": "South East (England)",
@@ -897,6 +946,7 @@
     },
     {
       "org_name": "Huntingdonshire",
+      "ward_slug": "huntingdonshire",
       "lad_code": "E07000011",
       "lad_name": "Huntingdonshire",
       "nuts1": "East of England",
@@ -915,6 +965,7 @@
     },
     {
       "org_name": "Hyndburn",
+      "ward_slug": "hyndburn",
       "lad_code": "E07000120",
       "lad_name": "Hyndburn",
       "nuts1": "North West (England)",
@@ -933,6 +984,7 @@
     },
     {
       "org_name": "Ipswich",
+      "ward_slug": "ipswich",
       "lad_code": "E07000202",
       "lad_name": "Ipswich",
       "nuts1": "East of England",
@@ -951,6 +1003,7 @@
     },
     {
       "org_name": "Isle of Wight Council",
+      "ward_slug": "isle-of-wight-council",
       "lad_code": "E06000046",
       "lad_name": "Isle of Wight",
       "nuts1": "South East (England)",
@@ -969,6 +1022,7 @@
     },
     {
       "org_name": "Kingston upon Hull",
+      "ward_slug": "kingston-upon-hull",
       "lad_code": "E06000010",
       "lad_name": "Kingston upon Hull, City of",
       "nuts1": "Yorkshire and The Humber",
@@ -987,6 +1041,7 @@
     },
     {
       "org_name": "Kirklees",
+      "ward_slug": "kirklees",
       "lad_code": "E08000034",
       "lad_name": "Kirklees",
       "nuts1": "Yorkshire and The Humber",
@@ -1005,6 +1060,7 @@
     },
     {
       "org_name": "Knowsley",
+      "ward_slug": "knowsley",
       "lad_code": "E08000011",
       "lad_name": "Knowsley",
       "nuts1": "North West (England)",
@@ -1023,6 +1079,7 @@
     },
     {
       "org_name": "Leeds",
+      "ward_slug": "leeds",
       "lad_code": "E08000035",
       "lad_name": "Leeds",
       "nuts1": "Yorkshire and The Humber",
@@ -1041,6 +1098,7 @@
     },
     {
       "org_name": "Lewes District Council",
+      "ward_slug": "lewes-district-council",
       "lad_code": "E07000063",
       "lad_name": "Lewes",
       "nuts1": "South East (England)",
@@ -1059,6 +1117,7 @@
     },
     {
       "org_name": "London Borough of Barking and Dagenham",
+      "ward_slug": "london-borough-of-barking-and-dagenham",
       "lad_code": "E09000002",
       "lad_name": "Barking and Dagenham",
       "nuts1": "London",
@@ -1077,6 +1136,7 @@
     },
     {
       "org_name": "London Borough of Barnet",
+      "ward_slug": "london-borough-of-barnet",
       "lad_code": "E09000003",
       "lad_name": "Barnet",
       "nuts1": "London",
@@ -1095,6 +1155,7 @@
     },
     {
       "org_name": "London Borough of Bexley",
+      "ward_slug": "london-borough-of-bexley",
       "lad_code": "E09000004",
       "lad_name": "Bexley",
       "nuts1": "London",
@@ -1113,6 +1174,7 @@
     },
     {
       "org_name": "London Borough of Brent",
+      "ward_slug": "london-borough-of-brent",
       "lad_code": "E09000005",
       "lad_name": "Brent",
       "nuts1": "London",
@@ -1131,6 +1193,7 @@
     },
     {
       "org_name": "London Borough of Bromley",
+      "ward_slug": "london-borough-of-bromley",
       "lad_code": "E09000006",
       "lad_name": "Bromley",
       "nuts1": "London",
@@ -1149,6 +1212,7 @@
     },
     {
       "org_name": "London Borough of Camden",
+      "ward_slug": "london-borough-of-camden",
       "lad_code": "E09000007",
       "lad_name": "Camden",
       "nuts1": "London",
@@ -1167,6 +1231,7 @@
     },
     {
       "org_name": "London Borough of Croydon",
+      "ward_slug": "london-borough-of-croydon",
       "lad_code": "E09000008",
       "lad_name": "Croydon",
       "nuts1": "London",
@@ -1185,6 +1250,7 @@
     },
     {
       "org_name": "London Borough of Ealing",
+      "ward_slug": "london-borough-of-ealing",
       "lad_code": "E09000009",
       "lad_name": "Ealing",
       "nuts1": "London",
@@ -1203,6 +1269,7 @@
     },
     {
       "org_name": "London Borough of Enfield",
+      "ward_slug": "london-borough-of-enfield",
       "lad_code": "E09000010",
       "lad_name": "Enfield",
       "nuts1": "London",
@@ -1221,6 +1288,7 @@
     },
     {
       "org_name": "London Borough of Hackney",
+      "ward_slug": "london-borough-of-hackney",
       "lad_code": "E09000012",
       "lad_name": "Hackney",
       "nuts1": "London",
@@ -1239,6 +1307,7 @@
     },
     {
       "org_name": "London Borough of Hammersmith & Fulham",
+      "ward_slug": "london-borough-of-hammersmith-fulham",
       "lad_code": "E09000013",
       "lad_name": "Hammersmith and Fulham",
       "nuts1": "London",
@@ -1257,6 +1326,7 @@
     },
     {
       "org_name": "London Borough of Haringey",
+      "ward_slug": "london-borough-of-haringey",
       "lad_code": "E09000014",
       "lad_name": "Haringey",
       "nuts1": "London",
@@ -1275,6 +1345,7 @@
     },
     {
       "org_name": "London Borough of Harrow",
+      "ward_slug": "london-borough-of-harrow",
       "lad_code": "E09000015",
       "lad_name": "Harrow",
       "nuts1": "London",
@@ -1293,6 +1364,7 @@
     },
     {
       "org_name": "London Borough of Havering",
+      "ward_slug": "london-borough-of-havering",
       "lad_code": "E09000016",
       "lad_name": "Havering",
       "nuts1": "London",
@@ -1311,6 +1383,7 @@
     },
     {
       "org_name": "London Borough of Hillingdon",
+      "ward_slug": "london-borough-of-hillingdon",
       "lad_code": "E09000017",
       "lad_name": "Hillingdon",
       "nuts1": "London",
@@ -1329,6 +1402,7 @@
     },
     {
       "org_name": "London Borough of Hounslow",
+      "ward_slug": "london-borough-of-hounslow",
       "lad_code": "E09000018",
       "lad_name": "Hounslow",
       "nuts1": "London",
@@ -1347,6 +1421,7 @@
     },
     {
       "org_name": "London Borough of Islington",
+      "ward_slug": "london-borough-of-islington",
       "lad_code": "E09000019",
       "lad_name": "Islington",
       "nuts1": "London",
@@ -1365,6 +1440,7 @@
     },
     {
       "org_name": "London Borough of Lambeth",
+      "ward_slug": "london-borough-of-lambeth",
       "lad_code": "E09000022",
       "lad_name": "Lambeth",
       "nuts1": "London",
@@ -1383,6 +1459,7 @@
     },
     {
       "org_name": "London Borough of Lewisham",
+      "ward_slug": "london-borough-of-lewisham",
       "lad_code": "E09000023",
       "lad_name": "Lewisham",
       "nuts1": "London",
@@ -1401,6 +1478,7 @@
     },
     {
       "org_name": "London Borough of Merton",
+      "ward_slug": "london-borough-of-merton",
       "lad_code": "E09000024",
       "lad_name": "Merton",
       "nuts1": "London",
@@ -1419,6 +1497,7 @@
     },
     {
       "org_name": "London Borough of Newham",
+      "ward_slug": "london-borough-of-newham",
       "lad_code": "E09000025",
       "lad_name": "Newham",
       "nuts1": "London",
@@ -1437,6 +1516,7 @@
     },
     {
       "org_name": "London Borough of Redbridge",
+      "ward_slug": "london-borough-of-redbridge",
       "lad_code": "E09000026",
       "lad_name": "Redbridge",
       "nuts1": "London",
@@ -1455,6 +1535,7 @@
     },
     {
       "org_name": "London Borough of Richmond upon Thames",
+      "ward_slug": "london-borough-of-richmond-upon-thames",
       "lad_code": "E09000027",
       "lad_name": "Richmond upon Thames",
       "nuts1": "London",
@@ -1473,6 +1554,7 @@
     },
     {
       "org_name": "London Borough of Southwark",
+      "ward_slug": "london-borough-of-southwark",
       "lad_code": "E09000028",
       "lad_name": "Southwark",
       "nuts1": "London",
@@ -1491,6 +1573,7 @@
     },
     {
       "org_name": "London Borough of Sutton",
+      "ward_slug": "london-borough-of-sutton",
       "lad_code": "E09000029",
       "lad_name": "Sutton",
       "nuts1": "London",
@@ -1509,6 +1592,7 @@
     },
     {
       "org_name": "London Borough of Tower Hamlets",
+      "ward_slug": "london-borough-of-tower-hamlets",
       "lad_code": "E09000030",
       "lad_name": "Tower Hamlets",
       "nuts1": "London",
@@ -1527,6 +1611,7 @@
     },
     {
       "org_name": "London Borough of Waltham Forest",
+      "ward_slug": "london-borough-of-waltham-forest",
       "lad_code": "E09000031",
       "lad_name": "Waltham Forest",
       "nuts1": "London",
@@ -1545,6 +1630,7 @@
     },
     {
       "org_name": "London Borough of Wandsworth",
+      "ward_slug": "london-borough-of-wandsworth",
       "lad_code": "E09000032",
       "lad_name": "Wandsworth",
       "nuts1": "London",
@@ -1563,6 +1649,7 @@
     },
     {
       "org_name": "Manchester",
+      "ward_slug": "manchester",
       "lad_code": "E08000003",
       "lad_name": "Manchester",
       "nuts1": "North West (England)",
@@ -1581,6 +1668,7 @@
     },
     {
       "org_name": "Mid Sussex District Council",
+      "ward_slug": "mid-sussex-district-council",
       "lad_code": "E07000228",
       "lad_name": "Mid Sussex",
       "nuts1": "South East (England)",
@@ -1599,6 +1687,7 @@
     },
     {
       "org_name": "Milton Keynes",
+      "ward_slug": "milton-keynes",
       "lad_code": "E06000042",
       "lad_name": "Milton Keynes",
       "nuts1": "South East (England)",
@@ -1617,6 +1706,7 @@
     },
     {
       "org_name": "Newcastle upon Tyne",
+      "ward_slug": "newcastle-upon-tyne",
       "lad_code": "E08000021",
       "lad_name": "Newcastle upon Tyne",
       "nuts1": "North East (England)",
@@ -1635,6 +1725,7 @@
     },
     {
       "org_name": "Newcastle-under-Lyme",
+      "ward_slug": "newcastle-under-lyme",
       "lad_code": "E07000195",
       "lad_name": "Newcastle-under-Lyme",
       "nuts1": "West Midlands (England)",
@@ -1653,6 +1744,7 @@
     },
     {
       "org_name": "Newport City Council",
+      "ward_slug": "newport-city-council",
       "lad_code": "W06000022",
       "lad_name": "Newport",
       "nuts1": "Wales",
@@ -1671,6 +1763,7 @@
     },
     {
       "org_name": "Norfolk County Council",
+      "ward_slug": "norfolk-county-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "East of England",
@@ -1689,6 +1782,7 @@
     },
     {
       "org_name": "North East Lincolnshire",
+      "ward_slug": "north-east-lincolnshire",
       "lad_code": "E06000012",
       "lad_name": "North East Lincolnshire",
       "nuts1": "Yorkshire and The Humber",
@@ -1707,6 +1801,7 @@
     },
     {
       "org_name": "North Tyneside",
+      "ward_slug": "north-tyneside",
       "lad_code": "E08000022",
       "lad_name": "North Tyneside",
       "nuts1": "North East (England)",
@@ -1725,6 +1820,7 @@
     },
     {
       "org_name": "Norwich",
+      "ward_slug": "norwich",
       "lad_code": "E07000148",
       "lad_name": "Norwich",
       "nuts1": "East of England",
@@ -1743,6 +1839,7 @@
     },
     {
       "org_name": "Nuneaton and Bedworth",
+      "ward_slug": "nuneaton-and-bedworth",
       "lad_code": "E07000219",
       "lad_name": "Nuneaton and Bedworth",
       "nuts1": "West Midlands (England)",
@@ -1761,6 +1858,7 @@
     },
     {
       "org_name": "Oldham",
+      "ward_slug": "oldham",
       "lad_code": "E08000004",
       "lad_name": "Oldham",
       "nuts1": "North West (England)",
@@ -1779,6 +1877,7 @@
     },
     {
       "org_name": "Oxford",
+      "ward_slug": "oxford",
       "lad_code": "E07000178",
       "lad_name": "Oxford",
       "nuts1": "South East (England)",
@@ -1797,6 +1896,7 @@
     },
     {
       "org_name": "Pendle",
+      "ward_slug": "pendle",
       "lad_code": "E07000122",
       "lad_name": "Pendle",
       "nuts1": "North West (England)",
@@ -1815,6 +1915,7 @@
     },
     {
       "org_name": "Peterborough",
+      "ward_slug": "peterborough",
       "lad_code": "E06000031",
       "lad_name": "Peterborough",
       "nuts1": "East of England",
@@ -1833,6 +1934,7 @@
     },
     {
       "org_name": "Plymouth",
+      "ward_slug": "plymouth",
       "lad_code": "E06000026",
       "lad_name": "Plymouth",
       "nuts1": "South West (England)",
@@ -1851,6 +1953,7 @@
     },
     {
       "org_name": "Portsmouth",
+      "ward_slug": "portsmouth",
       "lad_code": "E06000044",
       "lad_name": "Portsmouth",
       "nuts1": "South East (England)",
@@ -1869,6 +1972,7 @@
     },
     {
       "org_name": "Powys County Council",
+      "ward_slug": "powys-county-council",
       "lad_code": "W06000023",
       "lad_name": "Powys",
       "nuts1": "Wales",
@@ -1887,6 +1991,7 @@
     },
     {
       "org_name": "Preston",
+      "ward_slug": "preston",
       "lad_code": "E07000123",
       "lad_name": "Preston",
       "nuts1": "North West (England)",
@@ -1905,6 +2010,7 @@
     },
     {
       "org_name": "Reading",
+      "ward_slug": "reading",
       "lad_code": "E06000038",
       "lad_name": "Reading",
       "nuts1": "South East (England)",
@@ -1923,6 +2029,7 @@
     },
     {
       "org_name": "Redditch",
+      "ward_slug": "redditch",
       "lad_code": "E07000236",
       "lad_name": "Redditch",
       "nuts1": "West Midlands (England)",
@@ -1941,6 +2048,7 @@
     },
     {
       "org_name": "Reigate and Banstead",
+      "ward_slug": "reigate-and-banstead",
       "lad_code": "E07000211",
       "lad_name": "Reigate and Banstead",
       "nuts1": "South East (England)",
@@ -1959,6 +2067,7 @@
     },
     {
       "org_name": "Rochdale",
+      "ward_slug": "rochdale",
       "lad_code": "E08000005",
       "lad_name": "Rochdale",
       "nuts1": "North West (England)",
@@ -1977,6 +2086,7 @@
     },
     {
       "org_name": "Rochford",
+      "ward_slug": "rochford",
       "lad_code": "E07000075",
       "lad_name": "Rochford",
       "nuts1": "East of England",
@@ -1995,6 +2105,7 @@
     },
     {
       "org_name": "Rother District Council",
+      "ward_slug": "rother-district-council",
       "lad_code": "E07000064",
       "lad_name": "Rother",
       "nuts1": "South East (England)",
@@ -2013,6 +2124,7 @@
     },
     {
       "org_name": "Royal Borough of Greenwich",
+      "ward_slug": "royal-borough-of-greenwich",
       "lad_code": "E09000011",
       "lad_name": "Greenwich",
       "nuts1": "London",
@@ -2031,6 +2143,7 @@
     },
     {
       "org_name": "Royal Borough of Kensington and Chelsea",
+      "ward_slug": "royal-borough-of-kensington-and-chelsea",
       "lad_code": "E09000020",
       "lad_name": "Kensington and Chelsea",
       "nuts1": "London",
@@ -2049,6 +2162,7 @@
     },
     {
       "org_name": "Royal Borough of Kingston upon Thames",
+      "ward_slug": "royal-borough-of-kingston-upon-thames",
       "lad_code": "E09000021",
       "lad_name": "Kingston upon Thames",
       "nuts1": "London",
@@ -2067,6 +2181,7 @@
     },
     {
       "org_name": "Rugby",
+      "ward_slug": "rugby",
       "lad_code": "E07000220",
       "lad_name": "Rugby",
       "nuts1": "West Midlands (England)",
@@ -2085,6 +2200,7 @@
     },
     {
       "org_name": "Rushmoor",
+      "ward_slug": "rushmoor",
       "lad_code": "E07000092",
       "lad_name": "Rushmoor",
       "nuts1": "South East (England)",
@@ -2103,6 +2219,7 @@
     },
     {
       "org_name": "Salford",
+      "ward_slug": "salford",
       "lad_code": "E08000006",
       "lad_name": "Salford",
       "nuts1": "North West (England)",
@@ -2121,6 +2238,7 @@
     },
     {
       "org_name": "Sandwell",
+      "ward_slug": "sandwell",
       "lad_code": "E08000028",
       "lad_name": "Sandwell",
       "nuts1": "West Midlands (England)",
@@ -2139,6 +2257,7 @@
     },
     {
       "org_name": "Sefton",
+      "ward_slug": "sefton",
       "lad_code": "E08000014",
       "lad_name": "Sefton",
       "nuts1": "North West (England)",
@@ -2157,6 +2276,7 @@
     },
     {
       "org_name": "Sheffield",
+      "ward_slug": "sheffield",
       "lad_code": "E08000039",
       "lad_name": "Sheffield",
       "nuts1": "Yorkshire and The Humber",
@@ -2175,6 +2295,7 @@
     },
     {
       "org_name": "Solihull",
+      "ward_slug": "solihull",
       "lad_code": "E08000029",
       "lad_name": "Solihull",
       "nuts1": "West Midlands (England)",
@@ -2193,6 +2314,7 @@
     },
     {
       "org_name": "Somerset County Council",
+      "ward_slug": "somerset-county-council",
       "lad_code": "E06000066",
       "lad_name": "Somerset",
       "nuts1": "South West (England)",
@@ -2211,6 +2333,7 @@
     },
     {
       "org_name": "South Cambridgeshire",
+      "ward_slug": "south-cambridgeshire",
       "lad_code": "E07000012",
       "lad_name": "South Cambridgeshire",
       "nuts1": "East of England",
@@ -2229,6 +2352,7 @@
     },
     {
       "org_name": "South Tyneside",
+      "ward_slug": "south-tyneside",
       "lad_code": "E08000023",
       "lad_name": "South Tyneside",
       "nuts1": "North East (England)",
@@ -2247,6 +2371,7 @@
     },
     {
       "org_name": "Southampton",
+      "ward_slug": "southampton",
       "lad_code": "E06000045",
       "lad_name": "Southampton",
       "nuts1": "South East (England)",
@@ -2265,6 +2390,7 @@
     },
     {
       "org_name": "Southend-on-Sea",
+      "ward_slug": "southend-on-sea",
       "lad_code": "E06000033",
       "lad_name": "Southend-on-Sea",
       "nuts1": "East of England",
@@ -2283,6 +2409,7 @@
     },
     {
       "org_name": "St Albans",
+      "ward_slug": "st-albans",
       "lad_code": "E07000240",
       "lad_name": "St Albans",
       "nuts1": "East of England",
@@ -2301,6 +2428,7 @@
     },
     {
       "org_name": "St Helens",
+      "ward_slug": "st-helens",
       "lad_code": "E08000013",
       "lad_name": "St. Helens",
       "nuts1": "North West (England)",
@@ -2319,6 +2447,7 @@
     },
     {
       "org_name": "Stevenage",
+      "ward_slug": "stevenage",
       "lad_code": "E07000243",
       "lad_name": "Stevenage",
       "nuts1": "East of England",
@@ -2337,6 +2466,7 @@
     },
     {
       "org_name": "Stockport",
+      "ward_slug": "stockport",
       "lad_code": "E08000007",
       "lad_name": "Stockport",
       "nuts1": "North West (England)",
@@ -2355,6 +2485,7 @@
     },
     {
       "org_name": "Stratford-on-Avon District Council",
+      "ward_slug": "stratford-on-avon-district-council",
       "lad_code": "E07000221",
       "lad_name": "Stratford-on-Avon",
       "nuts1": "West Midlands (England)",
@@ -2373,6 +2504,7 @@
     },
     {
       "org_name": "Suffolk County Council",
+      "ward_slug": "suffolk-county-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "East of England",
@@ -2391,6 +2523,7 @@
     },
     {
       "org_name": "Sunderland",
+      "ward_slug": "sunderland",
       "lad_code": "E08000024",
       "lad_name": "Sunderland",
       "nuts1": "North East (England)",
@@ -2409,6 +2542,7 @@
     },
     {
       "org_name": "Surrey County Council",
+      "ward_slug": "surrey-county-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "South East (England)",
@@ -2427,6 +2561,7 @@
     },
     {
       "org_name": "Swindon",
+      "ward_slug": "swindon",
       "lad_code": "E06000030",
       "lad_name": "Swindon",
       "nuts1": "South West (England)",
@@ -2445,6 +2580,7 @@
     },
     {
       "org_name": "Tameside",
+      "ward_slug": "tameside",
       "lad_code": "E08000008",
       "lad_name": "Tameside",
       "nuts1": "North West (England)",
@@ -2463,6 +2599,7 @@
     },
     {
       "org_name": "Tamworth",
+      "ward_slug": "tamworth",
       "lad_code": "E07000199",
       "lad_name": "Tamworth",
       "nuts1": "West Midlands (England)",
@@ -2481,6 +2618,7 @@
     },
     {
       "org_name": "Three Rivers",
+      "ward_slug": "three-rivers",
       "lad_code": "E07000102",
       "lad_name": "Three Rivers",
       "nuts1": "East of England",
@@ -2499,6 +2637,7 @@
     },
     {
       "org_name": "Thurrock",
+      "ward_slug": "thurrock",
       "lad_code": "E06000034",
       "lad_name": "Thurrock",
       "nuts1": "East of England",
@@ -2517,6 +2656,7 @@
     },
     {
       "org_name": "Trafford",
+      "ward_slug": "trafford",
       "lad_code": "E08000009",
       "lad_name": "Trafford",
       "nuts1": "North West (England)",
@@ -2535,6 +2675,7 @@
     },
     {
       "org_name": "Tunbridge Wells",
+      "ward_slug": "tunbridge-wells",
       "lad_code": "E07000116",
       "lad_name": "Tunbridge Wells",
       "nuts1": "South East (England)",
@@ -2553,6 +2694,7 @@
     },
     {
       "org_name": "Wakefield",
+      "ward_slug": "wakefield",
       "lad_code": "E08000036",
       "lad_name": "Wakefield",
       "nuts1": "Yorkshire and The Humber",
@@ -2571,6 +2713,7 @@
     },
     {
       "org_name": "Walsall",
+      "ward_slug": "walsall",
       "lad_code": "E08000030",
       "lad_name": "Walsall",
       "nuts1": "West Midlands (England)",
@@ -2589,6 +2732,7 @@
     },
     {
       "org_name": "Watford",
+      "ward_slug": "watford",
       "lad_code": "E07000103",
       "lad_name": "Watford",
       "nuts1": "East of England",
@@ -2607,6 +2751,7 @@
     },
     {
       "org_name": "Welwyn Hatfield",
+      "ward_slug": "welwyn-hatfield",
       "lad_code": "E07000241",
       "lad_name": "Welwyn Hatfield",
       "nuts1": "East of England",
@@ -2625,6 +2770,7 @@
     },
     {
       "org_name": "West Lancashire",
+      "ward_slug": "west-lancashire",
       "lad_code": "E07000127",
       "lad_name": "West Lancashire",
       "nuts1": "North West (England)",
@@ -2643,6 +2789,7 @@
     },
     {
       "org_name": "West Northamptonshire Council",
+      "ward_slug": "west-northamptonshire-council",
       "lad_code": "E06000062",
       "lad_name": "West Northamptonshire",
       "nuts1": "East Midlands (England)",
@@ -2661,6 +2808,7 @@
     },
     {
       "org_name": "West Oxfordshire",
+      "ward_slug": "west-oxfordshire",
       "lad_code": "E07000181",
       "lad_name": "West Oxfordshire",
       "nuts1": "South East (England)",
@@ -2679,6 +2827,7 @@
     },
     {
       "org_name": "West Suffolk Council",
+      "ward_slug": "west-suffolk-council",
       "lad_code": "E07000245",
       "lad_name": "West Suffolk",
       "nuts1": "East of England",
@@ -2697,6 +2846,7 @@
     },
     {
       "org_name": "West Surrey Council",
+      "ward_slug": "west-surrey-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "South East (England)",
@@ -2715,6 +2865,7 @@
     },
     {
       "org_name": "West Sussex County Council",
+      "ward_slug": "west-sussex-county-council",
       "lad_code": null,
       "lad_name": null,
       "nuts1": "South East (England)",
@@ -2733,6 +2884,7 @@
     },
     {
       "org_name": "Wigan",
+      "ward_slug": "wigan",
       "lad_code": "E08000010",
       "lad_name": "Wigan",
       "nuts1": "North West (England)",
@@ -2751,6 +2903,7 @@
     },
     {
       "org_name": "Winchester",
+      "ward_slug": "winchester",
       "lad_code": "E07000094",
       "lad_name": "Winchester",
       "nuts1": "South East (England)",
@@ -2769,6 +2922,7 @@
     },
     {
       "org_name": "Wokingham",
+      "ward_slug": "wokingham",
       "lad_code": "E06000041",
       "lad_name": "Wokingham",
       "nuts1": "South East (England)",
@@ -2787,6 +2941,7 @@
     },
     {
       "org_name": "Wolverhampton",
+      "ward_slug": "wolverhampton",
       "lad_code": "E08000031",
       "lad_name": "Wolverhampton",
       "nuts1": "West Midlands (England)",
@@ -2805,6 +2960,7 @@
     },
     {
       "org_name": "Worthing",
+      "ward_slug": "worthing",
       "lad_code": "E07000229",
       "lad_name": "Worthing",
       "nuts1": "South East (England)",

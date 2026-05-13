@@ -16,7 +16,6 @@ import json
 import os
 import re
 import shutil
-from collections import defaultdict
 from datetime import date
 from glob import glob
 
@@ -156,20 +155,24 @@ def _clean_nuts1(raw):
 # ---------------------------------------------------------------------------
 
 def main():
-    # Load gender lookup: person_id → predicted_gender
+    # Load gender lookup: person_id → {gender, method}
     gender_lookup = {}
     with open(GENDERS_IN, encoding='utf-8', newline='') as f:
         for row in csv.DictReader(f):
             pid = row['person_id']
             if pid not in gender_lookup:
-                gender_lookup[pid] = row['predicted_gender']
+                gender_lookup[pid] = {
+                    'gender': row['predicted_gender'],
+                    'method': row['prediction_method'],
+                }
 
     lad_lookup = build_lad_lookup(GEOJSON_IN)
 
-    councils = {}   # org_name → acc + metadata
-    parties  = {}   # party_name → acc
-    regions  = {}   # nuts1 → acc
-    council_meta = {}   # org_name → {nuts1, lad_match}
+    councils = {}      # org_name → acc + metadata
+    parties  = {}      # party_name → acc
+    regions  = {}      # nuts1 → acc
+    council_meta = {}  # org_name → {nuts1, lad_match}
+    wards = {}         # org_name → ward_label → {seats, turnout_pct, candidates[]}
 
     total = female = male = unknown = 0
     tot_elected = e_female = e_male = e_unknown = 0
@@ -182,7 +185,8 @@ def main():
             party  = row['party_name'].strip() or 'Unknown'
             nuts1  = _clean_nuts1(row.get('nuts1', ''))
 
-            gender = gender_lookup.get(pid, 'unknown')
+            gender = gender_lookup.get(pid, {}).get('gender', 'unknown')
+            method = gender_lookup.get(pid, {}).get('method', 'unknown')
             if gender not in ('male', 'female'):
                 gender = 'unknown'
 
@@ -218,6 +222,39 @@ def main():
             if nuts1:
                 _add(regions, nuts1, gender, elected, turnout, by_election)
 
+            # Ward-level candidate data for drilldown
+            ward_label = row.get('post_label', '').strip()
+            if org and ward_label:
+                if org not in wards:
+                    wards[org] = {}
+                if ward_label not in wards[org]:
+                    try:
+                        seats = int(row.get('seats_contested') or 1)
+                    except (ValueError, TypeError):
+                        seats = 1
+                    raw_tp = (row.get('turnout_percentage') or '').strip()
+                    ward_turnout = float(raw_tp) if raw_tp else None
+                    wards[org][ward_label] = {
+                        'seats': seats,
+                        'turnout_pct': ward_turnout,
+                        'candidates': [],
+                    }
+                raw_votes = (row.get('votes_cast') or '').strip()
+                votes = int(raw_votes) if raw_votes and raw_votes.isdigit() else None
+                try:
+                    rank = int(row.get('rank') or 0)
+                except (ValueError, TypeError):
+                    rank = 0
+                wards[org][ward_label]['candidates'].append({
+                    'n': row['person_name'].strip(),
+                    'p': party,
+                    'v': votes,
+                    'r': rank,
+                    'e': elected,
+                    'g': gender,
+                    'm': method,
+                })
+
     # Match councils to LADs
     for org in councils:
         council_meta[org]['lad'] = match_org(org, lad_lookup)
@@ -229,8 +266,10 @@ def main():
         lad = meta.get('lad')
         kn  = d['female'] + d['male']
         ekn = d['elected_female'] + d['elected_male']
+        slug = re.sub(r'[^a-z0-9]+', '-', org.lower()).strip('-')
         return {
             'org_name':           org,
+            'ward_slug':          slug,
             'lad_code':           lad['lad_code'] if lad else None,
             'lad_name':           lad['lad_name'] if lad else None,
             'nuts1':              meta.get('nuts1', ''),
@@ -314,6 +353,26 @@ def main():
     with open(COUNCILS_OUT, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     print(f'Wrote {COUNCILS_OUT}')
+
+    # Write one JSON file per council for ward drilldown
+    wards_dir = os.path.join(OUT_DIR, 'wards')
+    os.makedirs(wards_dir, exist_ok=True)
+    for org, ward_dict in wards.items():
+        # Sort candidates within each ward by rank (then by name)
+        for w in ward_dict.values():
+            w['candidates'].sort(key=lambda c: (c['r'] if c['r'] else 999, c['n']))
+        # Use a safe filename: strip non-alphanumeric chars
+        safe = re.sub(r'[^a-z0-9]+', '-', org.lower()).strip('-')
+        ward_path = os.path.join(wards_dir, safe + '.json')
+        # Convert to list sorted by ward name
+        ward_list = sorted(
+            [{'ward': k, **v} for k, v in ward_dict.items()],
+            key=lambda x: x['ward']
+        )
+        with open(ward_path, 'w', encoding='utf-8') as f:
+            json.dump({'org': org, 'wards': ward_list}, f, separators=(',', ':'), ensure_ascii=False)
+
+    print(f'Wrote ward files for {len(wards)} councils → {wards_dir}/')
 
     shutil.copy2(GEOJSON_IN, GEOJSON_OUT)
     print(f'Copied GeoJSON → {GEOJSON_OUT}')

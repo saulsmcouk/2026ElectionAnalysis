@@ -18,6 +18,37 @@
 
 <main>
 
+  <!-- Methodology tile -->
+  <section class="methodology-tile" id="methodology-tile">
+    <div class="meth-icon">⚠️</div>
+    <div class="meth-body">
+      <h2>How gender was assigned — read this first</h2>
+      <p>
+        <strong>Most candidates (≈77%) had no gender recorded in the source data.</strong>
+        Gender was predicted automatically using two tools: the
+        <strong>gender_guesser</strong> library (an open-source name database) and the
+        <strong>ONS historical baby names dataset</strong> (1904–2024), using birth year
+        where available to account for names whose gender balance has shifted over time
+        (e.g. "Ashley", "Kim").
+      </p>
+      <p>
+        <strong>This approach has significant limitations:</strong>
+        it works best for common Western European names and
+        <strong>struggles badly with non-Western names</strong> — Arabic, South Asian,
+        East Asian and African names are frequently left <em>Uncategorised</em>.
+        Around <strong>16% of candidates remain Uncategorised</strong>.
+        Percentages shown throughout this page are calculated only among candidates
+        whose gender was determined using the gender_guesser library or the ONS baby names dataset,
+        so figures for councils or parties with high Uncategorised rates should be treated with caution.
+        The map uses colour saturation to signal this uncertainty — <strong>washed-out areas have more Uncategorised candidates.</strong>
+      </p>
+      <p>
+        Gender is treated as binary (male/female) for prediction purposes, except where
+        the original data explicitly records a non-binary identity.
+      </p>
+    </div>
+  </section>
+
   <!-- Summary cards -->
   <section class="summary-section" id="summary-cards"></section>
 
@@ -37,7 +68,7 @@
         <div class="legend-hue-block">
           <div class="legend-row-label"><small>High confidence (gender known)</small></div>
           <div class="legend-bar confident-bar"></div>
-          <div class="legend-row-label"><small>Low confidence (many unknowns)</small></div>
+          <div class="legend-row-label"><small>Low confidence (many Uncategorised)</small></div>
           <div class="legend-bar uncertain-bar"></div>
           <div class="legend-axis-labels">
             <span>All male</span><span>50/50</span><span>All female</span>
@@ -45,7 +76,7 @@
         </div>
         <p class="legend-note">
           <strong>Hue</strong> shows gender balance among candidates with a known gender (blue&nbsp;=&nbsp;male, pink&nbsp;=&nbsp;female).
-          <strong>Saturation</strong> reflects certainty: washed-out areas have many candidates whose gender is unknown — a&nbsp;0%&nbsp;female area coloured pale blue-grey is <em>not</em> the same as one in deep blue.
+          <strong>Saturation</strong> reflects certainty: washed-out areas have many Uncategorised candidates — a&nbsp;0%&nbsp;female area coloured pale blue-grey is <em>not</em> the same as one in deep blue.
         </p>
         <p class="legend-note" style="color:#888">Grey areas had no elections in this dataset.</p>
         <div id="map-info" class="map-info-box">
@@ -92,7 +123,8 @@
       <input id="table-search" type="search" placeholder="Filter councils&hellip;" autocomplete="off">
     </div>
     <p class="table-note">
-      Click column headers to sort. <span class="unknown-note">Unknown gender</span> counts candidates whose gender could not be reliably determined — high values make percentage figures less reliable.
+      Click a council row to drill down into ward-by-ward results. Click column headers to sort.
+      <span class="unknown-note">Uncategorised</span> = gender could not be determined using the gender_guesser library or the ONS baby names dataset — high values make percentage figures less reliable.
     </p>
     <div class="table-wrapper">
       <table id="council-table">
@@ -102,7 +134,7 @@
             <th class="sortable" data-col="total"             data-type="num">Candidates</th>
             <th class="sortable" data-col="female"            data-type="num">&#9792; Cands</th>
             <th class="sortable" data-col="pct_female"        data-type="num">% Female</th>
-            <th class="sortable" data-col="unknown"           data-type="num">Unknown</th>
+            <th class="sortable" data-col="unknown"           data-type="num">Uncategorised</th>
             <th class="sortable" data-col="elected_total"     data-type="num">Elected</th>
             <th class="sortable" data-col="elected_female"    data-type="num">&#9792; Elected</th>
             <th class="sortable" data-col="pct_female_elected" data-type="num">% &#9792; Elected</th>
@@ -115,6 +147,19 @@
   </section>
 
 </main>
+
+<!-- Drilldown modal -->
+<div id="modal-overlay" class="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <h2 id="modal-title">Council drilldown</h2>
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <!-- Ward list or results table rendered here -->
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="footer-inner">
