@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 England Local Elections: Gender Analysis</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1>2026 England Local Elections</h1>
+    <p class="subtitle">Gender breakdown of candidates &amp; elected councillors &middot; May 2026</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- Summary cards -->
+  <section class="summary-section" id="summary-cards"></section>
+
+  <!-- MAP -->
+  <section class="panel" id="map-section">
+    <div class="panel-header">
+      <h2>Gender balance by council area</h2>
+      <div class="toggle-group" id="map-toggle">
+        <button class="toggle active" data-mode="candidates">All candidates</button>
+        <button class="toggle" data-mode="elected">Elected only</button>
+      </div>
+    </div>
+    <div class="map-layout">
+      <div id="map"></div>
+      <aside id="map-legend">
+        <div class="legend-title">How to read the colours</div>
+        <div class="legend-hue-block">
+          <div class="legend-row-label"><small>High confidence (gender known)</small></div>
+          <div class="legend-bar confident-bar"></div>
+          <div class="legend-row-label"><small>Low confidence (many unknowns)</small></div>
+          <div class="legend-bar uncertain-bar"></div>
+          <div class="legend-axis-labels">
+            <span>All male</span><span>50/50</span><span>All female</span>
+          </div>
+        </div>
+        <p class="legend-note">
+          <strong>Hue</strong> shows gender balance among candidates with a known gender (blue&nbsp;=&nbsp;male, pink&nbsp;=&nbsp;female).
+          <strong>Saturation</strong> reflects certainty: washed-out areas have many candidates whose gender is unknown — a&nbsp;0%&nbsp;female area coloured pale blue-grey is <em>not</em> the same as one in deep blue.
+        </p>
+        <p class="legend-note" style="color:#888">Grey areas had no elections in this dataset.</p>
+        <div id="map-info" class="map-info-box">
+          <span class="map-info-placeholder">Hover or click a council area</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PARTY CHARTS -->
+  <section class="panel" id="party-section">
+    <h2>By party <span class="subtitle-small">— parties with &ge;30 candidates, sorted by total. Each bar&nbsp;=&nbsp;100% of that party&rsquo;s candidates/elected.</span></h2>
+    <div class="chart-pair">
+      <div class="chart-box">
+        <h3>Candidates &mdash; gender breakdown</h3>
+        <div class="chart-scroll" id="scroll-party-cands"><canvas id="chart-party-cands"></canvas></div>
+      </div>
+      <div class="chart-box">
+        <h3>Elected &mdash; gender breakdown</h3>
+        <div class="chart-scroll" id="scroll-party-elected"><canvas id="chart-party-elected"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGION CHARTS -->
+  <section class="panel" id="region-section">
+    <h2>By region</h2>
+    <div class="chart-pair">
+      <div class="chart-box">
+        <h3>Candidates &mdash; gender breakdown</h3>
+        <div class="chart-scroll" id="scroll-region-cands"><canvas id="chart-region-cands"></canvas></div>
+      </div>
+      <div class="chart-box">
+        <h3>Elected &mdash; gender breakdown</h3>
+        <div class="chart-scroll" id="scroll-region-elected"><canvas id="chart-region-elected"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE -->
+  <section class="panel" id="table-section">
+    <div class="panel-header">
+      <h2>By council</h2>
+      <input id="table-search" type="search" placeholder="Filter councils&hellip;" autocomplete="off">
+    </div>
+    <p class="table-note">
+      Click column headers to sort. <span class="unknown-note">Unknown gender</span> counts candidates whose gender could not be reliably determined — high values make percentage figures less reliable.
+    </p>
+    <div class="table-wrapper">
+      <table id="council-table">
+        <thead>
+          <tr>
+            <th class="sortable" data-col="org_name"          data-type="str">Council</th>
+            <th class="sortable" data-col="total"             data-type="num">Candidates</th>
+            <th class="sortable" data-col="female"            data-type="num">&#9792; Cands</th>
+            <th class="sortable" data-col="pct_female"        data-type="num">% Female</th>
+            <th class="sortable" data-col="unknown"           data-type="num">Unknown</th>
+            <th class="sortable" data-col="elected_total"     data-type="num">Elected</th>
+            <th class="sortable" data-col="elected_female"    data-type="num">&#9792; Elected</th>
+            <th class="sortable" data-col="pct_female_elected" data-type="num">% &#9792; Elected</th>
+            <th class="sortable" data-col="avg_turnout"       data-type="num">Avg Turnout</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>Election data: <a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a> &middot; Gender prediction uses ONS baby names data and the gender_guesser library &middot; ~16% of candidates have unresolved gender.</p>
+    <p>Source: Office for National Statistics licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v.3.0</a></p>
+    <p>Contains OS data &copy; Crown copyright and database right [2026]</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
