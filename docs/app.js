@@ -55,7 +55,7 @@ const wardDataCache = new Map();
 
 // ── Boot ──────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('data/councils.json')
+  fetch('data/councils.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
       appData = data;
