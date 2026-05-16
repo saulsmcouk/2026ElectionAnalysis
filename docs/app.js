@@ -1,48 +1,5 @@
 'use strict';
 
-// ── Colour constants ──────────────────────────────────────────────────────
-// Bivariate encoding:
-//   Hue       = % female among candidates with known gender  (blue=male → pink=female)
-//   Saturation = confidence = 1 − (unknown / total)          (grey = all unknown)
-const C_MALE    = [33,  113, 181];   // #2171b5
-const C_FEMALE  = [214,  73, 111];   // #d6496f
-const C_UNKNOWN = [173, 181, 189];   // #adb5bd
-const C_NODATA  = [220, 220, 222];   // light grey for LADs with no election data
-
-function lerp3(a, b, t) {
-  t = Math.max(0, Math.min(1, t));
-  return [
-    Math.round(a[0] + (b[0] - a[0]) * t),
-    Math.round(a[1] + (b[1] - a[1]) * t),
-    Math.round(a[2] + (b[2] - a[2]) * t),
-  ];
-}
-
-function toHex([r, g, b]) {
-  return '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
-}
-
-/**
- * Given counts of female/male/unknown candidates:
- *  1. Compute hue from % female among *known* (lerp MALE→FEMALE)
- *  2. Blend that hue toward grey in proportion to unknown/total
- *
- * Effect: "0% female, 100% male" = deep blue
- *         "0% female, 50% unknown" = washed blue-grey
- *         "50% female, 50% unknown" = washed purple-grey
- */
-function councilColor(female, male, conf_low, conf_medium, total) {
-  const known = female + male;
-  if (total === 0) return toHex(C_NODATA);
-
-  const femalePct = known > 0 ? female / known : 0.5;
-  const genderRGB = lerp3(C_MALE, C_FEMALE, femalePct);
-  // Saturation driven by confidence, not unknowns.
-  // conf_low pulls fully to grey; conf_medium pulls half-way.
-  const greyRatio = total > 0 ? (conf_low + conf_medium * 0.5) / total : 0;
-  return toHex(lerp3(genderRGB, C_UNKNOWN, greyRatio));
-}
-
 // ── App state ─────────────────────────────────────────────────────────────
 let appData        = null;
 let ladLookup      = {};   // lad_code → council data object
@@ -56,7 +13,6 @@ const wardDataCache      = new Map();
 let selectedCouncilName  = null;  // org_name of selected council, or null
 let selectedPartyName    = null;  // party name of selected bar, or null
 let councilPartyData     = null;  // aggregated partyMap from current council's ward JSON
-const chartRegistry      = {};    // canvasId → Chart.js instance
 
 // ── Boot ──────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -83,27 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ── Helpers ───────────────────────────────────────────────────────────────
+// ── App-state helpers ─────────────────────────────────────────────────────
 function buildLadLookup() {
   for (const c of appData.by_council) {
     if (c.lad_code) ladLookup[c.lad_code] = c;
   }
-}
-
-function fmt(n) {
-  if (n === null || n === undefined) return '—';
-  return typeof n === 'number' ? n.toLocaleString() : n;
-}
-
-function pctStr(n, d) {
-  if (!d || n === null || n === undefined) return '—';
-  return (n / d * 100).toFixed(1) + '%';
-}
-
-function escHtml(s) {
-  return String(s)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 // ── Summary cards ─────────────────────────────────────────────────────────
@@ -626,29 +566,6 @@ function buildCandidateSection(name, isCouncil) {
     </div>`;
 }
 
-// ── Charts ────────────────────────────────────────────────────────────────
-const COL_FEMALE  = '#d6496f';
-const COL_MALE    = '#2171b5';
-const COL_UNKNOWN = '#b0bec5';
-
-/**
- * For each item, compute [female%, male%] as stacked percentages (known gender only).
- * Stores raw counts as parallel arrays for tooltip use.
- */
-function toStackedPct(items, fKey, mKey) {
-  return items.map(item => {
-    const f = item[fKey] || 0;
-    const m = item[mKey] || 0;
-    const t = f + m;
-    if (t === 0) return { f: 0, m: 0, nf: 0, nm: 0, t: 0 };
-    return {
-      f: +(f / t * 100).toFixed(1),
-      m: +(m / t * 100).toFixed(1),
-      nf: f, nm: m, t,
-    };
-  });
-}
-
 function buildChart(canvasId, scrollId, labels, rows, onBarClick) {
   if (chartRegistry[canvasId]) { chartRegistry[canvasId].destroy(); delete chartRegistry[canvasId]; }
   const BAR_H  = 30;
@@ -947,30 +864,6 @@ function renderWardList(council, payload) {
   });
 }
 
-function formatGenderLabel(g) {
-  if (g === 'female') return { text: 'Female', cls: 'gender-f' };
-  if (g === 'male') return { text: 'Male', cls: 'gender-m' };
-  return { text: 'Uncategorised', cls: 'gender-u' };
-}
-
-function formatMethodLabel(method) {
-  const methodText = {
-    existing: 'Recorded',
-    gender_guesser: 'gender_guesser',
-    ons: 'ONS names',
-    claude: 'Claude AI',
-    unknown: 'Uncategorised',
-  };
-  const text = methodText[method] || method || 'Uncategorised';
-  return `<span class="method-badge method-${method || 'unknown'}">${text}</span>`;
-}
-
-function confCell(level) {
-  const cls = level === 'high' ? 'conf-high' : level === 'medium' ? 'conf-med' : level === 'low' ? 'conf-low' : 'conf-none';
-  const lbl = level === 'high' ? 'High' : level === 'medium' ? 'Med' : level === 'low' ? 'Low' : '—';
-  return `<span class="conf-cell">${lbl}<span class="conf-badge ${cls}"></span></span>`;
-}
-
 function openWardDetail(council, payload, ward) {
   const candidates = (ward.candidates || []).slice().sort((a, b) => {
     const ar = a.r || 9999;
@@ -1040,52 +933,6 @@ function openWardDetail(council, payload, ward) {
 }
 
 // ── XLSX Export ────────────────────────────────────────────────────────────
-function buildMethodologySheet(contextLabel) {
-  const rows = [
-    ['2026 England Local Elections — Gender Analysis'],
-    [''],
-    ['Gender Assignment Methodology'],
-    [''],
-    ['Most candidates (~77%) had no gender recorded in the source data.'],
-    ['Gender was predicted in three stages:'],
-    [''],
-    ['Stage 1 — gender_guesser (open-source name database) and the ONS historical baby names dataset (1904–2024),'],
-    ['          using birth year where available to account for names whose gender balance has shifted over time'],
-    ['          (e.g. "Ashley", "Kim").'],
-    ['Stage 2 — Claude Sonnet 4.6 classified names that remained unresolved after stage 1.'],
-    ['Stage 3 — ~5% of candidates remain Unclassified (primarily uncommon or non-Western names).'],
-    [''],
-    ['Percentages are calculated only among candidates with a known gender.'],
-    ['Gender is treated as binary (male/female) for prediction purposes.'],
-    [''],
-    ['Data Sources'],
-    ['Election data: Democracy Club (democracyclub.org.uk)'],
-    ['ONS data: Office for National Statistics, licensed under the Open Government Licence v.3.0'],
-    ['  Licence: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'],
-    ['Contains OS data \u00a9 Crown copyright and database right [2026]'],
-    ['Election data: Democracy Club (democracyclub.org.uk), licensed under CC BY 4.0'],
-    ['  Licence: https://creativecommons.org/licenses/by/4.0/'],
-    [''],
-    ['Exported view:', contextLabel],
-    ['Generated:', new Date().toLocaleString('en-GB')],
-  ];
-  const ws = XLSX.utils.aoa_to_sheet(rows);
-  ws['!cols'] = [{ wch: 90 }, { wch: 40 }];
-  return ws;
-}
-
-function exportToXlsx(filename, headers, dataRows, contextLabel) {
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, buildMethodologySheet(contextLabel), 'Methodology');
-
-  const ws2 = XLSX.utils.aoa_to_sheet([headers, ...dataRows]);
-  ws2['!cols'] = headers.map(h => ({ wch: Math.max(String(h).length + 4, 12) }));
-  ws2['!autofilter'] = { ref: ws2['!ref'] };
-  XLSX.utils.book_append_sheet(wb, ws2, 'Data');
-
-  XLSX.writeFile(wb, filename);
-}
-
 function exportCouncilTable() {
   const filter = document.getElementById('table-search').value.trim().toLowerCase();
   const rows = getSortedFilteredRows(filter);
@@ -1099,41 +946,4 @@ function exportCouncilTable() {
   ]);
   const label = filter ? `Councils filtered by "${filter}"` : 'All 156 councils';
   exportToXlsx('council-gender-breakdown.xlsx', headers, dataRows, label);
-}
-
-function exportWardList(council, wards) {
-  const headers = ['Ward', 'Seats', 'Total Candidates', 'Female', 'Male', 'Unclassified', 'Turnout %'];
-  const dataRows = wards.map(ward => {
-    const counts = ward.candidates.reduce((acc, c) => {
-      if (c.g === 'female') acc.f++;
-      else if (c.g === 'male') acc.m++;
-      else acc.u++;
-      return acc;
-    }, { f: 0, m: 0, u: 0 });
-    return [ward.ward, ward.seats ?? null, ward.candidates.length, counts.f, counts.m, counts.u, ward.turnout_pct ?? null];
-  });
-  exportToXlsx(
-    `${council.org_name.replace(/[^\w-]/g, '_')}-wards.xlsx`,
-    headers, dataRows,
-    `${council.org_name} — Ward summary`,
-  );
-}
-
-function exportWardDetail(council, ward, candidates) {
-  const totalVotes = candidates.reduce((sum, c) => sum + (Number(c.v) || 0), 0);
-  const methodText = { existing: 'Recorded', gender_guesser: 'gender_guesser', ons: 'ONS names', claude: 'Claude AI', unknown: 'Unclassified' };
-  const headers = ['Name', 'Party', 'Votes', '% Votes', 'Elected', 'Gender', 'Assignment Method', 'Confidence'];
-  const dataRows = candidates.map(c => {
-    const pct = totalVotes > 0 ? +((Number(c.v) || 0) / totalVotes * 100).toFixed(1) : null;
-    const confLabel = c.cf === 'high' ? 'High' : c.cf === 'medium' ? 'Medium' : c.cf === 'low' ? 'Low' : 'Unknown';
-    return [
-      c.n || '', c.p || '', c.v ?? null, pct,
-      c.e ? 'Yes' : 'No',
-      c.g || 'unclassified',
-      methodText[c.m] || c.m || 'Unclassified',
-      confLabel,
-    ];
-  });
-  const slug = `${council.org_name}-${ward.ward}`.replace(/[^\w-]/g, '_');
-  exportToXlsx(`${slug}.xlsx`, headers, dataRows, `${council.org_name} — ${ward.ward}`);
 }
