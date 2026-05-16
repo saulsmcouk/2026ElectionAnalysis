@@ -153,6 +153,12 @@ def _clean_nuts1(raw):
     return raw.strip().strip('"')
 
 
+def _opt(s):
+    """Return stripped string or None if empty."""
+    s = (s or '').strip()
+    return s if s else None
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -249,6 +255,7 @@ def main():
                     wards[org][ward_label] = {
                         'seats': seats,
                         'turnout_pct': ward_turnout,
+                        'results_url': _opt(row.get('results_source', '')),
                         'candidates': [],
                     }
                 raw_votes = (row.get('votes_cast') or '').strip()
@@ -257,7 +264,8 @@ def main():
                     rank = int(row.get('rank') or 0)
                 except (ValueError, TypeError):
                     rank = 0
-                wards[org][ward_label]['candidates'].append({
+                stmt_raw = (row.get('statement_to_voters') or '').strip()
+                cand = {
                     'n': row['person_name'].strip(),
                     'p': party,
                     'v': votes,
@@ -266,7 +274,20 @@ def main():
                     'g': gender,
                     'm': method,
                     'cf': conf,
-                })
+                }
+                for _k, _v in [
+                    ('pid', _opt(row.get('person_id', ''))),
+                    ('img', _opt(row.get('image', ''))),
+                    ('stmt', stmt_raw[:2000] if stmt_raw else None),
+                    ('tw',  _opt(row.get('twitter_username', ''))),
+                    ('url', _opt(row.get('homepage_url', ''))),
+                    ('li',  _opt(row.get('linkedin_url', ''))),
+                    ('bs',  _opt(row.get('blue_sky_url', ''))),
+                    ('bd',  _opt(row.get('birth_date', ''))),
+                ]:
+                    if _v:
+                        cand[_k] = _v
+                wards[org][ward_label]['candidates'].append(cand)
 
     # Match councils to LADs
     for org in councils:

@@ -752,3 +752,208 @@ footer a:hover { color: #fff; }
   .panel         { padding: 16px 14px; }
   header h1      { font-size: 1.3rem; }
 }
+
+/* ── Chart hints ──────────────────────────────────────────────────────────── */
+.chart-hint {
+  font-size: 0.75rem;
+  color: #aaa;
+  text-align: center;
+  margin: 5px 0 0;
+  font-style: italic;
+}
+
+/* Clickable candidate rows */
+.results-table tbody tr.cand-row { cursor: pointer; }
+.results-table tbody tr.cand-row:hover { background: #e8f0fb; }
+
+/* Chart canvas cursor */
+.chart-scroll canvas { cursor: pointer; }
+
+/* ── Candidate detail modal ─────────────────────────────────────────────── */
+.cand-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.cand-modal-overlay[hidden] { display: none; }
+
+.cand-modal-card {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px 24px 22px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0,0,0,.22);
+}
+
+.cand-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #888;
+  padding: 0 4px;
+}
+.cand-modal-close:hover { color: #1a1a2e; }
+
+/* Header row: photo + info */
+.cand-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  padding-right: 28px; /* avoid close button overlap */
+}
+.cand-header.no-photo { display: block; }
+.cand-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #eee;
+}
+.cand-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+.cand-party-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #eef2fb;
+  color: #2a4a9a;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 5px;
+}
+.cand-council-line {
+  font-size: 0.82rem;
+  color: #666;
+}
+.cand-ward {
+  color: #2171b5;
+}
+
+/* Stats row */
+.cand-stats-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.cand-stat {
+  background: #f2f3f6;
+  border-radius: 7px;
+  padding: 10px 14px;
+  min-width: 80px;
+  text-align: center;
+}
+.cs-val {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+.cs-lbl {
+  font-size: 0.7rem;
+  color: #888;
+  margin-top: 2px;
+}
+.cs-elected .cs-val   { color: #1a7a3c; }
+.cs-not-elected .cs-val { color: #999; }
+
+/* Social / external links */
+.cand-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.cand-link {
+  display: inline-block;
+  font-size: 0.77rem;
+  padding: 4px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: 1px solid #dde0e8;
+  color: #2171b5;
+  background: #f7f9fc;
+  transition: background .12s;
+}
+.cand-link:hover { background: #e4ecf9; border-color: #2171b5; }
+.dc-link { background: #fff3cd; border-color: #f9a825; color: #7a4f00; }
+.dc-link:hover { background: #ffe99a; }
+.results-link { font-size: 0.72rem; color: #555; }
+
+/* Statement */
+.cand-stmt {
+  margin-bottom: 16px;
+  background: #f7f8fb;
+  border-left: 3px solid #dde0e8;
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+}
+.cand-stmt h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+}
+.cand-stmt p {
+  font-size: 0.83rem;
+  color: #444;
+  line-height: 1.6;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+/* Gender block */
+.cand-gender-block {
+  border-top: 1px solid #eee;
+  padding-top: 14px;
+  margin-top: 4px;
+}
+.cand-gender-block h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 8px;
+}
+.cand-gender-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.method-sm {
+  font-size: 0.72rem;
+  color: #666;
+  background: #f2f3f6;
+  border-radius: 3px;
+  padding: 1px 6px;
+}
+.cand-disclaimer {
+  font-size: 0.74rem;
+  color: #999;
+  line-height: 1.45;
+}
+.cand-disclaimer a { color: #2171b5; }

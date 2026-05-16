@@ -95,6 +95,7 @@
         <div class="chart-scroll" id="scroll-party-elected"><canvas id="chart-party-elected"></canvas></div>
       </div>
     </div>
+    <p class="chart-hint">&#9432; Click a bar to drill into that party &mdash; click again to clear</p>
     <div id="party-detail" hidden></div>
   </section>
 
@@ -111,6 +112,7 @@
         <div class="chart-scroll" id="scroll-region-elected"><canvas id="chart-region-elected"></canvas></div>
       </div>
     </div>
+    <p class="chart-hint">&#9432; Click a bar to filter by region &mdash; click again to clear</p>
     <div id="region-detail" hidden></div>
   </section>
 
@@ -148,6 +150,14 @@
   </section>
 
 </main>
+
+<!-- Candidate detail modal -->
+<div id="candidate-modal" class="cand-modal-overlay" hidden>
+  <div class="cand-modal-card" role="dialog" aria-modal="true" aria-labelledby="cand-modal-name">
+    <button class="cand-modal-close" id="cand-modal-close" aria-label="Close">&times;</button>
+    <div id="cand-modal-body"></div>
+  </div>
+</div>
 
 <!-- Drilldown modal -->
 <div id="modal-overlay" class="modal-overlay" hidden>

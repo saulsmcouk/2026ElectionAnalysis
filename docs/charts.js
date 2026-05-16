@@ -19,8 +19,9 @@ const chartRegistry = {};
  * @param {string[]} labels     - Bar labels (one per row)
  * @param {object[]} rows       - Output of toStackedPct(): [{f, m, nf, nm, t}, ...]
  * @param {Function} [onBarClick] - Called with the label string when a bar is clicked
+ * @param {string}   [activeLabel] - If set, non-matching bars are dimmed to 27% opacity
  */
-function buildChart(canvasId, scrollId, labels, rows, onBarClick) {
+function buildChart(canvasId, scrollId, labels, rows, onBarClick, activeLabel = null) {
   if (chartRegistry[canvasId]) { chartRegistry[canvasId].destroy(); delete chartRegistry[canvasId]; }
   const BAR_H  = 30;
   const FOOTER = 55;
@@ -33,7 +34,9 @@ function buildChart(canvasId, scrollId, labels, rows, onBarClick) {
   const makeDataset = (label, key, color, rows) => ({
     label,
     data: rows.map(r => r[key]),
-    backgroundColor: color,
+    backgroundColor: activeLabel
+      ? labels.map((lbl) => lbl === activeLabel ? color : color + '44')
+      : color,
     _rawN: rows.map(r => key === 'f' ? r.nf : r.nm),
     _totN: rows.map(r => r.t),
   });

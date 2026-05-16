@@ -14,6 +14,7 @@ let selectedCouncilName  = null;  // org_name of selected council, or null
 let selectedPartyName    = null;  // party name of selected bar, or null
 let selectedRegionName   = null;  // region (NUTS1) of selected bar, or null
 let councilPartyData     = null;  // aggregated partyMap from current council's ward JSON
+let _candClickList       = [];    // candidate objects for the latest rendered candidate rows
 
 // ── Boot ──────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -141,12 +142,13 @@ function styleFeature(feature) {
     fillColor = councilColor(female, male, conf_low, conf_medium, total);
   }
   const isSelected = council && council.org_name === selectedCouncilName;
-  const dimmed     = selectedCouncilName && !isSelected;
+  const inRegion   = !isSelected && council && selectedRegionName && council.nuts1 === selectedRegionName;
+  const dimmed     = !isSelected && !inRegion && (selectedCouncilName || selectedRegionName);
   return {
     fillColor,
     fillOpacity: dimmed ? 0.3 : 0.85,
-    color:  isSelected ? '#1a1a2e' : '#fff',
-    weight: isSelected ? 3 : 0.5,
+    color:  isSelected ? '#1a1a2e' : inRegion ? '#2c5f99' : '#fff',
+    weight: isSelected ? 3 : inRegion ? 2 : 0.5,
   };
 }
 
@@ -337,6 +339,8 @@ function handleRegionSelect(name) {
     if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   }
 
+  renderRegionCharts();
+  if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   renderPartyCharts(name);
   renderRegionDetail(name);
   renderTable(document.getElementById('table-search').value.trim().toLowerCase());
@@ -350,6 +354,7 @@ function clearRegionSelection() {
   if (panel) panel.hidden = true;
   document.getElementById('region-heading').textContent = 'By region';
   renderRegionCharts();
+  if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   renderPartyCharts();
   renderTable(document.getElementById('table-search').value.trim().toLowerCase());
   updateBreadcrumb();
@@ -636,6 +641,15 @@ function renderPartyDetail(name) {
     ${buildCandidateSection(name, isCouncil)}
   `;
   panel.querySelector('#btn-clear-party').addEventListener('click', clearPartySelection);
+
+  // Wire candidate row clicks → candidate modal
+  panel.querySelectorAll('tr[data-cand-idx]').forEach(tr => {
+    tr.addEventListener('click', () => {
+      const c = _candClickList[Number(tr.dataset.candIdx)];
+      if (c) openCandidateModal(c, selectedCouncilName, c.ward || null);
+    });
+  });
+
   panel.hidden = false;
 }
 
@@ -650,7 +664,7 @@ function buildCandidateSection(name, isCouncil) {
   const rows = [];
   for (const ward of payload.wards || []) {
     for (const c of ward.candidates || []) {
-      if (c.p === name) rows.push({ ...c, ward: ward.ward });
+      if (c.p === name) rows.push({ ...c, ward: ward.ward, rs: ward.results_url || null });
     }
   }
   if (!rows.length) return `<p class="party-no-cands">No candidates found for ${escHtml(name)} in ${escHtml(selectedCouncilName)}.</p>`;
@@ -660,9 +674,11 @@ function buildCandidateSection(name, isCouncil) {
     return (a.r || 999) - (b.r || 999);
   });
 
-  const rowsHtml = rows.map(c => {
+  _candClickList = rows;
+
+  const rowsHtml = rows.map((c, i) => {
     const g = formatGenderLabel(c.g);
-    return `<tr class="${c.e ? 'elected-row' : ''}">
+    return `<tr class="cand-row ${c.e ? 'elected-row' : ''}" data-cand-idx="${i}">
       <td>${escHtml(c.n || '&mdash;')}</td>
       <td>${escHtml(c.ward)}</td>
       <td class="num">${c.v !== null && c.v !== undefined ? Number(c.v).toLocaleString() : '&mdash;'}</td>
@@ -846,14 +862,15 @@ function renderPartyCharts(regionName) {
 function renderRegionCharts() {
   const regions = appData.by_region;
   const labels  = regions.map(r => r.region);
+  const active  = selectedRegionName || null;
 
   buildChart(
     'chart-region-cands',   'scroll-region-cands',
-    labels, toStackedPct(regions, 'female', 'male'), handleRegionSelect
+    labels, toStackedPct(regions, 'female', 'male'), handleRegionSelect, active
   );
   buildChart(
     'chart-region-elected', 'scroll-region-elected',
-    labels, toStackedPct(regions, 'elected_female', 'elected_male'), handleRegionSelect
+    labels, toStackedPct(regions, 'elected_female', 'elected_male'), handleRegionSelect, active
   );
 }
 
@@ -926,6 +943,20 @@ function getSortedFilteredRows(filter) {
 function renderTable(filter = '') {
   const rows = getSortedFilteredRows(filter);
 
+  // Update heading with context-aware count
+  const tableH2 = document.querySelector('#table-section .panel-header h2');
+  if (tableH2) {
+    if (selectedRegionName && filter) {
+      tableH2.textContent = `By council \u2014 ${rows.length} in ${selectedRegionName} matching filter`;
+    } else if (selectedRegionName) {
+      tableH2.textContent = `By council \u2014 ${rows.length} in ${selectedRegionName}`;
+    } else if (filter) {
+      tableH2.textContent = `By council \u2014 ${rows.length} match${rows.length !== 1 ? 'es' : ''}`;
+    } else {
+      tableH2.textContent = 'By council';
+    }
+  }
+
   document.getElementById('table-body').innerHTML = rows.map(c => {
     const pctCls = p => {
       if (p === null || p === undefined) return 'pct-neutral';
@@ -966,7 +997,99 @@ function wireModalHandlers() {
   });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && !overlay.hidden) closeModal();
+    if (e.key === 'Escape') closeCandidateModal();
   });
+
+  // Candidate modal close
+  document.getElementById('cand-modal-close').addEventListener('click', closeCandidateModal);
+  document.getElementById('candidate-modal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeCandidateModal();
+  });
+}
+
+// ── Candidate detail modal ────────────────────────────────────────────────
+function closeCandidateModal() {
+  document.getElementById('candidate-modal').hidden = true;
+}
+
+function openCandidateModal(cand, councilName, wardName) {
+  const overlay = document.getElementById('candidate-modal');
+  const body    = document.getElementById('cand-modal-body');
+
+  const g = formatGenderLabel(cand.g);
+
+  const imgHtml = cand.img
+    ? `<img class="cand-photo" src="${escHtml(cand.img)}" alt="Photo of ${escHtml(cand.n || '')}" loading="lazy" onerror="this.parentNode.classList.add('no-photo');this.remove()">`
+    : '';
+
+  // Social / profile links
+  const links = [];
+  if (cand.pid) links.push(`<a href="https://candidates.democracyclub.org.uk/person/${encodeURIComponent(cand.pid)}/" target="_blank" rel="noopener" class="cand-link dc-link">Democracy Club profile</a>`);
+  if (cand.tw)  links.push(`<a href="https://x.com/${encodeURIComponent(cand.tw)}" target="_blank" rel="noopener" class="cand-link">&#120143; @${escHtml(cand.tw)}</a>`);
+  if (cand.url) links.push(`<a href="${escHtml(cand.url)}" target="_blank" rel="noopener" class="cand-link">&#127760; Website</a>`);
+  if (cand.li)  links.push(`<a href="${escHtml(cand.li)}" target="_blank" rel="noopener" class="cand-link">LinkedIn</a>`);
+  if (cand.bs)  links.push(`<a href="${escHtml(cand.bs)}" target="_blank" rel="noopener" class="cand-link">Bluesky</a>`);
+  if (cand.rs)  links.push(`<a href="${escHtml(cand.rs)}" target="_blank" rel="noopener" class="cand-link results-link">Results source</a>`);
+  const linksHtml = links.length ? `<div class="cand-links">${links.join('')}</div>` : '';
+
+  const stmtHtml = cand.stmt
+    ? `<div class="cand-stmt"><h4>Statement to voters</h4><p>${escHtml(cand.stmt).replace(/\n/g, '<br>')}</p></div>`
+    : '';
+
+  const bdHtml = cand.bd
+    ? `<div class="cand-stat"><div class="cs-val">${escHtml(cand.bd)}</div><div class="cs-lbl">Birth date</div></div>`
+    : '';
+
+  const methodLabels = {
+    existing: 'Recorded in source data',
+    gender_guesser: 'Name database (gender_guesser)',
+    ons: 'ONS baby names dataset',
+    claude: 'Claude Sonnet 4.6 (AI)',
+    unknown: 'Unclassified',
+  };
+  const confLabels = {
+    high: 'High confidence',
+    medium: 'Medium confidence',
+    low: 'Low confidence',
+  };
+
+  const wardStr = wardName
+    ? `<span class="cand-ward">&#8250; ${escHtml(wardName)}</span>`
+    : (cand.ward ? `<span class="cand-ward">&#8250; ${escHtml(cand.ward)}</span>` : '');
+
+  body.innerHTML = `
+    <div class="cand-header${cand.img ? '' : ' no-photo'}">
+      ${imgHtml}
+      <div class="cand-header-info">
+        <div class="cand-name">${escHtml(cand.n || '\u2014')}</div>
+        <div class="cand-party-badge">${escHtml(cand.p || '\u2014')}</div>
+        <div class="cand-council-line">${escHtml(councilName || '')} ${wardStr}</div>
+      </div>
+    </div>
+    <div class="cand-stats-row">
+      <div class="cand-stat">
+        <div class="cs-val">${cand.v !== null && cand.v !== undefined ? Number(cand.v).toLocaleString() : '\u2014'}</div>
+        <div class="cs-lbl">Votes</div>
+      </div>
+      <div class="cand-stat ${cand.e ? 'cs-elected' : 'cs-not-elected'}">
+        <div class="cs-val">${cand.e ? '&#10003; Elected' : '&#10007; Not elected'}</div>
+        <div class="cs-lbl">Result</div>
+      </div>
+      ${bdHtml}
+    </div>
+    ${linksHtml}
+    ${stmtHtml}
+    <div class="cand-gender-block">
+      <h4>Gender assignment</h4>
+      <div class="cand-gender-row">
+        <span class="${g.cls}">${g.text}</span>
+        <span class="method-sm">${methodLabels[cand.m] || cand.m || 'Unknown'}</span>
+        ${confCell(cand.cf)}
+      </div>
+      <p class="cand-disclaimer">Gender is predicted from name data and should not be treated as self-identified gender. Source: <a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a>.</p>
+    </div>
+  `;
+  overlay.hidden = false;
 }
 
 function openModal(title, html) {
@@ -1060,7 +1183,7 @@ function openWardDetail(council, payload, ward) {
 
   const totalVotes = candidates.reduce((sum, c) => sum + (Number(c.v) || 0), 0);
 
-  const rows = candidates.map(cd => {
+  const rows = candidates.map((cd, i) => {
     const pct = totalVotes > 0 ? ((Number(cd.v) || 0) / totalVotes * 100).toFixed(1) + '%' : '—';
     const g = formatGenderLabel(cd.g);
     const electedCell = cd.e
@@ -1068,7 +1191,7 @@ function openWardDetail(council, payload, ward) {
       : '<span class="not-elected-cross">&#10007;</span>';
 
     return `
-      <tr class="${cd.e ? 'elected-row' : ''}">
+      <tr class="cand-row ${cd.e ? 'elected-row' : ''}" data-cand-idx="${i}">
         <td>${cd.n || '—'}</td>
         <td>${cd.p || '—'}</td>
         <td class="num">${cd.v !== null && cd.v !== undefined ? Number(cd.v).toLocaleString() : '—'}</td>
@@ -1115,6 +1238,13 @@ function openWardDetail(council, payload, ward) {
   });
   document.getElementById('btn-export-ward-detail').addEventListener('click', () => {
     exportWardDetail(council, ward, candidates);
+  });
+  // Wire candidate row clicks → candidate modal
+  document.getElementById('modal-body').querySelectorAll('tr[data-cand-idx]').forEach(tr => {
+    tr.addEventListener('click', () => {
+      const c = candidates[Number(tr.dataset.candIdx)];
+      if (c) openCandidateModal({ ...c, rs: ward.results_url || null }, council.org_name, ward.ward);
+    });
   });
 }
 
