@@ -299,6 +299,7 @@ function handleCouncilSelect(feature) {
 
   renderPartyChartsForCouncil(council);
   renderCouncilStats(council);
+  updateBreadcrumb();
 }
 
 function clearCouncilSelection() {
@@ -316,6 +317,7 @@ function clearCouncilSelection() {
   } else {
     renderPartyCharts();
   }
+  updateBreadcrumb();
 }
 
 // ── Region bar selection ──────────────────────────────────────────────────
@@ -338,6 +340,7 @@ function handleRegionSelect(name) {
   renderPartyCharts(name);
   renderRegionDetail(name);
   renderTable(document.getElementById('table-search').value.trim().toLowerCase());
+  updateBreadcrumb();
 }
 
 function clearRegionSelection() {
@@ -349,6 +352,7 @@ function clearRegionSelection() {
   renderRegionCharts();
   renderPartyCharts();
   renderTable(document.getElementById('table-search').value.trim().toLowerCase());
+  updateBreadcrumb();
 }
 
 function renderRegionDetail(name) {
@@ -502,6 +506,7 @@ function handlePartySelect(name) {
   buildChart('chart-party-cands',   'scroll-party-cands',   [name], toStackedPct([source], 'female', 'male'),                  handlePartySelect);
   buildChart('chart-party-elected', 'scroll-party-elected', [name], toStackedPct([source], 'elected_female', 'elected_male'), handlePartySelect);
   renderPartyDetail(name);
+  updateBreadcrumb();
 }
 
 function clearPartySelection() {
@@ -519,8 +524,10 @@ function clearPartySelection() {
   } else {
     renderPartyCharts(selectedRegionName || undefined);
   }
-}(name) {
-  const panel = document.getElementById('party-detail');
+  updateBreadcrumb();
+}
+
+function renderPartyDetail(name) {
   const s     = appData.summary;
   const isCouncil = !!selectedCouncilName;
 
@@ -755,6 +762,62 @@ function buildChart(canvasId, scrollId, labels, rows, onBarClick) {
   });
   chartRegistry[canvasId] = _chart;
   return _chart;
+}
+
+// ── Breadcrumb strip ──────────────────────────────────────────────────────
+function updateBreadcrumb() {
+  const bar = document.getElementById('breadcrumb-bar');
+  if (!bar) return;
+
+  const hasSelection = selectedRegionName || selectedCouncilName || selectedPartyName;
+  if (!hasSelection) { bar.hidden = true; return; }
+
+  const parts = [];
+
+  // England root — always clickable when something is selected
+  parts.push({ label: 'England', clickable: true, action: () => {
+    if (selectedPartyName)   clearPartySelection();
+    if (selectedCouncilName) clearCouncilSelection();
+    if (selectedRegionName)  clearRegionSelection();
+  }});
+
+  if (selectedRegionName) {
+    const isLeaf = !selectedCouncilName && !selectedPartyName;
+    parts.push({ label: selectedRegionName, clickable: !isLeaf, action: () => {
+      if (selectedPartyName)   clearPartySelection();
+      if (selectedCouncilName) clearCouncilSelection();
+    }});
+  }
+
+  if (selectedCouncilName) {
+    const isLeaf = !selectedPartyName;
+    parts.push({ label: selectedCouncilName, clickable: !isLeaf, action: () => {
+      clearPartySelection();
+    }});
+  }
+
+  if (selectedPartyName) {
+    parts.push({ label: selectedPartyName, clickable: false });
+  }
+
+  let html = '';
+  for (let i = 0; i < parts.length; i++) {
+    if (i > 0) html += '<span class="bc-sep" aria-hidden="true">›</span>';
+    const p = parts[i];
+    if (p.clickable) {
+      html += `<button class="bc-crumb bc-link" data-idx="${i}">${escHtml(p.label)}</button>`;
+    } else {
+      html += `<span class="bc-crumb bc-current">${escHtml(p.label)}</span>`;
+    }
+  }
+
+  bar.innerHTML = html;
+  bar.hidden = false;
+
+  bar.querySelectorAll('.bc-link').forEach(el => {
+    const idx = Number(el.dataset.idx);
+    el.addEventListener('click', parts[idx].action);
+  });
 }
 
 function renderPartyCharts(regionName) {

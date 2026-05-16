@@ -43,7 +43,31 @@ main {
   flex-direction: column;
   gap: 20px;
 }
-
+/* ── Breadcrumb strip ──────────────────────────────────────────────────── */
+#breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #555;
+  padding: 2px 0 8px;
+}
+.bc-crumb { line-height: 1.4; }
+.bc-current { color: #222; font-weight: 600; }
+.bc-sep { color: #bbb; user-select: none; padding: 0 2px; font-size: 15px; }
+.bc-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 13px;
+  color: #1a73e8;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.bc-link:hover { color: #1558b0; }
 /* ── Summary cards ───────────────────────────────────────────────────────── */
 .summary-section {
   display: grid;
