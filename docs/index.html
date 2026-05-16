@@ -45,6 +45,11 @@
         Matching uses council name normalisation, ward-level lookup, and full-name fuzzy comparison.
         Note: incumbents who chose not to re-stand are not counted.
       </p>
+      <p>
+        <strong>Election type</strong> (full council vs partial) is sourced from the same dataset:
+        councils electing all seats in 2026 are marked <em>Full</em>; those electing by thirds or
+        halves are marked <em>Partial</em>.
+      </p>
       <p><a href="#" class="meth-full-link" id="btn-open-meth-modal">Read full methodology &rarr;</a></p>
     </div>
   </section>
@@ -90,6 +95,11 @@
       </aside>
     </div>
     <div id="council-stats" hidden></div>
+  </section>
+
+  <!-- Seat Changes -->
+  <section class="panel" id="seat-changes-section">
+    <div id="seat-changes-content"></div>
   </section>
 
   <!-- PARTY CHARTS -->
@@ -152,6 +162,7 @@
             <th class="sortable" data-col="elected_female"    data-type="num">Female Elected</th>
             <th class="sortable" data-col="pct_female_elected" data-type="num">% Female Elected</th>
             <th class="sortable" data-col="avg_turnout"       data-type="num">Avg Turnout</th>
+            <th class="sortable" data-col="election_type"     data-type="str">Election</th>
           </tr>
         </thead>
         <tbody id="table-body"></tbody>
@@ -197,6 +208,18 @@
           <li>6.0% of candidates are in wards where no ward match could be found &mdash; typically due to ward boundary reorganisations creating entirely new ward names.</li>
           <li><strong>Incumbents who chose not to re-stand are not counted.</strong> The &ldquo;Defeated&rdquo; figure only covers incumbents who stood in 2026 and lost their seat. We cannot reliably distinguish a councillor who retired from one whose seat was simply not up for election in 2026 (in multi-member wards, seats rotate).</li>
         </ul>
+      </div>
+
+      <div class="meth-section">
+        <h3>Election type (full vs partial)</h3>
+        <p>English councils use one of three election cycles:</p>
+        <ul>
+          <li><strong>Whole council (Full)</strong> &mdash; all seats elected at once, every four years. 222 of 316 councils in England use this model.</li>
+          <li><strong>By thirds (Partial)</strong> &mdash; roughly one third of seats contested each year for three consecutive years, then a fallow year. 87 councils use this model.</li>
+          <li><strong>By halves (Partial)</strong> &mdash; half of seats contested in alternate years. 7 councils use this model (typically those with two councillors per ward).</li>
+        </ul>
+        <p>Election type for each council is read directly from the <code>Election Model</code> metadata field in the <a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a> dataset. Of the 156 councils in this dataset, 152 were matched; the 4 unmatched councils (East Surrey, West Surrey, Newport City, Powys) are newly created or Welsh authorities not present in the source data and are shown as &ldquo;Unknown&rdquo;.</p>
+        <p>This classification affects interpretation: a council with 54 seats electing 18 in 2026 (partial, by thirds) is not inherently less female-friendly than one electing all 54 &mdash; different seats were at stake.</p>
       </div>
 
       <div class="meth-section">

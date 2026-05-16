@@ -99,6 +99,10 @@ function tmplInfoBox(council, femalePctStr, electedPctStr, highConfPct) {
 // ── Council stats panel ───────────────────────────────────────────────────
 
 function tmplCouncilStats(c, kn, fwr, mwr, sentenceHtml) {
+  const elecLabel = c.election_type === 'full'    ? 'Full council'
+                  : c.election_type === 'partial'  ? (c.election_model === 'THIRDS' ? 'Partial \u2013 by thirds' : c.election_model === 'HALVES' ? 'Partial \u2013 by halves' : 'Partial')
+                  : 'Unknown';
+  const elecSub   = c.council_size ? `${(c.elected_total||0)} of ${c.council_size} seats` : '';
   return `
     <div class="council-stats-header">
       <span class="council-stats-name">${escHtml(c.org_name)} &mdash; all parties</span>
@@ -127,6 +131,10 @@ function tmplCouncilStats(c, kn, fwr, mwr, sentenceHtml) {
       <div class="council-stat-tile">
         <div class="pst-value male">${(c.elected_male || 0).toLocaleString()}</div>
         <div class="pst-label">Male elected<br><span class="pst-sub">${mwr} win rate</span></div>
+      </div>
+      <div class="council-stat-tile">
+        <div class="pst-value" style="font-size:1rem">${escHtml(elecLabel)}</div>
+        <div class="pst-label">Election type${elecSub ? '<br><span class="pst-sub">' + escHtml(elecSub) + '</span>' : ''}</div>
       </div>
     </div>
     ${sentenceHtml}
@@ -254,6 +262,13 @@ function tmplTableRows(rows) {
       ? `${hc}%<span class="conf-badge ${confBadgeCls}"></span>`
       : '\u2014';
     const turnout = c.avg_turnout !== null ? c.avg_turnout + '%' : '\u2014';
+    const elecBadge = c.election_type === 'full'
+      ? '<span class="election-badge election-badge--full">Full</span>'
+      : c.election_type === 'partial'
+        ? (c.election_model === 'THIRDS' ? '<span class="election-badge election-badge--partial">By thirds</span>'
+           : c.election_model === 'HALVES' ? '<span class="election-badge election-badge--partial">By halves</span>'
+           : '<span class="election-badge election-badge--partial">Partial</span>')
+        : '\u2014';
     return `<tr data-council-slug="${c.ward_slug || ''}">
       <td>${c.org_name}</td>
       <td>${c.total}</td>
@@ -264,6 +279,7 @@ function tmplTableRows(rows) {
       <td>${c.elected_female}</td>
       <td class="pct-cell ${pctCls(c.pct_female_elected)}">${c.pct_female_elected !== null ? c.pct_female_elected + '%' : '\u2014'}</td>
       <td>${turnout}</td>
+      <td>${elecBadge}</td>
     </tr>`;
   }).join('');
 }

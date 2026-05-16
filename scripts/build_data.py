@@ -20,9 +20,10 @@ from datetime import date
 from glob import glob
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
-CSV_IN         = os.path.join(ROOT, 'dc_data.csv')
-GENDERS_IN     = os.path.join(ROOT, 'genders.csv')
-INCUMBENTS_IN  = os.path.join(ROOT, 'scripts', 'data', 'incumbents.json')
+CSV_IN              = os.path.join(ROOT, 'dc_data.csv')
+GENDERS_IN          = os.path.join(ROOT, 'genders.csv')
+INCUMBENTS_IN       = os.path.join(ROOT, 'scripts', 'data', 'incumbents.json')
+OLD_COUNCILLORS_IN  = os.path.join(ROOT, 'scripts', 'data', 'old_councillors.json')
 OUT_DIR        = os.path.join(ROOT, 'docs', 'data')
 COUNCILS_OUT   = os.path.join(OUT_DIR, 'councils.json')
 GEOJSON_OUT    = os.path.join(OUT_DIR, 'LAD_boundaries.geojson')
@@ -32,6 +33,51 @@ _geojson_candidates = glob(os.path.join(ROOT, 'LAD_MAY_2025*.geojson'))
 if not _geojson_candidates:
     raise FileNotFoundError('No LAD_MAY_2025*.geojson file found in project root.')
 GEOJSON_IN = _geojson_candidates[0]
+
+# ---------------------------------------------------------------------------
+# Election model lookup (from old_councillors.json GSS metadata)
+# ---------------------------------------------------------------------------
+
+def _norm_council(name):
+    """Normalise council name for matching against old_councillors.json."""
+    name = re.sub(r'^(London Borough of |Royal Borough of |City of |Metropolitan Borough of |Borough of )', '', name, flags=re.I)
+    name = re.sub(r' (County Council|Borough Council|District Council|City Council|Council)$', '', name, flags=re.I)
+    return name.strip().lower()
+
+
+def build_election_model_lookup(path):
+    """Return dict: normalised_name → {model, total_seats}.
+    model is 'ALL' (whole-council), 'THIRDS' (by thirds), or 'HALVES' (by halves).
+    """
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding='utf-8') as f:
+        old = json.load(f)
+    lookup = {}
+    for cname, cdata in old.items():
+        wards = cdata.get('wards', {})
+        for wk, wv in wards.items():
+            if re.match(r'^[EWS]\d{8}$', wk) and isinstance(wv, list) and wv:
+                meta = wv[0].get('name', '')
+                m  = re.search(r'Election Model(\w+)', meta)
+                ts = re.search(r'Total Seats \(Majority\)(\d+)', meta)
+                if m:
+                    raw = m.group(1).upper()
+                    if 'ALL' in raw:
+                        model = 'ALL'
+                    elif 'THIRDS' in raw:
+                        model = 'THIRDS'
+                    elif 'HALVES' in raw:
+                        model = 'HALVES'
+                    else:
+                        model = raw
+                    lookup[_norm_council(cname)] = {
+                        'model':       model,
+                        'total_seats': int(ts.group(1)) if ts else None,
+                    }
+                break
+    return lookup
+
 
 # ---------------------------------------------------------------------------
 # LAD name matching
@@ -205,6 +251,7 @@ def main():
         print(f'WARNING: {INCUMBENTS_IN} not found; incumbency data will be absent.')
 
     lad_lookup = build_lad_lookup(GEOJSON_IN)
+    election_model_lookup = build_election_model_lookup(OLD_COUNCILLORS_IN)
 
     councils = {}        # org_name → acc + metadata
     parties  = {}        # party_name → acc
@@ -346,6 +393,10 @@ def main():
         kn  = d['female'] + d['male']
         ekn = d['elected_female'] + d['elected_male']
         slug = re.sub(r'[^a-z0-9]+', '-', org.lower()).strip('-')
+        em = election_model_lookup.get(_norm_council(org))
+        election_model = em['model'] if em else None
+        election_type  = ('full' if election_model == 'ALL' else 'partial') if election_model else None
+        council_size   = em['total_seats'] if em else None
         return {
             'org_name':           org,
             'ward_slug':          slug,
@@ -370,6 +421,9 @@ def main():
             'conf_medium':        d['conf_medium'],
             'conf_low':           d['conf_low'],
             'pct_high_conf':      _safe_pct(d['conf_high'], d['total']),
+            'election_model':     election_model,
+            'election_type':      election_type,
+            'council_size':       council_size,
             **_inc_fields(d),
         }
 
@@ -489,6 +543,10 @@ def main():
                 'new_elected', 'new_female_elected', 'new_male_elected'):
         _global_inc[_k] = sum(d[_k] for d in councils.values())
 
+    council_list = sorted([council_obj(o) for o in councils], key=lambda x: x['org_name'])
+    councils_full    = sum(1 for c in council_list if c.get('election_type') == 'full')
+    councils_partial = sum(1 for c in council_list if c.get('election_type') == 'partial')
+
     output = {
         'generated': str(date.today()),
         'summary': {
@@ -508,9 +566,11 @@ def main():
             'pct_high_conf':       _safe_pct(conf_high_total, total),
             'national_female_win_rate': _safe_pct(e_female, female),
             'national_male_win_rate':   _safe_pct(e_male, male),
+            'councils_full':       councils_full,
+            'councils_partial':    councils_partial,
             **_inc_fields(_global_inc),
         },
-        'by_council': sorted([council_obj(o) for o in councils], key=lambda x: x['org_name']),
+        'by_council': council_list,
         'by_party':   party_list,
         'by_region':  sorted([region_obj(r) for r in regions], key=lambda x: -x['total']),
         'by_region_by_party': {
@@ -556,6 +616,7 @@ def main():
     print(f'Elected    : {s["elected_total"]:,}  |  Female: {s["elected_female"]:,} ({s["pct_female_elected"]}%)  |  Male: {s["elected_male"]:,}')
     print(f'Incumbents : stood {s["inc_total"]:,}  |  Re-elected: {s["inc_elected"]:,} ({s["inc_retention_pct"]}%)  |  Defeated: {s["inc_defeated"]:,}  |  New elected: {s["new_elected"]:,}')
     print(f'Councils   : {len(output["by_council"])}  |  Parties: {len(output["by_party"])}  |  Regions: {len(output["by_region"])}')
+    print(f'Election   : Full (all seats): {councils_full}  |  Partial (by thirds/halves): {councils_partial}  |  Unknown: {len(output["by_council"]) - councils_full - councils_partial}')
 
     unmatched = [c['org_name'] for c in output['by_council'] if not c['lad_code']]
     if unmatched:

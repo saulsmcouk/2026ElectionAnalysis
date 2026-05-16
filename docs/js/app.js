@@ -87,12 +87,6 @@ function renderSummaryCards() {
       label: '% Female elected',
       sub: `${s.elected_female.toLocaleString()} of ${knownElected.toLocaleString()} with known gender`,
     },
-    {
-      value: retPct,
-      cls: '',
-      label: 'Incumbent retention',
-      sub: `${(s.inc_elected || 0).toLocaleString()} of ${(s.inc_total || 0).toLocaleString()} incumbents re-elected`,
-    },
   ];
 
   document.getElementById('summary-cards').innerHTML = tmplSummaryCards(cards);

@@ -1001,6 +1001,26 @@ footer a:hover { color: #fff; }
   border: 1px solid #9cd6e2;
 }
 
+/* ── Election type badges ─────────────────────────────────────────────────── */
+.election-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.election-badge--full {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #b1d8bb;
+}
+.election-badge--partial {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
 /* ── Seat Changes panel ───────────────────────────────────────────────────── */
 #seat-changes-section { padding-bottom: 4px; }
 .seat-changes-header {
