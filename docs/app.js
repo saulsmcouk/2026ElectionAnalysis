@@ -408,7 +408,7 @@ function renderPartyDetail(name) {
   const isCouncil = !!selectedCouncilName;
 
   let dr;  // display row
-  let sentenceE = '', sentenceF = '';
+  let sentenceE = '', sentenceF = '', sentenceG = '';
   let femaleWinRate, maleWinRate;
 
   if (isCouncil && councilPartyData && councilPartyData[name]) {
@@ -430,6 +430,17 @@ function renderPartyDetail(name) {
       const verb = diffNat >= 0 ? 'beat' : 'lagged';
       sentenceF = `<em>${escHtml(name)}</em> female win rate here (<strong>${femaleWinRate}%</strong>) ${verb} the national female rate (${natFWR}%) by <strong>${Math.abs(diffNat)}&thinsp;pp</strong>.`;
     }
+    if (femaleWinRate !== null && maleWinRate !== null) {
+      const diff = +(femaleWinRate - maleWinRate).toFixed(1);
+      const scope = `In <strong>${escHtml(selectedCouncilName)}</strong>`;
+      if (Math.abs(diff) < 0.1) {
+        sentenceG = `${scope}, female and male <em>${escHtml(name)}</em> candidates had the same win rate (${femaleWinRate}%).`;
+      } else {
+        const higher = diff > 0 ? 'female' : 'male';
+        const lower  = diff > 0 ? 'male' : 'female';
+        sentenceG = `${scope}, female <em>${escHtml(name)}</em> candidates had a ${Math.abs(diff)}&thinsp;pp ${diff > 0 ? 'higher' : 'lower'} win rate than male candidates (${femaleWinRate}% vs ${maleWinRate}%).`;
+      }
+    }
   } else {
     const gr = appData.by_party.find(p => p.party === name);
     if (!gr) { panel.hidden = true; return; }
@@ -446,6 +457,14 @@ function renderPartyDetail(name) {
       const diff = gr.female_win_rate_diff_vs_national;
       const verb = diff >= 0 ? 'beat' : 'lagged';
       sentenceF  = `<em>${escHtml(name)}</em> female win rate nationally (<strong>${femaleWinRate}%</strong>) ${verb} the overall female rate (${s.national_female_win_rate}%) by <strong>${Math.abs(diff)}&thinsp;pp</strong>.`;
+    }
+    if (femaleWinRate !== null && maleWinRate !== null) {
+      const diff = +(femaleWinRate - maleWinRate).toFixed(1);
+      if (Math.abs(diff) < 0.1) {
+        sentenceG = `Nationally, female and male <em>${escHtml(name)}</em> candidates had the same win rate (${femaleWinRate}%).`;
+      } else {
+        sentenceG = `Nationally, female <em>${escHtml(name)}</em> candidates had a ${Math.abs(diff)}&thinsp;pp ${diff > 0 ? 'higher' : 'lower'} win rate than male candidates (${femaleWinRate}% vs ${maleWinRate}%).`;
+      }
     }
   }
 
@@ -489,6 +508,7 @@ function renderPartyDetail(name) {
     </div>
     ${sentenceE ? `<p class="party-sentence">${sentenceE}</p>` : ''}
     ${sentenceF ? `<p class="party-sentence">${sentenceF}</p>` : ''}
+    ${sentenceG ? `<p class="party-sentence">${sentenceG}</p>` : ''}
     ${buildCandidateSection(name, isCouncil)}
   `;
   panel.querySelector('#btn-clear-party').addEventListener('click', clearPartySelection);
