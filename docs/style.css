@@ -972,3 +972,119 @@ footer a:hover { color: #fff; }
   line-height: 1.45;
 }
 .cand-disclaimer a { color: #2171b5; }
+
+/* ── Incumbency / outcome badges ─────────────────────────────────────────── */
+.inc-badge {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-left: 5px;
+  white-space: nowrap;
+}
+.inc-badge--held {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #b1d8bb;
+}
+.inc-badge--lost {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #f5d97a;
+}
+.inc-badge--new {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #9cd6e2;
+}
+
+/* ── Seat Changes panel ───────────────────────────────────────────────────── */
+#seat-changes-section { padding-bottom: 4px; }
+.seat-changes-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.seat-changes-header h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+.seat-changes-context {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #666;
+}
+.seat-changes-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 8px;
+}
+@media (max-width: 700px) {
+  .seat-changes-tiles { grid-template-columns: repeat(2, 1fr); }
+}
+.sc-held  { border-left: 4px solid #2a9a55; }
+.sc-lost  { border-left: 4px solid #e09a00; }
+.sc-new   { border-left: 4px solid #0c8a9a; }
+
+/* ── Ward incumbent mini-summary bar ─────────────────────────────────────── */
+.ward-inc-summary {
+  background: #f3f4f8;
+  border: 1px solid #e0e0e8;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.83rem;
+  color: #444;
+  margin-bottom: 14px;
+}
+.ward-inc-summary strong { color: #222; }
+
+/* ── Methodology link in tile ────────────────────────────────────────────── */
+.meth-full-link {
+  font-size: 0.84rem;
+  color: #a07820;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.meth-full-link:hover { color: #7a4f00; }
+
+/* ── Methodology full-page modal ─────────────────────────────────────────── */
+.meth-modal-inner {
+  max-width: 780px;
+}
+.meth-modal-body {
+  padding: 4px 4px 12px;
+}
+.meth-section {
+  margin-bottom: 28px;
+}
+.meth-section h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e8eaf0;
+}
+.meth-section h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #333;
+  margin: 14px 0 6px;
+}
+.meth-section p, .meth-section li {
+  font-size: 0.86rem;
+  color: #444;
+  line-height: 1.7;
+}
+.meth-section ol, .meth-section ul {
+  padding-left: 20px;
+  margin: 8px 0 8px;
+}
+.meth-section li { margin-bottom: 6px; }
+.meth-section a { color: #2171b5; }

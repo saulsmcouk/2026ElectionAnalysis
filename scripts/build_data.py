@@ -20,11 +20,12 @@ from datetime import date
 from glob import glob
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
-CSV_IN      = os.path.join(ROOT, 'dc_data.csv')
-GENDERS_IN  = os.path.join(ROOT, 'genders.csv')
-OUT_DIR     = os.path.join(ROOT, 'docs', 'data')
-COUNCILS_OUT = os.path.join(OUT_DIR, 'councils.json')
-GEOJSON_OUT  = os.path.join(OUT_DIR, 'LAD_boundaries.geojson')
+CSV_IN         = os.path.join(ROOT, 'dc_data.csv')
+GENDERS_IN     = os.path.join(ROOT, 'genders.csv')
+INCUMBENTS_IN  = os.path.join(ROOT, 'scripts', 'data', 'incumbents.json')
+OUT_DIR        = os.path.join(ROOT, 'docs', 'data')
+COUNCILS_OUT   = os.path.join(OUT_DIR, 'councils.json')
+GEOJSON_OUT    = os.path.join(OUT_DIR, 'LAD_boundaries.geojson')
 
 # Find the geojson file dynamically
 _geojson_candidates = glob(os.path.join(ROOT, 'LAD_MAY_2025*.geojson'))
@@ -122,10 +123,14 @@ def _empty_acc():
         'turnout_sum': 0.0, 'turnout_count': 0,
         'by_election_count': 0,
         'conf_high': 0, 'conf_medium': 0, 'conf_low': 0,
+        # Incumbency counters
+        'inc_total': 0, 'inc_female': 0, 'inc_male': 0,
+        'inc_elected': 0, 'inc_female_elected': 0, 'inc_male_elected': 0,
+        'new_elected': 0, 'new_female_elected': 0, 'new_male_elected': 0,
     }
 
 
-def _add(d, key, gender, elected, turnout, by_election, conf='low'):
+def _add(d, key, gender, elected, turnout, by_election, conf='low', incumbent=False):
     if key not in d:
         d[key] = _empty_acc()
     e = d[key]
@@ -141,6 +146,19 @@ def _add(d, key, gender, elected, turnout, by_election, conf='low'):
         e['by_election_count'] += 1
     conf_key = conf if conf in ('high', 'medium', 'low') else 'low'
     e['conf_' + conf_key] += 1
+    # Incumbency tracking
+    if incumbent:
+        e['inc_total'] += 1
+        if gender in ('female', 'male'):
+            e['inc_' + gender] += 1
+        if elected:
+            e['inc_elected'] += 1
+            if gender in ('female', 'male'):
+                e['inc_' + gender + '_elected'] += 1
+    elif elected:
+        e['new_elected'] += 1
+        if gender in ('female', 'male'):
+            e['new_' + gender + '_elected'] += 1
 
 
 def _safe_pct(num, denom):
@@ -178,6 +196,14 @@ def main():
                     'conf':   conf,
                 }
 
+    # Load incumbents lookup: person_id → {is_incumbent, ...}
+    incumbents_lookup = {}
+    if os.path.exists(INCUMBENTS_IN):
+        with open(INCUMBENTS_IN, encoding='utf-8') as f:
+            incumbents_lookup = json.load(f)
+    else:
+        print(f'WARNING: {INCUMBENTS_IN} not found; incumbency data will be absent.')
+
     lad_lookup = build_lad_lookup(GEOJSON_IN)
 
     councils = {}        # org_name → acc + metadata
@@ -207,6 +233,7 @@ def main():
 
             elected    = row.get('elected', '').strip().lower() in ('t', 'true', '1', 'yes')
             by_election = row.get('by_election', '').strip().lower() in ('t', 'true', '1', 'yes')
+            incumbent  = incumbents_lookup.get(pid, {}).get('is_incumbent', False)
 
             turnout = None
             raw_t = (row.get('turnout_percentage') or '').strip()
@@ -227,18 +254,18 @@ def main():
                 elif gender == 'male': e_male += 1
                 else: e_unknown += 1
 
-            _add(councils, org, gender, elected, turnout, by_election, conf)
+            _add(councils, org, gender, elected, turnout, by_election, conf, incumbent=incumbent)
             if org not in council_meta:
                 council_meta[org] = {'nuts1': nuts1}
             elif nuts1:
                 council_meta[org]['nuts1'] = nuts1
 
-            _add(parties, party, gender, elected, turnout, by_election, conf)
+            _add(parties, party, gender, elected, turnout, by_election, conf, incumbent=incumbent)
             if nuts1:
-                _add(regions, nuts1, gender, elected, turnout, by_election, conf)
+                _add(regions, nuts1, gender, elected, turnout, by_election, conf, incumbent=incumbent)
                 if nuts1 not in region_parties:
                     region_parties[nuts1] = {}
-                _add(region_parties[nuts1], party, gender, elected, turnout, by_election, conf)
+                _add(region_parties[nuts1], party, gender, elected, turnout, by_election, conf, incumbent=incumbent)
 
             # Ward-level candidate data for drilldown
             ward_label = row.get('post_label', '').strip()
@@ -275,6 +302,8 @@ def main():
                     'm': method,
                     'cf': conf,
                 }
+                if incumbent:
+                    cand['inc'] = True
                 for _k, _v in [
                     ('pid', _opt(row.get('person_id', ''))),
                     ('img', _opt(row.get('image', ''))),
@@ -294,6 +323,22 @@ def main():
         council_meta[org]['lad'] = match_org(org, lad_lookup)
 
     # Serialise
+    def _inc_fields(d):
+        """Return the incumbency-derived fields for any accumulator dict."""
+        inc_total   = d['inc_total']
+        inc_elected = d['inc_elected']
+        inc_kn      = d['inc_female'] + d['inc_male']
+        new_kn      = d['new_female_elected'] + d['new_male_elected']
+        return {
+            'inc_total':            inc_total,
+            'inc_elected':          inc_elected,
+            'inc_defeated':         inc_total - inc_elected,
+            'new_elected':          d['new_elected'],
+            'inc_female_pct':       _safe_pct(d['inc_female'], inc_kn),
+            'new_female_elected_pct': _safe_pct(d['new_female_elected'], new_kn),
+            'inc_retention_pct':    _safe_pct(inc_elected, inc_total),
+        }
+
     def council_obj(org):
         d = councils[org]
         meta = council_meta[org]
@@ -325,6 +370,7 @@ def main():
             'conf_medium':        d['conf_medium'],
             'conf_low':           d['conf_low'],
             'pct_high_conf':      _safe_pct(d['conf_high'], d['total']),
+            **_inc_fields(d),
         }
 
     # Pre-compute seats_available and wards_stood per party from ward data
@@ -374,6 +420,7 @@ def main():
             'female_win_rate_diff_vs_others':   round(f_win - other_f_win, 1) if f_win is not None and other_f_win is not None else None,
             'national_female_win_rate':         nat_f_win,
             'female_win_rate_diff_vs_national': round(f_win - nat_f_win, 1) if f_win is not None and nat_f_win is not None else None,
+            **_inc_fields(d),
         }
 
     def region_obj(r):
@@ -398,6 +445,7 @@ def main():
             'conf_medium':        d['conf_medium'],
             'conf_low':           d['conf_low'],
             'pct_high_conf':      _safe_pct(d['conf_high'], d['total']),
+            **_inc_fields(d),
         }
 
     def region_party_entry(r, p):
@@ -418,6 +466,7 @@ def main():
             'pct_female_elected': _safe_pct(d['elected_female'], ekn),
             'female_win_rate':    _safe_pct(d['elected_female'], d['female']),
             'male_win_rate':      _safe_pct(d['elected_male'],   d['male']),
+            **_inc_fields(d),
         }
 
     kn_total  = female + male
@@ -432,6 +481,13 @@ def main():
     conf_high_total  = sum(d['conf_high']  for d in councils.values())
     conf_medium_total = sum(d['conf_medium'] for d in councils.values())
     conf_low_total    = sum(d['conf_low']   for d in councils.values())
+
+    # Global incumbency totals (summed across all councils)
+    _global_inc = _empty_acc()
+    for _k in ('inc_total', 'inc_female', 'inc_male',
+                'inc_elected', 'inc_female_elected', 'inc_male_elected',
+                'new_elected', 'new_female_elected', 'new_male_elected'):
+        _global_inc[_k] = sum(d[_k] for d in councils.values())
 
     output = {
         'generated': str(date.today()),
@@ -452,6 +508,7 @@ def main():
             'pct_high_conf':       _safe_pct(conf_high_total, total),
             'national_female_win_rate': _safe_pct(e_female, female),
             'national_male_win_rate':   _safe_pct(e_male, male),
+            **_inc_fields(_global_inc),
         },
         'by_council': sorted([council_obj(o) for o in councils], key=lambda x: x['org_name']),
         'by_party':   party_list,
@@ -497,6 +554,7 @@ def main():
     s = output['summary']
     print(f'\nCandidates : {s["total_candidates"]:,}  |  Female: {s["female_candidates"]:,} ({s["pct_female"]}%)  |  Male: {s["male_candidates"]:,}  |  Unknown: {s["unknown_candidates"]:,}')
     print(f'Elected    : {s["elected_total"]:,}  |  Female: {s["elected_female"]:,} ({s["pct_female_elected"]}%)  |  Male: {s["elected_male"]:,}')
+    print(f'Incumbents : stood {s["inc_total"]:,}  |  Re-elected: {s["inc_elected"]:,} ({s["inc_retention_pct"]}%)  |  Defeated: {s["inc_defeated"]:,}  |  New elected: {s["new_elected"]:,}')
     print(f'Councils   : {len(output["by_council"])}  |  Parties: {len(output["by_party"])}  |  Regions: {len(output["by_region"])}')
 
     unmatched = [c['org_name'] for c in output['by_council'] if not c['lad_code']]

@@ -6,7 +6,8 @@ An interactive one-page dashboard analysing the gender breakdown of candidates a
 
 ## What it shows
 
-- **Summary statistics** — overall % female candidates vs elected
+- **Summary statistics** — overall % female candidates vs elected; incumbent retention rate
+- **Seat changes panel** — always-visible panel showing incumbents who stood, re-elected, defeated, and new councillors elected; updates on council or region selection
 - **Choropleth map** — gender balance by local authority, with a bivariate colour scheme that distinguishes high-confidence areas (strong hue) from areas where many candidates' genders are unresolved (washed-out/grey)
 - **Party breakdown** — stacked 100% bar charts for all parties with ≥ 30 candidates, candidates and elected side-by-side. Click any bar to open a **party detail panel** showing:
   - 6-tile stat grid: total candidates, female candidates, seat-slots contested, elected total, female elected (+ win rate), male elected (+ win rate)
@@ -25,9 +26,21 @@ An interactive one-page dashboard analysing the gender breakdown of candidates a
 | **gender_guesser** | ~53% | Open-source Python library; uses a compiled international names database; `great_britain` locale; `mostly_*` results accepted at low confidence |
 | **ONS baby names** | ~2% | Falls back to the ONS historical top-100 baby names dataset (1904–2024) when gender_guesser returns `andy`/`unknown`; birth year is used to select the closest decade, so time-varying names (e.g. "Ashley") are handled appropriately |
 | **Claude AI** | ~11% | Names still unresolved after the above steps were sent to Claude (Anthropic) for prediction; stored with `claude` method tag and a confidence level |
-| **Unknown** | ~5% | Primarily non-Western names not covered by any of the above sources |
+| **Unknown** | ~<0.3% | Primarily non-Western names not covered by any of the above sources |
 
 Predictions are stored in `genders.csv` (keyed by `person_id` + surname) and are not written back to the source data.
+
+## Incumbency method
+
+Incumbent status (whether a 2026 candidate was a sitting councillor in the same ward and council) is determined by matching against 2025 sitting councillor data from [opencouncildata.co.uk](https://opencouncildata.co.uk). Matching requires:
+
+1. **Council name match** — prefix/suffix normalisation (strips "London Borough of", "Borough Council" etc.).
+2. **Ward name match** — exact, then fuzzy (`difflib.get_close_matches`, cutoff 0.6) with first-word constraint to prevent cross-area false positives.
+3. **Full-name fuzzy match** — `SequenceMatcher` ratio ≥ 0.80, to handle middle names / minor spelling differences.
+
+The `inc` field is omitted from ward JSON when `False` (not an incumbent) to keep file sizes small. Output stats: `inc_total`, `inc_elected`, `inc_defeated`, `new_elected`, `inc_retention_pct`.
+
+> **Limitation:** incumbents who chose not to re-stand cannot be identified — "Defeated" means stood and lost.
 
 ## Repository layout
 
@@ -40,7 +53,9 @@ LAD_MAY_2025_UK_BUC_*.geojson  ONS LAD boundaries (local, not committed to git)
 scripts/
   parse_ons_data.py          Parse historicalnames2024.xlsx → scripts/data/ons_lookup.json
   assign_genders.py          Produce genders.csv from dc_data.csv + ons_lookup.json
-  build_data.py              Aggregate data → docs/data/councils.json + copy GeoJSON
+  identify_incumbents.py     Match 2026 candidates against 2025 sitting councillors
+                             → scripts/data/incumbents.json + scripts/data/ward_fuzzy_log.json
+  build_data.py              Aggregate data → docs/data/councils.json + wards/*.json
 
 docs/                        GitHub Pages root
   index.html
@@ -80,6 +95,9 @@ py -m http.server 8080 --directory docs
 ```
 
 ## Sources & licences
+
+**Incumbency data**
+- [opencouncildata.co.uk](https://opencouncildata.co.uk) — 2025 sitting councillor composition, used for incumbency matching.
 
 **Election data**
 - Democracy Club candidate and results data, May 2026.

@@ -16,7 +16,14 @@
     "conf_low": 1503,
     "pct_high_conf": 92.5,
     "national_female_win_rate": 21.3,
-    "national_male_win_rate": 19.7
+    "national_male_win_rate": 19.7,
+    "inc_total": 2292,
+    "inc_elected": 1316,
+    "inc_defeated": 976,
+    "new_elected": 3742,
+    "inc_female_pct": 41.6,
+    "new_female_elected_pct": 32.7,
+    "inc_retention_pct": 57.4
   },
   "by_council": [
     {
@@ -42,7 +49,14 @@
       "conf_high": 63,
       "conf_medium": 1,
       "conf_low": 4,
-      "pct_high_conf": 92.6
+      "pct_high_conf": 92.6,
+      "inc_total": 7,
+      "inc_elected": 4,
+      "inc_defeated": 3,
+      "new_elected": 10,
+      "inc_female_pct": 14.3,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": 57.1
     },
     {
       "org_name": "Barnsley",
@@ -67,7 +81,14 @@
       "conf_high": 259,
       "conf_medium": 0,
       "conf_low": 29,
-      "pct_high_conf": 89.9
+      "pct_high_conf": 89.9,
+      "inc_total": 41,
+      "inc_elected": 15,
+      "inc_defeated": 26,
+      "new_elected": 48,
+      "inc_female_pct": 43.9,
+      "new_female_elected_pct": 25.0,
+      "inc_retention_pct": 36.6
     },
     {
       "org_name": "Basildon",
@@ -92,7 +113,14 @@
       "conf_high": 76,
       "conf_medium": 0,
       "conf_low": 7,
-      "pct_high_conf": 91.6
+      "pct_high_conf": 91.6,
+      "inc_total": 4,
+      "inc_elected": 3,
+      "inc_defeated": 1,
+      "new_elected": 11,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": 18.2,
+      "inc_retention_pct": 75.0
     },
     {
       "org_name": "Basingstoke and Deane",
@@ -117,7 +145,14 @@
       "conf_high": 95,
       "conf_medium": 0,
       "conf_low": 4,
-      "pct_high_conf": 96.0
+      "pct_high_conf": 96.0,
+      "inc_total": 7,
+      "inc_elected": 6,
+      "inc_defeated": 1,
+      "new_elected": 13,
+      "inc_female_pct": 57.1,
+      "new_female_elected_pct": 30.8,
+      "inc_retention_pct": 85.7
     },
     {
       "org_name": "Birmingham",
@@ -142,7 +177,14 @@
       "conf_high": 568,
       "conf_medium": 11,
       "conf_low": 36,
-      "pct_high_conf": 92.4
+      "pct_high_conf": 92.4,
+      "inc_total": 48,
+      "inc_elected": 26,
+      "inc_defeated": 22,
+      "new_elected": 75,
+      "inc_female_pct": 41.7,
+      "new_female_elected_pct": 28.4,
+      "inc_retention_pct": 54.2
     },
     {
       "org_name": "Blackburn with Darwen",
@@ -167,7 +209,14 @@
       "conf_high": 76,
       "conf_medium": 2,
       "conf_low": 6,
-      "pct_high_conf": 90.5
+      "pct_high_conf": 90.5,
+      "inc_total": 14,
+      "inc_elected": 3,
+      "inc_defeated": 11,
+      "new_elected": 14,
+      "inc_female_pct": 28.6,
+      "new_female_elected_pct": 28.6,
+      "inc_retention_pct": 21.4
     },
     {
       "org_name": "Bolton",
@@ -192,7 +241,14 @@
       "conf_high": 107,
       "conf_medium": 2,
       "conf_low": 5,
-      "pct_high_conf": 93.9
+      "pct_high_conf": 93.9,
+      "inc_total": 14,
+      "inc_elected": 5,
+      "inc_defeated": 9,
+      "new_elected": 15,
+      "inc_female_pct": 21.4,
+      "new_female_elected_pct": 33.3,
+      "inc_retention_pct": 35.7
     },
     {
       "org_name": "Bradford",
@@ -217,7 +273,14 @@
       "conf_high": 419,
       "conf_medium": 7,
       "conf_low": 32,
-      "pct_high_conf": 91.5
+      "pct_high_conf": 91.5,
+      "inc_total": 47,
+      "inc_elected": 20,
+      "inc_defeated": 27,
+      "new_elected": 67,
+      "inc_female_pct": 42.6,
+      "new_female_elected_pct": 22.4,
+      "inc_retention_pct": 42.6
     },
     {
       "org_name": "Brentwood",
@@ -242,7 +305,14 @@
       "conf_high": 67,
       "conf_medium": 0,
       "conf_low": 4,
-      "pct_high_conf": 94.4
+      "pct_high_conf": 94.4,
+      "inc_total": 7,
+      "inc_elected": 4,
+      "inc_defeated": 3,
+      "new_elected": 10,
+      "inc_female_pct": 42.9,
+      "new_female_elected_pct": 20.0,
+      "inc_retention_pct": 57.1
     },
     {
       "org_name": "Broxbourne",
@@ -267,7 +337,14 @@
       "conf_high": 45,
       "conf_medium": 1,
       "conf_low": 8,
-      "pct_high_conf": 83.3
+      "pct_high_conf": 83.3,
+      "inc_total": 4,
+      "inc_elected": 3,
+      "inc_defeated": 1,
+      "new_elected": 7,
+      "inc_female_pct": 75.0,
+      "new_female_elected_pct": 28.6,
+      "inc_retention_pct": 75.0
     },
     {
       "org_name": "Burnley",
@@ -292,7 +369,14 @@
       "conf_high": 60,
       "conf_medium": 1,
       "conf_low": 2,
-      "pct_high_conf": 95.2
+      "pct_high_conf": 95.2,
+      "inc_total": 9,
+      "inc_elected": 4,
+      "inc_defeated": 5,
+      "new_elected": 11,
+      "inc_female_pct": 11.1,
+      "new_female_elected_pct": 18.2,
+      "inc_retention_pct": 44.4
     },
     {
       "org_name": "Bury",
@@ -317,7 +401,14 @@
       "conf_high": 84,
       "conf_medium": 0,
       "conf_low": 7,
-      "pct_high_conf": 92.3
+      "pct_high_conf": 92.3,
+      "inc_total": 11,
+      "inc_elected": 6,
+      "inc_defeated": 5,
+      "new_elected": 10,
+      "inc_female_pct": 54.5,
+      "new_female_elected_pct": 30.0,
+      "inc_retention_pct": 54.5
     },
     {
       "org_name": "Calderdale",
@@ -342,7 +433,14 @@
       "conf_high": 212,
       "conf_medium": 1,
       "conf_low": 29,
-      "pct_high_conf": 87.6
+      "pct_high_conf": 87.6,
+      "inc_total": 19,
+      "inc_elected": 9,
+      "inc_defeated": 10,
+      "new_elected": 45,
+      "inc_female_pct": 36.8,
+      "new_female_elected_pct": 28.9,
+      "inc_retention_pct": 47.4
     },
     {
       "org_name": "Cambridge",
@@ -367,7 +465,14 @@
       "conf_high": 79,
       "conf_medium": 0,
       "conf_low": 3,
-      "pct_high_conf": 96.3
+      "pct_high_conf": 96.3,
+      "inc_total": 6,
+      "inc_elected": 4,
+      "inc_defeated": 2,
+      "new_elected": 11,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 72.7,
+      "inc_retention_pct": 66.7
     },
     {
       "org_name": "Cannock Chase",
@@ -392,7 +497,14 @@
       "conf_high": 52,
       "conf_medium": 1,
       "conf_low": 1,
-      "pct_high_conf": 96.3
+      "pct_high_conf": 96.3,
+      "inc_total": 7,
+      "inc_elected": 1,
+      "inc_defeated": 6,
+      "new_elected": 12,
+      "inc_female_pct": 42.9,
+      "new_female_elected_pct": 25.0,
+      "inc_retention_pct": 14.3
     },
     {
       "org_name": "Chelmsford City Council",
@@ -417,7 +529,14 @@
       "conf_high": 4,
       "conf_medium": 0,
       "conf_low": 1,
-      "pct_high_conf": 80.0
+      "pct_high_conf": 80.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 100.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Cheltenham",
@@ -442,7 +561,14 @@
       "conf_high": 95,
       "conf_medium": 0,
       "conf_low": 3,
-      "pct_high_conf": 96.9
+      "pct_high_conf": 96.9,
+      "inc_total": 7,
+      "inc_elected": 7,
+      "inc_defeated": 0,
+      "new_elected": 13,
+      "inc_female_pct": 28.6,
+      "new_female_elected_pct": 46.2,
+      "inc_retention_pct": 100.0
     },
     {
       "org_name": "Cherwell",
@@ -467,7 +593,14 @@
       "conf_high": 87,
       "conf_medium": 0,
       "conf_low": 8,
-      "pct_high_conf": 91.6
+      "pct_high_conf": 91.6,
+      "inc_total": 2,
+      "inc_elected": 1,
+      "inc_defeated": 1,
+      "new_elected": 17,
+      "inc_female_pct": 100.0,
+      "new_female_elected_pct": 35.3,
+      "inc_retention_pct": 50.0
     },
     {
       "org_name": "Chesterfield Borough Council",
@@ -492,7 +625,14 @@
       "conf_high": 11,
       "conf_medium": 0,
       "conf_low": 2,
-      "pct_high_conf": 84.6
+      "pct_high_conf": 84.6,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 2,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 50.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Chorley",
@@ -517,7 +657,14 @@
       "conf_high": 60,
       "conf_medium": 1,
       "conf_low": 4,
-      "pct_high_conf": 92.3
+      "pct_high_conf": 92.3,
+      "inc_total": 9,
+      "inc_elected": 4,
+      "inc_defeated": 5,
+      "new_elected": 10,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 50.0,
+      "inc_retention_pct": 44.4
     },
     {
       "org_name": "City of Lincoln Council",
@@ -542,7 +689,14 @@
       "conf_high": 56,
       "conf_medium": 1,
       "conf_low": 2,
-      "pct_high_conf": 94.9
+      "pct_high_conf": 94.9,
+      "inc_total": 1,
+      "inc_elected": 1,
+      "inc_defeated": 0,
+      "new_elected": 10,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": 30.0,
+      "inc_retention_pct": 100.0
     },
     {
       "org_name": "City of Westminster",
@@ -567,7 +721,14 @@
       "conf_high": 245,
       "conf_medium": 4,
       "conf_low": 14,
-      "pct_high_conf": 93.2
+      "pct_high_conf": 93.2,
+      "inc_total": 37,
+      "inc_elected": 32,
+      "inc_defeated": 5,
+      "new_elected": 22,
+      "inc_female_pct": 56.8,
+      "new_female_elected_pct": 22.7,
+      "inc_retention_pct": 86.5
     },
     {
       "org_name": "Colchester",
@@ -592,7 +753,14 @@
       "conf_high": 79,
       "conf_medium": 1,
       "conf_low": 6,
-      "pct_high_conf": 91.9
+      "pct_high_conf": 91.9,
+      "inc_total": 14,
+      "inc_elected": 10,
+      "inc_defeated": 4,
+      "new_elected": 7,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 14.3,
+      "inc_retention_pct": 71.4
     },
     {
       "org_name": "Coventry",
@@ -617,7 +785,14 @@
       "conf_high": 255,
       "conf_medium": 2,
       "conf_low": 13,
-      "pct_high_conf": 94.4
+      "pct_high_conf": 94.4,
+      "inc_total": 32,
+      "inc_elected": 22,
+      "inc_defeated": 10,
+      "new_elected": 32,
+      "inc_female_pct": 40.6,
+      "new_female_elected_pct": 37.5,
+      "inc_retention_pct": 68.8
     },
     {
       "org_name": "Crawley",
@@ -642,7 +817,14 @@
       "conf_high": 65,
       "conf_medium": 0,
       "conf_low": 3,
-      "pct_high_conf": 95.6
+      "pct_high_conf": 95.6,
+      "inc_total": 8,
+      "inc_elected": 1,
+      "inc_defeated": 7,
+      "new_elected": 12,
+      "inc_female_pct": 62.5,
+      "new_female_elected_pct": 50.0,
+      "inc_retention_pct": 12.5
     },
     {
       "org_name": "Dudley",
@@ -667,7 +849,14 @@
       "conf_high": 118,
       "conf_medium": 4,
       "conf_low": 12,
-      "pct_high_conf": 88.1
+      "pct_high_conf": 88.1,
+      "inc_total": 16,
+      "inc_elected": 4,
+      "inc_defeated": 12,
+      "new_elected": 21,
+      "inc_female_pct": 31.2,
+      "new_female_elected_pct": 14.3,
+      "inc_retention_pct": 25.0
     },
     {
       "org_name": "East Hertfordshire District Council",
@@ -692,7 +881,14 @@
       "conf_high": 5,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "East Surrey Council",
@@ -717,7 +913,14 @@
       "conf_high": 355,
       "conf_medium": 1,
       "conf_low": 23,
-      "pct_high_conf": 93.7
+      "pct_high_conf": 93.7,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 72,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 27.8,
+      "inc_retention_pct": null
     },
     {
       "org_name": "East Sussex County Council",
@@ -742,7 +945,14 @@
       "conf_high": 246,
       "conf_medium": 1,
       "conf_low": 15,
-      "pct_high_conf": 93.9
+      "pct_high_conf": 93.9,
+      "inc_total": 19,
+      "inc_elected": 9,
+      "inc_defeated": 10,
+      "new_elected": 41,
+      "inc_female_pct": 31.6,
+      "new_female_elected_pct": 34.1,
+      "inc_retention_pct": 47.4
     },
     {
       "org_name": "Eastleigh",
@@ -767,7 +977,14 @@
       "conf_high": 68,
       "conf_medium": 0,
       "conf_low": 5,
-      "pct_high_conf": 93.2
+      "pct_high_conf": 93.2,
+      "inc_total": 8,
+      "inc_elected": 8,
+      "inc_defeated": 0,
+      "new_elected": 7,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": 100.0
     },
     {
       "org_name": "Epping Forest",
@@ -792,7 +1009,14 @@
       "conf_high": 76,
       "conf_medium": 1,
       "conf_low": 7,
-      "pct_high_conf": 90.5
+      "pct_high_conf": 90.5,
+      "inc_total": 8,
+      "inc_elected": 5,
+      "inc_defeated": 3,
+      "new_elected": 13,
+      "inc_female_pct": 62.5,
+      "new_female_elected_pct": 30.8,
+      "inc_retention_pct": 62.5
     },
     {
       "org_name": "Essex County Council",
@@ -817,7 +1041,14 @@
       "conf_high": 401,
       "conf_medium": 3,
       "conf_low": 28,
-      "pct_high_conf": 92.8
+      "pct_high_conf": 92.8,
+      "inc_total": 23,
+      "inc_elected": 8,
+      "inc_defeated": 15,
+      "new_elected": 69,
+      "inc_female_pct": 30.4,
+      "new_female_elected_pct": 21.7,
+      "inc_retention_pct": 34.8
     },
     {
       "org_name": "Exeter",
@@ -842,7 +1073,14 @@
       "conf_high": 70,
       "conf_medium": 0,
       "conf_low": 2,
-      "pct_high_conf": 97.2
+      "pct_high_conf": 97.2,
+      "inc_total": 5,
+      "inc_elected": 3,
+      "inc_defeated": 2,
+      "new_elected": 11,
+      "inc_female_pct": 20.0,
+      "new_female_elected_pct": 45.5,
+      "inc_retention_pct": 60.0
     },
     {
       "org_name": "Fareham",
@@ -867,7 +1105,14 @@
       "conf_high": 64,
       "conf_medium": 1,
       "conf_low": 8,
-      "pct_high_conf": 87.7
+      "pct_high_conf": 87.7,
+      "inc_total": 8,
+      "inc_elected": 8,
+      "inc_defeated": 0,
+      "new_elected": 8,
+      "inc_female_pct": 37.5,
+      "new_female_elected_pct": 62.5,
+      "inc_retention_pct": 100.0
     },
     {
       "org_name": "Gateshead",
@@ -892,7 +1137,14 @@
       "conf_high": 249,
       "conf_medium": 1,
       "conf_low": 26,
-      "pct_high_conf": 90.2
+      "pct_high_conf": 90.2,
+      "inc_total": 24,
+      "inc_elected": 11,
+      "inc_defeated": 13,
+      "new_elected": 55,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 32.7,
+      "inc_retention_pct": 45.8
     },
     {
       "org_name": "Gloucestershire County Council",
@@ -917,7 +1169,14 @@
       "conf_high": 6,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 100.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Gosport",
@@ -942,7 +1201,14 @@
       "conf_high": 60,
       "conf_medium": 1,
       "conf_low": 3,
-      "pct_high_conf": 93.8
+      "pct_high_conf": 93.8,
+      "inc_total": 8,
+      "inc_elected": 2,
+      "inc_defeated": 6,
+      "new_elected": 12,
+      "inc_female_pct": 12.5,
+      "new_female_elected_pct": 16.7,
+      "inc_retention_pct": 25.0
     },
     {
       "org_name": "Great Yarmouth",
@@ -967,7 +1233,14 @@
       "conf_high": 5,
       "conf_medium": 0,
       "conf_low": 1,
-      "pct_high_conf": 83.3
+      "pct_high_conf": 83.3,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Guildford Borough Council",
@@ -992,7 +1265,14 @@
       "conf_high": 5,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Halton",
@@ -1017,7 +1297,14 @@
       "conf_high": 79,
       "conf_medium": 0,
       "conf_low": 2,
-      "pct_high_conf": 97.5
+      "pct_high_conf": 97.5,
+      "inc_total": 10,
+      "inc_elected": 1,
+      "inc_defeated": 9,
+      "new_elected": 18,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 16.7,
+      "inc_retention_pct": 10.0
     },
     {
       "org_name": "Hampshire County Council",
@@ -1042,7 +1329,14 @@
       "conf_high": 381,
       "conf_medium": 4,
       "conf_low": 17,
-      "pct_high_conf": 94.8
+      "pct_high_conf": 94.8,
+      "inc_total": 37,
+      "inc_elected": 23,
+      "inc_defeated": 14,
+      "new_elected": 55,
+      "inc_female_pct": 40.5,
+      "new_female_elected_pct": 29.1,
+      "inc_retention_pct": 62.2
     },
     {
       "org_name": "Harlow",
@@ -1067,7 +1361,14 @@
       "conf_high": 44,
       "conf_medium": 0,
       "conf_low": 4,
-      "pct_high_conf": 91.7
+      "pct_high_conf": 91.7,
+      "inc_total": 1,
+      "inc_elected": 1,
+      "inc_defeated": 0,
+      "new_elected": 10,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": 40.0,
+      "inc_retention_pct": 100.0
     },
     {
       "org_name": "Hart",
@@ -1092,7 +1393,14 @@
       "conf_high": 48,
       "conf_medium": 0,
       "conf_low": 4,
-      "pct_high_conf": 92.3
+      "pct_high_conf": 92.3,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 11,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 45.5,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Hartlepool",
@@ -1117,7 +1425,14 @@
       "conf_high": 56,
       "conf_medium": 1,
       "conf_low": 0,
-      "pct_high_conf": 98.2
+      "pct_high_conf": 98.2,
+      "inc_total": 7,
+      "inc_elected": 0,
+      "inc_defeated": 7,
+      "new_elected": 12,
+      "inc_female_pct": 42.9,
+      "new_female_elected_pct": 16.7,
+      "inc_retention_pct": 0.0
     },
     {
       "org_name": "Hastings",
@@ -1142,7 +1457,14 @@
       "conf_high": 66,
       "conf_medium": 4,
       "conf_low": 10,
-      "pct_high_conf": 82.5
+      "pct_high_conf": 82.5,
+      "inc_total": 7,
+      "inc_elected": 2,
+      "inc_defeated": 5,
+      "new_elected": 15,
+      "inc_female_pct": 14.3,
+      "new_female_elected_pct": 26.7,
+      "inc_retention_pct": 28.6
     },
     {
       "org_name": "Havant",
@@ -1167,7 +1489,14 @@
       "conf_high": 34,
       "conf_medium": 0,
       "conf_low": 2,
-      "pct_high_conf": 94.4
+      "pct_high_conf": 94.4,
+      "inc_total": 5,
+      "inc_elected": 4,
+      "inc_defeated": 1,
+      "new_elected": 8,
+      "inc_female_pct": 40.0,
+      "new_female_elected_pct": 25.0,
+      "inc_retention_pct": 80.0
     },
     {
       "org_name": "Hertfordshire County Council",
@@ -1192,7 +1521,14 @@
       "conf_high": 5,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 100.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Hertsmere Borough Council",
@@ -1217,7 +1553,14 @@
       "conf_high": 5,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Horsham District Council",
@@ -1242,7 +1585,14 @@
       "conf_high": 4,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Huntingdonshire",
@@ -1267,7 +1617,14 @@
       "conf_high": 214,
       "conf_medium": 3,
       "conf_low": 14,
-      "pct_high_conf": 92.6
+      "pct_high_conf": 92.6,
+      "inc_total": 30,
+      "inc_elected": 19,
+      "inc_defeated": 11,
+      "new_elected": 33,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 27.3,
+      "inc_retention_pct": 63.3
     },
     {
       "org_name": "Hyndburn",
@@ -1292,7 +1649,14 @@
       "conf_high": 40,
       "conf_medium": 0,
       "conf_low": 2,
-      "pct_high_conf": 95.2
+      "pct_high_conf": 95.2,
+      "inc_total": 5,
+      "inc_elected": 1,
+      "inc_defeated": 4,
+      "new_elected": 10,
+      "inc_female_pct": 40.0,
+      "new_female_elected_pct": 20.0,
+      "inc_retention_pct": 20.0
     },
     {
       "org_name": "Ipswich",
@@ -1317,7 +1681,14 @@
       "conf_high": 69,
       "conf_medium": 0,
       "conf_low": 6,
-      "pct_high_conf": 92.0
+      "pct_high_conf": 92.0,
+      "inc_total": 7,
+      "inc_elected": 4,
+      "inc_defeated": 3,
+      "new_elected": 12,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": 8.3,
+      "inc_retention_pct": 57.1
     },
     {
       "org_name": "Isle of Wight Council",
@@ -1342,7 +1713,14 @@
       "conf_high": 142,
       "conf_medium": 5,
       "conf_low": 17,
-      "pct_high_conf": 86.6
+      "pct_high_conf": 86.6,
+      "inc_total": 19,
+      "inc_elected": 10,
+      "inc_defeated": 9,
+      "new_elected": 29,
+      "inc_female_pct": 36.8,
+      "new_female_elected_pct": 13.8,
+      "inc_retention_pct": 52.6
     },
     {
       "org_name": "Kingston upon Hull",
@@ -1367,7 +1745,14 @@
       "conf_high": 90,
       "conf_medium": 4,
       "conf_low": 7,
-      "pct_high_conf": 89.1
+      "pct_high_conf": 89.1,
+      "inc_total": 12,
+      "inc_elected": 5,
+      "inc_defeated": 7,
+      "new_elected": 14,
+      "inc_female_pct": 75.0,
+      "new_female_elected_pct": 35.7,
+      "inc_retention_pct": 41.7
     },
     {
       "org_name": "Kirklees",
@@ -1392,7 +1777,14 @@
       "conf_high": 351,
       "conf_medium": 8,
       "conf_low": 21,
-      "pct_high_conf": 92.4
+      "pct_high_conf": 92.4,
+      "inc_total": 31,
+      "inc_elected": 14,
+      "inc_defeated": 17,
+      "new_elected": 55,
+      "inc_female_pct": 32.3,
+      "new_female_elected_pct": 30.9,
+      "inc_retention_pct": 45.2
     },
     {
       "org_name": "Knowsley",
@@ -1417,7 +1809,14 @@
       "conf_high": 49,
       "conf_medium": 1,
       "conf_low": 6,
-      "pct_high_conf": 87.5
+      "pct_high_conf": 87.5,
+      "inc_total": 12,
+      "inc_elected": 7,
+      "inc_defeated": 5,
+      "new_elected": 9,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 11.1,
+      "inc_retention_pct": 58.3
     },
     {
       "org_name": "Leeds",
@@ -1442,7 +1841,14 @@
       "conf_high": 210,
       "conf_medium": 1,
       "conf_low": 10,
-      "pct_high_conf": 95.0
+      "pct_high_conf": 95.0,
+      "inc_total": 16,
+      "inc_elected": 11,
+      "inc_defeated": 5,
+      "new_elected": 25,
+      "inc_female_pct": 37.5,
+      "new_female_elected_pct": 40.0,
+      "inc_retention_pct": 68.8
     },
     {
       "org_name": "Lewes District Council",
@@ -1467,7 +1873,14 @@
       "conf_high": 8,
       "conf_medium": 1,
       "conf_low": 0,
-      "pct_high_conf": 88.9
+      "pct_high_conf": 88.9,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 2,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 50.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "London Borough of Barking and Dagenham",
@@ -1492,7 +1905,14 @@
       "conf_high": 194,
       "conf_medium": 8,
       "conf_low": 13,
-      "pct_high_conf": 90.2
+      "pct_high_conf": 90.2,
+      "inc_total": 33,
+      "inc_elected": 28,
+      "inc_defeated": 5,
+      "new_elected": 23,
+      "inc_female_pct": 51.5,
+      "new_female_elected_pct": 39.1,
+      "inc_retention_pct": 84.8
     },
     {
       "org_name": "London Borough of Barnet",
@@ -1517,7 +1937,14 @@
       "conf_high": 289,
       "conf_medium": 6,
       "conf_low": 17,
-      "pct_high_conf": 92.6
+      "pct_high_conf": 92.6,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 63,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 38.1,
+      "inc_retention_pct": null
     },
     {
       "org_name": "London Borough of Bexley",
@@ -1542,7 +1969,14 @@
       "conf_high": 173,
       "conf_medium": 0,
       "conf_low": 19,
-      "pct_high_conf": 90.1
+      "pct_high_conf": 90.1,
+      "inc_total": 18,
+      "inc_elected": 15,
+      "inc_defeated": 3,
+      "new_elected": 30,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 33.3,
+      "inc_retention_pct": 83.3
     },
     {
       "org_name": "London Borough of Brent",
@@ -1567,7 +2001,14 @@
       "conf_high": 276,
       "conf_medium": 9,
       "conf_low": 11,
-      "pct_high_conf": 93.2
+      "pct_high_conf": 93.2,
+      "inc_total": 31,
+      "inc_elected": 17,
+      "inc_defeated": 14,
+      "new_elected": 40,
+      "inc_female_pct": 48.4,
+      "new_female_elected_pct": 37.5,
+      "inc_retention_pct": 54.8
     },
     {
       "org_name": "London Borough of Bromley",
@@ -1592,7 +2033,14 @@
       "conf_high": 266,
       "conf_medium": 2,
       "conf_low": 16,
-      "pct_high_conf": 93.7
+      "pct_high_conf": 93.7,
+      "inc_total": 31,
+      "inc_elected": 26,
+      "inc_defeated": 5,
+      "new_elected": 32,
+      "inc_female_pct": 35.5,
+      "new_female_elected_pct": 31.2,
+      "inc_retention_pct": 83.9
     },
     {
       "org_name": "London Borough of Camden",
@@ -1617,7 +2065,14 @@
       "conf_high": 254,
       "conf_medium": 3,
       "conf_low": 13,
-      "pct_high_conf": 94.1
+      "pct_high_conf": 94.1,
+      "inc_total": 27,
+      "inc_elected": 21,
+      "inc_defeated": 6,
+      "new_elected": 34,
+      "inc_female_pct": 55.6,
+      "new_female_elected_pct": 35.3,
+      "inc_retention_pct": 77.8
     },
     {
       "org_name": "London Borough of Croydon",
@@ -1642,7 +2097,14 @@
       "conf_high": 338,
       "conf_medium": 2,
       "conf_low": 15,
-      "pct_high_conf": 95.2
+      "pct_high_conf": 95.2,
+      "inc_total": 41,
+      "inc_elected": 34,
+      "inc_defeated": 7,
+      "new_elected": 36,
+      "inc_female_pct": 46.3,
+      "new_female_elected_pct": 41.7,
+      "inc_retention_pct": 82.9
     },
     {
       "org_name": "London Borough of Ealing",
@@ -1667,7 +2129,14 @@
       "conf_high": 348,
       "conf_medium": 6,
       "conf_low": 13,
-      "pct_high_conf": 94.8
+      "pct_high_conf": 94.8,
+      "inc_total": 37,
+      "inc_elected": 31,
+      "inc_defeated": 6,
+      "new_elected": 39,
+      "inc_female_pct": 43.2,
+      "new_female_elected_pct": 48.7,
+      "inc_retention_pct": 83.8
     },
     {
       "org_name": "London Borough of Enfield",
@@ -1692,7 +2161,14 @@
       "conf_high": 310,
       "conf_medium": 6,
       "conf_low": 18,
-      "pct_high_conf": 92.8
+      "pct_high_conf": 92.8,
+      "inc_total": 39,
+      "inc_elected": 33,
+      "inc_defeated": 6,
+      "new_elected": 30,
+      "inc_female_pct": 35.9,
+      "new_female_elected_pct": 46.7,
+      "inc_retention_pct": 84.6
     },
     {
       "org_name": "London Borough of Hackney",
@@ -1717,7 +2193,14 @@
       "conf_high": 228,
       "conf_medium": 5,
       "conf_low": 11,
-      "pct_high_conf": 93.4
+      "pct_high_conf": 93.4,
+      "inc_total": 45,
+      "inc_elected": 14,
+      "inc_defeated": 31,
+      "new_elected": 43,
+      "inc_female_pct": 46.7,
+      "new_female_elected_pct": 55.8,
+      "inc_retention_pct": 31.1
     },
     {
       "org_name": "London Borough of Hammersmith & Fulham",
@@ -1742,7 +2225,14 @@
       "conf_high": 209,
       "conf_medium": 1,
       "conf_low": 14,
-      "pct_high_conf": 93.3
+      "pct_high_conf": 93.3,
+      "inc_total": 34,
+      "inc_elected": 33,
+      "inc_defeated": 1,
+      "new_elected": 17,
+      "inc_female_pct": 52.9,
+      "new_female_elected_pct": 47.1,
+      "inc_retention_pct": 97.1
     },
     {
       "org_name": "London Borough of Haringey",
@@ -1767,7 +2257,14 @@
       "conf_high": 251,
       "conf_medium": 6,
       "conf_low": 16,
-      "pct_high_conf": 91.9
+      "pct_high_conf": 91.9,
+      "inc_total": 33,
+      "inc_elected": 18,
+      "inc_defeated": 15,
+      "new_elected": 39,
+      "inc_female_pct": 60.6,
+      "new_female_elected_pct": 53.8,
+      "inc_retention_pct": 54.5
     },
     {
       "org_name": "London Borough of Harrow",
@@ -1792,7 +2289,14 @@
       "conf_high": 227,
       "conf_medium": 6,
       "conf_low": 7,
-      "pct_high_conf": 94.6
+      "pct_high_conf": 94.6,
+      "inc_total": 35,
+      "inc_elected": 26,
+      "inc_defeated": 9,
+      "new_elected": 29,
+      "inc_female_pct": 42.9,
+      "new_female_elected_pct": 24.1,
+      "inc_retention_pct": 74.3
     },
     {
       "org_name": "London Borough of Havering",
@@ -1817,7 +2321,14 @@
       "conf_high": 273,
       "conf_medium": 5,
       "conf_low": 25,
-      "pct_high_conf": 90.1
+      "pct_high_conf": 90.1,
+      "inc_total": 19,
+      "inc_elected": 8,
+      "inc_defeated": 11,
+      "new_elected": 47,
+      "inc_female_pct": 42.1,
+      "new_female_elected_pct": 19.1,
+      "inc_retention_pct": 42.1
     },
     {
       "org_name": "London Borough of Hillingdon",
@@ -1842,7 +2353,14 @@
       "conf_high": 238,
       "conf_medium": 5,
       "conf_low": 21,
-      "pct_high_conf": 90.2
+      "pct_high_conf": 90.2,
+      "inc_total": 27,
+      "inc_elected": 16,
+      "inc_defeated": 11,
+      "new_elected": 35,
+      "inc_female_pct": 18.5,
+      "new_female_elected_pct": 34.3,
+      "inc_retention_pct": 59.3
     },
     {
       "org_name": "London Borough of Hounslow",
@@ -1867,7 +2385,14 @@
       "conf_high": 249,
       "conf_medium": 7,
       "conf_low": 9,
-      "pct_high_conf": 94.0
+      "pct_high_conf": 94.0,
+      "inc_total": 30,
+      "inc_elected": 23,
+      "inc_defeated": 7,
+      "new_elected": 39,
+      "inc_female_pct": 36.7,
+      "new_female_elected_pct": 25.6,
+      "inc_retention_pct": 76.7
     },
     {
       "org_name": "London Borough of Islington",
@@ -1892,7 +2417,14 @@
       "conf_high": 249,
       "conf_medium": 4,
       "conf_low": 10,
-      "pct_high_conf": 94.7
+      "pct_high_conf": 94.7,
+      "inc_total": 26,
+      "inc_elected": 16,
+      "inc_defeated": 10,
+      "new_elected": 35,
+      "inc_female_pct": 53.8,
+      "new_female_elected_pct": 45.7,
+      "inc_retention_pct": 61.5
     },
     {
       "org_name": "London Borough of Lambeth",
@@ -1917,7 +2449,14 @@
       "conf_high": 294,
       "conf_medium": 4,
       "conf_low": 11,
-      "pct_high_conf": 95.1
+      "pct_high_conf": 95.1,
+      "inc_total": 32,
+      "inc_elected": 18,
+      "inc_defeated": 14,
+      "new_elected": 45,
+      "inc_female_pct": 40.6,
+      "new_female_elected_pct": 53.3,
+      "inc_retention_pct": 56.2
     },
     {
       "org_name": "London Borough of Lewisham",
@@ -1942,7 +2481,14 @@
       "conf_high": 240,
       "conf_medium": 7,
       "conf_low": 18,
-      "pct_high_conf": 90.6
+      "pct_high_conf": 90.6,
+      "inc_total": 29,
+      "inc_elected": 10,
+      "inc_defeated": 19,
+      "new_elected": 44,
+      "inc_female_pct": 44.8,
+      "new_female_elected_pct": 54.8,
+      "inc_retention_pct": 34.5
     },
     {
       "org_name": "London Borough of Merton",
@@ -1967,7 +2513,14 @@
       "conf_high": 254,
       "conf_medium": 6,
       "conf_low": 11,
-      "pct_high_conf": 93.7
+      "pct_high_conf": 93.7,
+      "inc_total": 31,
+      "inc_elected": 29,
+      "inc_defeated": 2,
+      "new_elected": 28,
+      "inc_female_pct": 38.7,
+      "new_female_elected_pct": 50.0,
+      "inc_retention_pct": 93.5
     },
     {
       "org_name": "London Borough of Newham",
@@ -1992,7 +2545,14 @@
       "conf_high": 330,
       "conf_medium": 7,
       "conf_low": 23,
-      "pct_high_conf": 91.7
+      "pct_high_conf": 91.7,
+      "inc_total": 23,
+      "inc_elected": 13,
+      "inc_defeated": 10,
+      "new_elected": 53,
+      "inc_female_pct": 52.2,
+      "new_female_elected_pct": 38.8,
+      "inc_retention_pct": 56.5
     },
     {
       "org_name": "London Borough of Redbridge",
@@ -2017,7 +2577,14 @@
       "conf_high": 293,
       "conf_medium": 17,
       "conf_low": 9,
-      "pct_high_conf": 91.8
+      "pct_high_conf": 91.8,
+      "inc_total": 25,
+      "inc_elected": 20,
+      "inc_defeated": 5,
+      "new_elected": 43,
+      "inc_female_pct": 32.0,
+      "new_female_elected_pct": 34.9,
+      "inc_retention_pct": 80.0
     },
     {
       "org_name": "London Borough of Richmond upon Thames",
@@ -2042,7 +2609,14 @@
       "conf_high": 243,
       "conf_medium": 5,
       "conf_low": 16,
-      "pct_high_conf": 92.0
+      "pct_high_conf": 92.0,
+      "inc_total": 35,
+      "inc_elected": 34,
+      "inc_defeated": 1,
+      "new_elected": 20,
+      "inc_female_pct": 37.1,
+      "new_female_elected_pct": 35.0,
+      "inc_retention_pct": 97.1
     },
     {
       "org_name": "London Borough of Southwark",
@@ -2067,7 +2641,14 @@
       "conf_high": 277,
       "conf_medium": 2,
       "conf_low": 13,
-      "pct_high_conf": 94.9
+      "pct_high_conf": 94.9,
+      "inc_total": 35,
+      "inc_elected": 22,
+      "inc_defeated": 13,
+      "new_elected": 41,
+      "inc_female_pct": 51.4,
+      "new_female_elected_pct": 51.2,
+      "inc_retention_pct": 62.9
     },
     {
       "org_name": "London Borough of Sutton",
@@ -2092,7 +2673,14 @@
       "conf_high": 259,
       "conf_medium": 3,
       "conf_low": 19,
-      "pct_high_conf": 92.2
+      "pct_high_conf": 92.2,
+      "inc_total": 27,
+      "inc_elected": 18,
+      "inc_defeated": 9,
+      "new_elected": 37,
+      "inc_female_pct": 18.5,
+      "new_female_elected_pct": 43.2,
+      "inc_retention_pct": 66.7
     },
     {
       "org_name": "London Borough of Tower Hamlets",
@@ -2117,7 +2705,14 @@
       "conf_high": 297,
       "conf_medium": 4,
       "conf_low": 12,
-      "pct_high_conf": 94.9
+      "pct_high_conf": 94.9,
+      "inc_total": 7,
+      "inc_elected": 3,
+      "inc_defeated": 4,
+      "new_elected": 42,
+      "inc_female_pct": 42.9,
+      "new_female_elected_pct": 19.5,
+      "inc_retention_pct": 42.9
     },
     {
       "org_name": "London Borough of Waltham Forest",
@@ -2142,7 +2737,14 @@
       "conf_high": 268,
       "conf_medium": 2,
       "conf_low": 22,
-      "pct_high_conf": 91.8
+      "pct_high_conf": 91.8,
+      "inc_total": 46,
+      "inc_elected": 21,
+      "inc_defeated": 25,
+      "new_elected": 39,
+      "inc_female_pct": 54.3,
+      "new_female_elected_pct": 59.0,
+      "inc_retention_pct": 45.7
     },
     {
       "org_name": "London Borough of Wandsworth",
@@ -2167,7 +2769,14 @@
       "conf_high": 276,
       "conf_medium": 0,
       "conf_low": 19,
-      "pct_high_conf": 93.6
+      "pct_high_conf": 93.6,
+      "inc_total": 29,
+      "inc_elected": 27,
+      "inc_defeated": 2,
+      "new_elected": 31,
+      "inc_female_pct": 44.8,
+      "new_female_elected_pct": 45.2,
+      "inc_retention_pct": 93.1
     },
     {
       "org_name": "Manchester",
@@ -2192,7 +2801,14 @@
       "conf_high": 167,
       "conf_medium": 4,
       "conf_low": 5,
-      "pct_high_conf": 94.9
+      "pct_high_conf": 94.9,
+      "inc_total": 22,
+      "inc_elected": 6,
+      "inc_defeated": 16,
+      "new_elected": 26,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 30.8,
+      "inc_retention_pct": 27.3
     },
     {
       "org_name": "Mid Sussex District Council",
@@ -2217,7 +2833,14 @@
       "conf_high": 4,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 100.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Milton Keynes",
@@ -2242,7 +2865,14 @@
       "conf_high": 284,
       "conf_medium": 7,
       "conf_low": 19,
-      "pct_high_conf": 91.6
+      "pct_high_conf": 91.6,
+      "inc_total": 22,
+      "inc_elected": 17,
+      "inc_defeated": 5,
+      "new_elected": 43,
+      "inc_female_pct": 45.5,
+      "new_female_elected_pct": 44.2,
+      "inc_retention_pct": 77.3
     },
     {
       "org_name": "Newcastle upon Tyne",
@@ -2267,7 +2897,14 @@
       "conf_high": 342,
       "conf_medium": 3,
       "conf_low": 18,
-      "pct_high_conf": 94.2
+      "pct_high_conf": 94.2,
+      "inc_total": 37,
+      "inc_elected": 17,
+      "inc_defeated": 20,
+      "new_elected": 61,
+      "inc_female_pct": 32.4,
+      "new_female_elected_pct": 29.5,
+      "inc_retention_pct": 45.9
     },
     {
       "org_name": "Newcastle-under-Lyme",
@@ -2292,7 +2929,14 @@
       "conf_high": 149,
       "conf_medium": 4,
       "conf_low": 12,
-      "pct_high_conf": 90.3
+      "pct_high_conf": 90.3,
+      "inc_total": 16,
+      "inc_elected": 6,
+      "inc_defeated": 10,
+      "new_elected": 38,
+      "inc_female_pct": 43.8,
+      "new_female_elected_pct": 23.7,
+      "inc_retention_pct": 37.5
     },
     {
       "org_name": "Newport City Council",
@@ -2317,7 +2961,14 @@
       "conf_high": 6,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Norfolk County Council",
@@ -2342,7 +2993,14 @@
       "conf_high": 410,
       "conf_medium": 7,
       "conf_low": 22,
-      "pct_high_conf": 93.4
+      "pct_high_conf": 93.4,
+      "inc_total": 20,
+      "inc_elected": 6,
+      "inc_defeated": 14,
+      "new_elected": 78,
+      "inc_female_pct": 35.0,
+      "new_female_elected_pct": 25.6,
+      "inc_retention_pct": 30.0
     },
     {
       "org_name": "North East Lincolnshire",
@@ -2367,7 +3025,14 @@
       "conf_high": 85,
       "conf_medium": 0,
       "conf_low": 2,
-      "pct_high_conf": 97.7
+      "pct_high_conf": 97.7,
+      "inc_total": 9,
+      "inc_elected": 1,
+      "inc_defeated": 8,
+      "new_elected": 14,
+      "inc_female_pct": 22.2,
+      "new_female_elected_pct": 21.4,
+      "inc_retention_pct": 11.1
     },
     {
       "org_name": "North Tyneside",
@@ -2392,7 +3057,14 @@
       "conf_high": 88,
       "conf_medium": 2,
       "conf_low": 1,
-      "pct_high_conf": 96.7
+      "pct_high_conf": 96.7,
+      "inc_total": 12,
+      "inc_elected": 4,
+      "inc_defeated": 8,
+      "new_elected": 16,
+      "inc_female_pct": 58.3,
+      "new_female_elected_pct": 12.5,
+      "inc_retention_pct": 33.3
     },
     {
       "org_name": "Norwich",
@@ -2417,7 +3089,14 @@
       "conf_high": 68,
       "conf_medium": 2,
       "conf_low": 2,
-      "pct_high_conf": 94.4
+      "pct_high_conf": 94.4,
+      "inc_total": 5,
+      "inc_elected": 2,
+      "inc_defeated": 3,
+      "new_elected": 12,
+      "inc_female_pct": 80.0,
+      "new_female_elected_pct": 41.7,
+      "inc_retention_pct": 40.0
     },
     {
       "org_name": "Nuneaton and Bedworth",
@@ -2442,7 +3121,14 @@
       "conf_high": 78,
       "conf_medium": 3,
       "conf_low": 4,
-      "pct_high_conf": 91.8
+      "pct_high_conf": 91.8,
+      "inc_total": 8,
+      "inc_elected": 2,
+      "inc_defeated": 6,
+      "new_elected": 17,
+      "inc_female_pct": 12.5,
+      "new_female_elected_pct": 5.9,
+      "inc_retention_pct": 25.0
     },
     {
       "org_name": "Oldham",
@@ -2467,7 +3153,14 @@
       "conf_high": 107,
       "conf_medium": 2,
       "conf_low": 8,
-      "pct_high_conf": 91.5
+      "pct_high_conf": 91.5,
+      "inc_total": 13,
+      "inc_elected": 3,
+      "inc_defeated": 10,
+      "new_elected": 17,
+      "inc_female_pct": 23.1,
+      "new_female_elected_pct": 5.9,
+      "inc_retention_pct": 23.1
     },
     {
       "org_name": "Oxford",
@@ -2492,7 +3185,14 @@
       "conf_high": 125,
       "conf_medium": 2,
       "conf_low": 5,
-      "pct_high_conf": 94.7
+      "pct_high_conf": 94.7,
+      "inc_total": 11,
+      "inc_elected": 10,
+      "inc_defeated": 1,
+      "new_elected": 14,
+      "inc_female_pct": 36.4,
+      "new_female_elected_pct": 57.1,
+      "inc_retention_pct": 90.9
     },
     {
       "org_name": "Pendle",
@@ -2517,7 +3217,14 @@
       "conf_high": 47,
       "conf_medium": 0,
       "conf_low": 8,
-      "pct_high_conf": 85.5
+      "pct_high_conf": 85.5,
+      "inc_total": 3,
+      "inc_elected": 2,
+      "inc_defeated": 1,
+      "new_elected": 8,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": 66.7
     },
     {
       "org_name": "Peterborough",
@@ -2542,7 +3249,14 @@
       "conf_high": 84,
       "conf_medium": 5,
       "conf_low": 3,
-      "pct_high_conf": 91.3
+      "pct_high_conf": 91.3,
+      "inc_total": 7,
+      "inc_elected": 3,
+      "inc_defeated": 4,
+      "new_elected": 15,
+      "inc_female_pct": 14.3,
+      "new_female_elected_pct": 13.3,
+      "inc_retention_pct": 42.9
     },
     {
       "org_name": "Plymouth",
@@ -2567,7 +3281,14 @@
       "conf_high": 107,
       "conf_medium": 0,
       "conf_low": 7,
-      "pct_high_conf": 93.9
+      "pct_high_conf": 93.9,
+      "inc_total": 6,
+      "inc_elected": 2,
+      "inc_defeated": 4,
+      "new_elected": 17,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 41.2,
+      "inc_retention_pct": 33.3
     },
     {
       "org_name": "Portsmouth",
@@ -2592,7 +3313,14 @@
       "conf_high": 63,
       "conf_medium": 3,
       "conf_low": 5,
-      "pct_high_conf": 88.7
+      "pct_high_conf": 88.7,
+      "inc_total": 10,
+      "inc_elected": 5,
+      "inc_defeated": 5,
+      "new_elected": 9,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": 33.3,
+      "inc_retention_pct": 50.0
     },
     {
       "org_name": "Powys County Council",
@@ -2617,7 +3345,14 @@
       "conf_high": 6,
       "conf_medium": 0,
       "conf_low": 1,
-      "pct_high_conf": 85.7
+      "pct_high_conf": 85.7,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 100.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Preston",
@@ -2642,7 +3377,14 @@
       "conf_high": 73,
       "conf_medium": 4,
       "conf_low": 6,
-      "pct_high_conf": 88.0
+      "pct_high_conf": 88.0,
+      "inc_total": 11,
+      "inc_elected": 6,
+      "inc_defeated": 5,
+      "new_elected": 10,
+      "inc_female_pct": 40.0,
+      "new_female_elected_pct": 40.0,
+      "inc_retention_pct": 54.5
     },
     {
       "org_name": "Reading",
@@ -2667,7 +3409,14 @@
       "conf_high": 88,
       "conf_medium": 1,
       "conf_low": 2,
-      "pct_high_conf": 96.7
+      "pct_high_conf": 96.7,
+      "inc_total": 10,
+      "inc_elected": 6,
+      "inc_defeated": 4,
+      "new_elected": 11,
+      "inc_female_pct": 70.0,
+      "new_female_elected_pct": 63.6,
+      "inc_retention_pct": 60.0
     },
     {
       "org_name": "Redditch",
@@ -2692,7 +3441,14 @@
       "conf_high": 42,
       "conf_medium": 0,
       "conf_low": 3,
-      "pct_high_conf": 93.3
+      "pct_high_conf": 93.3,
+      "inc_total": 4,
+      "inc_elected": 1,
+      "inc_defeated": 3,
+      "new_elected": 8,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 25.0,
+      "inc_retention_pct": 25.0
     },
     {
       "org_name": "Reigate and Banstead",
@@ -2717,7 +3473,14 @@
       "conf_high": 3,
       "conf_medium": 0,
       "conf_low": 2,
-      "pct_high_conf": 60.0
+      "pct_high_conf": 60.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Rochdale",
@@ -2742,7 +3505,14 @@
       "conf_high": 103,
       "conf_medium": 2,
       "conf_low": 5,
-      "pct_high_conf": 93.6
+      "pct_high_conf": 93.6,
+      "inc_total": 15,
+      "inc_elected": 1,
+      "inc_defeated": 14,
+      "new_elected": 19,
+      "inc_female_pct": 40.0,
+      "new_female_elected_pct": 21.1,
+      "inc_retention_pct": 6.7
     },
     {
       "org_name": "Rochford",
@@ -2767,7 +3537,14 @@
       "conf_high": 69,
       "conf_medium": 2,
       "conf_low": 4,
-      "pct_high_conf": 92.0
+      "pct_high_conf": 92.0,
+      "inc_total": 4,
+      "inc_elected": 2,
+      "inc_defeated": 2,
+      "new_elected": 13,
+      "inc_female_pct": 75.0,
+      "new_female_elected_pct": 23.1,
+      "inc_retention_pct": 50.0
     },
     {
       "org_name": "Rother District Council",
@@ -2792,7 +3569,14 @@
       "conf_high": 5,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Royal Borough of Greenwich",
@@ -2817,7 +3601,14 @@
       "conf_high": 255,
       "conf_medium": 2,
       "conf_low": 21,
-      "pct_high_conf": 91.7
+      "pct_high_conf": 91.7,
+      "inc_total": 27,
+      "inc_elected": 21,
+      "inc_defeated": 6,
+      "new_elected": 34,
+      "inc_female_pct": 48.1,
+      "new_female_elected_pct": 44.1,
+      "inc_retention_pct": 77.8
     },
     {
       "org_name": "Royal Borough of Kensington and Chelsea",
@@ -2842,7 +3633,14 @@
       "conf_high": 211,
       "conf_medium": 7,
       "conf_low": 8,
-      "pct_high_conf": 93.4
+      "pct_high_conf": 93.4,
+      "inc_total": 24,
+      "inc_elected": 22,
+      "inc_defeated": 2,
+      "new_elected": 28,
+      "inc_female_pct": 58.3,
+      "new_female_elected_pct": 42.9,
+      "inc_retention_pct": 91.7
     },
     {
       "org_name": "Royal Borough of Kingston upon Thames",
@@ -2867,7 +3665,14 @@
       "conf_high": 240,
       "conf_medium": 7,
       "conf_low": 20,
-      "pct_high_conf": 89.9
+      "pct_high_conf": 89.9,
+      "inc_total": 22,
+      "inc_elected": 21,
+      "inc_defeated": 1,
+      "new_elected": 27,
+      "inc_female_pct": 40.9,
+      "new_female_elected_pct": 40.7,
+      "inc_retention_pct": 95.5
     },
     {
       "org_name": "Rugby",
@@ -2892,7 +3697,14 @@
       "conf_high": 60,
       "conf_medium": 6,
       "conf_low": 9,
-      "pct_high_conf": 80.0
+      "pct_high_conf": 80.0,
+      "inc_total": 7,
+      "inc_elected": 6,
+      "inc_defeated": 1,
+      "new_elected": 9,
+      "inc_female_pct": 57.1,
+      "new_female_elected_pct": 33.3,
+      "inc_retention_pct": 85.7
     },
     {
       "org_name": "Rushmoor",
@@ -2917,7 +3729,14 @@
       "conf_high": 54,
       "conf_medium": 3,
       "conf_low": 7,
-      "pct_high_conf": 84.4
+      "pct_high_conf": 84.4,
+      "inc_total": 3,
+      "inc_elected": 3,
+      "inc_defeated": 0,
+      "new_elected": 11,
+      "inc_female_pct": 66.7,
+      "new_female_elected_pct": 27.3,
+      "inc_retention_pct": 100.0
     },
     {
       "org_name": "Salford",
@@ -2942,7 +3761,14 @@
       "conf_high": 100,
       "conf_medium": 1,
       "conf_low": 8,
-      "pct_high_conf": 91.7
+      "pct_high_conf": 91.7,
+      "inc_total": 6,
+      "inc_elected": 1,
+      "inc_defeated": 5,
+      "new_elected": 20,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 20.0,
+      "inc_retention_pct": 16.7
     },
     {
       "org_name": "Sandwell",
@@ -2967,7 +3793,14 @@
       "conf_high": 272,
       "conf_medium": 13,
       "conf_low": 27,
-      "pct_high_conf": 87.2
+      "pct_high_conf": 87.2,
+      "inc_total": 38,
+      "inc_elected": 19,
+      "inc_defeated": 19,
+      "new_elected": 53,
+      "inc_female_pct": 42.1,
+      "new_female_elected_pct": 19.2,
+      "inc_retention_pct": 50.0
     },
     {
       "org_name": "Sefton",
@@ -2992,7 +3825,14 @@
       "conf_high": 280,
       "conf_medium": 8,
       "conf_low": 22,
-      "pct_high_conf": 90.3
+      "pct_high_conf": 90.3,
+      "inc_total": 18,
+      "inc_elected": 13,
+      "inc_defeated": 5,
+      "new_elected": 53,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 39.6,
+      "inc_retention_pct": 72.2
     },
     {
       "org_name": "Sheffield",
@@ -3017,7 +3857,14 @@
       "conf_high": 184,
       "conf_medium": 0,
       "conf_low": 12,
-      "pct_high_conf": 93.9
+      "pct_high_conf": 93.9,
+      "inc_total": 19,
+      "inc_elected": 9,
+      "inc_defeated": 10,
+      "new_elected": 21,
+      "inc_female_pct": 36.8,
+      "new_female_elected_pct": 25.0,
+      "inc_retention_pct": 47.4
     },
     {
       "org_name": "Solihull",
@@ -3042,7 +3889,14 @@
       "conf_high": 206,
       "conf_medium": 8,
       "conf_low": 16,
-      "pct_high_conf": 89.6
+      "pct_high_conf": 89.6,
+      "inc_total": 19,
+      "inc_elected": 15,
+      "inc_defeated": 4,
+      "new_elected": 36,
+      "inc_female_pct": 21.1,
+      "new_female_elected_pct": 33.3,
+      "inc_retention_pct": 78.9
     },
     {
       "org_name": "Somerset County Council",
@@ -3067,7 +3921,14 @@
       "conf_high": 5,
       "conf_medium": 0,
       "conf_low": 1,
-      "pct_high_conf": 83.3
+      "pct_high_conf": 83.3,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "South Cambridgeshire",
@@ -3092,7 +3953,14 @@
       "conf_high": 205,
       "conf_medium": 3,
       "conf_low": 13,
-      "pct_high_conf": 92.8
+      "pct_high_conf": 92.8,
+      "inc_total": 21,
+      "inc_elected": 18,
+      "inc_defeated": 3,
+      "new_elected": 27,
+      "inc_female_pct": 38.1,
+      "new_female_elected_pct": 44.4,
+      "inc_retention_pct": 85.7
     },
     {
       "org_name": "South Tyneside",
@@ -3117,7 +3985,14 @@
       "conf_high": 182,
       "conf_medium": 7,
       "conf_low": 26,
-      "pct_high_conf": 84.7
+      "pct_high_conf": 84.7,
+      "inc_total": 28,
+      "inc_elected": 7,
+      "inc_defeated": 21,
+      "new_elected": 47,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 29.8,
+      "inc_retention_pct": 25.0
     },
     {
       "org_name": "Southampton",
@@ -3142,7 +4017,14 @@
       "conf_high": 98,
       "conf_medium": 0,
       "conf_low": 3,
-      "pct_high_conf": 97.0
+      "pct_high_conf": 97.0,
+      "inc_total": 9,
+      "inc_elected": 2,
+      "inc_defeated": 7,
+      "new_elected": 15,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 20.0,
+      "inc_retention_pct": 22.2
     },
     {
       "org_name": "Southend-on-Sea",
@@ -3167,7 +4049,14 @@
       "conf_high": 111,
       "conf_medium": 1,
       "conf_low": 5,
-      "pct_high_conf": 94.9
+      "pct_high_conf": 94.9,
+      "inc_total": 9,
+      "inc_elected": 5,
+      "inc_defeated": 4,
+      "new_elected": 12,
+      "inc_female_pct": 44.4,
+      "new_female_elected_pct": 16.7,
+      "inc_retention_pct": 55.6
     },
     {
       "org_name": "St Albans",
@@ -3192,7 +4081,14 @@
       "conf_high": 105,
       "conf_medium": 0,
       "conf_low": 8,
-      "pct_high_conf": 92.9
+      "pct_high_conf": 92.9,
+      "inc_total": 11,
+      "inc_elected": 11,
+      "inc_defeated": 0,
+      "new_elected": 11,
+      "inc_female_pct": 45.5,
+      "new_female_elected_pct": 18.2,
+      "inc_retention_pct": 100.0
     },
     {
       "org_name": "St Helens",
@@ -3217,7 +4113,14 @@
       "conf_high": 154,
       "conf_medium": 2,
       "conf_low": 5,
-      "pct_high_conf": 95.7
+      "pct_high_conf": 95.7,
+      "inc_total": 17,
+      "inc_elected": 5,
+      "inc_defeated": 12,
+      "new_elected": 41,
+      "inc_female_pct": 41.2,
+      "new_female_elected_pct": 12.2,
+      "inc_retention_pct": 29.4
     },
     {
       "org_name": "Stevenage",
@@ -3242,7 +4145,14 @@
       "conf_high": 72,
       "conf_medium": 2,
       "conf_low": 3,
-      "pct_high_conf": 93.5
+      "pct_high_conf": 93.5,
+      "inc_total": 9,
+      "inc_elected": 3,
+      "inc_defeated": 6,
+      "new_elected": 11,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 45.5,
+      "inc_retention_pct": 33.3
     },
     {
       "org_name": "Stockport",
@@ -3267,7 +4177,14 @@
       "conf_high": 104,
       "conf_medium": 1,
       "conf_low": 6,
-      "pct_high_conf": 93.7
+      "pct_high_conf": 93.7,
+      "inc_total": 10,
+      "inc_elected": 8,
+      "inc_defeated": 2,
+      "new_elected": 13,
+      "inc_female_pct": 70.0,
+      "new_female_elected_pct": 53.8,
+      "inc_retention_pct": 80.0
     },
     {
       "org_name": "Stratford-on-Avon District Council",
@@ -3292,7 +4209,14 @@
       "conf_high": 5,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Suffolk County Council",
@@ -3317,7 +4241,14 @@
       "conf_high": 331,
       "conf_medium": 0,
       "conf_low": 22,
-      "pct_high_conf": 93.8
+      "pct_high_conf": 93.8,
+      "inc_total": 14,
+      "inc_elected": 8,
+      "inc_defeated": 6,
+      "new_elected": 62,
+      "inc_female_pct": 35.7,
+      "new_female_elected_pct": 17.7,
+      "inc_retention_pct": 57.1
     },
     {
       "org_name": "Sunderland",
@@ -3342,7 +4273,14 @@
       "conf_high": 333,
       "conf_medium": 7,
       "conf_low": 27,
-      "pct_high_conf": 90.7
+      "pct_high_conf": 90.7,
+      "inc_total": 16,
+      "inc_elected": 6,
+      "inc_defeated": 10,
+      "new_elected": 69,
+      "inc_female_pct": 25.0,
+      "new_female_elected_pct": 34.8,
+      "inc_retention_pct": 37.5
     },
     {
       "org_name": "Surrey County Council",
@@ -3367,7 +4305,14 @@
       "conf_high": 5,
       "conf_medium": 0,
       "conf_low": 1,
-      "pct_high_conf": 83.3
+      "pct_high_conf": 83.3,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 100.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "Swindon",
@@ -3392,7 +4337,14 @@
       "conf_high": 223,
       "conf_medium": 1,
       "conf_low": 15,
-      "pct_high_conf": 93.3
+      "pct_high_conf": 93.3,
+      "inc_total": 6,
+      "inc_elected": 3,
+      "inc_defeated": 3,
+      "new_elected": 54,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 31.5,
+      "inc_retention_pct": 50.0
     },
     {
       "org_name": "Tameside",
@@ -3417,7 +4369,14 @@
       "conf_high": 81,
       "conf_medium": 0,
       "conf_low": 11,
-      "pct_high_conf": 88.0
+      "pct_high_conf": 88.0,
+      "inc_total": 13,
+      "inc_elected": 0,
+      "inc_defeated": 13,
+      "new_elected": 19,
+      "inc_female_pct": 46.2,
+      "new_female_elected_pct": 26.3,
+      "inc_retention_pct": 0.0
     },
     {
       "org_name": "Tamworth",
@@ -3442,7 +4401,14 @@
       "conf_high": 42,
       "conf_medium": 1,
       "conf_low": 2,
-      "pct_high_conf": 93.3
+      "pct_high_conf": 93.3,
+      "inc_total": 3,
+      "inc_elected": 1,
+      "inc_defeated": 2,
+      "new_elected": 8,
+      "inc_female_pct": 66.7,
+      "new_female_elected_pct": 12.5,
+      "inc_retention_pct": 33.3
     },
     {
       "org_name": "Three Rivers",
@@ -3467,7 +4433,14 @@
       "conf_high": 58,
       "conf_medium": 0,
       "conf_low": 8,
-      "pct_high_conf": 87.9
+      "pct_high_conf": 87.9,
+      "inc_total": 8,
+      "inc_elected": 6,
+      "inc_defeated": 2,
+      "new_elected": 7,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": 57.1,
+      "inc_retention_pct": 75.0
     },
     {
       "org_name": "Thurrock",
@@ -3492,7 +4465,14 @@
       "conf_high": 165,
       "conf_medium": 1,
       "conf_low": 13,
-      "pct_high_conf": 92.2
+      "pct_high_conf": 92.2,
+      "inc_total": 10,
+      "inc_elected": 3,
+      "inc_defeated": 7,
+      "new_elected": 46,
+      "inc_female_pct": 10.0,
+      "new_female_elected_pct": 28.3,
+      "inc_retention_pct": 30.0
     },
     {
       "org_name": "Trafford",
@@ -3517,7 +4497,14 @@
       "conf_high": 110,
       "conf_medium": 1,
       "conf_low": 3,
-      "pct_high_conf": 96.5
+      "pct_high_conf": 96.5,
+      "inc_total": 11,
+      "inc_elected": 8,
+      "inc_defeated": 3,
+      "new_elected": 13,
+      "inc_female_pct": 36.4,
+      "new_female_elected_pct": 53.8,
+      "inc_retention_pct": 72.7
     },
     {
       "org_name": "Tunbridge Wells",
@@ -3542,7 +4529,14 @@
       "conf_high": 68,
       "conf_medium": 1,
       "conf_low": 4,
-      "pct_high_conf": 93.2
+      "pct_high_conf": 93.2,
+      "inc_total": 6,
+      "inc_elected": 5,
+      "inc_defeated": 1,
+      "new_elected": 10,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 20.0,
+      "inc_retention_pct": 83.3
     },
     {
       "org_name": "Wakefield",
@@ -3567,7 +4561,14 @@
       "conf_high": 273,
       "conf_medium": 2,
       "conf_low": 10,
-      "pct_high_conf": 95.8
+      "pct_high_conf": 95.8,
+      "inc_total": 39,
+      "inc_elected": 4,
+      "inc_defeated": 35,
+      "new_elected": 59,
+      "inc_female_pct": 51.3,
+      "new_female_elected_pct": 20.3,
+      "inc_retention_pct": 10.3
     },
     {
       "org_name": "Walsall",
@@ -3592,7 +4593,14 @@
       "conf_high": 242,
       "conf_medium": 7,
       "conf_low": 33,
-      "pct_high_conf": 85.8
+      "pct_high_conf": 85.8,
+      "inc_total": 18,
+      "inc_elected": 5,
+      "inc_defeated": 13,
+      "new_elected": 55,
+      "inc_female_pct": 44.4,
+      "new_female_elected_pct": 32.7,
+      "inc_retention_pct": 27.8
     },
     {
       "org_name": "Watford",
@@ -3617,7 +4625,14 @@
       "conf_high": 59,
       "conf_medium": 0,
       "conf_low": 5,
-      "pct_high_conf": 92.2
+      "pct_high_conf": 92.2,
+      "inc_total": 6,
+      "inc_elected": 4,
+      "inc_defeated": 2,
+      "new_elected": 8,
+      "inc_female_pct": 66.7,
+      "new_female_elected_pct": 50.0,
+      "inc_retention_pct": 66.7
     },
     {
       "org_name": "Welwyn Hatfield",
@@ -3642,7 +4657,14 @@
       "conf_high": 86,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 8,
+      "inc_elected": 4,
+      "inc_defeated": 4,
+      "new_elected": 13,
+      "inc_female_pct": 37.5,
+      "new_female_elected_pct": 23.1,
+      "inc_retention_pct": 50.0
     },
     {
       "org_name": "West Lancashire",
@@ -3667,7 +4689,14 @@
       "conf_high": 72,
       "conf_medium": 1,
       "conf_low": 4,
-      "pct_high_conf": 93.5
+      "pct_high_conf": 93.5,
+      "inc_total": 7,
+      "inc_elected": 2,
+      "inc_defeated": 5,
+      "new_elected": 13,
+      "inc_female_pct": 28.6,
+      "new_female_elected_pct": 53.8,
+      "inc_retention_pct": 28.6
     },
     {
       "org_name": "West Northamptonshire Council",
@@ -3692,7 +4721,14 @@
       "conf_high": 6,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 100.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "West Oxfordshire",
@@ -3717,7 +4753,14 @@
       "conf_high": 78,
       "conf_medium": 0,
       "conf_low": 3,
-      "pct_high_conf": 96.3
+      "pct_high_conf": 96.3,
+      "inc_total": 5,
+      "inc_elected": 3,
+      "inc_defeated": 2,
+      "new_elected": 13,
+      "inc_female_pct": 60.0,
+      "new_female_elected_pct": 38.5,
+      "inc_retention_pct": 60.0
     },
     {
       "org_name": "West Suffolk Council",
@@ -3742,7 +4785,14 @@
       "conf_high": 6,
       "conf_medium": 0,
       "conf_low": 0,
-      "pct_high_conf": 100.0
+      "pct_high_conf": 100.0,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 1,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": null
     },
     {
       "org_name": "West Surrey Council",
@@ -3767,7 +4817,14 @@
       "conf_high": 430,
       "conf_medium": 3,
       "conf_low": 20,
-      "pct_high_conf": 94.9
+      "pct_high_conf": 94.9,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 90,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 35.6,
+      "inc_retention_pct": null
     },
     {
       "org_name": "West Sussex County Council",
@@ -3792,7 +4849,14 @@
       "conf_high": 342,
       "conf_medium": 1,
       "conf_low": 19,
-      "pct_high_conf": 94.5
+      "pct_high_conf": 94.5,
+      "inc_total": 31,
+      "inc_elected": 10,
+      "inc_defeated": 21,
+      "new_elected": 60,
+      "inc_female_pct": 35.5,
+      "new_female_elected_pct": 38.3,
+      "inc_retention_pct": 32.3
     },
     {
       "org_name": "Wigan",
@@ -3817,7 +4881,14 @@
       "conf_high": 124,
       "conf_medium": 1,
       "conf_low": 6,
-      "pct_high_conf": 94.7
+      "pct_high_conf": 94.7,
+      "inc_total": 13,
+      "inc_elected": 1,
+      "inc_defeated": 12,
+      "new_elected": 24,
+      "inc_female_pct": 38.5,
+      "new_female_elected_pct": 29.2,
+      "inc_retention_pct": 7.7
     },
     {
       "org_name": "Winchester",
@@ -3842,7 +4913,14 @@
       "conf_high": 74,
       "conf_medium": 0,
       "conf_low": 2,
-      "pct_high_conf": 97.4
+      "pct_high_conf": 97.4,
+      "inc_total": 9,
+      "inc_elected": 7,
+      "inc_defeated": 2,
+      "new_elected": 8,
+      "inc_female_pct": 44.4,
+      "new_female_elected_pct": 37.5,
+      "inc_retention_pct": 77.8
     },
     {
       "org_name": "Wokingham",
@@ -3867,7 +4945,14 @@
       "conf_high": 92,
       "conf_medium": 0,
       "conf_low": 6,
-      "pct_high_conf": 93.9
+      "pct_high_conf": 93.9,
+      "inc_total": 13,
+      "inc_elected": 12,
+      "inc_defeated": 1,
+      "new_elected": 7,
+      "inc_female_pct": 46.2,
+      "new_female_elected_pct": 42.9,
+      "inc_retention_pct": 92.3
     },
     {
       "org_name": "Wolverhampton",
@@ -3892,7 +4977,14 @@
       "conf_high": 80,
       "conf_medium": 1,
       "conf_low": 15,
-      "pct_high_conf": 83.3
+      "pct_high_conf": 83.3,
+      "inc_total": 11,
+      "inc_elected": 8,
+      "inc_defeated": 3,
+      "new_elected": 13,
+      "inc_female_pct": 36.4,
+      "new_female_elected_pct": 15.4,
+      "inc_retention_pct": 72.7
     },
     {
       "org_name": "Worthing",
@@ -3917,7 +5009,14 @@
       "conf_high": 61,
       "conf_medium": 0,
       "conf_low": 4,
-      "pct_high_conf": 93.8
+      "pct_high_conf": 93.8,
+      "inc_total": 5,
+      "inc_elected": 0,
+      "inc_defeated": 5,
+      "new_elected": 13,
+      "inc_female_pct": 20.0,
+      "new_female_elected_pct": 53.8,
+      "inc_retention_pct": 0.0
     }
   ],
   "by_party": [
@@ -3944,7 +5043,14 @@
       "other_female_win_rate": 20.1,
       "female_win_rate_diff_vs_others": 9.0,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": 7.8
+      "female_win_rate_diff_vs_national": 7.8,
+      "inc_total": 32,
+      "inc_elected": 20,
+      "inc_defeated": 12,
+      "new_elected": 1439,
+      "inc_female_pct": 28.1,
+      "new_female_elected_pct": 21.5,
+      "inc_retention_pct": 62.5
     },
     {
       "party": "Conservative and Unionist Party",
@@ -3969,7 +5075,14 @@
       "other_female_win_rate": 22.1,
       "female_win_rate_diff_vs_others": -4.8,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -4.0
+      "female_win_rate_diff_vs_national": -4.0,
+      "inc_total": 458,
+      "inc_elected": 293,
+      "inc_defeated": 165,
+      "new_elected": 514,
+      "inc_female_pct": 32.5,
+      "new_female_elected_pct": 28.8,
+      "inc_retention_pct": 64.0
     },
     {
       "party": "Green Party",
@@ -3994,7 +5107,14 @@
       "other_female_win_rate": 22.9,
       "female_win_rate_diff_vs_others": -7.4,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -5.8
+      "female_win_rate_diff_vs_national": -5.8,
+      "inc_total": 79,
+      "inc_elected": 61,
+      "inc_defeated": 18,
+      "new_elected": 528,
+      "inc_female_pct": 43.0,
+      "new_female_elected_pct": 48.6,
+      "inc_retention_pct": 77.2
     },
     {
       "party": "Labour Party",
@@ -4019,7 +5139,14 @@
       "other_female_win_rate": 20.6,
       "female_win_rate_diff_vs_others": 3.2,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": 2.5
+      "female_win_rate_diff_vs_national": 2.5,
+      "inc_total": 929,
+      "inc_elected": 441,
+      "inc_defeated": 488,
+      "new_elected": 427,
+      "inc_female_pct": 46.3,
+      "new_female_elected_pct": 49.3,
+      "inc_retention_pct": 47.5
     },
     {
       "party": "Liberal Democrats",
@@ -4044,7 +5171,14 @@
       "other_female_win_rate": 20.6,
       "female_win_rate_diff_vs_others": 4.0,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": 3.3
+      "female_win_rate_diff_vs_national": 3.3,
+      "inc_total": 364,
+      "inc_elected": 314,
+      "inc_defeated": 50,
+      "new_elected": 538,
+      "inc_female_pct": 36.6,
+      "new_female_elected_pct": 38.1,
+      "inc_retention_pct": 86.3
     },
     {
       "party": "Independent",
@@ -4069,7 +5203,14 @@
       "other_female_win_rate": 21.4,
       "female_win_rate_diff_vs_others": -6.2,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -6.1
+      "female_win_rate_diff_vs_national": -6.1,
+      "inc_total": 115,
+      "inc_elected": 49,
+      "inc_defeated": 66,
+      "new_elected": 51,
+      "inc_female_pct": 35.7,
+      "new_female_elected_pct": 22.0,
+      "inc_retention_pct": 42.6
     },
     {
       "party": "Labour and Co-operative Party",
@@ -4094,7 +5235,14 @@
       "other_female_win_rate": 20.8,
       "female_win_rate_diff_vs_others": 12.2,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": 11.7
+      "female_win_rate_diff_vs_national": 11.7,
+      "inc_total": 240,
+      "inc_elected": 101,
+      "inc_defeated": 139,
+      "new_elected": 99,
+      "inc_female_pct": 53.8,
+      "new_female_elected_pct": 50.5,
+      "inc_retention_pct": 42.1
     },
     {
       "party": "Trade Unionist and Socialist Coalition",
@@ -4119,7 +5267,14 @@
       "other_female_win_rate": 21.5,
       "female_win_rate_diff_vs_others": -21.5,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -21.3
+      "female_win_rate_diff_vs_national": -21.3,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 0,
+      "inc_female_pct": null,
+      "new_female_elected_pct": null,
+      "inc_retention_pct": null
     },
     {
       "party": "Workers Party of Britain",
@@ -4144,7 +5299,14 @@
       "other_female_win_rate": 21.3,
       "female_win_rate_diff_vs_others": -21.3,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -21.3
+      "female_win_rate_diff_vs_national": -21.3,
+      "inc_total": 1,
+      "inc_elected": 1,
+      "inc_defeated": 0,
+      "new_elected": 4,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": 0.0,
+      "inc_retention_pct": 100.0
     },
     {
       "party": "Newham Independents Party",
@@ -4169,7 +5331,14 @@
       "other_female_win_rate": 21.2,
       "female_win_rate_diff_vs_others": 12.1,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": 12.0
+      "female_win_rate_diff_vs_national": 12.0,
+      "inc_total": 3,
+      "inc_elected": 3,
+      "inc_defeated": 0,
+      "new_elected": 21,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 15.8,
+      "inc_retention_pct": 100.0
     },
     {
       "party": "Social Democratic Party",
@@ -4194,7 +5363,14 @@
       "other_female_win_rate": 21.3,
       "female_win_rate_diff_vs_others": -21.3,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -21.3
+      "female_win_rate_diff_vs_national": -21.3,
+      "inc_total": 1,
+      "inc_elected": 1,
+      "inc_defeated": 0,
+      "new_elected": 0,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": null,
+      "inc_retention_pct": 100.0
     },
     {
       "party": "Aspire",
@@ -4219,7 +5395,14 @@
       "other_female_win_rate": 21.2,
       "female_win_rate_diff_vs_others": 45.5,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": 45.4
+      "female_win_rate_diff_vs_national": 45.4,
+      "inc_total": 3,
+      "inc_elected": 3,
+      "inc_defeated": 0,
+      "new_elected": 30,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": 13.8,
+      "inc_retention_pct": 100.0
     },
     {
       "party": "Tower Hamlets Independents",
@@ -4244,7 +5427,14 @@
       "other_female_win_rate": 21.3,
       "female_win_rate_diff_vs_others": -21.3,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -21.3
+      "female_win_rate_diff_vs_national": -21.3,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 0,
+      "inc_female_pct": null,
+      "new_female_elected_pct": null,
+      "inc_retention_pct": null
     },
     {
       "party": "Redbridge Independents",
@@ -4269,7 +5459,14 @@
       "other_female_win_rate": 21.3,
       "female_win_rate_diff_vs_others": -1.3,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -1.3
+      "female_win_rate_diff_vs_national": -1.3,
+      "inc_total": 1,
+      "inc_elected": 1,
+      "inc_defeated": 0,
+      "new_elected": 8,
+      "inc_female_pct": 100.0,
+      "new_female_elected_pct": 25.0,
+      "inc_retention_pct": 100.0
     },
     {
       "party": "Havering Residents Association",
@@ -4294,7 +5491,14 @@
       "other_female_win_rate": 21.3,
       "female_win_rate_diff_vs_others": -14.2,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -14.2
+      "female_win_rate_diff_vs_national": -14.2,
+      "inc_total": 5,
+      "inc_elected": 1,
+      "inc_defeated": 4,
+      "new_elected": 0,
+      "inc_female_pct": 60.0,
+      "new_female_elected_pct": null,
+      "inc_retention_pct": 20.0
     },
     {
       "party": "Kingston Independent Residents Group",
@@ -4319,7 +5523,14 @@
       "other_female_win_rate": 21.3,
       "female_win_rate_diff_vs_others": -14.6,
       "national_female_win_rate": 21.3,
-      "female_win_rate_diff_vs_national": -14.6
+      "female_win_rate_diff_vs_national": -14.6,
+      "inc_total": 2,
+      "inc_elected": 2,
+      "inc_defeated": 0,
+      "new_elected": 0,
+      "inc_female_pct": 50.0,
+      "new_female_elected_pct": null,
+      "inc_retention_pct": 100.0
     }
   ],
   "by_region": [
@@ -4340,7 +5551,14 @@
       "conf_high": 8354,
       "conf_medium": 158,
       "conf_low": 484,
-      "pct_high_conf": 92.9
+      "pct_high_conf": 92.9,
+      "inc_total": 935,
+      "inc_elected": 670,
+      "inc_defeated": 265,
+      "new_elected": 1145,
+      "inc_female_pct": 44.6,
+      "new_female_elected_pct": 40.6,
+      "inc_retention_pct": 71.7
     },
     {
       "region": "South East (England)",
@@ -4359,7 +5577,14 @@
       "conf_high": 3665,
       "conf_medium": 40,
       "conf_low": 225,
-      "pct_high_conf": 93.3
+      "pct_high_conf": 93.3,
+      "inc_total": 269,
+      "inc_elected": 158,
+      "inc_defeated": 111,
+      "new_elected": 622,
+      "inc_female_pct": 38.7,
+      "new_female_elected_pct": 33.6,
+      "inc_retention_pct": 58.7
     },
     {
       "region": "East of England",
@@ -4378,7 +5603,14 @@
       "conf_high": 3003,
       "conf_medium": 32,
       "conf_low": 197,
-      "pct_high_conf": 92.9
+      "pct_high_conf": 92.9,
+      "inc_total": 236,
+      "inc_elected": 136,
+      "inc_defeated": 100,
+      "new_elected": 504,
+      "inc_female_pct": 37.7,
+      "new_female_elected_pct": 27.0,
+      "inc_retention_pct": 57.6
     },
     {
       "region": "West Midlands (England)",
@@ -4397,7 +5629,14 @@
       "conf_high": 2169,
       "conf_medium": 61,
       "conf_low": 183,
-      "pct_high_conf": 89.9
+      "pct_high_conf": 89.9,
+      "inc_total": 227,
+      "inc_elected": 116,
+      "inc_defeated": 111,
+      "new_elected": 378,
+      "inc_female_pct": 39.2,
+      "new_female_elected_pct": 25.8,
+      "inc_retention_pct": 51.1
     },
     {
       "region": "Yorkshire and The Humber",
@@ -4416,7 +5655,14 @@
       "conf_high": 2083,
       "conf_medium": 23,
       "conf_low": 152,
-      "pct_high_conf": 92.2
+      "pct_high_conf": 92.2,
+      "inc_total": 233,
+      "inc_elected": 88,
+      "inc_defeated": 145,
+      "new_elected": 348,
+      "inc_female_pct": 42.5,
+      "new_female_elected_pct": 26.5,
+      "inc_retention_pct": 37.8
     },
     {
       "region": "North West (England)",
@@ -4435,7 +5681,14 @@
       "conf_high": 2077,
       "conf_medium": 34,
       "conf_low": 131,
-      "pct_high_conf": 92.6
+      "pct_high_conf": 92.6,
+      "inc_total": 243,
+      "inc_elected": 87,
+      "inc_defeated": 156,
+      "new_elected": 373,
+      "inc_female_pct": 38.8,
+      "new_female_elected_pct": 28.2,
+      "inc_retention_pct": 35.8
     },
     {
       "region": "North East (England)",
@@ -4454,7 +5707,14 @@
       "conf_high": 1250,
       "conf_medium": 21,
       "conf_low": 98,
-      "pct_high_conf": 91.3
+      "pct_high_conf": 91.3,
+      "inc_total": 124,
+      "inc_elected": 45,
+      "inc_defeated": 79,
+      "new_elected": 260,
+      "inc_female_pct": 41.9,
+      "new_female_elected_pct": 30.0,
+      "inc_retention_pct": 36.3
     },
     {
       "region": "South West (England)",
@@ -4473,7 +5733,14 @@
       "conf_high": 506,
       "conf_medium": 1,
       "conf_low": 28,
-      "pct_high_conf": 94.6
+      "pct_high_conf": 94.6,
+      "inc_total": 24,
+      "inc_elected": 15,
+      "inc_defeated": 9,
+      "new_elected": 97,
+      "inc_female_pct": 33.3,
+      "new_female_elected_pct": 37.1,
+      "inc_retention_pct": 62.5
     },
     {
       "region": "East Midlands (England)",
@@ -4492,7 +5759,14 @@
       "conf_high": 73,
       "conf_medium": 1,
       "conf_low": 4,
-      "pct_high_conf": 93.6
+      "pct_high_conf": 93.6,
+      "inc_total": 1,
+      "inc_elected": 1,
+      "inc_defeated": 0,
+      "new_elected": 13,
+      "inc_female_pct": 0.0,
+      "new_female_elected_pct": 38.5,
+      "inc_retention_pct": 100.0
     },
     {
       "region": "Wales",
@@ -4511,7 +5785,14 @@
       "conf_high": 12,
       "conf_medium": 0,
       "conf_low": 1,
-      "pct_high_conf": 92.3
+      "pct_high_conf": 92.3,
+      "inc_total": 0,
+      "inc_elected": 0,
+      "inc_defeated": 0,
+      "new_elected": 2,
+      "inc_female_pct": null,
+      "new_female_elected_pct": 50.0,
+      "inc_retention_pct": null
     }
   ],
   "by_region_by_party": {
@@ -4529,7 +5810,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 20.2,
         "female_win_rate": 23.3,
-        "male_win_rate": 23.6
+        "male_win_rate": 23.6,
+        "inc_total": 6,
+        "inc_elected": 3,
+        "inc_defeated": 3,
+        "new_elected": 180,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": 18.9,
+        "inc_retention_pct": 50.0
       },
       {
         "party": "Conservative and Unionist Party",
@@ -4544,7 +5832,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 34.8,
         "female_win_rate": 22.1,
-        "male_win_rate": 15.4
+        "male_win_rate": 15.4,
+        "inc_total": 82,
+        "inc_elected": 40,
+        "inc_defeated": 42,
+        "new_elected": 92,
+        "inc_female_pct": 30.5,
+        "new_female_elected_pct": 31.5,
+        "inc_retention_pct": 48.8
       },
       {
         "party": "Green Party",
@@ -4559,7 +5854,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 54.2,
         "female_win_rate": 13.2,
-        "male_win_rate": 7.6
+        "male_win_rate": 7.6,
+        "inc_total": 12,
+        "inc_elected": 11,
+        "inc_defeated": 1,
+        "new_elected": 61,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": 54.1,
+        "inc_retention_pct": 91.7
       },
       {
         "party": "Liberal Democrats",
@@ -4574,7 +5876,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 38.7,
         "female_win_rate": 43.4,
-        "male_win_rate": 37.4
+        "male_win_rate": 37.4,
+        "inc_total": 81,
+        "inc_elected": 64,
+        "inc_defeated": 17,
+        "new_elected": 218,
+        "inc_female_pct": 42.0,
+        "new_female_elected_pct": 37.6,
+        "inc_retention_pct": 79.0
       },
       {
         "party": "Labour Party",
@@ -4589,7 +5898,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 41.5,
         "female_win_rate": 10.3,
-        "male_win_rate": 8.2
+        "male_win_rate": 8.2,
+        "inc_total": 46,
+        "inc_elected": 19,
+        "inc_defeated": 27,
+        "new_elected": 34,
+        "inc_female_pct": 39.1,
+        "new_female_elected_pct": 44.1,
+        "inc_retention_pct": 41.3
       },
       {
         "party": "Independent",
@@ -4604,7 +5920,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 47.6,
         "female_win_rate": 25.6,
-        "male_win_rate": 11.5
+        "male_win_rate": 11.5,
+        "inc_total": 25,
+        "inc_elected": 12,
+        "inc_defeated": 13,
+        "new_elected": 9,
+        "inc_female_pct": 40.0,
+        "new_female_elected_pct": 33.3,
+        "inc_retention_pct": 48.0
       },
       {
         "party": "Labour and Co-operative Party",
@@ -4619,7 +5942,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 55.6,
         "female_win_rate": 15.2,
-        "male_win_rate": 10.5
+        "male_win_rate": 10.5,
+        "inc_total": 12,
+        "inc_elected": 4,
+        "inc_defeated": 8,
+        "new_elected": 5,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": 60.0,
+        "inc_retention_pct": 33.3
       },
       {
         "party": "Trade Unionist and Socialist Coalition",
@@ -4634,7 +5964,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Residents Associations of Epsom and Ewell",
@@ -4649,7 +5986,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": 0.0,
-        "male_win_rate": 33.3
+        "male_win_rate": 33.3,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 2,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Heritage Party",
@@ -4664,7 +6008,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Independent Network",
@@ -4679,7 +6030,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 50.0,
         "female_win_rate": 25.0,
-        "male_win_rate": 33.3
+        "male_win_rate": 33.3,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 2,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 50.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Basingstoke & Deane Independents",
@@ -4694,7 +6052,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 40.0,
         "female_win_rate": 100.0,
-        "male_win_rate": 75.0
+        "male_win_rate": 75.0,
+        "inc_total": 2,
+        "inc_elected": 2,
+        "inc_defeated": 0,
+        "new_elected": 3,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": 33.3,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Social Democratic Party",
@@ -4709,7 +6074,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": null,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Farnham Residents",
@@ -4724,7 +6096,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 100.0,
         "female_win_rate": 66.7,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 2,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 100.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Community Campaign (Hart)",
@@ -4739,7 +6118,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 60.0,
         "female_win_rate": 100.0,
-        "male_win_rate": 100.0
+        "male_win_rate": 100.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 5,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 60.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Independent Oxford Alliance",
@@ -4754,7 +6140,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       }
     ],
     "London": [
@@ -4771,7 +6164,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 29.5,
         "female_win_rate": 21.9,
-        "male_win_rate": 22.6
+        "male_win_rate": 22.6,
+        "inc_total": 196,
+        "inc_elected": 168,
+        "inc_defeated": 28,
+        "new_elected": 239,
+        "inc_female_pct": 34.2,
+        "new_female_elected_pct": 25.1,
+        "inc_retention_pct": 85.7
       },
       {
         "party": "Reform UK",
@@ -4786,7 +6186,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 21.5,
         "female_win_rate": 4.3,
-        "male_win_rate": 5.3
+        "male_win_rate": 5.3,
+        "inc_total": 6,
+        "inc_elected": 1,
+        "inc_defeated": 5,
+        "new_elected": 78,
+        "inc_female_pct": 33.3,
+        "new_female_elected_pct": 20.5,
+        "inc_retention_pct": 16.7
       },
       {
         "party": "Labour Party",
@@ -4801,7 +6208,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 50.6,
         "female_win_rate": 40.8,
-        "male_win_rate": 33.3
+        "male_win_rate": 33.3,
+        "inc_total": 442,
+        "inc_elected": 295,
+        "inc_defeated": 147,
+        "new_elected": 280,
+        "inc_female_pct": 48.9,
+        "new_female_elected_pct": 51.1,
+        "inc_retention_pct": 66.7
       },
       {
         "party": "Green Party",
@@ -4816,7 +6230,14 @@
         "elected_unknown": 4,
         "pct_female_elected": 51.5,
         "female_win_rate": 23.7,
-        "male_win_rate": 16.1
+        "male_win_rate": 16.1,
+        "inc_total": 21,
+        "inc_elected": 16,
+        "inc_defeated": 5,
+        "new_elected": 281,
+        "inc_female_pct": 42.9,
+        "new_female_elected_pct": 52.3,
+        "inc_retention_pct": 76.2
       },
       {
         "party": "Liberal Democrats",
@@ -4831,7 +6252,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 38.7,
         "female_win_rate": 19.7,
-        "male_win_rate": 14.5
+        "male_win_rate": 14.5,
+        "inc_total": 105,
+        "inc_elected": 103,
+        "inc_defeated": 2,
+        "new_elected": 140,
+        "inc_female_pct": 37.1,
+        "new_female_elected_pct": 40.7,
+        "inc_retention_pct": 98.1
       },
       {
         "party": "Labour and Co-operative Party",
@@ -4846,7 +6274,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 53.7,
         "female_win_rate": 53.7,
-        "male_win_rate": 43.1
+        "male_win_rate": 43.1,
+        "inc_total": 116,
+        "inc_elected": 65,
+        "inc_defeated": 51,
+        "new_elected": 56,
+        "inc_female_pct": 53.4,
+        "new_female_elected_pct": 48.2,
+        "inc_retention_pct": 56.0
       },
       {
         "party": "Independent",
@@ -4861,7 +6296,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": 0.0,
-        "male_win_rate": 3.1
+        "male_win_rate": 3.1,
+        "inc_total": 15,
+        "inc_elected": 3,
+        "inc_defeated": 12,
+        "new_elected": 0,
+        "inc_female_pct": 46.7,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 20.0
       },
       {
         "party": "Trade Unionist and Socialist Coalition",
@@ -4876,7 +6318,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Newham Independents Party",
@@ -4891,7 +6340,14 @@
         "elected_unknown": 2,
         "pct_female_elected": 18.2,
         "female_win_rate": 33.3,
-        "male_win_rate": 36.0
+        "male_win_rate": 36.0,
+        "inc_total": 3,
+        "inc_elected": 3,
+        "inc_defeated": 0,
+        "new_elected": 21,
+        "inc_female_pct": 33.3,
+        "new_female_elected_pct": 15.8,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Aspire",
@@ -4906,7 +6362,14 @@
         "elected_unknown": 1,
         "pct_female_elected": 12.5,
         "female_win_rate": 66.7,
-        "male_win_rate": 73.7
+        "male_win_rate": 73.7,
+        "inc_total": 3,
+        "inc_elected": 3,
+        "inc_defeated": 0,
+        "new_elected": 30,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 13.8,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Tower Hamlets Independents",
@@ -4921,7 +6384,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Redbridge Independents",
@@ -4936,7 +6406,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 33.3,
         "female_win_rate": 20.0,
-        "male_win_rate": 22.2
+        "male_win_rate": 22.2,
+        "inc_total": 1,
+        "inc_elected": 1,
+        "inc_defeated": 0,
+        "new_elected": 8,
+        "inc_female_pct": 100.0,
+        "new_female_elected_pct": 25.0,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Havering Residents Association",
@@ -4951,7 +6428,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 100.0,
         "female_win_rate": 7.1,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 5,
+        "inc_elected": 1,
+        "inc_defeated": 4,
+        "new_elected": 0,
+        "inc_female_pct": 60.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 20.0
       },
       {
         "party": "Kingston Independent Residents Group",
@@ -4966,7 +6450,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 50.0,
         "female_win_rate": 6.7,
-        "male_win_rate": 5.3
+        "male_win_rate": 5.3,
+        "inc_total": 2,
+        "inc_elected": 2,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Christian Peoples Alliance",
@@ -4981,7 +6472,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Ealing Community Independents Party",
@@ -4996,7 +6494,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Enfield Community Independents Party",
@@ -5011,7 +6516,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Rejoin EU",
@@ -5026,7 +6538,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Taking The Initiative Party",
@@ -5041,7 +6560,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Hayes Independent Party",
@@ -5056,7 +6582,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 3,
+        "inc_elected": 0,
+        "inc_defeated": 3,
+        "new_elected": 0,
+        "inc_female_pct": 66.7,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Arise",
@@ -5071,7 +6604,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 100.0,
         "female_win_rate": 20.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 1,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 100.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Hornchurch Residents Association",
@@ -5086,7 +6626,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 75.0,
         "female_win_rate": 75.0,
-        "male_win_rate": 14.3
+        "male_win_rate": 14.3,
+        "inc_total": 4,
+        "inc_elected": 2,
+        "inc_defeated": 2,
+        "new_elected": 2,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": 100.0,
+        "inc_retention_pct": 50.0
       },
       {
         "party": "Brentford, Isleworth, Heston & Hounslow Independents",
@@ -5101,7 +6648,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": null,
-        "male_win_rate": 10.0
+        "male_win_rate": 10.0,
+        "inc_total": 1,
+        "inc_elected": 1,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Islington Community Independents",
@@ -5116,7 +6670,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 2,
+        "inc_elected": 0,
+        "inc_defeated": 2,
+        "new_elected": 0,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Redbridge Matters",
@@ -5131,7 +6692,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 1,
+        "inc_elected": 0,
+        "inc_defeated": 1,
+        "new_elected": 0,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Your Party",
@@ -5146,7 +6714,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "National Housing Party United Kingdom",
@@ -5161,7 +6736,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Camden People's Alliance",
@@ -5176,7 +6758,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": 0.0,
-        "male_win_rate": 20.0
+        "male_win_rate": 20.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 1,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Hackney Independent Socialist Collective",
@@ -5191,7 +6780,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": null
+        "male_win_rate": null,
+        "inc_total": 3,
+        "inc_elected": 0,
+        "inc_defeated": 3,
+        "new_elected": 0,
+        "inc_female_pct": 100.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Haringey Socialist Alliance",
@@ -5206,7 +6802,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Upminster and Cranham Residents Association",
@@ -5221,7 +6824,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 33.3,
         "female_win_rate": 100.0,
-        "male_win_rate": 100.0
+        "male_win_rate": 100.0,
+        "inc_total": 3,
+        "inc_elected": 3,
+        "inc_defeated": 0,
+        "new_elected": 3,
+        "inc_female_pct": 33.3,
+        "new_female_elected_pct": 33.3,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Harold Wood Hill Park Residents Association",
@@ -5236,7 +6846,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": null,
-        "male_win_rate": 50.0
+        "male_win_rate": 50.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 3,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Workers Party of Britain",
@@ -5251,7 +6868,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       }
     ],
     "Yorkshire and The Humber": [
@@ -5268,7 +6892,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 20.8,
         "female_win_rate": 53.8,
-        "male_win_rate": 53.7
+        "male_win_rate": 53.7,
+        "inc_total": 3,
+        "inc_elected": 3,
+        "inc_defeated": 0,
+        "new_elected": 233,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 21.0,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Green Party",
@@ -5283,7 +6914,14 @@
         "elected_unknown": 1,
         "pct_female_elected": 44.4,
         "female_win_rate": 11.4,
-        "male_win_rate": 10.6
+        "male_win_rate": 10.6,
+        "inc_total": 8,
+        "inc_elected": 8,
+        "inc_defeated": 0,
+        "new_elected": 38,
+        "inc_female_pct": 25.0,
+        "new_female_elected_pct": 48.6,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Labour Party",
@@ -5298,7 +6936,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 41.5,
         "female_win_rate": 10.2,
-        "male_win_rate": 10.9
+        "male_win_rate": 10.9,
+        "inc_total": 122,
+        "inc_elected": 23,
+        "inc_defeated": 99,
+        "new_elected": 18,
+        "inc_female_pct": 48.4,
+        "new_female_elected_pct": 50.0,
+        "inc_retention_pct": 18.9
       },
       {
         "party": "Conservative and Unionist Party",
@@ -5313,7 +6958,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 25.7,
         "female_win_rate": 8.7,
-        "male_win_rate": 9.5
+        "male_win_rate": 9.5,
+        "inc_total": 22,
+        "inc_elected": 11,
+        "inc_defeated": 11,
+        "new_elected": 24,
+        "inc_female_pct": 31.8,
+        "new_female_elected_pct": 25.0,
+        "inc_retention_pct": 50.0
       },
       {
         "party": "Liberal Democrats",
@@ -5328,7 +6980,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 41.2,
         "female_win_rate": 12.2,
-        "male_win_rate": 9.6
+        "male_win_rate": 9.6,
+        "inc_total": 33,
+        "inc_elected": 21,
+        "inc_defeated": 12,
+        "new_elected": 13,
+        "inc_female_pct": 33.3,
+        "new_female_elected_pct": 46.2,
+        "inc_retention_pct": 63.6
       },
       {
         "party": "Independent",
@@ -5343,7 +7002,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 27.3,
         "female_win_rate": 31.6,
-        "male_win_rate": 18.4
+        "male_win_rate": 18.4,
+        "inc_total": 15,
+        "inc_elected": 10,
+        "inc_defeated": 5,
+        "new_elected": 12,
+        "inc_female_pct": 26.7,
+        "new_female_elected_pct": 25.0,
+        "inc_retention_pct": 66.7
       },
       {
         "party": "Trade Unionist and Socialist Coalition",
@@ -5358,7 +7024,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Labour and Co-operative Party",
@@ -5373,7 +7046,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 55.6,
         "female_win_rate": 20.0,
-        "male_win_rate": 16.0
+        "male_win_rate": 16.0,
+        "inc_total": 18,
+        "inc_elected": 6,
+        "inc_defeated": 12,
+        "new_elected": 3,
+        "inc_female_pct": 72.2,
+        "new_female_elected_pct": 33.3,
+        "inc_retention_pct": 33.3
       },
       {
         "party": "Social Democratic Party",
@@ -5388,7 +7068,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": 0.0,
-        "male_win_rate": 4.5
+        "male_win_rate": 4.5,
+        "inc_total": 1,
+        "inc_elected": 1,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Your Bradford Independent group",
@@ -5403,7 +7090,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 22.2,
         "female_win_rate": 25.0,
-        "male_win_rate": 33.3
+        "male_win_rate": 33.3,
+        "inc_total": 7,
+        "inc_elected": 4,
+        "inc_defeated": 3,
+        "new_elected": 5,
+        "inc_female_pct": 28.6,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": 57.1
       },
       {
         "party": "Unity Independents",
@@ -5418,7 +7112,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 2,
+        "inc_elected": 0,
+        "inc_defeated": 2,
+        "new_elected": 0,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Community Alliance Kirklees",
@@ -5433,7 +7134,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 1,
+        "inc_elected": 0,
+        "inc_defeated": 1,
+        "new_elected": 0,
+        "inc_female_pct": 100.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Workers Party of Britain",
@@ -5448,7 +7156,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": null,
-        "male_win_rate": 33.3
+        "male_win_rate": 33.3,
+        "inc_total": 1,
+        "inc_elected": 1,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 100.0
       }
     ],
     "East of England": [
@@ -5465,7 +7180,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 19.7,
         "female_win_rate": 40.3,
-        "male_win_rate": 43.4
+        "male_win_rate": 43.4,
+        "inc_total": 7,
+        "inc_elected": 5,
+        "inc_defeated": 2,
+        "new_elected": 269,
+        "inc_female_pct": 28.6,
+        "new_female_elected_pct": 19.7,
+        "inc_retention_pct": 71.4
       },
       {
         "party": "Conservative and Unionist Party",
@@ -5480,7 +7202,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 31.5,
         "female_win_rate": 16.9,
-        "male_win_rate": 16.9
+        "male_win_rate": 16.9,
+        "inc_total": 74,
+        "inc_elected": 36,
+        "inc_defeated": 38,
+        "new_elected": 72,
+        "inc_female_pct": 36.5,
+        "new_female_elected_pct": 30.6,
+        "inc_retention_pct": 48.6
       },
       {
         "party": "Green Party",
@@ -5495,7 +7224,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 44.4,
         "female_win_rate": 10.4,
-        "male_win_rate": 9.0
+        "male_win_rate": 9.0,
+        "inc_total": 12,
+        "inc_elected": 8,
+        "inc_defeated": 4,
+        "new_elected": 46,
+        "inc_female_pct": 66.7,
+        "new_female_elected_pct": 41.3,
+        "inc_retention_pct": 66.7
       },
       {
         "party": "Liberal Democrats",
@@ -5510,7 +7246,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 36.6,
         "female_win_rate": 30.6,
-        "male_win_rate": 24.3
+        "male_win_rate": 24.3,
+        "inc_total": 68,
+        "inc_elected": 60,
+        "inc_defeated": 8,
+        "new_elected": 85,
+        "inc_female_pct": 36.8,
+        "new_female_elected_pct": 37.6,
+        "inc_retention_pct": 88.2
       },
       {
         "party": "Labour Party",
@@ -5525,7 +7268,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 30.0,
         "female_win_rate": 3.0,
-        "male_win_rate": 4.1
+        "male_win_rate": 4.1,
+        "inc_total": 31,
+        "inc_elected": 11,
+        "inc_defeated": 20,
+        "new_elected": 9,
+        "inc_female_pct": 38.7,
+        "new_female_elected_pct": 33.3,
+        "inc_retention_pct": 35.5
       },
       {
         "party": "Independent",
@@ -5540,7 +7290,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 63.6,
         "female_win_rate": 20.0,
-        "male_win_rate": 5.3
+        "male_win_rate": 5.3,
+        "inc_total": 14,
+        "inc_elected": 5,
+        "inc_defeated": 9,
+        "new_elected": 6,
+        "inc_female_pct": 28.6,
+        "new_female_elected_pct": 66.7,
+        "inc_retention_pct": 35.7
       },
       {
         "party": "Labour and Co-operative Party",
@@ -5555,7 +7312,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 41.7,
         "female_win_rate": 17.2,
-        "male_win_rate": 18.4
+        "male_win_rate": 18.4,
+        "inc_total": 24,
+        "inc_elected": 9,
+        "inc_defeated": 15,
+        "new_elected": 3,
+        "inc_female_pct": 41.7,
+        "new_female_elected_pct": 66.7,
+        "inc_retention_pct": 37.5
       },
       {
         "party": "Trade Unionist and Socialist Coalition",
@@ -5570,7 +7334,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Confelicity",
@@ -5585,7 +7356,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Great Yarmouth First",
@@ -5600,7 +7378,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": null,
-        "male_win_rate": 100.0
+        "male_win_rate": 100.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 10,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Heritage Party",
@@ -5615,7 +7400,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Communist Party of Britain",
@@ -5630,7 +7422,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Independent Loughton Residents Association",
@@ -5645,7 +7444,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": null,
-        "male_win_rate": 50.0
+        "male_win_rate": 50.0,
+        "inc_total": 3,
+        "inc_elected": 2,
+        "inc_defeated": 1,
+        "new_elected": 1,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": 66.7
       },
       {
         "party": "Residents for Uttlesford",
@@ -5660,7 +7466,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": 0.0,
-        "male_win_rate": 50.0
+        "male_win_rate": 50.0,
+        "inc_total": 1,
+        "inc_elected": 0,
+        "inc_defeated": 1,
+        "new_elected": 1,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Rochford District Residents",
@@ -5675,7 +7488,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 1,
+        "inc_elected": 0,
+        "inc_defeated": 1,
+        "new_elected": 0,
+        "inc_female_pct": 100.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 0.0
       }
     ],
     "West Midlands (England)": [
@@ -5692,7 +7512,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 22.8,
         "female_win_rate": 48.7,
-        "male_win_rate": 51.1
+        "male_win_rate": 51.1,
+        "inc_total": 7,
+        "inc_elected": 6,
+        "inc_defeated": 1,
+        "new_elected": 244,
+        "inc_female_pct": 28.6,
+        "new_female_elected_pct": 22.5,
+        "inc_retention_pct": 85.7
       },
       {
         "party": "Conservative and Unionist Party",
@@ -5707,7 +7534,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 32.5,
         "female_win_rate": 16.0,
-        "male_win_rate": 16.5
+        "male_win_rate": 16.5,
+        "inc_total": 55,
+        "inc_elected": 30,
+        "inc_defeated": 25,
+        "new_elected": 50,
+        "inc_female_pct": 27.3,
+        "new_female_elected_pct": 36.0,
+        "inc_retention_pct": 54.5
       },
       {
         "party": "Green Party",
@@ -5722,7 +7556,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 25.8,
         "female_win_rate": 5.0,
-        "male_win_rate": 7.9
+        "male_win_rate": 7.9,
+        "inc_total": 8,
+        "inc_elected": 4,
+        "inc_defeated": 4,
+        "new_elected": 27,
+        "inc_female_pct": 12.5,
+        "new_female_elected_pct": 29.6,
+        "inc_retention_pct": 50.0
       },
       {
         "party": "Labour Party",
@@ -5737,7 +7578,14 @@
         "elected_unknown": 1,
         "pct_female_elected": 41.9,
         "female_win_rate": 17.5,
-        "male_win_rate": 15.8
+        "male_win_rate": 15.8,
+        "inc_total": 107,
+        "inc_elected": 51,
+        "inc_defeated": 56,
+        "new_elected": 24,
+        "inc_female_pct": 44.9,
+        "new_female_elected_pct": 47.8,
+        "inc_retention_pct": 47.7
       },
       {
         "party": "Liberal Democrats",
@@ -5752,7 +7600,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 36.0,
         "female_win_rate": 12.7,
-        "male_win_rate": 9.1
+        "male_win_rate": 9.1,
+        "inc_total": 16,
+        "inc_elected": 14,
+        "inc_defeated": 2,
+        "new_elected": 11,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": 9.1,
+        "inc_retention_pct": 87.5
       },
       {
         "party": "Independent",
@@ -5767,7 +7622,14 @@
         "elected_unknown": 1,
         "pct_female_elected": 21.4,
         "female_win_rate": 13.0,
-        "male_win_rate": 12.8
+        "male_win_rate": 12.8,
+        "inc_total": 11,
+        "inc_elected": 4,
+        "inc_defeated": 7,
+        "new_elected": 11,
+        "inc_female_pct": 36.4,
+        "new_female_elected_pct": 10.0,
+        "inc_retention_pct": 36.4
       },
       {
         "party": "Labour and Co-operative Party",
@@ -5782,7 +7644,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 44.4,
         "female_win_rate": 22.2,
-        "male_win_rate": 20.8
+        "male_win_rate": 20.8,
+        "inc_total": 19,
+        "inc_elected": 6,
+        "inc_defeated": 13,
+        "new_elected": 3,
+        "inc_female_pct": 52.6,
+        "new_female_elected_pct": 66.7,
+        "inc_retention_pct": 31.6
       },
       {
         "party": "Trade Unionist and Socialist Coalition",
@@ -5797,7 +7666,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Workers Party of Britain",
@@ -5812,7 +7688,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": 0.0,
-        "male_win_rate": 4.3
+        "male_win_rate": 4.3,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 1,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Walsall Community Independents Party",
@@ -5827,7 +7710,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 12.5,
         "female_win_rate": 25.0,
-        "male_win_rate": 43.8
+        "male_win_rate": 43.8,
+        "inc_total": 1,
+        "inc_elected": 1,
+        "inc_defeated": 0,
+        "new_elected": 7,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 14.3,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Advance UK",
@@ -5842,7 +7732,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 1,
+        "inc_elected": 0,
+        "inc_defeated": 1,
+        "new_elected": 0,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Your Party",
@@ -5857,7 +7754,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "The Black Country Party",
@@ -5872,7 +7776,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 2,
+        "inc_elected": 0,
+        "inc_defeated": 2,
+        "new_elected": 0,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 0.0
       }
     ],
     "North West (England)": [
@@ -5889,7 +7800,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 19.0,
         "female_win_rate": 47.7,
-        "male_win_rate": 46.4
+        "male_win_rate": 46.4,
+        "inc_total": 3,
+        "inc_elected": 2,
+        "inc_defeated": 1,
+        "new_elected": 214,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 19.2,
+        "inc_retention_pct": 66.7
       },
       {
         "party": "Green Party",
@@ -5904,7 +7822,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 46.2,
         "female_win_rate": 11.0,
-        "male_win_rate": 8.4
+        "male_win_rate": 8.4,
+        "inc_total": 5,
+        "inc_elected": 4,
+        "inc_defeated": 1,
+        "new_elected": 35,
+        "inc_female_pct": 40.0,
+        "new_female_elected_pct": 45.7,
+        "inc_retention_pct": 80.0
       },
       {
         "party": "Labour Party",
@@ -5919,7 +7844,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 42.3,
         "female_win_rate": 22.4,
-        "male_win_rate": 18.1
+        "male_win_rate": 18.1,
+        "inc_total": 123,
+        "inc_elected": 29,
+        "inc_defeated": 94,
+        "new_elected": 49,
+        "inc_female_pct": 40.7,
+        "new_female_elected_pct": 44.9,
+        "inc_retention_pct": 23.6
       },
       {
         "party": "Conservative and Unionist Party",
@@ -5934,7 +7866,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 44.4,
         "female_win_rate": 6.0,
-        "male_win_rate": 4.1
+        "male_win_rate": 4.1,
+        "inc_total": 24,
+        "inc_elected": 7,
+        "inc_defeated": 17,
+        "new_elected": 11,
+        "inc_female_pct": 33.3,
+        "new_female_elected_pct": 54.5,
+        "inc_retention_pct": 29.2
       },
       {
         "party": "Liberal Democrats",
@@ -5949,7 +7888,14 @@
         "elected_unknown": 1,
         "pct_female_elected": 40.4,
         "female_win_rate": 19.6,
-        "male_win_rate": 14.9
+        "male_win_rate": 14.9,
+        "inc_total": 30,
+        "inc_elected": 24,
+        "inc_defeated": 6,
+        "new_elected": 24,
+        "inc_female_pct": 37.9,
+        "new_female_elected_pct": 41.7,
+        "inc_retention_pct": 80.0
       },
       {
         "party": "Independent",
@@ -5964,7 +7910,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 18.2,
         "female_win_rate": 17.4,
-        "male_win_rate": 22.0
+        "male_win_rate": 22.0,
+        "inc_total": 15,
+        "inc_elected": 9,
+        "inc_defeated": 6,
+        "new_elected": 13,
+        "inc_female_pct": 40.0,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": 60.0
       },
       {
         "party": "Labour and Co-operative Party",
@@ -5979,7 +7932,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 41.7,
         "female_win_rate": 20.8,
-        "male_win_rate": 18.4
+        "male_win_rate": 18.4,
+        "inc_total": 31,
+        "inc_elected": 8,
+        "inc_defeated": 23,
+        "new_elected": 4,
+        "inc_female_pct": 41.9,
+        "new_female_elected_pct": 50.0,
+        "inc_retention_pct": 25.8
       },
       {
         "party": "Workers Party of Britain",
@@ -5994,7 +7954,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": 0.0,
-        "male_win_rate": 17.6
+        "male_win_rate": 17.6,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 3,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Trade Unionist and Socialist Coalition",
@@ -6009,7 +7976,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Advance UK",
@@ -6024,7 +7998,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Our West Lancashire",
@@ -6039,7 +8020,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 60.0,
         "female_win_rate": 100.0,
-        "male_win_rate": 40.0
+        "male_win_rate": 40.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 5,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 60.0,
+        "inc_retention_pct": null
       },
       {
         "party": "The Oldham Group Party",
@@ -6054,7 +8042,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": null,
-        "male_win_rate": 28.6
+        "male_win_rate": 28.6,
+        "inc_total": 1,
+        "inc_elected": 0,
+        "inc_defeated": 1,
+        "new_elected": 2,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Lydiate and Maghull Community Independents",
@@ -6069,7 +8064,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 40.0,
         "female_win_rate": 100.0,
-        "male_win_rate": 75.0
+        "male_win_rate": 75.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 5,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 40.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Bury Independents",
@@ -6084,7 +8086,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Social Democratic Party",
@@ -6099,7 +8108,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Your Party",
@@ -6114,7 +8130,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": null,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       }
     ],
     "South West (England)": [
@@ -6131,7 +8154,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 25.8,
         "female_win_rate": 29.6,
-        "male_win_rate": 27.1
+        "male_win_rate": 27.1,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 31,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 25.8,
+        "inc_retention_pct": null
       },
       {
         "party": "Conservative and Unionist Party",
@@ -6146,7 +8176,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 29.2,
         "female_win_rate": 18.9,
-        "male_win_rate": 22.7
+        "male_win_rate": 22.7,
+        "inc_total": 2,
+        "inc_elected": 1,
+        "inc_defeated": 1,
+        "new_elected": 23,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 30.4,
+        "inc_retention_pct": 50.0
       },
       {
         "party": "Green Party",
@@ -6161,7 +8198,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 70.0,
         "female_win_rate": 17.9,
-        "male_win_rate": 5.6
+        "male_win_rate": 5.6,
+        "inc_total": 4,
+        "inc_elected": 2,
+        "inc_defeated": 2,
+        "new_elected": 8,
+        "inc_female_pct": 50.0,
+        "new_female_elected_pct": 62.5,
+        "inc_retention_pct": 50.0
       },
       {
         "party": "Liberal Democrats",
@@ -6176,7 +8220,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 31.8,
         "female_win_rate": 31.8,
-        "male_win_rate": 26.3
+        "male_win_rate": 26.3,
+        "inc_total": 6,
+        "inc_elected": 6,
+        "inc_defeated": 0,
+        "new_elected": 16,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 43.8,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Labour and Co-operative Party",
@@ -6191,7 +8242,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 47.6,
         "female_win_rate": 37.0,
-        "male_win_rate": 35.5
+        "male_win_rate": 35.5,
+        "inc_total": 6,
+        "inc_elected": 3,
+        "inc_defeated": 3,
+        "new_elected": 18,
+        "inc_female_pct": 83.3,
+        "new_female_elected_pct": 44.4,
+        "inc_retention_pct": 50.0
       },
       {
         "party": "Labour Party",
@@ -6206,7 +8264,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 25.0,
         "female_win_rate": 6.7,
-        "male_win_rate": 9.1
+        "male_win_rate": 9.1,
+        "inc_total": 6,
+        "inc_elected": 3,
+        "inc_defeated": 3,
+        "new_elected": 1,
+        "inc_female_pct": 16.7,
+        "new_female_elected_pct": 100.0,
+        "inc_retention_pct": 50.0
       },
       {
         "party": "Trade Unionist and Socialist Coalition",
@@ -6221,7 +8286,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Independent",
@@ -6236,7 +8308,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       }
     ],
     "East Midlands (England)": [
@@ -6253,7 +8332,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 28.6,
         "female_win_rate": 66.7,
-        "male_win_rate": 45.5
+        "male_win_rate": 45.5,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 7,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 28.6,
+        "inc_retention_pct": null
       },
       {
         "party": "Conservative and Unionist Party",
@@ -6268,7 +8354,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       },
       {
         "party": "Liberal Democrats",
@@ -6283,7 +8376,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": 0.0,
-        "male_win_rate": 18.2
+        "male_win_rate": 18.2,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 2,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Green Party",
@@ -6298,7 +8398,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 100.0,
         "female_win_rate": 16.7,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 1,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 100.0,
+        "inc_retention_pct": null
       },
       {
         "party": "Labour Party",
@@ -6313,7 +8420,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 33.3,
         "female_win_rate": 20.0,
-        "male_win_rate": 50.0
+        "male_win_rate": 50.0,
+        "inc_total": 1,
+        "inc_elected": 1,
+        "inc_defeated": 0,
+        "new_elected": 2,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 50.0,
+        "inc_retention_pct": 100.0
       },
       {
         "party": "Labour and Co-operative Party",
@@ -6328,7 +8442,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 100.0,
         "female_win_rate": 25.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 1,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 100.0,
+        "inc_retention_pct": null
       }
     ],
     "North East (England)": [
@@ -6345,7 +8466,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 27.9,
         "female_win_rate": 68.0,
-        "male_win_rate": 57.4
+        "male_win_rate": 57.4,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 183,
+        "inc_female_pct": null,
+        "new_female_elected_pct": 27.9,
+        "inc_retention_pct": null
       },
       {
         "party": "Green Party",
@@ -6360,7 +8488,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 33.3,
         "female_win_rate": 11.9,
-        "male_win_rate": 14.5
+        "male_win_rate": 14.5,
+        "inc_total": 9,
+        "inc_elected": 8,
+        "inc_defeated": 1,
+        "new_elected": 31,
+        "inc_female_pct": 44.4,
+        "new_female_elected_pct": 29.0,
+        "inc_retention_pct": 88.9
       },
       {
         "party": "Labour Party",
@@ -6375,7 +8510,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 47.4,
         "female_win_rate": 9.6,
-        "male_win_rate": 7.0
+        "male_win_rate": 7.0,
+        "inc_total": 51,
+        "inc_elected": 9,
+        "inc_defeated": 42,
+        "new_elected": 10,
+        "inc_female_pct": 51.0,
+        "new_female_elected_pct": 50.0,
+        "inc_retention_pct": 17.6
       },
       {
         "party": "Liberal Democrats",
@@ -6390,7 +8532,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 26.0,
         "female_win_rate": 14.9,
-        "male_win_rate": 25.9
+        "male_win_rate": 25.9,
+        "inc_total": 25,
+        "inc_elected": 22,
+        "inc_defeated": 3,
+        "new_elected": 28,
+        "inc_female_pct": 20.0,
+        "new_female_elected_pct": 32.1,
+        "inc_retention_pct": 88.0
       },
       {
         "party": "Conservative and Unionist Party",
@@ -6405,7 +8554,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 0.0,
         "female_win_rate": 0.0,
-        "male_win_rate": 1.7
+        "male_win_rate": 1.7,
+        "inc_total": 3,
+        "inc_elected": 0,
+        "inc_defeated": 3,
+        "new_elected": 2,
+        "inc_female_pct": 0.0,
+        "new_female_elected_pct": 0.0,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Labour and Co-operative Party",
@@ -6420,7 +8576,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 66.7,
         "female_win_rate": 11.8,
-        "male_win_rate": 5.7
+        "male_win_rate": 5.7,
+        "inc_total": 14,
+        "inc_elected": 0,
+        "inc_defeated": 14,
+        "new_elected": 6,
+        "inc_female_pct": 71.4,
+        "new_female_elected_pct": 66.7,
+        "inc_retention_pct": 0.0
       },
       {
         "party": "Independent",
@@ -6435,7 +8598,14 @@
         "elected_unknown": 0,
         "pct_female_elected": 50.0,
         "female_win_rate": 15.8,
-        "male_win_rate": 7.7
+        "male_win_rate": 7.7,
+        "inc_total": 20,
+        "inc_elected": 6,
+        "inc_defeated": 14,
+        "new_elected": 0,
+        "inc_female_pct": 30.0,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": 30.0
       },
       {
         "party": "Trade Unionist and Socialist Coalition",
@@ -6450,7 +8620,14 @@
         "elected_unknown": 0,
         "pct_female_elected": null,
         "female_win_rate": 0.0,
-        "male_win_rate": 0.0
+        "male_win_rate": 0.0,
+        "inc_total": 0,
+        "inc_elected": 0,
+        "inc_defeated": 0,
+        "new_elected": 0,
+        "inc_female_pct": null,
+        "new_female_elected_pct": null,
+        "inc_retention_pct": null
       }
     ],
     "Wales": []

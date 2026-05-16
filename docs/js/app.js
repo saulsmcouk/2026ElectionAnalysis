@@ -24,11 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
       appData = data;
       buildLadLookup();
       renderSummaryCards();
+      renderSeatChanges(appData.summary, 'England');
       initMap();
       renderPartyCharts();
       renderRegionCharts();
       initTable();
       wireMapToggle();
+      wireMethModal();
     })
     .catch(err => {
       document.querySelector('main').innerHTML =
@@ -64,6 +66,8 @@ function renderSummaryCards() {
   const knownCands   = s.female_candidates + s.male_candidates;
   const knownElected = s.elected_female    + s.elected_male;
 
+  const retPct = s.inc_retention_pct != null ? s.inc_retention_pct + '%' : '\u2014';
+
   const cards = [
     {
       value: s.total_candidates.toLocaleString(),
@@ -83,10 +87,23 @@ function renderSummaryCards() {
       label: '% Female elected',
       sub: `${s.elected_female.toLocaleString()} of ${knownElected.toLocaleString()} with known gender`,
     },
+    {
+      value: retPct,
+      cls: '',
+      label: 'Incumbent retention',
+      sub: `${(s.inc_elected || 0).toLocaleString()} of ${(s.inc_total || 0).toLocaleString()} incumbents re-elected`,
+    },
   ];
 
   document.getElementById('summary-cards').innerHTML = tmplSummaryCards(cards);
 }
+
+// ── Seat changes panel ────────────────────────────────────────────────────
+function renderSeatChanges(data, contextLabel) {
+  const el = document.getElementById('seat-changes-content');
+  if (el) el.innerHTML = tmplSeatChanges(data, contextLabel);
+}
+
 
 // ── Map ───────────────────────────────────────────────────────────────────
 function initMap() {
@@ -255,6 +272,7 @@ function handleCouncilSelect(feature) {
 
   renderPartyChartsForCouncil(council);
   renderCouncilStats(council);
+  renderSeatChanges(council, council.org_name);
   updateBreadcrumb();
 }
 
@@ -267,9 +285,12 @@ function clearCouncilSelection() {
   if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   // Restore region-scoped party charts if a region is still selected
   if (selectedRegionName) {
+    const r = appData.by_region.find(x => x.region === selectedRegionName);
     renderPartyCharts(selectedRegionName);
+    if (r) renderSeatChanges(r, selectedRegionName);
   } else {
     renderPartyCharts();
+    renderSeatChanges(appData.summary, 'England');
   }
   updateBreadcrumb();
 }
@@ -293,6 +314,7 @@ function handleRegionSelect(name) {
   if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   renderPartyCharts(name);
   renderRegionDetail(name);
+  renderSeatChanges(appData.by_region.find(x => x.region === name) || {}, name);
   renderTable(document.getElementById('table-search').value.trim().toLowerCase());
   updateBreadcrumb();
 }
@@ -305,6 +327,7 @@ function clearRegionSelection() {
   renderRegionCharts();
   if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   renderPartyCharts();
+  renderSeatChanges(appData.summary, 'England');
   renderTable(document.getElementById('table-search').value.trim().toLowerCase());
   updateBreadcrumb();
 }
@@ -852,6 +875,23 @@ function openWardDetail(council, payload, ward) {
       if (c) openCandidateModal({ ...c, rs: ward.results_url || null }, council.org_name, ward.ward);
     });
   });
+}
+
+// ── Methodology modal ─────────────────────────────────────────────────────
+function wireMethModal() {
+  const modal   = document.getElementById('meth-modal');
+  const closeBtn = document.getElementById('meth-modal-close');
+
+  function openMeth(e) { if (e) e.preventDefault(); modal.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeMeth() { modal.hidden = true; document.body.style.overflow = ''; }
+
+  const tileLink   = document.getElementById('btn-open-meth-modal');
+  const footerLink = document.getElementById('footer-meth-link');
+  if (tileLink)   tileLink.addEventListener('click', openMeth);
+  if (footerLink) footerLink.addEventListener('click', openMeth);
+  if (closeBtn)   closeBtn.addEventListener('click', closeMeth);
+  modal.addEventListener('click', e => { if (e.target === modal) closeMeth(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeMeth(); });
 }
 
 // ── XLSX Export ────────────────────────────────────────────────────────────

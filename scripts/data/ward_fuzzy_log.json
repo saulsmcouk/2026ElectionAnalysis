@@ -1,0 +1,1094 @@
+[
+  {
+    "dc_council": "Bradford",
+    "dc_ward": "Bingley East",
+    "matched_ward": "Bingley",
+    "score": 0.737
+  },
+  {
+    "dc_council": "Bradford",
+    "dc_ward": "Bingley West",
+    "matched_ward": "Bingley",
+    "score": 0.737
+  },
+  {
+    "dc_council": "Bradford",
+    "dc_ward": "Bolton & Undercliffe",
+    "matched_ward": "Bolton and Undercliffe",
+    "score": 0.905
+  },
+  {
+    "dc_council": "Bradford",
+    "dc_ward": "Bowling & Barkerend",
+    "matched_ward": "Bowling and Barkerend",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Bradford",
+    "dc_ward": "Clayton & Fairweather Green",
+    "matched_ward": "Clayton and Fairweather Green",
+    "score": 0.929
+  },
+  {
+    "dc_council": "Bradford",
+    "dc_ward": "Idle & Thackley",
+    "matched_ward": "Idle and Thackley",
+    "score": 0.875
+  },
+  {
+    "dc_council": "Bradford",
+    "dc_ward": "Thornton & Allerton",
+    "matched_ward": "Thornton and Allerton",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Bradford",
+    "dc_ward": "Wibsey & Odsal",
+    "matched_ward": "Wibsey",
+    "score": 0.6
+  },
+  {
+    "dc_council": "Bradford",
+    "dc_ward": "Windhill & Wrose",
+    "matched_ward": "Windhill and Wrose",
+    "score": 0.882
+  },
+  {
+    "dc_council": "Calderdale",
+    "dc_ward": "Hipperholme & Lightcliffe",
+    "matched_ward": "Hipperholme and Lightcliffe",
+    "score": 0.923
+  },
+  {
+    "dc_council": "Calderdale",
+    "dc_ward": "Illingworth & Mixenden",
+    "matched_ward": "Illingworth and Mixenden",
+    "score": 0.913
+  },
+  {
+    "dc_council": "Calderdale",
+    "dc_ward": "Northowram & Shelf",
+    "matched_ward": "Northowram and Shelf",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Calderdale",
+    "dc_ward": "Todmorden West",
+    "matched_ward": "Todmorden",
+    "score": 0.783
+  },
+  {
+    "dc_council": "Cherwell",
+    "dc_ward": "Adderbury, Bloxham & Bodicote",
+    "matched_ward": "Adderbury, Bloxham and Bodicote",
+    "score": 0.933
+  },
+  {
+    "dc_council": "Cherwell",
+    "dc_ward": "Banbury Calthorpe & Easington",
+    "matched_ward": "Banbury Calthorpe and Easington",
+    "score": 0.933
+  },
+  {
+    "dc_council": "Cherwell",
+    "dc_ward": "Banbury Cross & Neithrop",
+    "matched_ward": "Banbury Cross and Neithrop",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Cherwell",
+    "dc_ward": "Banbury Grimsbury & Hightown",
+    "matched_ward": "Banbury Grimsbury and Hightown",
+    "score": 0.931
+  },
+  {
+    "dc_council": "Cherwell",
+    "dc_ward": "Bicester North & Caversfield",
+    "matched_ward": "Bicester North and Caversfield",
+    "score": 0.931
+  },
+  {
+    "dc_council": "Cherwell",
+    "dc_ward": "Bicester South & Ambrosden",
+    "matched_ward": "Bicester South and Ambrosden",
+    "score": 0.926
+  },
+  {
+    "dc_council": "Cherwell",
+    "dc_ward": "Cropredy, Sibfords & Wroxton",
+    "matched_ward": "Cropredy, Sibfords and Wroxton",
+    "score": 0.931
+  },
+  {
+    "dc_council": "Cherwell",
+    "dc_ward": "Fringford & Heyfords",
+    "matched_ward": "Fringford and Heyfords",
+    "score": 0.905
+  },
+  {
+    "dc_council": "Cherwell",
+    "dc_ward": "Launton & Otmoor",
+    "matched_ward": "Launton and Otmoor",
+    "score": 0.882
+  },
+  {
+    "dc_council": "Colchester",
+    "dc_ward": "Lexden & Braiswick",
+    "matched_ward": "Lexden and Braiswick",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Colchester",
+    "dc_ward": "Marks Tey & Layer",
+    "matched_ward": "Marks Tey and Layer",
+    "score": 0.889
+  },
+  {
+    "dc_council": "Colchester",
+    "dc_ward": "Mersea & Pyefleet",
+    "matched_ward": "Mersea and Pyefleet",
+    "score": 0.889
+  },
+  {
+    "dc_council": "Colchester",
+    "dc_ward": "New Town & Christ Church",
+    "matched_ward": "New Town and Christ Church",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Colchester",
+    "dc_ward": "Old Heath & The Hythe",
+    "matched_ward": "Old Heath and The Hythe",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Colchester",
+    "dc_ward": "St Anne's & St John's",
+    "matched_ward": "St Anne's and St John's",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Coventry",
+    "dc_ward": "Binley & Willenhall",
+    "matched_ward": "Binley and Willenhall",
+    "score": 0.9
+  },
+  {
+    "dc_council": "East Sussex",
+    "dc_ward": "Central St Leonards & Gensing",
+    "matched_ward": "Central St. Leonards & Gensing",
+    "score": 0.983
+  },
+  {
+    "dc_council": "East Sussex",
+    "dc_ward": "Crowborough South & St Johns",
+    "matched_ward": "Crowborough South & St. Johns",
+    "score": 0.982
+  },
+  {
+    "dc_council": "East Sussex",
+    "dc_ward": "Maze Hill & West St Leonards",
+    "matched_ward": "Maze Hill & West St. Leonards",
+    "score": 0.982
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Billericay North",
+    "matched_ward": "Billericay and Burstead",
+    "score": 0.718
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Broomfield & Writtle",
+    "matched_ward": "Broomfield and Writtle",
+    "score": 0.905
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Chelmsford Springfield",
+    "matched_ward": "Chelmsford Central",
+    "score": 0.65
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Clacton South",
+    "matched_ward": "Clacton North",
+    "score": 0.846
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Clacton West & St Osyth",
+    "matched_ward": "Clacton West",
+    "score": 0.686
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Epping & Theydon Bois",
+    "matched_ward": "Epping and Theydon Bois",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Frinton & Walton",
+    "matched_ward": "Frinton and Walton",
+    "score": 0.882
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Great Baddow & Galleywood",
+    "matched_ward": "Great Baddow",
+    "score": 0.649
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Harlow Netteswell",
+    "matched_ward": "Harlow West",
+    "score": 0.643
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Harlow South West",
+    "matched_ward": "Harlow South East",
+    "score": 0.941
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Loughton North",
+    "matched_ward": "Loughton Central",
+    "score": 0.733
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Mersea & Tiptree",
+    "matched_ward": "Mersea and Tiptree",
+    "score": 0.882
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "North Weald & Nazeing",
+    "matched_ward": "North Weald and Nazeing",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Ongar & Rural",
+    "matched_ward": "Ongar and Rural",
+    "score": 0.857
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Rayleigh West",
+    "matched_ward": "Rayleigh South",
+    "score": 0.815
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Rochford East",
+    "matched_ward": "Rochford West",
+    "score": 0.923
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Three Fields & Great Notley",
+    "matched_ward": "Three Fields with Great Notley",
+    "score": 0.912
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Witham Town",
+    "matched_ward": "Witham Southern",
+    "score": 0.692
+  },
+  {
+    "dc_council": "Essex",
+    "dc_ward": "Wivenhoe St Andrew",
+    "matched_ward": "Wivenhoe St. Andrew",
+    "score": 0.973
+  },
+  {
+    "dc_council": "Exeter",
+    "dc_ward": "Duryard & St James",
+    "matched_ward": "Duryard and St James",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Exeter",
+    "dc_ward": "Mincinglake & Whipton",
+    "matched_ward": "Mincinglake and Whipton",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Exeter",
+    "dc_ward": "Newtown & St Leonard's",
+    "matched_ward": "Newtown and St Leonard's",
+    "score": 0.913
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Birtley South",
+    "matched_ward": "Birtley",
+    "score": 0.7
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Chopwell & Rowlands Gill",
+    "matched_ward": "Chopwell and Rowlands Gill",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Crawcrook & Greenside",
+    "matched_ward": "Crawcrook and Greenside",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Dunston Hill & Whickham East",
+    "matched_ward": "Dunston Hill and Whickham East",
+    "score": 0.931
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Lobley Hill & Bensham",
+    "matched_ward": "Lobley Hill and Bensham",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Ryton, Crookhill & Stella",
+    "matched_ward": "Ryton, Crookhill and Stella",
+    "score": 0.923
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Wardley & Leam Lane",
+    "matched_ward": "Wardley and Leam Lane",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Whickham North & Swalwell",
+    "matched_ward": "Whickham North",
+    "score": 0.718
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Whickham South & Sunniside",
+    "matched_ward": "Whickham South and Sunniside",
+    "score": 0.926
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Windy Nook & Whitehills",
+    "matched_ward": "Windy Nook and Whitehills",
+    "score": 0.917
+  },
+  {
+    "dc_council": "Gateshead",
+    "dc_ward": "Winlaton & High Spen",
+    "matched_ward": "Winlaton and High Spen",
+    "score": 0.905
+  },
+  {
+    "dc_council": "Hampshire",
+    "dc_ward": "Emsworth & St Faiths",
+    "matched_ward": "Emsworth & St. Faiths",
+    "score": 0.976
+  },
+  {
+    "dc_council": "Kirklees",
+    "dc_ward": "Birstall & Birkenshaw",
+    "matched_ward": "Birstall and Birkenshaw",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Kirklees",
+    "dc_ward": "Colne Valley East",
+    "matched_ward": "Colne Valley",
+    "score": 0.828
+  },
+  {
+    "dc_council": "Kirklees",
+    "dc_ward": "Colne Valley West",
+    "matched_ward": "Colne Valley",
+    "score": 0.828
+  },
+  {
+    "dc_council": "Kirklees",
+    "dc_ward": "Crosland Moor",
+    "matched_ward": "Crosland Moor and Netherton",
+    "score": 0.65
+  },
+  {
+    "dc_council": "Kirklees",
+    "dc_ward": "Liversedge & Gomersal",
+    "matched_ward": "Liversedge and Gomersal",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Knowsley",
+    "dc_ward": "Whiston & Cronton",
+    "matched_ward": "Whiston and Cronton",
+    "score": 0.889
+  },
+  {
+    "dc_council": "Milton Keynes",
+    "dc_ward": "Bletchley Park & Fenny Stratford",
+    "matched_ward": "Bletchley Park",
+    "score": 0.609
+  },
+  {
+    "dc_council": "Milton Keynes",
+    "dc_ward": "Bletchley South",
+    "matched_ward": "Bletchley West",
+    "score": 0.828
+  },
+  {
+    "dc_council": "Milton Keynes",
+    "dc_ward": "Broughton & Moulsoe",
+    "matched_ward": "Broughton",
+    "score": 0.643
+  },
+  {
+    "dc_council": "Milton Keynes",
+    "dc_ward": "Campbell Park & Willen",
+    "matched_ward": "Campbell Park & Old Woughton",
+    "score": 0.72
+  },
+  {
+    "dc_council": "Milton Keynes",
+    "dc_ward": "Danesborough",
+    "matched_ward": "Danesborough & Walton",
+    "score": 0.727
+  },
+  {
+    "dc_council": "Milton Keynes",
+    "dc_ward": "Newport Pagnell",
+    "matched_ward": "Newport Pagnell South",
+    "score": 0.833
+  },
+  {
+    "dc_council": "Newcastle upon Tyne",
+    "dc_ward": "Blakelaw & Cowgate",
+    "matched_ward": "Blakelaw",
+    "score": 0.615
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Blofield & Brundall",
+    "matched_ward": "Blofield and Brundall",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Clenchwarton & King's Lynn South",
+    "matched_ward": "Clenchwarton and King's Lynn South",
+    "score": 0.939
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Dereham North & Scarning",
+    "matched_ward": "Dereham North",
+    "score": 0.703
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Diss & Roydon",
+    "matched_ward": "Diss and Roydon",
+    "score": 0.857
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Drayton & Horsford",
+    "matched_ward": "Drayton and Horsford",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Elmham & Mattishall",
+    "matched_ward": "Elmham and Mattishall",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Gaywood North & Central",
+    "matched_ward": "Gaywood North and Central",
+    "score": 0.917
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Gorleston",
+    "matched_ward": "Gorleston St. Andrews",
+    "score": 0.6
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "King's Lynn North & Central",
+    "matched_ward": "King's Lynn North and Central",
+    "score": 0.929
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "North Walsham West & Mundesley",
+    "matched_ward": "North Walsham West and Erpingham",
+    "score": 0.71
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "The Fleggs",
+    "matched_ward": "The Brecks",
+    "score": 0.6
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Thorpe St Andrew",
+    "matched_ward": "Thorpe St. Andrew",
+    "score": 0.97
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Yarmouth Nelson & Southtown",
+    "matched_ward": "Yarmouth Nelson and Southtown",
+    "score": 0.929
+  },
+  {
+    "dc_council": "Norfolk",
+    "dc_ward": "Yarmouth North & Central",
+    "matched_ward": "Yarmouth North and Central",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Peterborough",
+    "dc_ward": "Eye, Thorney & Newborough",
+    "matched_ward": "Eye, Thorney and Newborough",
+    "score": 0.923
+  },
+  {
+    "dc_council": "Peterborough",
+    "dc_ward": "Fletton & Stanground",
+    "matched_ward": "Fletton and Stanground",
+    "score": 0.905
+  },
+  {
+    "dc_council": "Peterborough",
+    "dc_ward": "Fletton & Woodston",
+    "matched_ward": "Fletton and Woodston",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Peterborough",
+    "dc_ward": "Hargate & Hempsted",
+    "matched_ward": "Hargate and Hempsted",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Peterborough",
+    "dc_ward": "Paston & Walton",
+    "matched_ward": "Paston and Walton",
+    "score": 0.875
+  },
+  {
+    "dc_council": "Rochford",
+    "dc_ward": "Downhall & Rawreth",
+    "matched_ward": "Downhall and Rawreth",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Rochford",
+    "dc_ward": "Foulness & The Wakerings",
+    "matched_ward": "Foulness and The Wakerings",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Rochford",
+    "dc_ward": "Hockley & Ashingdon",
+    "matched_ward": "Hockley and Ashingdon",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Rochford",
+    "dc_ward": "Roche North & Rural",
+    "matched_ward": "Roche North and Rural",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Rochford",
+    "dc_ward": "Sweyne Park & Grange",
+    "matched_ward": "Sweyne Park and Grange",
+    "score": 0.905
+  },
+  {
+    "dc_council": "Sandwell",
+    "dc_ward": "Charlemont & Grove Vale",
+    "matched_ward": "Charlemont with Grove Vale",
+    "score": 0.898
+  },
+  {
+    "dc_council": "Sandwell",
+    "dc_ward": "Cradley Heath & Old Hill",
+    "matched_ward": "Cradley Heath and Old Hill",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Sandwell",
+    "dc_ward": "Great Barr, Tamebridge & Yew Tree",
+    "matched_ward": "Great Barr with Yew Tree",
+    "score": 0.737
+  },
+  {
+    "dc_council": "Sandwell",
+    "dc_ward": "Greets Green & Lyng",
+    "matched_ward": "Greets Green and Lyng",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Sandwell",
+    "dc_ward": "Soho & Victoria",
+    "matched_ward": "Soho and Victoria",
+    "score": 0.875
+  },
+  {
+    "dc_council": "Sandwell",
+    "dc_ward": "Wednesbury",
+    "matched_ward": "Wednesbury South",
+    "score": 0.769
+  },
+  {
+    "dc_council": "Sefton",
+    "dc_ward": "Netherton North",
+    "matched_ward": "Netherton and Orrell",
+    "score": 0.743
+  },
+  {
+    "dc_council": "Sefton",
+    "dc_ward": "Netherton South & Orrell",
+    "matched_ward": "Netherton and Orrell",
+    "score": 0.773
+  },
+  {
+    "dc_council": "Sheffield",
+    "dc_ward": "Beauchief & Greenhill",
+    "matched_ward": "Beauchief and Greenhill",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Sheffield",
+    "dc_ward": "Broomhill & Sharrow Vale",
+    "matched_ward": "Broomhill and Sharrow Vale",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Sheffield",
+    "dc_ward": "Crookes & Crosspool",
+    "matched_ward": "Crookes and Crosspool",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Sheffield",
+    "dc_ward": "Dore & Totley",
+    "matched_ward": "Dore and Totley",
+    "score": 0.857
+  },
+  {
+    "dc_council": "Sheffield",
+    "dc_ward": "Nether Edge & Sharrow",
+    "matched_ward": "Nether Edge and Sharrow",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Sheffield",
+    "dc_ward": "Park & Arbourthorne",
+    "matched_ward": "Park and Arbourthorne",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Sheffield",
+    "dc_ward": "Shiregreen & Brightside",
+    "matched_ward": "Shiregreen and Brightside",
+    "score": 0.917
+  },
+  {
+    "dc_council": "Sheffield",
+    "dc_ward": "Stocksbridge & Upper Don",
+    "matched_ward": "Stocksbridge and Upper Don",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Solihull",
+    "dc_ward": "Dorridge & Hockley Heath",
+    "matched_ward": "Dorridge and Hockley Heath",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Solihull",
+    "dc_ward": "Meriden & Arden",
+    "matched_ward": "Meriden",
+    "score": 0.636
+  },
+  {
+    "dc_council": "Southend-on-Sea",
+    "dc_ward": "St Luke's",
+    "matched_ward": "St Laurence",
+    "score": 0.6
+  },
+  {
+    "dc_council": "South Tyneside",
+    "dc_ward": "Beacon & Bents",
+    "matched_ward": "Beacon and Bents",
+    "score": 0.867
+  },
+  {
+    "dc_council": "South Tyneside",
+    "dc_ward": "Biddick & All Saints",
+    "matched_ward": "Biddick and All Saints",
+    "score": 0.905
+  },
+  {
+    "dc_council": "South Tyneside",
+    "dc_ward": "Cleadon Park & Harton Moor",
+    "matched_ward": "Cleadon Park",
+    "score": 0.632
+  },
+  {
+    "dc_council": "South Tyneside",
+    "dc_ward": "Cleadon Village & East Boldon",
+    "matched_ward": "Cleadon and East Boldon",
+    "score": 0.808
+  },
+  {
+    "dc_council": "South Tyneside",
+    "dc_ward": "Fellgate & Hedworth",
+    "matched_ward": "Fellgate and Hedworth",
+    "score": 0.9
+  },
+  {
+    "dc_council": "South Tyneside",
+    "dc_ward": "Horsley Hill & Westoe Crown",
+    "matched_ward": "Horsley Hill",
+    "score": 0.615
+  },
+  {
+    "dc_council": "South Tyneside",
+    "dc_ward": "Simonside & Rekendyke",
+    "matched_ward": "Simonside and Rekendyke",
+    "score": 0.909
+  },
+  {
+    "dc_council": "South Tyneside",
+    "dc_ward": "Whitburn & Marsden",
+    "matched_ward": "Whitburn and Marsden",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Aldeburgh & Leiston",
+    "matched_ward": "Aldeburgh and Leiston",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Belstead Hills",
+    "matched_ward": "Belstead Brook",
+    "score": 0.643
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Eastgate & Moreton Hall",
+    "matched_ward": "Eastgate and Moreton Hall",
+    "score": 0.917
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Exning & Newmarket",
+    "matched_ward": "Exning and Newmarket",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Felixstowe Clifflands",
+    "matched_ward": "Felixstowe Coastal",
+    "score": 0.667
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Felixstowe Maritime",
+    "matched_ward": "Felixstowe Coastal",
+    "score": 0.703
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Gipping",
+    "matched_ward": "Gipping Valley",
+    "score": 0.667
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Haverhill East & Rural",
+    "matched_ward": "Haverhill East and Kedington",
+    "score": 0.64
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Haverhill South",
+    "matched_ward": "Haverhill Cangle",
+    "score": 0.645
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Hoxne & Eye",
+    "matched_ward": "Hoxne and Eye",
+    "score": 0.833
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Newmarket & Red Lodge",
+    "matched_ward": "Newmarket and Red Lodge",
+    "score": 0.909
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Rushmere St Andrew",
+    "matched_ward": "Rushmere",
+    "score": 0.615
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Stowmarket East",
+    "matched_ward": "Stowmarket South",
+    "score": 0.839
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Stowmarket West",
+    "matched_ward": "Stowmarket South",
+    "score": 0.839
+  },
+  {
+    "dc_council": "Suffolk",
+    "dc_ward": "Sudbury West",
+    "matched_ward": "Sudbury",
+    "score": 0.737
+  },
+  {
+    "dc_council": "Sunderland",
+    "dc_ward": "Doxford Park",
+    "matched_ward": "Doxford",
+    "score": 0.737
+  },
+  {
+    "dc_council": "Sunderland",
+    "dc_ward": "Houghton North",
+    "matched_ward": "Houghton",
+    "score": 0.727
+  },
+  {
+    "dc_council": "Sunderland",
+    "dc_ward": "Pallion & Ford",
+    "matched_ward": "Pallion",
+    "score": 0.667
+  },
+  {
+    "dc_council": "Swindon",
+    "dc_ward": "Old Town & Lawn",
+    "matched_ward": "Old Town",
+    "score": 0.696
+  },
+  {
+    "dc_council": "Swindon",
+    "dc_ward": "St Andrews East",
+    "matched_ward": "St Andrews",
+    "score": 0.8
+  },
+  {
+    "dc_council": "Swindon",
+    "dc_ward": "Wroughton & Wichelstowe",
+    "matched_ward": "Wroughton and Wichelstowe",
+    "score": 0.917
+  },
+  {
+    "dc_council": "Thurrock",
+    "dc_ward": "Corringham & Fobbing",
+    "matched_ward": "Corringham and Fobbing",
+    "score": 0.905
+  },
+  {
+    "dc_council": "Thurrock",
+    "dc_ward": "Grays Town",
+    "matched_ward": "Grays Thurrock",
+    "score": 0.667
+  },
+  {
+    "dc_council": "Thurrock",
+    "dc_ward": "Stanford-le-Hope South",
+    "matched_ward": "Stanford-le-Hope West",
+    "score": 0.884
+  },
+  {
+    "dc_council": "Thurrock",
+    "dc_ward": "Stifford",
+    "matched_ward": "Stifford Clays",
+    "score": 0.727
+  },
+  {
+    "dc_council": "Thurrock",
+    "dc_ward": "Tilbury Riverside",
+    "matched_ward": "Tilbury Riverside and Thurrock Park",
+    "score": 0.654
+  },
+  {
+    "dc_council": "Thurrock",
+    "dc_ward": "West Thurrock & South Stifford",
+    "matched_ward": "West Thurrock and South Stifford",
+    "score": 0.935
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "Ackworth, North Elmsall & Upton",
+    "matched_ward": "Ackworth, North Elmsall and Upton",
+    "score": 0.938
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "Airedale & Ferry Fryston",
+    "matched_ward": "Airedale and Ferry Fryston",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "Altofts & Whitwood",
+    "matched_ward": "Altofts and Whitwood",
+    "score": 0.895
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "Castleford Central & Glasshoughton",
+    "matched_ward": "Castleford Central and Glasshoughton",
+    "score": 0.943
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "Crofton, Ryhill & Walton",
+    "matched_ward": "Crofton, Ryhill and Walton",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "Horbury & South Ossett",
+    "matched_ward": "Horbury and South Ossett",
+    "score": 0.913
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "Knottingley & Ferrybridge",
+    "matched_ward": "Knottingley",
+    "score": 0.611
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "South Elmsall & South Kirkby",
+    "matched_ward": "South Elmsall and South Kirkby",
+    "score": 0.931
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "Stanley & Outwood East",
+    "matched_ward": "Stanley and Outwood East",
+    "score": 0.913
+  },
+  {
+    "dc_council": "Wakefield",
+    "dc_ward": "Wrenthorpe & Outwood West",
+    "matched_ward": "Wrenthorpe and Outwood West",
+    "score": 0.923
+  },
+  {
+    "dc_council": "Walsall",
+    "dc_ward": "Aldridge Central & South",
+    "matched_ward": "Aldridge Central and South",
+    "score": 0.92
+  },
+  {
+    "dc_council": "Walsall",
+    "dc_ward": "Aldridge North & Walsall Wood",
+    "matched_ward": "Aldridge North and Walsall Wood",
+    "score": 0.933
+  },
+  {
+    "dc_council": "Walsall",
+    "dc_ward": "Bentley & Darlaston North",
+    "matched_ward": "Bentley and Darlaston North",
+    "score": 0.923
+  },
+  {
+    "dc_council": "Walsall",
+    "dc_ward": "Willenhall",
+    "matched_ward": "Willenhall South",
+    "score": 0.769
+  },
+  {
+    "dc_council": "Welwyn Hatfield",
+    "dc_ward": "Brookmans Park & Little Heath",
+    "matched_ward": "Brookmans Park and Little Heath",
+    "score": 0.933
+  },
+  {
+    "dc_council": "Welwyn Hatfield",
+    "dc_ward": "Northaw & Cuffley",
+    "matched_ward": "Northaw and Cuffley",
+    "score": 0.889
+  },
+  {
+    "dc_council": "Welwyn Hatfield",
+    "dc_ward": "Welham Green & Hatfield South",
+    "matched_ward": "Welham Green and Hatfield South",
+    "score": 0.933
+  },
+  {
+    "dc_council": "West Sussex",
+    "dc_ward": "Burgess Hill North",
+    "matched_ward": "Burgess Hill East",
+    "score": 0.8
+  },
+  {
+    "dc_council": "West Sussex",
+    "dc_ward": "Horsham Riverside",
+    "matched_ward": "Horsham Hurst",
+    "score": 0.667
+  },
+  {
+    "dc_council": "Winchester",
+    "dc_ward": "Alresford & Itchen Valley",
+    "matched_ward": "Alresford and Itchen Valley",
+    "score": 0.923
+  },
+  {
+    "dc_council": "Winchester",
+    "dc_ward": "Badger Farm & Oliver's Battery",
+    "matched_ward": "Badger Farm and Oliver's Battery",
+    "score": 0.935
+  },
+  {
+    "dc_council": "Winchester",
+    "dc_ward": "Colden Common & Twyford",
+    "matched_ward": "Colden Common and Twyford",
+    "score": 0.917
+  },
+  {
+    "dc_council": "Winchester",
+    "dc_ward": "Southwick & Wickham",
+    "matched_ward": "Southwick and Wickham",
+    "score": 0.9
+  },
+  {
+    "dc_council": "Winchester",
+    "dc_ward": "Whiteley & Shedfield",
+    "matched_ward": "Whiteley and Shedfield",
+    "score": 0.905
+  },
+  {
+    "dc_council": "Winchester",
+    "dc_ward": "Wonston & Micheldever",
+    "matched_ward": "Wonston and Micheldever",
+    "score": 0.909
+  }
+]

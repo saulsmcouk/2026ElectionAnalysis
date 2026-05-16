@@ -40,6 +40,39 @@ function tmplSummaryCards(cards) {
   `).join('');
 }
 
+// ── Seat changes panel ────────────────────────────────────────────────────
+
+function tmplSeatChanges(d, contextLabel) {
+  const fmt = n => (n || 0).toLocaleString();
+  const retPct  = d.inc_retention_pct != null ? d.inc_retention_pct + '%' : '\u2014';
+  const incFPct = d.inc_female_pct    != null ? d.inc_female_pct    + '% female' : '';
+  const newFPct = d.new_female_elected_pct != null ? d.new_female_elected_pct + '% female' : '';
+  return `
+    <div class="seat-changes-header">
+      <h2>Seat changes <span class="seat-changes-context">&mdash; ${escHtml(contextLabel)}</span></h2>
+    </div>
+    <div class="seat-changes-tiles">
+      <div class="council-stat-tile">
+        <div class="pst-value">${fmt(d.inc_total)}</div>
+        <div class="pst-label">Incumbents stood${incFPct ? '<br><span class="pst-sub">' + escHtml(incFPct) + '</span>' : ''}</div>
+      </div>
+      <div class="council-stat-tile sc-held">
+        <div class="pst-value">${fmt(d.inc_elected)}</div>
+        <div class="pst-label">Re-elected<br><span class="pst-sub">${escHtml(retPct)} retention rate</span></div>
+      </div>
+      <div class="council-stat-tile sc-lost">
+        <div class="pst-value">${fmt(d.inc_defeated)}</div>
+        <div class="pst-label">Incumbents defeated</div>
+      </div>
+      <div class="council-stat-tile sc-new">
+        <div class="pst-value">${fmt(d.new_elected)}</div>
+        <div class="pst-label">New councillors elected${newFPct ? '<br><span class="pst-sub">' + escHtml(newFPct) + '</span>' : ''}</div>
+      </div>
+    </div>
+    <p class="chart-hint">Defeated = stood and lost. Incumbents who chose not to re-stand are not counted.</p>
+  `;
+}
+
 // ── Map info box ──────────────────────────────────────────────────────────
 
 function tmplInfoBox(council, femalePctStr, electedPctStr, highConfPct) {
@@ -334,10 +367,34 @@ function tmplWardCards(wards) {
 
 // ── Ward detail results table ─────────────────────────────────────────────
 
+function _incBadge(cd) {
+  if (cd.inc) {
+    return cd.e
+      ? '<span class="inc-badge inc-badge--held">HELD</span>'
+      : '<span class="inc-badge inc-badge--lost">LOST</span>';
+  }
+  return cd.e ? '<span class="inc-badge inc-badge--new">NEW</span>' : '';
+}
+
 function tmplWardDetail(ward, candidates, totalVotes) {
   const turnout = ward.turnout_pct !== null && ward.turnout_pct !== undefined
     ? `${ward.turnout_pct}%`
     : '\u2014';
+
+  // Incumbent mini-summary
+  const incCands   = candidates.filter(c => c.inc);
+  const incElected = incCands.filter(c => c.e).length;
+  const incDef     = incCands.length - incElected;
+  const newElected = candidates.filter(c => !c.inc && c.e).length;
+  const incSummary = incCands.length > 0
+    ? `<div class="ward-inc-summary">
+        <strong>Incumbents:</strong> ${incCands.length} stood
+        &middot; <span class="inc-badge inc-badge--held">${incElected} HELD</span>
+        &middot; <span class="inc-badge inc-badge--lost">${incDef} LOST</span>
+        &nbsp;&nbsp;<strong>New elected:</strong>
+        <span class="inc-badge inc-badge--new">${newElected} NEW</span>
+      </div>`
+    : '';
 
   const rows = candidates.map((cd, i) => {
     const pct = totalVotes > 0 ? ((Number(cd.v) || 0) / totalVotes * 100).toFixed(1) + '%' : '\u2014';
@@ -347,7 +404,7 @@ function tmplWardDetail(ward, candidates, totalVotes) {
       : '<span class="not-elected-cross">&#10007;</span>';
     return `
       <tr class="cand-row ${cd.e ? 'elected-row' : ''}" data-cand-idx="${i}">
-        <td>${cd.n || '\u2014'}</td>
+        <td>${cd.n || '\u2014'}${_incBadge(cd)}</td>
         <td>${cd.p || '\u2014'}</td>
         <td class="num">${cd.v !== null && cd.v !== undefined ? Number(cd.v).toLocaleString() : '\u2014'}</td>
         <td class="num">${pct}</td>
@@ -366,6 +423,7 @@ function tmplWardDetail(ward, candidates, totalVotes) {
     </div>
     <div class="ward-results-title">${ward.ward}</div>
     <div class="ward-results-meta">Seats: ${ward.seats || '\u2014'} | Candidates: ${candidates.length} | Turnout: ${turnout}</div>
+    ${incSummary}
     <table class="results-table">
       <thead>
         <tr>
@@ -383,6 +441,7 @@ function tmplWardDetail(ward, candidates, totalVotes) {
     </table>
   `;
 }
+
 
 // ── Breadcrumb strip ──────────────────────────────────────────────────────
 

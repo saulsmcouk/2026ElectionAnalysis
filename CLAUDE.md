@@ -4,7 +4,7 @@ This file provides guidance to Claude Code when working in this repository.
 
 ## Project overview
 
-A static single-page app analysing gender representation in the 2026 England local elections (156 councils, ~25,000 candidates). Data is sourced from Democracy Club's open candidacy CSV (`dc_data.csv`). Gender was predicted in three stages — gender_guesser library, ONS historical baby names, then Claude Sonnet 4.6 for unresolved names.
+A static single-page app analysing gender representation in the 2026 England local elections (156 councils, ~25,000 candidates). Data is sourced from Democracy Club's open candidacy CSV (`dc_data.csv`). Gender was predicted in three stages — gender_guesser library, ONS historical baby names, then Claude Sonnet 4.6 for unresolved names. Incumbent status is determined by matching against 2025 sitting councillors from opencouncildata.co.uk.
 
 The site is hosted on GitHub Pages from `docs/`.
 
@@ -26,7 +26,12 @@ No bundler, no install step. Python 3.12 required (invoke via `py` on Windows).
 
 ```
 dc_data.csv                    # Source data (Democracy Club export)
-scripts/build_data.py          # Data pipeline: CSV → JSON
+scripts/
+  build_data.py                # Data pipeline: CSV + incumbents.json → JSON
+  identify_incumbents.py       # Match 2026 candidates → 2025 sitting councillors
+  data/
+    incumbents.json            # person_id → {is_incumbent, matched_name, ...}
+    ward_fuzzy_log.json        # 182 fuzzy ward matches logged for review
 docs/                          # GitHub Pages root (serve this directory)
   index.html                   # Single-page app entry point
   style.css                    # All styles
@@ -57,13 +62,22 @@ Old/                           # Archive of earlier working notes
 ### `councils.json`
 ```json
 {
-  "summary": { "total": 25066, "female": 7800, ... },
-  "by_council": [{ "org_name": "...", "lad_code": "E07...", "nuts1": "South East", "ward_slug": "...", "total": 160, "female": 52, ... }],
-  "by_party":   [{ "party": "Labour", "total": 8000, "female": 2900, ... }],
-  "by_region":  [{ "region": "South East", "total": 4200, "female": 1400, ... }],
-  "by_region_by_party": { "South East": [{ "party": "...", ... }], ... }
+  "summary": { "total": 25066, "female": 7800, "inc_total": 2292, "inc_elected": 1316, "inc_defeated": 976, "new_elected": 3742, "inc_female_pct": 41.6, "new_female_elected_pct": 32.7, "inc_retention_pct": 57.4, ... },
+  "by_council": [{ "org_name": "...", "lad_code": "E07...", "nuts1": "South East", "ward_slug": "...", "total": 160, "female": 52, "inc_total": 7, "inc_elected": 4, "inc_defeated": 3, "new_elected": 10, "inc_female_pct": 14.3, "new_female_elected_pct": 0.0, "inc_retention_pct": 57.1, ... }],
+  "by_party":   [{ "party": "Labour", "total": 8000, "female": 2900, "inc_total": ..., ... }],
+  "by_region":  [{ "region": "South East", "total": 4200, "female": 1400, "inc_total": ..., ... }],
+  "by_region_by_party": { "South East": [{ "party": "...", "inc_total": ..., ... }], ... }
 }
 ```
+
+All aggregate objects (`summary`, each `by_council` entry, each `by_party` entry, each `by_region` entry, each `by_region_by_party` value entry) include these incumbency fields:
+- `inc_total` — incumbents who stood
+- `inc_elected` — incumbents who were re-elected
+- `inc_defeated` — incumbents who stood and lost (= `inc_total - inc_elected`)
+- `new_elected` — non-incumbents who were elected
+- `inc_female_pct` — % of incumbents who stood who are female
+- `new_female_elected_pct` — % of new elected who are female
+- `inc_retention_pct` — % of incumbents who stood and were re-elected
 
 ### `wards/{slug}.json`
 ```json
@@ -95,7 +109,9 @@ Old/                           # Archive of earlier working notes
 }
 ```
 
-Optional candidate fields (`pid`, `img`, `stmt`, `tw`, `url`, `li`, `bs`, `bd`) are omitted when empty to keep file sizes small.
+Optional candidate fields (`pid`, `img`, `stmt`, `tw`, `url`, `li`, `bs`, `bd`, `inc`) are omitted when empty/false to keep file sizes small.
+
+- **`inc`** — `true` if the candidate was a 2025 sitting councillor matched by `identify_incumbents.py`; **omitted (not `false`) when not an incumbent**.
 
 ## Key conventions
 
