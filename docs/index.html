@@ -24,16 +24,20 @@
     <div class="meth-body">
       <h2>Gender assignment methodology.</h2>
       <p>
-        <strong>Most candidates (≈77%) had no gender recorded in the source data.</strong>
-        Gender was predicted automatically using two tools: the
-        <strong>gender_guesser</strong> library (an open-source name database) and the
-        <strong>ONS historical baby names dataset</strong> (1904–2024), using birth year
-        where available to account for names whose gender balance has shifted over time
-        (e.g. "Ashley", "Kim"). 
+        <strong>Most candidates (~77%) had no gender recorded in the source data.</strong>
+        Gender was predicted in three stages: (1) the <strong>gender_guesser</strong> library
+        (an open-source name database) and the <strong>ONS historical baby names dataset</strong>
+        (1904–2024), using birth year where available to account for names whose gender balance
+        has shifted over time (e.g. "Ashley", "Kim"); (2) <strong>Claude Sonnet 4.6</strong>
+        was used to classify names that remained unresolved after step 1.
       </p>
-      <p>This left about 16% of the name unclassified. Claude Sonnet 4.6 was used to classify these.</p>
       <p>
-        Gender is treated as binary (male/female) for prediction purpose.</p>
+        Around <strong>5% of candidates remain Uncategorised</strong> — primarily uncommon or
+        non-Western names that none of the tools could classify with confidence.
+        Percentages are calculated only among candidates with a known gender,
+        so figures for councils or parties with a high Uncategorised rate should be treated with caution.
+      </p>
+      <p>Gender is treated as binary (male/female) for prediction purposes.</p>
     </div>
   </section>
 

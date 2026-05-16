@@ -569,6 +569,7 @@ function formatMethodLabel(method) {
     existing: 'Recorded',
     gender_guesser: 'gender_guesser',
     ons: 'ONS names',
+    claude: 'Claude AI',
     unknown: 'Uncategorised',
   };
   const text = methodText[method] || method || 'Uncategorised';
