@@ -533,6 +533,8 @@ function clearPartySelection() {
 }
 
 function renderPartyDetail(name) {
+  const panel = document.getElementById('party-detail');
+  if (!panel) return;
   const s     = appData.summary;
   const isCouncil = !!selectedCouncilName;
 
