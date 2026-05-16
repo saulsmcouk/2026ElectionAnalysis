@@ -52,7 +52,9 @@ let currentMapMode = 'candidates';
 let tableData      = [];
 let tableSortCol   = 'org_name';
 let tableSortDir   = 'asc';
-const wardDataCache = new Map();
+const wardDataCache      = new Map();
+let selectedCouncilName  = null;  // org_name of selected council, or null
+const chartRegistry      = {};    // canvasId → Chart.js instance
 
 // ── Boot ──────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -189,7 +191,14 @@ function styleFeature(feature) {
     const { female, male, conf_low, conf_medium, total } = getModeCounts(council, currentMapMode);
     fillColor = councilColor(female, male, conf_low, conf_medium, total);
   }
-  return { fillColor, fillOpacity: 0.85, color: '#fff', weight: 0.5 };
+  const isSelected = council && council.org_name === selectedCouncilName;
+  const dimmed     = selectedCouncilName && !isSelected;
+  return {
+    fillColor,
+    fillOpacity: dimmed ? 0.3 : 0.85,
+    color:  isSelected ? '#1a1a2e' : '#fff',
+    weight: isSelected ? 3 : 0.5,
+  };
 }
 
 function onEachFeature(feature, layer) {
@@ -203,7 +212,7 @@ function onEachFeature(feature, layer) {
       geojsonLayer.resetStyle(layer);
       updateInfoBox(null);
     },
-    click() { updateInfoBox(feature); },
+    click() { updateInfoBox(feature); handleCouncilSelect(feature); },
   });
 }
 
@@ -256,7 +265,79 @@ function wireMapToggle() {
     if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   });
 }
+// ── Council map selection ────────────────────────────────────────────────
+function handleCouncilSelect(feature) {
+  const council = ladLookup[feature.properties.LAD25CD];
+  if (!council) return;
 
+  if (selectedCouncilName === council.org_name) {
+    clearCouncilSelection();
+    return;
+  }
+
+  selectedCouncilName = council.org_name;
+  geojsonLayer.setStyle(styleFeature);
+
+  document.getElementById('party-heading').innerHTML =
+    `By party — <strong>${council.org_name}</strong>` +
+    ` <button class="btn-clear-selection" id="btn-clear-selection">✕ All England</button>`;
+  document.getElementById('btn-clear-selection').addEventListener('click', clearCouncilSelection);
+
+  renderPartyChartsForCouncil(council);
+}
+
+function clearCouncilSelection() {
+  selectedCouncilName = null;
+  if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
+  renderPartyCharts();
+}
+
+async function renderPartyChartsForCouncil(council) {
+  const slug = council.ward_slug;
+  if (!slug) {
+    ['scroll-party-cands', 'scroll-party-elected'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = '<p class="chart-msg">No ward-level data for this council.</p>';
+    });
+    return;
+  }
+  try {
+    let payload = wardDataCache.get(slug);
+    if (!payload) {
+      const resp = await fetch(`data/wards/${encodeURIComponent(slug)}.json`);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      payload = await resp.json();
+      wardDataCache.set(slug, payload);
+    }
+    if (selectedCouncilName !== council.org_name) return;
+
+    const partyMap = {};
+    for (const ward of payload.wards || []) {
+      for (const cand of ward.candidates || []) {
+        const party = cand.p || 'Unknown';
+        if (!partyMap[party]) {
+          partyMap[party] = { party, female: 0, male: 0, elected_female: 0, elected_male: 0 };
+        }
+        if (cand.g === 'female') {
+          partyMap[party].female++;
+          if (cand.e) partyMap[party].elected_female++;
+        } else if (cand.g === 'male') {
+          partyMap[party].male++;
+          if (cand.e) partyMap[party].elected_male++;
+        }
+      }
+    }
+    const parties = Object.values(partyMap)
+      .sort((a, b) => (b.female + b.male) - (a.female + a.male));
+    const labels = parties.map(p => p.party);
+    buildChart('chart-party-cands',   'scroll-party-cands',   labels, toStackedPct(parties, 'female', 'male'));
+    buildChart('chart-party-elected', 'scroll-party-elected', labels, toStackedPct(parties, 'elected_female', 'elected_male'));
+  } catch (err) {
+    if (selectedCouncilName !== council.org_name) return;
+    document.getElementById('scroll-party-cands').innerHTML =
+      `<p class="chart-msg" style="color:#b00020">Could not load ward data: ${err.message}</p>`;
+  }
+}
 // ── Charts ────────────────────────────────────────────────────────────────
 const COL_FEMALE  = '#d6496f';
 const COL_MALE    = '#2171b5';
@@ -281,6 +362,7 @@ function toStackedPct(items, fKey, mKey) {
 }
 
 function buildChart(canvasId, scrollId, labels, rows) {
+  if (chartRegistry[canvasId]) { chartRegistry[canvasId].destroy(); delete chartRegistry[canvasId]; }
   const BAR_H  = 30;
   const FOOTER = 55;
   const height = Math.max(180, labels.length * BAR_H + FOOTER);
@@ -297,7 +379,7 @@ function buildChart(canvasId, scrollId, labels, rows) {
     _totN: rows.map(r => r.t),
   });
 
-  return new Chart(canvas, {
+  const _chart = new Chart(canvas, {
     type: 'bar',
     data: {
       labels,
@@ -349,9 +431,14 @@ function buildChart(canvasId, scrollId, labels, rows) {
       },
     },
   });
+  chartRegistry[canvasId] = _chart;
+  return _chart;
 }
 
 function renderPartyCharts() {
+  document.getElementById('party-heading').innerHTML =
+    'By party <span class="subtitle-small">— parties with ≥30 candidates, sorted by total. Each bar = 100% of that party’s candidates/elected.</span>';
+
   const parties = appData.by_party;
   const labels  = parties.map(p => p.party);
 
@@ -586,6 +673,12 @@ function formatMethodLabel(method) {
   return `<span class="method-badge method-${method || 'unknown'}">${text}</span>`;
 }
 
+function confCell(level) {
+  const cls = level === 'high' ? 'conf-high' : level === 'medium' ? 'conf-med' : level === 'low' ? 'conf-low' : 'conf-none';
+  const lbl = level === 'high' ? 'High' : level === 'medium' ? 'Med' : level === 'low' ? 'Low' : '—';
+  return `<span class="conf-cell">${lbl}<span class="conf-badge ${cls}"></span></span>`;
+}
+
 function openWardDetail(council, payload, ward) {
   const candidates = (ward.candidates || []).slice().sort((a, b) => {
     const ar = a.r || 9999;
@@ -596,22 +689,23 @@ function openWardDetail(council, payload, ward) {
 
   const totalVotes = candidates.reduce((sum, c) => sum + (Number(c.v) || 0), 0);
 
-  const rows = candidates.map(c => {
-    const pct = totalVotes > 0 ? ((Number(c.v) || 0) / totalVotes * 100).toFixed(1) + '%' : '—';
-    const g = formatGenderLabel(c.g);
-    const electedCell = c.e
+  const rows = candidates.map(cd => {
+    const pct = totalVotes > 0 ? ((Number(cd.v) || 0) / totalVotes * 100).toFixed(1) + '%' : '—';
+    const g = formatGenderLabel(cd.g);
+    const electedCell = cd.e
       ? '<span class="elected-tick">&#10003;</span>'
       : '<span class="not-elected-cross">&#10007;</span>';
 
     return `
-      <tr class="${c.e ? 'elected-row' : ''}">
-        <td>${c.n || '—'}</td>
-        <td>${c.p || '—'}</td>
-        <td class="num">${c.v !== null && c.v !== undefined ? Number(c.v).toLocaleString() : '—'}</td>
+      <tr class="${cd.e ? 'elected-row' : ''}">
+        <td>${cd.n || '—'}</td>
+        <td>${cd.p || '—'}</td>
+        <td class="num">${cd.v !== null && cd.v !== undefined ? Number(cd.v).toLocaleString() : '—'}</td>
         <td class="num">${pct}</td>
         <td class="num">${electedCell}</td>
         <td><span class="${g.cls}">${g.text}</span></td>
-        <td>${formatMethodLabel(c.m)}</td>
+        <td>${formatMethodLabel(cd.m)}</td>
+        <td>${confCell(cd.cf)}</td>
       </tr>
     `;
   }).join('');
@@ -637,6 +731,7 @@ function openWardDetail(council, payload, ward) {
           <th class="num">Elected</th>
           <th>Gender</th>
           <th>Assignment method</th>
+          <th>Confidence</th>
         </tr>
       </thead>
       <tbody>${rows}</tbody>
@@ -674,7 +769,10 @@ function buildMethodologySheet(contextLabel) {
     ['Data Sources'],
     ['Election data: Democracy Club (democracyclub.org.uk)'],
     ['ONS data: Office for National Statistics, licensed under the Open Government Licence v.3.0'],
-    ['Contains OS data © Crown copyright and database right [2026]'],
+    ['  Licence: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'],
+    ['Contains OS data \u00a9 Crown copyright and database right [2026]'],
+    ['Election data: Democracy Club (democracyclub.org.uk), licensed under CC BY 4.0'],
+    ['  Licence: https://creativecommons.org/licenses/by/4.0/'],
     [''],
     ['Exported view:', contextLabel],
     ['Generated:', new Date().toLocaleString('en-GB')],
@@ -732,14 +830,16 @@ function exportWardList(council, wards) {
 function exportWardDetail(council, ward, candidates) {
   const totalVotes = candidates.reduce((sum, c) => sum + (Number(c.v) || 0), 0);
   const methodText = { existing: 'Recorded', gender_guesser: 'gender_guesser', ons: 'ONS names', claude: 'Claude AI', unknown: 'Unclassified' };
-  const headers = ['Name', 'Party', 'Votes', '% Votes', 'Elected', 'Gender', 'Assignment Method'];
+  const headers = ['Name', 'Party', 'Votes', '% Votes', 'Elected', 'Gender', 'Assignment Method', 'Confidence'];
   const dataRows = candidates.map(c => {
     const pct = totalVotes > 0 ? +((Number(c.v) || 0) / totalVotes * 100).toFixed(1) : null;
+    const confLabel = c.cf === 'high' ? 'High' : c.cf === 'medium' ? 'Medium' : c.cf === 'low' ? 'Low' : 'Unknown';
     return [
       c.n || '', c.p || '', c.v ?? null, pct,
       c.e ? 'Yes' : 'No',
       c.g || 'unclassified',
       methodText[c.m] || c.m || 'Unclassified',
+      confLabel,
     ];
   });
   const slug = `${council.org_name}-${ward.ward}`.replace(/[^\w-]/g, '_');

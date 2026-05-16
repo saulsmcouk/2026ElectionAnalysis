@@ -261,6 +261,7 @@ def main():
                     'e': elected,
                     'g': gender,
                     'm': method,
+                    'cf': conf,
                 })
 
     # Match councils to LADs
