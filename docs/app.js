@@ -54,6 +54,8 @@ let tableSortCol   = 'org_name';
 let tableSortDir   = 'asc';
 const wardDataCache      = new Map();
 let selectedCouncilName  = null;  // org_name of selected council, or null
+let selectedPartyName    = null;  // party name of selected bar, or null
+let councilPartyData     = null;  // aggregated partyMap from current council's ward JSON
 const chartRegistry      = {};    // canvasId → Chart.js instance
 
 // ── Boot ──────────────────────────────────────────────────────────────────
@@ -96,6 +98,12 @@ function fmt(n) {
 function pctStr(n, d) {
   if (!d || n === null || n === undefined) return '—';
   return (n / d * 100).toFixed(1) + '%';
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 // ── Summary cards ─────────────────────────────────────────────────────────
@@ -275,6 +283,10 @@ function handleCouncilSelect(feature) {
     return;
   }
 
+  selectedPartyName = null;
+  const _pd = document.getElementById('party-detail');
+  if (_pd) _pd.hidden = true;
+
   selectedCouncilName = council.org_name;
   geojsonLayer.setStyle(styleFeature);
 
@@ -287,7 +299,11 @@ function handleCouncilSelect(feature) {
 }
 
 function clearCouncilSelection() {
+  selectedPartyName   = null;
   selectedCouncilName = null;
+  councilPartyData    = null;
+  const _pd = document.getElementById('party-detail');
+  if (_pd) _pd.hidden = true;
   if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   renderPartyCharts();
 }
@@ -313,31 +329,219 @@ async function renderPartyChartsForCouncil(council) {
 
     const partyMap = {};
     for (const ward of payload.wards || []) {
+      const seenParties = new Set();
       for (const cand of ward.candidates || []) {
         const party = cand.p || 'Unknown';
         if (!partyMap[party]) {
-          partyMap[party] = { party, female: 0, male: 0, elected_female: 0, elected_male: 0 };
+          partyMap[party] = {
+            party, total: 0, female: 0, male: 0, unknown: 0,
+            elected_total: 0, elected_female: 0, elected_male: 0,
+            seats_available: 0, wards_stood: 0,
+          };
         }
+        if (!seenParties.has(party)) {
+          seenParties.add(party);
+          partyMap[party].seats_available += ward.seats || 0;
+          partyMap[party].wards_stood     += 1;
+        }
+        partyMap[party].total += 1;
         if (cand.g === 'female') {
           partyMap[party].female++;
-          if (cand.e) partyMap[party].elected_female++;
+          if (cand.e) { partyMap[party].elected_female++; partyMap[party].elected_total++; }
         } else if (cand.g === 'male') {
           partyMap[party].male++;
-          if (cand.e) partyMap[party].elected_male++;
+          if (cand.e) { partyMap[party].elected_male++; partyMap[party].elected_total++; }
+        } else {
+          partyMap[party].unknown++;
+          if (cand.e) partyMap[party].elected_total++;
         }
       }
     }
+    councilPartyData = partyMap;
     const parties = Object.values(partyMap)
       .sort((a, b) => (b.female + b.male) - (a.female + a.male));
     const labels = parties.map(p => p.party);
-    buildChart('chart-party-cands',   'scroll-party-cands',   labels, toStackedPct(parties, 'female', 'male'));
-    buildChart('chart-party-elected', 'scroll-party-elected', labels, toStackedPct(parties, 'elected_female', 'elected_male'));
+    buildChart('chart-party-cands',   'scroll-party-cands',   labels, toStackedPct(parties, 'female', 'male'),                  handlePartySelect);
+    buildChart('chart-party-elected', 'scroll-party-elected', labels, toStackedPct(parties, 'elected_female', 'elected_male'), handlePartySelect);
   } catch (err) {
     if (selectedCouncilName !== council.org_name) return;
     document.getElementById('scroll-party-cands').innerHTML =
       `<p class="chart-msg" style="color:#b00020">Could not load ward data: ${err.message}</p>`;
   }
 }
+
+// ── Party bar selection ───────────────────────────────────────────────────
+function handlePartySelect(name) {
+  if (selectedPartyName === name) { clearPartySelection(); return; }
+  selectedPartyName = name;
+
+  const source = (councilPartyData && councilPartyData[name])
+    ? councilPartyData[name]
+    : appData.by_party.find(p => p.party === name);
+  if (!source) return;
+
+  buildChart('chart-party-cands',   'scroll-party-cands',   [name], toStackedPct([source], 'female', 'male'),                  handlePartySelect);
+  buildChart('chart-party-elected', 'scroll-party-elected', [name], toStackedPct([source], 'elected_female', 'elected_male'), handlePartySelect);
+  renderPartyDetail(name);
+}
+
+function clearPartySelection() {
+  if (!selectedPartyName) return;
+  selectedPartyName = null;
+  const panel = document.getElementById('party-detail');
+  if (panel) panel.hidden = true;
+
+  if (selectedCouncilName && councilPartyData) {
+    const parties = Object.values(councilPartyData)
+      .sort((a, b) => (b.female + b.male) - (a.female + a.male));
+    const labels  = parties.map(p => p.party);
+    buildChart('chart-party-cands',   'scroll-party-cands',   labels, toStackedPct(parties, 'female', 'male'),                  handlePartySelect);
+    buildChart('chart-party-elected', 'scroll-party-elected', labels, toStackedPct(parties, 'elected_female', 'elected_male'), handlePartySelect);
+  } else {
+    renderPartyCharts();
+  }
+}
+
+function renderPartyDetail(name) {
+  const panel = document.getElementById('party-detail');
+  const s     = appData.summary;
+  const isCouncil = !!selectedCouncilName;
+
+  let dr;  // display row
+  let sentenceE = '', sentenceF = '';
+  let femaleWinRate, maleWinRate;
+
+  if (isCouncil && councilPartyData && councilPartyData[name]) {
+    dr = councilPartyData[name];
+    femaleWinRate = dr.female > 0 ? +(dr.elected_female / dr.female * 100).toFixed(1) : null;
+    maleWinRate   = dr.male   > 0 ? +(dr.elected_male   / dr.male   * 100).toFixed(1) : null;
+
+    const globalRow  = appData.by_party.find(p => p.party === name);
+    const natFWR     = s.national_female_win_rate;
+    const otherFWR   = globalRow ? globalRow.other_female_win_rate : null;
+    const diffOthers = femaleWinRate !== null && otherFWR  !== null ? +(femaleWinRate - otherFWR ).toFixed(1) : null;
+    const diffNat    = femaleWinRate !== null && natFWR    !== null ? +(femaleWinRate - natFWR   ).toFixed(1) : null;
+
+    if (diffOthers !== null) {
+      const dir = diffOthers >= 0 ? 'higher' : 'lower';
+      sentenceE = `In <strong>${escHtml(selectedCouncilName)}</strong>, female <em>${escHtml(name)}</em> candidates had a <strong>${femaleWinRate}% win rate</strong> &mdash; ${Math.abs(diffOthers)}&thinsp;pp ${dir} than other female candidates nationally (${otherFWR}%).`;
+    }
+    if (diffNat !== null) {
+      const verb = diffNat >= 0 ? 'beat' : 'lagged';
+      sentenceF = `<em>${escHtml(name)}</em> female win rate here (<strong>${femaleWinRate}%</strong>) ${verb} the national female rate (${natFWR}%) by <strong>${Math.abs(diffNat)}&thinsp;pp</strong>.`;
+    }
+  } else {
+    const gr = appData.by_party.find(p => p.party === name);
+    if (!gr) { panel.hidden = true; return; }
+    dr            = gr;
+    femaleWinRate = gr.female_win_rate;
+    maleWinRate   = gr.male_win_rate;
+
+    if (gr.female_win_rate_diff_vs_others !== null && femaleWinRate !== null) {
+      const diff = gr.female_win_rate_diff_vs_others;
+      const dir  = diff >= 0 ? 'higher' : 'lower';
+      sentenceE  = `Nationally, female <em>${escHtml(name)}</em> candidates had a <strong>${femaleWinRate}% win rate</strong> &mdash; ${Math.abs(diff)}&thinsp;pp ${dir} than other female candidates (${gr.other_female_win_rate}%).`;
+    }
+    if (gr.female_win_rate_diff_vs_national !== null && femaleWinRate !== null) {
+      const diff = gr.female_win_rate_diff_vs_national;
+      const verb = diff >= 0 ? 'beat' : 'lagged';
+      sentenceF  = `<em>${escHtml(name)}</em> female win rate nationally (<strong>${femaleWinRate}%</strong>) ${verb} the overall female rate (${s.national_female_win_rate}%) by <strong>${Math.abs(diff)}&thinsp;pp</strong>.`;
+    }
+  }
+
+  const fwrStr   = femaleWinRate !== null ? femaleWinRate + '%' : '&mdash;';
+  const mwrStr   = maleWinRate   !== null ? maleWinRate   + '%' : '&mdash;';
+  const seatsStr = dr.seats_available !== undefined ? dr.seats_available.toLocaleString() : '&mdash;';
+  const wardsStr = dr.wards_stood     !== undefined ? dr.wards_stood.toLocaleString()     : '&mdash;';
+  const knownN   = (dr.female || 0) + (dr.male || 0);
+  const totalN   = dr.total !== undefined ? dr.total : knownN + (dr.unknown || 0);
+
+  panel.innerHTML = `
+    <div class="party-detail-header">
+      <span class="party-detail-name">${escHtml(name)}</span>
+      <button class="btn-clear-party" id="btn-clear-party">&#10005;&nbsp;All parties</button>
+    </div>
+    <div class="party-stat-grid">
+      <div class="party-stat-tile">
+        <div class="pst-value">${totalN.toLocaleString()}</div>
+        <div class="pst-label">Total candidates</div>
+      </div>
+      <div class="party-stat-tile">
+        <div class="pst-value female">${(dr.female || 0).toLocaleString()}</div>
+        <div class="pst-label">Female candidates<br><span class="pst-sub">${pctStr(dr.female, knownN)} of known gender</span></div>
+      </div>
+      <div class="party-stat-tile">
+        <div class="pst-value">${seatsStr}</div>
+        <div class="pst-label">Seat-slots contested<br><span class="pst-sub">${wardsStr} wards</span></div>
+      </div>
+      <div class="party-stat-tile">
+        <div class="pst-value">${(dr.elected_total || 0).toLocaleString()}</div>
+        <div class="pst-label">Elected</div>
+      </div>
+      <div class="party-stat-tile">
+        <div class="pst-value female">${(dr.elected_female || 0).toLocaleString()}</div>
+        <div class="pst-label">Female elected<br><span class="pst-sub">${fwrStr} win rate</span></div>
+      </div>
+      <div class="party-stat-tile">
+        <div class="pst-value male">${(dr.elected_male || 0).toLocaleString()}</div>
+        <div class="pst-label">Male elected<br><span class="pst-sub">${mwrStr} win rate</span></div>
+      </div>
+    </div>
+    ${sentenceE ? `<p class="party-sentence">${sentenceE}</p>` : ''}
+    ${sentenceF ? `<p class="party-sentence">${sentenceF}</p>` : ''}
+    ${buildCandidateSection(name, isCouncil)}
+  `;
+  panel.querySelector('#btn-clear-party').addEventListener('click', clearPartySelection);
+  panel.hidden = false;
+}
+
+function buildCandidateSection(name, isCouncil) {
+  if (!isCouncil) {
+    return `<p class="party-no-cands">&#9432;&nbsp;Select a council on the map to see individual candidates for <em>${escHtml(name)}</em>.</p>`;
+  }
+  const council = appData.by_council.find(c => c.org_name === selectedCouncilName);
+  const payload  = council && wardDataCache.get(council.ward_slug);
+  if (!payload) return '';
+
+  const rows = [];
+  for (const ward of payload.wards || []) {
+    for (const c of ward.candidates || []) {
+      if (c.p === name) rows.push({ ...c, ward: ward.ward });
+    }
+  }
+  if (!rows.length) return `<p class="party-no-cands">No candidates found for ${escHtml(name)} in ${escHtml(selectedCouncilName)}.</p>`;
+
+  rows.sort((a, b) => {
+    if (a.ward !== b.ward) return a.ward.localeCompare(b.ward);
+    return (a.r || 999) - (b.r || 999);
+  });
+
+  const rowsHtml = rows.map(c => {
+    const g = formatGenderLabel(c.g);
+    return `<tr class="${c.e ? 'elected-row' : ''}">
+      <td>${escHtml(c.n || '&mdash;')}</td>
+      <td>${escHtml(c.ward)}</td>
+      <td class="num">${c.v !== null && c.v !== undefined ? Number(c.v).toLocaleString() : '&mdash;'}</td>
+      <td class="num">${c.e ? '<span class="elected-tick">&#10003;</span>' : '<span class="not-elected-cross">&#10007;</span>'}</td>
+      <td><span class="${g.cls}">${g.text}</span></td>
+      <td>${confCell(c.cf)}</td>
+    </tr>`;
+  }).join('');
+
+  return `
+    <div class="party-cands-header">Candidates in <strong>${escHtml(selectedCouncilName)}</strong> &mdash; ${rows.length.toLocaleString()} total</div>
+    <div class="party-cands-scroll">
+      <table class="results-table">
+        <thead><tr>
+          <th>Name</th><th>Ward</th>
+          <th class="num">Votes</th><th class="num">Elected</th>
+          <th>Gender</th><th>Confidence</th>
+        </tr></thead>
+        <tbody>${rowsHtml}</tbody>
+      </table>
+    </div>`;
+}
+
 // ── Charts ────────────────────────────────────────────────────────────────
 const COL_FEMALE  = '#d6496f';
 const COL_MALE    = '#2171b5';
@@ -361,11 +565,11 @@ function toStackedPct(items, fKey, mKey) {
   });
 }
 
-function buildChart(canvasId, scrollId, labels, rows) {
+function buildChart(canvasId, scrollId, labels, rows, onBarClick) {
   if (chartRegistry[canvasId]) { chartRegistry[canvasId].destroy(); delete chartRegistry[canvasId]; }
   const BAR_H  = 30;
   const FOOTER = 55;
-  const height = Math.max(180, labels.length * BAR_H + FOOTER);
+  const height = Math.max(labels.length === 1 ? 110 : 180, labels.length * BAR_H + FOOTER);
   const scroll = document.getElementById(scrollId);
   if (scroll) { scroll.style.height = height + 'px'; }
 
@@ -393,6 +597,10 @@ function buildChart(canvasId, scrollId, labels, rows) {
       responsive: true,
       maintainAspectRatio: false,
       animation: false,
+      onClick: onBarClick ? (evt, elements) => {
+        if (!elements.length) return;
+        onBarClick(labels[elements[0].index]);
+      } : undefined,
       scales: {
         x: {
           stacked: true, min: 0, max: 100,
@@ -414,7 +622,7 @@ function buildChart(canvasId, scrollId, labels, rows) {
       },
       plugins: {
         legend: {
-          position: 'bottom',
+          position: labels.length === 1 ? 'top' : 'bottom',
           labels: { boxWidth: 12, font: { size: 11 }, padding: 10 },
         },
         tooltip: {
@@ -444,11 +652,11 @@ function renderPartyCharts() {
 
   buildChart(
     'chart-party-cands',   'scroll-party-cands',
-    labels, toStackedPct(parties, 'female', 'male')
+    labels, toStackedPct(parties, 'female', 'male'), handlePartySelect
   );
   buildChart(
     'chart-party-elected', 'scroll-party-elected',
-    labels, toStackedPct(parties, 'elected_female', 'elected_male')
+    labels, toStackedPct(parties, 'elected_female', 'elected_male'), handlePartySelect
   );
 }
 

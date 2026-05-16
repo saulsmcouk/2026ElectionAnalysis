@@ -14,7 +14,9 @@
     "conf_high": 22103,
     "conf_medium": 247,
     "conf_low": 2716,
-    "pct_high_conf": 88.2
+    "pct_high_conf": 88.2,
+    "national_female_win_rate": 21.5,
+    "national_male_win_rate": 19.8
   },
   "by_council": [
     {
@@ -3622,7 +3624,15 @@
       "conf_high": 4302,
       "conf_medium": 36,
       "conf_low": 486,
-      "pct_high_conf": 89.2
+      "pct_high_conf": 89.2,
+      "seats_available": 5065,
+      "wards_stood": 2969,
+      "female_win_rate": 29.5,
+      "male_win_rate": 30.9,
+      "other_female_win_rate": 20.3,
+      "female_win_rate_diff_vs_others": 9.2,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": 8.0
     },
     {
       "party": "Conservative and Unionist Party",
@@ -3639,7 +3649,15 @@
       "conf_high": 4146,
       "conf_medium": 49,
       "conf_low": 578,
-      "pct_high_conf": 86.9
+      "pct_high_conf": 86.9,
+      "seats_available": 4976,
+      "wards_stood": 2908,
+      "female_win_rate": 18.0,
+      "male_win_rate": 17.3,
+      "other_female_win_rate": 22.2,
+      "female_win_rate_diff_vs_others": -4.2,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": -3.5
     },
     {
       "party": "Green Party",
@@ -3656,7 +3674,15 @@
       "conf_high": 3949,
       "conf_medium": 56,
       "conf_low": 503,
-      "pct_high_conf": 87.6
+      "pct_high_conf": 87.6,
+      "seats_available": 4892,
+      "wards_stood": 2855,
+      "female_win_rate": 15.9,
+      "male_win_rate": 11.6,
+      "other_female_win_rate": 23.1,
+      "female_win_rate_diff_vs_others": -7.2,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": -5.6
     },
     {
       "party": "Labour Party",
@@ -3673,7 +3699,15 @@
       "conf_high": 3741,
       "conf_medium": 40,
       "conf_low": 447,
-      "pct_high_conf": 88.5
+      "pct_high_conf": 88.5,
+      "seats_available": 4290,
+      "wards_stood": 2459,
+      "female_win_rate": 23.8,
+      "male_win_rate": 18.1,
+      "other_female_win_rate": 20.9,
+      "female_win_rate_diff_vs_others": 2.9,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": 2.3
     },
     {
       "party": "Liberal Democrats",
@@ -3690,7 +3724,15 @@
       "conf_high": 3559,
       "conf_medium": 36,
       "conf_low": 358,
-      "pct_high_conf": 90.0
+      "pct_high_conf": 90.0,
+      "seats_available": 4473,
+      "wards_stood": 2565,
+      "female_win_rate": 24.1,
+      "male_win_rate": 19.9,
+      "other_female_win_rate": 21.0,
+      "female_win_rate_diff_vs_others": 3.1,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": 2.6
     },
     {
       "party": "Independent",
@@ -3707,7 +3749,15 @@
       "conf_high": 697,
       "conf_medium": 9,
       "conf_low": 90,
-      "pct_high_conf": 87.6
+      "pct_high_conf": 87.6,
+      "seats_available": 1076,
+      "wards_stood": 597,
+      "female_win_rate": 16.1,
+      "male_win_rate": 12.1,
+      "other_female_win_rate": 21.6,
+      "female_win_rate_diff_vs_others": -5.5,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": -5.4
     },
     {
       "party": "Labour and Co-operative Party",
@@ -3724,7 +3774,15 @@
       "conf_high": 623,
       "conf_medium": 7,
       "conf_low": 45,
-      "pct_high_conf": 92.3
+      "pct_high_conf": 92.3,
+      "seats_available": 692,
+      "wards_stood": 424,
+      "female_win_rate": 33.3,
+      "male_win_rate": 27.4,
+      "other_female_win_rate": 21.0,
+      "female_win_rate_diff_vs_others": 12.3,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": 11.8
     },
     {
       "party": "Trade Unionist and Socialist Coalition",
@@ -3741,7 +3799,15 @@
       "conf_high": 251,
       "conf_medium": 2,
       "conf_low": 33,
-      "pct_high_conf": 87.8
+      "pct_high_conf": 87.8,
+      "seats_available": 492,
+      "wards_stood": 272,
+      "female_win_rate": 0.0,
+      "male_win_rate": 0.0,
+      "other_female_win_rate": 21.7,
+      "female_win_rate_diff_vs_others": -21.7,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": -21.5
     },
     {
       "party": "Workers Party of Britain",
@@ -3758,7 +3824,15 @@
       "conf_high": 62,
       "conf_medium": 0,
       "conf_low": 7,
-      "pct_high_conf": 89.9
+      "pct_high_conf": 89.9,
+      "seats_available": 88,
+      "wards_stood": 58,
+      "female_win_rate": 0.0,
+      "male_win_rate": 10.2,
+      "other_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_others": -21.5,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": -21.5
     },
     {
       "party": "Newham Independents Party",
@@ -3775,7 +3849,15 @@
       "conf_high": 60,
       "conf_medium": 2,
       "conf_low": 4,
-      "pct_high_conf": 90.9
+      "pct_high_conf": 90.9,
+      "seats_available": 66,
+      "wards_stood": 24,
+      "female_win_rate": 33.3,
+      "male_win_rate": 36.0,
+      "other_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_others": 11.8,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": 11.8
     },
     {
       "party": "Social Democratic Party",
@@ -3792,7 +3874,15 @@
       "conf_high": 45,
       "conf_medium": 0,
       "conf_low": 3,
-      "pct_high_conf": 93.8
+      "pct_high_conf": 93.8,
+      "seats_available": 70,
+      "wards_stood": 44,
+      "female_win_rate": 0.0,
+      "male_win_rate": 2.5,
+      "other_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_others": -21.5,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": -21.5
     },
     {
       "party": "Aspire",
@@ -3809,7 +3899,15 @@
       "conf_high": 13,
       "conf_medium": 0,
       "conf_low": 32,
-      "pct_high_conf": 28.9
+      "pct_high_conf": 28.9,
+      "seats_available": 45,
+      "wards_stood": 20,
+      "female_win_rate": 100.0,
+      "male_win_rate": 58.3,
+      "other_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_others": 78.5,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": 78.5
     },
     {
       "party": "Tower Hamlets Independents",
@@ -3826,7 +3924,15 @@
       "conf_high": 12,
       "conf_medium": 0,
       "conf_low": 31,
-      "pct_high_conf": 27.9
+      "pct_high_conf": 27.9,
+      "seats_available": 45,
+      "wards_stood": 20,
+      "female_win_rate": 0.0,
+      "male_win_rate": 0.0,
+      "other_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_others": -21.5,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": -21.5
     },
     {
       "party": "Redbridge Independents",
@@ -3843,7 +3949,15 @@
       "conf_high": 14,
       "conf_medium": 0,
       "conf_low": 28,
-      "pct_high_conf": 33.3
+      "pct_high_conf": 33.3,
+      "seats_available": 44,
+      "wards_stood": 15,
+      "female_win_rate": 40.0,
+      "male_win_rate": 33.3,
+      "other_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_others": 18.5,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": 18.5
     },
     {
       "party": "Havering Residents Association",
@@ -3860,7 +3974,15 @@
       "conf_high": 31,
       "conf_medium": 0,
       "conf_low": 4,
-      "pct_high_conf": 88.6
+      "pct_high_conf": 88.6,
+      "seats_available": 35,
+      "wards_stood": 13,
+      "female_win_rate": 7.1,
+      "male_win_rate": 0.0,
+      "other_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_others": -14.4,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": -14.4
     },
     {
       "party": "Kingston Independent Residents Group",
@@ -3877,7 +3999,15 @@
       "conf_high": 27,
       "conf_medium": 2,
       "conf_low": 5,
-      "pct_high_conf": 79.4
+      "pct_high_conf": 79.4,
+      "seats_available": 38,
+      "wards_stood": 15,
+      "female_win_rate": 6.7,
+      "male_win_rate": 5.3,
+      "other_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_others": -14.8,
+      "national_female_win_rate": 21.5,
+      "female_win_rate_diff_vs_national": -14.8
     }
   ],
   "by_region": [

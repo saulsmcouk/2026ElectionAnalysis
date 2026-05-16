@@ -300,10 +300,29 @@ def main():
             'pct_high_conf':      _safe_pct(d['conf_high'], d['total']),
         }
 
+    # Pre-compute seats_available and wards_stood per party from ward data
+    party_seats = {}  # party_name → {'seats': int, 'wards': int}
+    for _org_wards in wards.values():
+        for _wd in _org_wards.values():
+            for _p in {c['p'] for c in _wd['candidates']}:
+                if _p not in party_seats:
+                    party_seats[_p] = {'seats': 0, 'wards': 0}
+                party_seats[_p]['seats'] += _wd['seats'] or 0
+                party_seats[_p]['wards'] += 1
+
     def party_obj(p):
-        d = parties[p]
+        d   = parties[p]
         kn  = d['female'] + d['male']
         ekn = d['elected_female'] + d['elected_male']
+        ps  = party_seats.get(p, {'seats': 0, 'wards': 0})
+
+        f_win       = _safe_pct(d['elected_female'], d['female'])
+        m_win       = _safe_pct(d['elected_male'],   d['male'])
+        other_ef    = e_female - d['elected_female']
+        other_f     = female   - d['female']
+        other_f_win = _safe_pct(other_ef, other_f)
+        nat_f_win   = _safe_pct(e_female, female)
+
         return {
             'party':              p,
             'total':              d['total'],
@@ -320,6 +339,14 @@ def main():
             'conf_medium':        d['conf_medium'],
             'conf_low':           d['conf_low'],
             'pct_high_conf':      _safe_pct(d['conf_high'], d['total']),
+            'seats_available':    ps['seats'],
+            'wards_stood':        ps['wards'],
+            'female_win_rate':    f_win,
+            'male_win_rate':      m_win,
+            'other_female_win_rate':            other_f_win,
+            'female_win_rate_diff_vs_others':   round(f_win - other_f_win, 1) if f_win is not None and other_f_win is not None else None,
+            'national_female_win_rate':         nat_f_win,
+            'female_win_rate_diff_vs_national': round(f_win - nat_f_win, 1) if f_win is not None and nat_f_win is not None else None,
         }
 
     def region_obj(r):
@@ -374,6 +401,8 @@ def main():
             'conf_medium':         conf_medium_total,
             'conf_low':            conf_low_total,
             'pct_high_conf':       _safe_pct(conf_high_total, total),
+            'national_female_win_rate': _safe_pct(e_female, female),
+            'national_male_win_rate':   _safe_pct(e_male, male),
         },
         'by_council': sorted([council_obj(o) for o in councils], key=lambda x: x['org_name']),
         'by_party':   party_list,
