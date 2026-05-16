@@ -174,10 +174,11 @@ def main():
 
     lad_lookup = build_lad_lookup(GEOJSON_IN)
 
-    councils = {}      # org_name → acc + metadata
-    parties  = {}      # party_name → acc
-    regions  = {}      # nuts1 → acc
-    council_meta = {}  # org_name → {nuts1, lad_match}
+    councils = {}        # org_name → acc + metadata
+    parties  = {}        # party_name → acc
+    regions  = {}        # nuts1 → acc
+    region_parties = {}  # nuts1 → {party_name → acc}
+    council_meta = {}    # org_name → {nuts1, lad_match}
     wards = {}         # org_name → ward_label → {seats, turnout_pct, candidates[]}
 
     total = female = male = unknown = 0
@@ -229,6 +230,9 @@ def main():
             _add(parties, party, gender, elected, turnout, by_election, conf)
             if nuts1:
                 _add(regions, nuts1, gender, elected, turnout, by_election, conf)
+                if nuts1 not in region_parties:
+                    region_parties[nuts1] = {}
+                _add(region_parties[nuts1], party, gender, elected, turnout, by_election, conf)
 
             # Ward-level candidate data for drilldown
             ward_label = row.get('post_label', '').strip()
@@ -367,10 +371,32 @@ def main():
             'elected_male':       d['elected_male'],
             'elected_unknown':    d['elected_unknown'],
             'pct_female_elected': _safe_pct(d['elected_female'], ekn),
+            'female_win_rate':    _safe_pct(d['elected_female'], d['female']),
+            'male_win_rate':      _safe_pct(d['elected_male'],   d['male']),
             'conf_high':          d['conf_high'],
             'conf_medium':        d['conf_medium'],
             'conf_low':           d['conf_low'],
             'pct_high_conf':      _safe_pct(d['conf_high'], d['total']),
+        }
+
+    def region_party_entry(r, p):
+        d   = region_parties[r][p]
+        kn  = d['female'] + d['male']
+        ekn = d['elected_female'] + d['elected_male']
+        return {
+            'party':              p,
+            'total':              d['total'],
+            'female':             d['female'],
+            'male':               d['male'],
+            'unknown':            d['unknown'],
+            'pct_female':         _safe_pct(d['female'], kn),
+            'elected_total':      d['elected_total'],
+            'elected_female':     d['elected_female'],
+            'elected_male':       d['elected_male'],
+            'elected_unknown':    d['elected_unknown'],
+            'pct_female_elected': _safe_pct(d['elected_female'], ekn),
+            'female_win_rate':    _safe_pct(d['elected_female'], d['female']),
+            'male_win_rate':      _safe_pct(d['elected_male'],   d['male']),
         }
 
     kn_total  = female + male
@@ -409,6 +435,13 @@ def main():
         'by_council': sorted([council_obj(o) for o in councils], key=lambda x: x['org_name']),
         'by_party':   party_list,
         'by_region':  sorted([region_obj(r) for r in regions], key=lambda x: -x['total']),
+        'by_region_by_party': {
+            r: sorted(
+                [region_party_entry(r, p) for p, d in rp.items() if d['total'] >= 5],
+                key=lambda x: -x['total']
+            )
+            for r, rp in region_parties.items()
+        },
     }
 
     os.makedirs(OUT_DIR, exist_ok=True)

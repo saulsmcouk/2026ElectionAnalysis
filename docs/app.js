@@ -12,6 +12,7 @@ let tableSortDir   = 'asc';
 const wardDataCache      = new Map();
 let selectedCouncilName  = null;  // org_name of selected council, or null
 let selectedPartyName    = null;  // party name of selected bar, or null
+let selectedRegionName   = null;  // region (NUTS1) of selected bar, or null
 let councilPartyData     = null;  // aggregated partyMap from current council's ward JSON
 
 // ── Boot ──────────────────────────────────────────────────────────────────
@@ -309,7 +310,119 @@ function clearCouncilSelection() {
   const _cs = document.getElementById('council-stats');
   if (_cs) _cs.hidden = true;
   if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
+  // Restore region-scoped party charts if a region is still selected
+  if (selectedRegionName) {
+    renderPartyCharts(selectedRegionName);
+  } else {
+    renderPartyCharts();
+  }
+}
+
+// ── Region bar selection ──────────────────────────────────────────────────
+function handleRegionSelect(name) {
+  if (selectedRegionName === name) { clearRegionSelection(); return; }
+  selectedRegionName = name;
+
+  // Clear any council/party selection so region drives the context
+  if (selectedCouncilName) {
+    selectedPartyName   = null;
+    selectedCouncilName = null;
+    councilPartyData    = null;
+    const _pd = document.getElementById('party-detail');
+    if (_pd) _pd.hidden = true;
+    const _cs = document.getElementById('council-stats');
+    if (_cs) _cs.hidden = true;
+    if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
+  }
+
+  renderPartyCharts(name);
+  renderRegionDetail(name);
+  renderTable(document.getElementById('table-search').value.trim().toLowerCase());
+}
+
+function clearRegionSelection() {
+  if (!selectedRegionName) return;
+  selectedRegionName = null;
+  const panel = document.getElementById('region-detail');
+  if (panel) panel.hidden = true;
+  document.getElementById('region-heading').textContent = 'By region';
+  renderRegionCharts();
   renderPartyCharts();
+  renderTable(document.getElementById('table-search').value.trim().toLowerCase());
+}
+
+function renderRegionDetail(name) {
+  const panel = document.getElementById('region-detail');
+  if (!panel) return;
+
+  const r = appData.by_region.find(x => x.region === name);
+  if (!r) { panel.hidden = true; return; }
+
+  const s            = appData.summary;
+  const natFWR       = s.national_female_win_rate;
+  const natMWR       = s.national_male_win_rate;
+  const fwrStr       = r.female_win_rate !== null ? r.female_win_rate + '%' : '&mdash;';
+  const mwrStr       = r.male_win_rate   !== null ? r.male_win_rate   + '%' : '&mdash;';
+  const knownN       = r.female + r.male;
+
+  let sentenceF = '';
+  if (r.female_win_rate !== null && natFWR !== null) {
+    const diff = +(r.female_win_rate - natFWR).toFixed(1);
+    const dir  = diff >= 0 ? 'above' : 'below';
+    sentenceF  = `Female candidates in <strong>${escHtml(name)}</strong> had a <strong>${r.female_win_rate}% win rate</strong> &mdash; ${Math.abs(diff)}&thinsp;pp ${dir} the national female average (${natFWR}%).`;
+  }
+  let sentenceM = '';
+  if (r.male_win_rate !== null && natMWR !== null) {
+    const diff = +(r.male_win_rate - natMWR).toFixed(1);
+    const dir  = diff >= 0 ? 'above' : 'below';
+    sentenceM  = `Male candidates in <strong>${escHtml(name)}</strong> had a <strong>${r.male_win_rate}% win rate</strong> &mdash; ${Math.abs(diff)}&thinsp;pp ${dir} the national male average (${natMWR}%).`;
+  }
+  let sentenceG = '';
+  if (r.female_win_rate !== null && r.male_win_rate !== null) {
+    const diff = +(r.female_win_rate - r.male_win_rate).toFixed(1);
+    if (Math.abs(diff) < 0.1) {
+      sentenceG = `Female and male candidates in <strong>${escHtml(name)}</strong> had the same win rate (${r.female_win_rate}%).`;
+    } else {
+      const higher = diff > 0 ? 'female' : 'male';
+      sentenceG = `In <strong>${escHtml(name)}</strong>, ${higher} candidates had a ${Math.abs(diff)}&thinsp;pp ${diff > 0 ? 'higher' : 'lower'} win rate than ${diff > 0 ? 'male' : 'female'} candidates (${r.female_win_rate}% vs ${r.male_win_rate}%).`;
+    }
+  }
+
+  panel.innerHTML = `
+    <div class="party-detail-header">
+      <span class="party-detail-name">${escHtml(name)}</span>
+      <button class="btn-clear-party" id="btn-clear-region">&#10005;&nbsp;All regions</button>
+    </div>
+    <div class="party-stat-grid">
+      <div class="party-stat-tile">
+        <div class="pst-value">${r.total.toLocaleString()}</div>
+        <div class="pst-label">Total candidates</div>
+      </div>
+      <div class="party-stat-tile">
+        <div class="pst-value female">${r.female.toLocaleString()}</div>
+        <div class="pst-label">Female candidates<br><span class="pst-sub">${pctStr(r.female, knownN)} of known gender</span></div>
+      </div>
+      <div class="party-stat-tile">
+        <div class="pst-value">${r.elected_total.toLocaleString()}</div>
+        <div class="pst-label">Elected</div>
+      </div>
+      <div class="party-stat-tile">
+        <div class="pst-value female">${r.elected_female.toLocaleString()}</div>
+        <div class="pst-label">Female elected<br><span class="pst-sub">${fwrStr} win rate</span></div>
+      </div>
+      <div class="party-stat-tile">
+        <div class="pst-value male">${r.elected_male.toLocaleString()}</div>
+        <div class="pst-label">Male elected<br><span class="pst-sub">${mwrStr} win rate</span></div>
+      </div>
+    </div>
+    ${sentenceF ? `<p class="party-sentence">${sentenceF}</p>` : ''}
+    ${sentenceM ? `<p class="party-sentence">${sentenceM}</p>` : ''}
+    ${sentenceG ? `<p class="party-sentence">${sentenceG}</p>` : ''}
+  `;
+  panel.querySelector('#btn-clear-region').addEventListener('click', clearRegionSelection);
+  document.getElementById('region-heading').innerHTML =
+    `By region &mdash; <strong>${escHtml(name)}</strong>`;
+  panel.hidden = false;
 }
 
 async function renderPartyChartsForCouncil(council) {
@@ -381,7 +494,9 @@ function handlePartySelect(name) {
 
   const source = (councilPartyData && councilPartyData[name])
     ? councilPartyData[name]
-    : appData.by_party.find(p => p.party === name);
+    : (selectedRegionName && appData.by_region_by_party && appData.by_region_by_party[selectedRegionName])
+      ? appData.by_region_by_party[selectedRegionName].find(p => p.party === name)
+      : appData.by_party.find(p => p.party === name);
   if (!source) return;
 
   buildChart('chart-party-cands',   'scroll-party-cands',   [name], toStackedPct([source], 'female', 'male'),                  handlePartySelect);
@@ -402,11 +517,9 @@ function clearPartySelection() {
     buildChart('chart-party-cands',   'scroll-party-cands',   labels, toStackedPct(parties, 'female', 'male'),                  handlePartySelect);
     buildChart('chart-party-elected', 'scroll-party-elected', labels, toStackedPct(parties, 'elected_female', 'elected_male'), handlePartySelect);
   } else {
-    renderPartyCharts();
+    renderPartyCharts(selectedRegionName || undefined);
   }
-}
-
-function renderPartyDetail(name) {
+}(name) {
   const panel = document.getElementById('party-detail');
   const s     = appData.summary;
   const isCouncil = !!selectedCouncilName;
@@ -644,13 +757,19 @@ function buildChart(canvasId, scrollId, labels, rows, onBarClick) {
   return _chart;
 }
 
-function renderPartyCharts() {
-  document.getElementById('party-heading').innerHTML =
-    'By party <span class="subtitle-small">— parties with ≥30 candidates, sorted by total. Each bar = 100% of that party’s candidates/elected.</span>';
+function renderPartyCharts(regionName) {
+  let parties, subLabel;
+  if (regionName && appData.by_region_by_party && appData.by_region_by_party[regionName]) {
+    parties  = appData.by_region_by_party[regionName];
+    subLabel = `<span class="subtitle-small">— ${escHtml(regionName)}, parties with ≥10 candidates, sorted by total.</span>`;
+  } else {
+    parties  = appData.by_party;
+    subLabel = '<span class="subtitle-small">— parties with ≥30 candidates, sorted by total. Each bar = 100% of that party’s candidates/elected.</span>';
+  }
 
-  const parties = appData.by_party;
-  const labels  = parties.map(p => p.party);
+  document.getElementById('party-heading').innerHTML = `By party ${subLabel}`;
 
+  const labels = parties.map(p => p.party);
   buildChart(
     'chart-party-cands',   'scroll-party-cands',
     labels, toStackedPct(parties, 'female', 'male'), handlePartySelect
@@ -667,11 +786,11 @@ function renderRegionCharts() {
 
   buildChart(
     'chart-region-cands',   'scroll-region-cands',
-    labels, toStackedPct(regions, 'female', 'male')
+    labels, toStackedPct(regions, 'female', 'male'), handleRegionSelect
   );
   buildChart(
     'chart-region-elected', 'scroll-region-elected',
-    labels, toStackedPct(regions, 'elected_female', 'elected_male')
+    labels, toStackedPct(regions, 'elected_female', 'elected_male'), handleRegionSelect
   );
 }
 
@@ -719,9 +838,13 @@ function initTable() {
 }
 
 function getSortedFilteredRows(filter) {
-  let rows = filter
-    ? tableData.filter(c => c.org_name.toLowerCase().includes(filter))
-    : tableData.slice();
+  let rows = tableData.slice();
+  if (selectedRegionName) {
+    rows = rows.filter(c => c.nuts1 === selectedRegionName);
+  }
+  if (filter) {
+    rows = rows.filter(c => c.org_name.toLowerCase().includes(filter));
+  }
 
   rows.sort((a, b) => {
     let va = a[tableSortCol];
