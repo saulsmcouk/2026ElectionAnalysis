@@ -30,10 +30,12 @@ scripts/build_data.py          # Data pipeline: CSV → JSON
 docs/                          # GitHub Pages root (serve this directory)
   index.html                   # Single-page app entry point
   style.css                    # All styles
-  utils.js                     # Pure helper functions (no side effects)
-  charts.js                    # buildChart() + chartRegistry + colour constants
-  export.js                    # XLSX export functions (SheetJS)
-  app.js                       # All application logic (map, charts, table, modals)
+  js/
+    utils.js                   # Pure helper functions: colour, fmt, pctStr, escHtml, toStackedPct
+    charts.js                  # buildChart() + chartRegistry + colour constants
+    export.js                  # XLSX export functions (SheetJS)
+    views.js                   # Pure HTML template functions (data in → HTML string out)
+    app.js                     # Application logic (map, charts, table, modals, state)
   data/
     councils.json              # Global aggregates, summary, by_party, by_region,
                                # by_council, by_region_by_party
@@ -43,7 +45,7 @@ Old/                           # Archive of earlier working notes
 ```
 
 ### Script load order (all globals, no ES modules)
-`utils.js` → `charts.js` → `export.js` → `app.js`
+`js/utils.js` → `js/charts.js` → `js/export.js` → `js/views.js` → `js/app.js`
 
 ### CDN libraries
 - Leaflet 1.9.4 (map)
@@ -99,7 +101,7 @@ Optional candidate fields (`pid`, `img`, `stmt`, `tw`, `url`, `li`, `bs`, `bd`) 
 
 - **Short JSON keys**: Candidate fields use single/two-letter keys (`n`, `p`, `v`, `r`, `e`, `g`, `m`, `cf`, `pid`, `img`, etc.) to minimise file size across 156 JSON files.
 - **No bundler**: All JS is plain globals. Do not introduce `import`/`export` or npm packages.
-- **Colour system**: `COL_FEMALE = '#d6496f'`, `COL_MALE = '#2171b5'`. Map fill colour is computed by `councilColor()` in `utils.js` using HSL lerp between these hues, desaturated by confidence level.
+- **Colour system**: `COL_FEMALE = '#d6496f'`, `COL_MALE = '#2171b5'`. Map fill colour is computed by `councilColor()` in `js/utils.js` using HSL lerp between these hues, desaturated by confidence level.
 - **Chart registry**: All Chart.js instances are tracked in `chartRegistry` (in `charts.js`) and destroyed before rebuild to avoid canvas conflicts.
 - **Ward data cache**: Ward JSONs are loaded on demand via `fetch` and cached in `wardDataCache` (a `Map`). Check before fetching to avoid duplicate requests.
 - **State variables**: `selectedCouncilName`, `selectedPartyName`, `selectedRegionName` drive the UI context. Clearing one usually requires clearing dependents (e.g. clearing council clears party).

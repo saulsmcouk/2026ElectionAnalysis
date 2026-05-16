@@ -73,29 +73,3 @@ function toStackedPct(items, fKey, mKey) {
     };
   });
 }
-
-// ── Label renderers ───────────────────────────────────────────────────────
-
-function formatGenderLabel(g) {
-  if (g === 'female') return { text: 'Female', cls: 'gender-f' };
-  if (g === 'male') return { text: 'Male', cls: 'gender-m' };
-  return { text: 'Uncategorised', cls: 'gender-u' };
-}
-
-function formatMethodLabel(method) {
-  const methodText = {
-    existing: 'Recorded',
-    gender_guesser: 'gender_guesser',
-    ons: 'ONS names',
-    claude: 'Claude AI',
-    unknown: 'Uncategorised',
-  };
-  const text = methodText[method] || method || 'Uncategorised';
-  return `<span class="method-badge method-${method || 'unknown'}">${text}</span>`;
-}
-
-function confCell(level) {
-  const cls = level === 'high' ? 'conf-high' : level === 'medium' ? 'conf-med' : level === 'low' ? 'conf-low' : 'conf-none';
-  const lbl = level === 'high' ? 'High' : level === 'medium' ? 'Med' : level === 'low' ? 'Low' : '—';
-  return `<span class="conf-cell">${lbl}<span class="conf-badge ${cls}"></span></span>`;
-}
