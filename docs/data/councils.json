@@ -10,7 +10,11 @@
     "elected_female": 1676,
     "elected_male": 3156,
     "elected_unknown": 226,
-    "pct_female_elected": 34.7
+    "pct_female_elected": 34.7,
+    "conf_high": 22103,
+    "conf_medium": 247,
+    "conf_low": 2716,
+    "pct_high_conf": 88.2
   },
   "by_council": [
     {
@@ -30,7 +34,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 7.1,
       "avg_turnout": 47.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 63,
+      "conf_medium": 1,
+      "conf_low": 4,
+      "pct_high_conf": 92.6
     },
     {
       "org_name": "Barnsley",
@@ -49,7 +57,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 25.4,
       "avg_turnout": 37.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 259,
+      "conf_medium": 0,
+      "conf_low": 29,
+      "pct_high_conf": 89.9
     },
     {
       "org_name": "Basildon",
@@ -68,7 +80,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 14.3,
       "avg_turnout": 41.1,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 76,
+      "conf_medium": 0,
+      "conf_low": 7,
+      "pct_high_conf": 91.6
     },
     {
       "org_name": "Basingstoke and Deane",
@@ -87,7 +103,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 42.1,
       "avg_turnout": 42.8,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 95,
+      "conf_medium": 0,
+      "conf_low": 4,
+      "pct_high_conf": 96.0
     },
     {
       "org_name": "Birmingham",
@@ -106,7 +126,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 30.0,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 568,
+      "conf_medium": 11,
+      "conf_low": 36,
+      "pct_high_conf": 92.4
     },
     {
       "org_name": "Blackburn with Darwen",
@@ -125,7 +149,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 29.4,
       "avg_turnout": 39.8,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 76,
+      "conf_medium": 2,
+      "conf_low": 6,
+      "pct_high_conf": 90.5
     },
     {
       "org_name": "Bolton",
@@ -144,7 +172,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 30.0,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 107,
+      "conf_medium": 2,
+      "conf_low": 5,
+      "pct_high_conf": 93.9
     },
     {
       "org_name": "Bradford",
@@ -163,7 +195,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 26.4,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 419,
+      "conf_medium": 7,
+      "conf_low": 32,
+      "pct_high_conf": 91.5
     },
     {
       "org_name": "Brentwood",
@@ -182,7 +218,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 21.4,
       "avg_turnout": 49.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 67,
+      "conf_medium": 0,
+      "conf_low": 4,
+      "pct_high_conf": 94.4
     },
     {
       "org_name": "Broxbourne",
@@ -201,7 +241,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 40.0,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 45,
+      "conf_medium": 1,
+      "conf_low": 8,
+      "pct_high_conf": 83.3
     },
     {
       "org_name": "Burnley",
@@ -220,7 +264,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 13.3,
       "avg_turnout": 39.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 60,
+      "conf_medium": 1,
+      "conf_low": 2,
+      "pct_high_conf": 95.2
     },
     {
       "org_name": "Bury",
@@ -239,7 +287,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 37.5,
       "avg_turnout": 44.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 84,
+      "conf_medium": 0,
+      "conf_low": 7,
+      "pct_high_conf": 92.3
     },
     {
       "org_name": "Calderdale",
@@ -258,7 +310,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 27.8,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 212,
+      "conf_medium": 1,
+      "conf_low": 29,
+      "pct_high_conf": 87.6
     },
     {
       "org_name": "Cambridge",
@@ -277,7 +333,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 60.0,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 79,
+      "conf_medium": 0,
+      "conf_low": 3,
+      "pct_high_conf": 96.3
     },
     {
       "org_name": "Cannock Chase",
@@ -296,7 +356,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 23.1,
       "avg_turnout": 37.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 52,
+      "conf_medium": 1,
+      "conf_low": 1,
+      "pct_high_conf": 96.3
     },
     {
       "org_name": "Chelmsford City Council",
@@ -315,7 +379,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 100.0,
       "avg_turnout": 44.1,
-      "by_election_count": 5
+      "by_election_count": 5,
+      "conf_high": 4,
+      "conf_medium": 0,
+      "conf_low": 1,
+      "pct_high_conf": 80.0
     },
     {
       "org_name": "Cheltenham",
@@ -334,7 +402,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 40.0,
       "avg_turnout": 46.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 95,
+      "conf_medium": 0,
+      "conf_low": 3,
+      "pct_high_conf": 96.9
     },
     {
       "org_name": "Cherwell",
@@ -353,7 +425,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 38.9,
       "avg_turnout": 42.0,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 87,
+      "conf_medium": 0,
+      "conf_low": 8,
+      "pct_high_conf": 91.6
     },
     {
       "org_name": "Chesterfield Borough Council",
@@ -372,7 +448,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 50.0,
       "avg_turnout": 34.2,
-      "by_election_count": 13
+      "by_election_count": 13,
+      "conf_high": 11,
+      "conf_medium": 0,
+      "conf_low": 2,
+      "pct_high_conf": 84.6
     },
     {
       "org_name": "Chorley",
@@ -391,7 +471,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 50.0,
       "avg_turnout": 40.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 60,
+      "conf_medium": 1,
+      "conf_low": 4,
+      "pct_high_conf": 92.3
     },
     {
       "org_name": "City of Lincoln Council",
@@ -410,7 +494,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 27.3,
       "avg_turnout": 36.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 56,
+      "conf_medium": 1,
+      "conf_low": 2,
+      "pct_high_conf": 94.9
     },
     {
       "org_name": "City of Westminster",
@@ -429,7 +517,11 @@
       "elected_unknown": 3,
       "pct_female_elected": 45.1,
       "avg_turnout": 36.0,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 199,
+      "conf_medium": 0,
+      "conf_low": 64,
+      "pct_high_conf": 75.7
     },
     {
       "org_name": "Colchester",
@@ -448,7 +540,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 29.4,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 79,
+      "conf_medium": 1,
+      "conf_low": 6,
+      "pct_high_conf": 91.9
     },
     {
       "org_name": "Coventry",
@@ -467,7 +563,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 42.6,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 255,
+      "conf_medium": 2,
+      "conf_low": 13,
+      "pct_high_conf": 94.4
     },
     {
       "org_name": "Crawley",
@@ -486,7 +586,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 53.8,
       "avg_turnout": 41.6,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 65,
+      "conf_medium": 0,
+      "conf_low": 3,
+      "pct_high_conf": 95.6
     },
     {
       "org_name": "Dudley",
@@ -505,7 +609,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 16.0,
       "avg_turnout": 40.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 118,
+      "conf_medium": 4,
+      "conf_low": 12,
+      "pct_high_conf": 88.1
     },
     {
       "org_name": "East Hertfordshire District Council",
@@ -524,7 +632,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 52.9,
-      "by_election_count": 5
+      "by_election_count": 5,
+      "conf_high": 5,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "East Surrey Council",
@@ -543,7 +655,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 27.8,
       "avg_turnout": 49.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 355,
+      "conf_medium": 1,
+      "conf_low": 23,
+      "pct_high_conf": 93.7
     },
     {
       "org_name": "East Sussex County Council",
@@ -562,7 +678,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 36.0,
       "avg_turnout": 48.0,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 246,
+      "conf_medium": 1,
+      "conf_low": 15,
+      "pct_high_conf": 93.9
     },
     {
       "org_name": "Eastleigh",
@@ -581,7 +701,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 26.7,
       "avg_turnout": 42.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 68,
+      "conf_medium": 0,
+      "conf_low": 5,
+      "pct_high_conf": 93.2
     },
     {
       "org_name": "Epping Forest",
@@ -600,7 +724,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 33.3,
       "avg_turnout": 45.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 76,
+      "conf_medium": 1,
+      "conf_low": 7,
+      "pct_high_conf": 90.5
     },
     {
       "org_name": "Essex County Council",
@@ -619,7 +747,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 20.8,
       "avg_turnout": 44.0,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 402,
+      "conf_medium": 2,
+      "conf_low": 28,
+      "pct_high_conf": 93.1
     },
     {
       "org_name": "Exeter",
@@ -638,7 +770,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 35.7,
       "avg_turnout": 45.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 70,
+      "conf_medium": 0,
+      "conf_low": 2,
+      "pct_high_conf": 97.2
     },
     {
       "org_name": "Fareham",
@@ -657,7 +793,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 50.0,
       "avg_turnout": 47.6,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 64,
+      "conf_medium": 1,
+      "conf_low": 8,
+      "pct_high_conf": 87.7
     },
     {
       "org_name": "Gateshead",
@@ -676,7 +816,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 33.3,
       "avg_turnout": 45.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 249,
+      "conf_medium": 1,
+      "conf_low": 26,
+      "pct_high_conf": 90.2
     },
     {
       "org_name": "Gloucestershire County Council",
@@ -695,7 +839,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 100.0,
       "avg_turnout": 38.4,
-      "by_election_count": 6
+      "by_election_count": 6,
+      "conf_high": 6,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "Gosport",
@@ -714,7 +862,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 14.3,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 60,
+      "conf_medium": 1,
+      "conf_low": 3,
+      "pct_high_conf": 93.8
     },
     {
       "org_name": "Great Yarmouth",
@@ -733,7 +885,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 49.5,
-      "by_election_count": 6
+      "by_election_count": 6,
+      "conf_high": 5,
+      "conf_medium": 0,
+      "conf_low": 1,
+      "pct_high_conf": 83.3
     },
     {
       "org_name": "Guildford Borough Council",
@@ -752,7 +908,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 44.2,
-      "by_election_count": 5
+      "by_election_count": 5,
+      "conf_high": 5,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "Halton",
@@ -771,7 +931,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 15.8,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 79,
+      "conf_medium": 0,
+      "conf_low": 2,
+      "pct_high_conf": 97.5
     },
     {
       "org_name": "Hampshire County Council",
@@ -790,7 +954,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 33.3,
       "avg_turnout": 45.1,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 381,
+      "conf_medium": 4,
+      "conf_low": 17,
+      "pct_high_conf": 94.8
     },
     {
       "org_name": "Harlow",
@@ -809,7 +977,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 36.4,
       "avg_turnout": 40.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 44,
+      "conf_medium": 0,
+      "conf_low": 4,
+      "pct_high_conf": 91.7
     },
     {
       "org_name": "Hart",
@@ -828,7 +1000,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 45.5,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 48,
+      "conf_medium": 0,
+      "conf_low": 4,
+      "pct_high_conf": 92.3
     },
     {
       "org_name": "Hartlepool",
@@ -847,7 +1023,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 16.7,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 56,
+      "conf_medium": 1,
+      "conf_low": 0,
+      "pct_high_conf": 98.2
     },
     {
       "org_name": "Hastings",
@@ -866,7 +1046,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 23.5,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 66,
+      "conf_medium": 4,
+      "conf_low": 10,
+      "pct_high_conf": 82.5
     },
     {
       "org_name": "Havant",
@@ -885,7 +1069,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 33.3,
       "avg_turnout": 42.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 34,
+      "conf_medium": 0,
+      "conf_low": 2,
+      "pct_high_conf": 94.4
     },
     {
       "org_name": "Hertfordshire County Council",
@@ -904,7 +1092,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 100.0,
       "avg_turnout": 38.0,
-      "by_election_count": 5
+      "by_election_count": 5,
+      "conf_high": 5,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "Hertsmere Borough Council",
@@ -923,7 +1115,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": null,
-      "by_election_count": 5
+      "by_election_count": 5,
+      "conf_high": 5,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "Horsham District Council",
@@ -942,7 +1138,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 54.0,
-      "by_election_count": 4
+      "by_election_count": 4,
+      "conf_high": 4,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "Huntingdonshire",
@@ -961,7 +1161,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 30.8,
       "avg_turnout": 41.6,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 214,
+      "conf_medium": 3,
+      "conf_low": 14,
+      "pct_high_conf": 92.6
     },
     {
       "org_name": "Hyndburn",
@@ -980,7 +1184,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 27.3,
       "avg_turnout": 38.7,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 40,
+      "conf_medium": 0,
+      "conf_low": 2,
+      "pct_high_conf": 95.2
     },
     {
       "org_name": "Ipswich",
@@ -999,7 +1207,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 6.2,
       "avg_turnout": 41.6,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 67,
+      "conf_medium": 1,
+      "conf_low": 7,
+      "pct_high_conf": 89.3
     },
     {
       "org_name": "Isle of Wight Council",
@@ -1018,7 +1230,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 20.5,
       "avg_turnout": 43.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 143,
+      "conf_medium": 5,
+      "conf_low": 16,
+      "pct_high_conf": 87.2
     },
     {
       "org_name": "Kingston upon Hull",
@@ -1037,7 +1253,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 52.6,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 90,
+      "conf_medium": 4,
+      "conf_low": 7,
+      "pct_high_conf": 89.1
     },
     {
       "org_name": "Kirklees",
@@ -1056,7 +1276,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 27.5,
       "avg_turnout": 42.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 352,
+      "conf_medium": 7,
+      "conf_low": 21,
+      "pct_high_conf": 92.6
     },
     {
       "org_name": "Knowsley",
@@ -1075,7 +1299,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 25.0,
       "avg_turnout": 29.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 49,
+      "conf_medium": 1,
+      "conf_low": 6,
+      "pct_high_conf": 87.5
     },
     {
       "org_name": "Leeds",
@@ -1094,7 +1322,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 36.1,
       "avg_turnout": 41.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 210,
+      "conf_medium": 1,
+      "conf_low": 10,
+      "pct_high_conf": 95.0
     },
     {
       "org_name": "Lewes District Council",
@@ -1113,7 +1345,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 50.0,
       "avg_turnout": 38.4,
-      "by_election_count": 9
+      "by_election_count": 9,
+      "conf_high": 8,
+      "conf_medium": 1,
+      "conf_low": 0,
+      "pct_high_conf": 88.9
     },
     {
       "org_name": "London Borough of Barking and Dagenham",
@@ -1132,7 +1368,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 43.1,
       "avg_turnout": 33.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 194,
+      "conf_medium": 8,
+      "conf_low": 13,
+      "pct_high_conf": 90.2
     },
     {
       "org_name": "London Borough of Barnet",
@@ -1151,7 +1391,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 38.1,
       "avg_turnout": 42.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 289,
+      "conf_medium": 6,
+      "conf_low": 17,
+      "pct_high_conf": 92.6
     },
     {
       "org_name": "London Borough of Bexley",
@@ -1170,7 +1414,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 33.3,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 173,
+      "conf_medium": 0,
+      "conf_low": 19,
+      "pct_high_conf": 90.1
     },
     {
       "org_name": "London Borough of Brent",
@@ -1189,7 +1437,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 36.8,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 276,
+      "conf_medium": 9,
+      "conf_low": 11,
+      "pct_high_conf": 93.2
     },
     {
       "org_name": "London Borough of Bromley",
@@ -1208,7 +1460,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 34.5,
       "avg_turnout": 49.6,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 266,
+      "conf_medium": 2,
+      "conf_low": 16,
+      "pct_high_conf": 93.7
     },
     {
       "org_name": "London Borough of Camden",
@@ -1227,7 +1483,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 45.5,
       "avg_turnout": 38.1,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 254,
+      "conf_medium": 3,
+      "conf_low": 13,
+      "pct_high_conf": 94.1
     },
     {
       "org_name": "London Borough of Croydon",
@@ -1246,7 +1506,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 45.7,
       "avg_turnout": 41.1,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 338,
+      "conf_medium": 2,
+      "conf_low": 15,
+      "pct_high_conf": 95.2
     },
     {
       "org_name": "London Borough of Ealing",
@@ -1265,7 +1529,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 42.9,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 348,
+      "conf_medium": 6,
+      "conf_low": 13,
+      "pct_high_conf": 94.8
     },
     {
       "org_name": "London Borough of Enfield",
@@ -1284,7 +1552,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 41.3,
       "avg_turnout": 40.1,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 310,
+      "conf_medium": 6,
+      "conf_low": 18,
+      "pct_high_conf": 92.8
     },
     {
       "org_name": "London Borough of Hackney",
@@ -1303,7 +1575,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 50.9,
       "avg_turnout": 41.0,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 228,
+      "conf_medium": 5,
+      "conf_low": 11,
+      "pct_high_conf": 93.4
     },
     {
       "org_name": "London Borough of Hammersmith & Fulham",
@@ -1322,7 +1598,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 52.0,
       "avg_turnout": 39.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 209,
+      "conf_medium": 1,
+      "conf_low": 14,
+      "pct_high_conf": 93.3
     },
     {
       "org_name": "London Borough of Haringey",
@@ -1341,7 +1621,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 54.4,
       "avg_turnout": 44.0,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 251,
+      "conf_medium": 6,
+      "conf_low": 16,
+      "pct_high_conf": 91.9
     },
     {
       "org_name": "London Borough of Harrow",
@@ -1360,7 +1644,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 34.5,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 227,
+      "conf_medium": 6,
+      "conf_low": 7,
+      "pct_high_conf": 94.6
     },
     {
       "org_name": "London Borough of Havering",
@@ -1379,7 +1667,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 23.6,
       "avg_turnout": 45.7,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 273,
+      "conf_medium": 5,
+      "conf_low": 25,
+      "pct_high_conf": 90.1
     },
     {
       "org_name": "London Borough of Hillingdon",
@@ -1398,7 +1690,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 25.5,
       "avg_turnout": 40.8,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 238,
+      "conf_medium": 5,
+      "conf_low": 21,
+      "pct_high_conf": 90.2
     },
     {
       "org_name": "London Borough of Hounslow",
@@ -1417,7 +1713,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 32.3,
       "avg_turnout": 41.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 249,
+      "conf_medium": 7,
+      "conf_low": 9,
+      "pct_high_conf": 94.0
     },
     {
       "org_name": "London Borough of Islington",
@@ -1436,7 +1736,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 51.0,
       "avg_turnout": 43.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 249,
+      "conf_medium": 4,
+      "conf_low": 10,
+      "pct_high_conf": 94.7
     },
     {
       "org_name": "London Borough of Lambeth",
@@ -1455,7 +1759,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 47.6,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 294,
+      "conf_medium": 4,
+      "conf_low": 11,
+      "pct_high_conf": 95.1
     },
     {
       "org_name": "London Borough of Lewisham",
@@ -1474,7 +1782,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 57.7,
       "avg_turnout": 41.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 240,
+      "conf_medium": 7,
+      "conf_low": 18,
+      "pct_high_conf": 90.6
     },
     {
       "org_name": "London Borough of Merton",
@@ -1493,7 +1805,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 43.9,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 254,
+      "conf_medium": 6,
+      "conf_low": 11,
+      "pct_high_conf": 93.7
     },
     {
       "org_name": "London Borough of Newham",
@@ -1512,7 +1828,11 @@
       "elected_unknown": 4,
       "pct_female_elected": 38.7,
       "avg_turnout": 34.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 330,
+      "conf_medium": 7,
+      "conf_low": 23,
+      "pct_high_conf": 91.7
     },
     {
       "org_name": "London Borough of Redbridge",
@@ -1531,7 +1851,11 @@
       "elected_unknown": 31,
       "pct_female_elected": 37.5,
       "avg_turnout": 41.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 159,
+      "conf_medium": 0,
+      "conf_low": 160,
+      "pct_high_conf": 49.8
     },
     {
       "org_name": "London Borough of Richmond upon Thames",
@@ -1550,7 +1874,11 @@
       "elected_unknown": 6,
       "pct_female_elected": 35.4,
       "avg_turnout": 50.7,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 213,
+      "conf_medium": 0,
+      "conf_low": 51,
+      "pct_high_conf": 80.7
     },
     {
       "org_name": "London Borough of Southwark",
@@ -1569,7 +1897,11 @@
       "elected_unknown": 4,
       "pct_female_elected": 50.8,
       "avg_turnout": 40.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 231,
+      "conf_medium": 0,
+      "conf_low": 61,
+      "pct_high_conf": 79.1
     },
     {
       "org_name": "London Borough of Sutton",
@@ -1588,7 +1920,11 @@
       "elected_unknown": 13,
       "pct_female_elected": 35.7,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 221,
+      "conf_medium": 0,
+      "conf_low": 60,
+      "pct_high_conf": 78.6
     },
     {
       "org_name": "London Borough of Tower Hamlets",
@@ -1607,7 +1943,11 @@
       "elected_unknown": 26,
       "pct_female_elected": 26.3,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 183,
+      "conf_medium": 0,
+      "conf_low": 130,
+      "pct_high_conf": 58.5
     },
     {
       "org_name": "London Borough of Waltham Forest",
@@ -1626,7 +1966,11 @@
       "elected_unknown": 8,
       "pct_female_elected": 53.8,
       "avg_turnout": 40.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 205,
+      "conf_medium": 0,
+      "conf_low": 87,
+      "pct_high_conf": 70.2
     },
     {
       "org_name": "London Borough of Wandsworth",
@@ -1645,7 +1989,11 @@
       "elected_unknown": 5,
       "pct_female_elected": 45.3,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 236,
+      "conf_medium": 0,
+      "conf_low": 59,
+      "pct_high_conf": 80.0
     },
     {
       "org_name": "Manchester",
@@ -1664,7 +2012,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 31.2,
       "avg_turnout": 32.7,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 167,
+      "conf_medium": 4,
+      "conf_low": 5,
+      "pct_high_conf": 94.9
     },
     {
       "org_name": "Mid Sussex District Council",
@@ -1683,7 +2035,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 100.0,
       "avg_turnout": 50.5,
-      "by_election_count": 4
+      "by_election_count": 4,
+      "conf_high": 4,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "Milton Keynes",
@@ -1702,7 +2058,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 45.0,
       "avg_turnout": 40.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 284,
+      "conf_medium": 7,
+      "conf_low": 19,
+      "pct_high_conf": 91.6
     },
     {
       "org_name": "Newcastle upon Tyne",
@@ -1721,7 +2081,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 25.6,
       "avg_turnout": 44.7,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 342,
+      "conf_medium": 3,
+      "conf_low": 18,
+      "pct_high_conf": 94.2
     },
     {
       "org_name": "Newcastle-under-Lyme",
@@ -1740,7 +2104,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 25.0,
       "avg_turnout": 38.8,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 149,
+      "conf_medium": 4,
+      "conf_low": 12,
+      "pct_high_conf": 90.3
     },
     {
       "org_name": "Newport City Council",
@@ -1759,7 +2127,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 69.7,
-      "by_election_count": 6
+      "by_election_count": 6,
+      "conf_high": 6,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "Norfolk County Council",
@@ -1778,7 +2150,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 27.4,
       "avg_turnout": 45.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 410,
+      "conf_medium": 7,
+      "conf_low": 22,
+      "pct_high_conf": 93.4
     },
     {
       "org_name": "North East Lincolnshire",
@@ -1797,7 +2173,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 20.0,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 85,
+      "conf_medium": 0,
+      "conf_low": 2,
+      "pct_high_conf": 97.7
     },
     {
       "org_name": "North Tyneside",
@@ -1816,7 +2196,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 25.0,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 88,
+      "conf_medium": 2,
+      "conf_low": 1,
+      "pct_high_conf": 96.7
     },
     {
       "org_name": "Norwich",
@@ -1835,7 +2219,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 57.1,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 68,
+      "conf_medium": 2,
+      "conf_low": 2,
+      "pct_high_conf": 94.4
     },
     {
       "org_name": "Nuneaton and Bedworth",
@@ -1854,7 +2242,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 5.3,
       "avg_turnout": 37.7,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 78,
+      "conf_medium": 3,
+      "conf_low": 4,
+      "pct_high_conf": 91.8
     },
     {
       "org_name": "Oldham",
@@ -1873,7 +2265,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 5.0,
       "avg_turnout": 46.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 107,
+      "conf_medium": 2,
+      "conf_low": 8,
+      "pct_high_conf": 91.5
     },
     {
       "org_name": "Oxford",
@@ -1892,7 +2288,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 50.0,
       "avg_turnout": 42.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 125,
+      "conf_medium": 2,
+      "conf_low": 5,
+      "pct_high_conf": 94.7
     },
     {
       "org_name": "Pendle",
@@ -1911,7 +2311,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 37.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 47,
+      "conf_medium": 0,
+      "conf_low": 8,
+      "pct_high_conf": 85.5
     },
     {
       "org_name": "Peterborough",
@@ -1930,7 +2334,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 11.1,
       "avg_turnout": 35.0,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 84,
+      "conf_medium": 5,
+      "conf_low": 3,
+      "pct_high_conf": 91.3
     },
     {
       "org_name": "Plymouth",
@@ -1949,7 +2357,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 36.8,
       "avg_turnout": 39.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 107,
+      "conf_medium": 0,
+      "conf_low": 7,
+      "pct_high_conf": 93.9
     },
     {
       "org_name": "Portsmouth",
@@ -1968,7 +2380,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 21.4,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 63,
+      "conf_medium": 3,
+      "conf_low": 5,
+      "pct_high_conf": 88.7
     },
     {
       "org_name": "Powys County Council",
@@ -1987,7 +2403,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 100.0,
       "avg_turnout": null,
-      "by_election_count": 7
+      "by_election_count": 7,
+      "conf_high": 6,
+      "conf_medium": 0,
+      "conf_low": 1,
+      "pct_high_conf": 85.7
     },
     {
       "org_name": "Preston",
@@ -2006,7 +2426,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 46.7,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 73,
+      "conf_medium": 4,
+      "conf_low": 6,
+      "pct_high_conf": 88.0
     },
     {
       "org_name": "Reading",
@@ -2025,7 +2449,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 60.0,
       "avg_turnout": 40.1,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 77,
+      "conf_medium": 0,
+      "conf_low": 14,
+      "pct_high_conf": 84.6
     },
     {
       "org_name": "Redditch",
@@ -2044,7 +2472,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 22.2,
       "avg_turnout": 38.1,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 42,
+      "conf_medium": 0,
+      "conf_low": 3,
+      "pct_high_conf": 93.3
     },
     {
       "org_name": "Reigate and Banstead",
@@ -2063,7 +2495,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 46.0,
-      "by_election_count": 5
+      "by_election_count": 5,
+      "conf_high": 3,
+      "conf_medium": 0,
+      "conf_low": 2,
+      "pct_high_conf": 60.0
     },
     {
       "org_name": "Rochdale",
@@ -2082,7 +2518,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 16.7,
       "avg_turnout": 39.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 93,
+      "conf_medium": 0,
+      "conf_low": 17,
+      "pct_high_conf": 84.5
     },
     {
       "org_name": "Rochford",
@@ -2101,7 +2541,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 28.6,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 69,
+      "conf_medium": 0,
+      "conf_low": 6,
+      "pct_high_conf": 92.0
     },
     {
       "org_name": "Rother District Council",
@@ -2120,7 +2564,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 50.9,
-      "by_election_count": 5
+      "by_election_count": 5,
+      "conf_high": 5,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "Royal Borough of Greenwich",
@@ -2139,7 +2587,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 47.3,
       "avg_turnout": 41.7,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 255,
+      "conf_medium": 2,
+      "conf_low": 21,
+      "pct_high_conf": 91.7
     },
     {
       "org_name": "Royal Borough of Kensington and Chelsea",
@@ -2158,7 +2610,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 48.0,
       "avg_turnout": 37.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 211,
+      "conf_medium": 7,
+      "conf_low": 8,
+      "pct_high_conf": 93.4
     },
     {
       "org_name": "Royal Borough of Kingston upon Thames",
@@ -2177,7 +2633,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 39.6,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 240,
+      "conf_medium": 7,
+      "conf_low": 20,
+      "pct_high_conf": 89.9
     },
     {
       "org_name": "Rugby",
@@ -2196,7 +2656,11 @@
       "elected_unknown": 3,
       "pct_female_elected": 41.7,
       "avg_turnout": 43.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 52,
+      "conf_medium": 0,
+      "conf_low": 23,
+      "pct_high_conf": 69.3
     },
     {
       "org_name": "Rushmoor",
@@ -2215,7 +2679,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 33.3,
       "avg_turnout": 42.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 47,
+      "conf_medium": 1,
+      "conf_low": 16,
+      "pct_high_conf": 73.4
     },
     {
       "org_name": "Salford",
@@ -2234,7 +2702,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 15.8,
       "avg_turnout": 34.7,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 89,
+      "conf_medium": 0,
+      "conf_low": 20,
+      "pct_high_conf": 81.7
     },
     {
       "org_name": "Sandwell",
@@ -2253,7 +2725,11 @@
       "elected_unknown": 17,
       "pct_female_elected": 23.6,
       "avg_turnout": 34.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 182,
+      "conf_medium": 0,
+      "conf_low": 130,
+      "pct_high_conf": 58.3
     },
     {
       "org_name": "Sefton",
@@ -2272,7 +2748,11 @@
       "elected_unknown": 5,
       "pct_female_elected": 39.3,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 265,
+      "conf_medium": 0,
+      "conf_low": 45,
+      "pct_high_conf": 85.5
     },
     {
       "org_name": "Sheffield",
@@ -2291,7 +2771,11 @@
       "elected_unknown": 4,
       "pct_female_elected": 23.1,
       "avg_turnout": 41.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 164,
+      "conf_medium": 0,
+      "conf_low": 32,
+      "pct_high_conf": 83.7
     },
     {
       "org_name": "Solihull",
@@ -2310,7 +2794,11 @@
       "elected_unknown": 6,
       "pct_female_elected": 31.1,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 187,
+      "conf_medium": 0,
+      "conf_low": 43,
+      "pct_high_conf": 81.3
     },
     {
       "org_name": "Somerset County Council",
@@ -2329,7 +2817,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 46.8,
-      "by_election_count": 6
+      "by_election_count": 6,
+      "conf_high": 4,
+      "conf_medium": 0,
+      "conf_low": 2,
+      "pct_high_conf": 66.7
     },
     {
       "org_name": "South Cambridgeshire",
@@ -2348,7 +2840,11 @@
       "elected_unknown": 4,
       "pct_female_elected": 43.9,
       "avg_turnout": 47.5,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 190,
+      "conf_medium": 0,
+      "conf_low": 31,
+      "pct_high_conf": 86.0
     },
     {
       "org_name": "South Tyneside",
@@ -2367,7 +2863,11 @@
       "elected_unknown": 5,
       "pct_female_elected": 34.7,
       "avg_turnout": 43.8,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 172,
+      "conf_medium": 0,
+      "conf_low": 43,
+      "pct_high_conf": 80.0
     },
     {
       "org_name": "Southampton",
@@ -2386,7 +2886,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 13.3,
       "avg_turnout": 36.6,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 89,
+      "conf_medium": 0,
+      "conf_low": 12,
+      "pct_high_conf": 88.1
     },
     {
       "org_name": "Southend-on-Sea",
@@ -2405,7 +2909,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 23.5,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 107,
+      "conf_medium": 0,
+      "conf_low": 10,
+      "pct_high_conf": 91.5
     },
     {
       "org_name": "St Albans",
@@ -2424,7 +2932,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 30.0,
       "avg_turnout": 45.7,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 97,
+      "conf_medium": 0,
+      "conf_low": 16,
+      "pct_high_conf": 85.8
     },
     {
       "org_name": "St Helens",
@@ -2443,7 +2955,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 15.2,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 148,
+      "conf_medium": 0,
+      "conf_low": 13,
+      "pct_high_conf": 91.9
     },
     {
       "org_name": "Stevenage",
@@ -2462,7 +2978,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 46.2,
       "avg_turnout": 38.8,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 70,
+      "conf_medium": 0,
+      "conf_low": 7,
+      "pct_high_conf": 90.9
     },
     {
       "org_name": "Stockport",
@@ -2481,7 +3001,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 52.6,
       "avg_turnout": 43.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 92,
+      "conf_medium": 0,
+      "conf_low": 19,
+      "pct_high_conf": 82.9
     },
     {
       "org_name": "Stratford-on-Avon District Council",
@@ -2500,7 +3024,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 49.4,
-      "by_election_count": 5
+      "by_election_count": 5,
+      "conf_high": 5,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "Suffolk County Council",
@@ -2519,7 +3047,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 23.5,
       "avg_turnout": 43.8,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 319,
+      "conf_medium": 1,
+      "conf_low": 33,
+      "pct_high_conf": 90.4
     },
     {
       "org_name": "Sunderland",
@@ -2538,7 +3070,11 @@
       "elected_unknown": 4,
       "pct_female_elected": 33.8,
       "avg_turnout": 40.6,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 314,
+      "conf_medium": 0,
+      "conf_low": 53,
+      "pct_high_conf": 85.6
     },
     {
       "org_name": "Surrey County Council",
@@ -2557,7 +3093,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 100.0,
       "avg_turnout": 49.0,
-      "by_election_count": 6
+      "by_election_count": 6,
+      "conf_high": 5,
+      "conf_medium": 0,
+      "conf_low": 1,
+      "pct_high_conf": 83.3
     },
     {
       "org_name": "Swindon",
@@ -2576,7 +3116,11 @@
       "elected_unknown": 8,
       "pct_female_elected": 28.6,
       "avg_turnout": 44.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 178,
+      "conf_medium": 0,
+      "conf_low": 61,
+      "pct_high_conf": 74.5
     },
     {
       "org_name": "Tameside",
@@ -2595,7 +3139,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 29.4,
       "avg_turnout": 40.4,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 74,
+      "conf_medium": 0,
+      "conf_low": 18,
+      "pct_high_conf": 80.4
     },
     {
       "org_name": "Tamworth",
@@ -2614,7 +3162,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 11.1,
       "avg_turnout": 36.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 38,
+      "conf_medium": 0,
+      "conf_low": 7,
+      "pct_high_conf": 84.4
     },
     {
       "org_name": "Three Rivers",
@@ -2633,7 +3185,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 41.7,
       "avg_turnout": 44.8,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 51,
+      "conf_medium": 0,
+      "conf_low": 15,
+      "pct_high_conf": 77.3
     },
     {
       "org_name": "Thurrock",
@@ -2652,7 +3208,11 @@
       "elected_unknown": 4,
       "pct_female_elected": 24.4,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 135,
+      "conf_medium": 0,
+      "conf_low": 44,
+      "pct_high_conf": 75.4
     },
     {
       "org_name": "Trafford",
@@ -2671,7 +3231,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 42.1,
       "avg_turnout": 48.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 101,
+      "conf_medium": 0,
+      "conf_low": 13,
+      "pct_high_conf": 88.6
     },
     {
       "org_name": "Tunbridge Wells",
@@ -2690,7 +3254,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 28.6,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 63,
+      "conf_medium": 0,
+      "conf_low": 10,
+      "pct_high_conf": 86.3
     },
     {
       "org_name": "Wakefield",
@@ -2709,7 +3277,11 @@
       "elected_unknown": 2,
       "pct_female_elected": 23.0,
       "avg_turnout": 32.0,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 259,
+      "conf_medium": 0,
+      "conf_low": 26,
+      "pct_high_conf": 90.9
     },
     {
       "org_name": "Walsall",
@@ -2728,7 +3300,11 @@
       "elected_unknown": 16,
       "pct_female_elected": 34.1,
       "avg_turnout": 39.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 179,
+      "conf_medium": 0,
+      "conf_low": 103,
+      "pct_high_conf": 63.5
     },
     {
       "org_name": "Watford",
@@ -2747,7 +3323,11 @@
       "elected_unknown": 4,
       "pct_female_elected": 37.5,
       "avg_turnout": 37.1,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 47,
+      "conf_medium": 0,
+      "conf_low": 17,
+      "pct_high_conf": 73.4
     },
     {
       "org_name": "Welwyn Hatfield",
@@ -2766,7 +3346,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 18.8,
       "avg_turnout": 42.2,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 81,
+      "conf_medium": 0,
+      "conf_low": 5,
+      "pct_high_conf": 94.2
     },
     {
       "org_name": "West Lancashire",
@@ -2785,7 +3369,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 50.0,
       "avg_turnout": 40.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 70,
+      "conf_medium": 0,
+      "conf_low": 7,
+      "pct_high_conf": 90.9
     },
     {
       "org_name": "West Northamptonshire Council",
@@ -2804,7 +3392,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 100.0,
       "avg_turnout": 50.4,
-      "by_election_count": 6
+      "by_election_count": 6,
+      "conf_high": 6,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "West Oxfordshire",
@@ -2823,7 +3415,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 46.7,
       "avg_turnout": null,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 73,
+      "conf_medium": 0,
+      "conf_low": 8,
+      "pct_high_conf": 90.1
     },
     {
       "org_name": "West Suffolk Council",
@@ -2842,7 +3438,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 0.0,
       "avg_turnout": 49.2,
-      "by_election_count": 6
+      "by_election_count": 6,
+      "conf_high": 6,
+      "conf_medium": 0,
+      "conf_low": 0,
+      "pct_high_conf": 100.0
     },
     {
       "org_name": "West Surrey Council",
@@ -2861,7 +3461,11 @@
       "elected_unknown": 4,
       "pct_female_elected": 34.9,
       "avg_turnout": 46.0,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 387,
+      "conf_medium": 0,
+      "conf_low": 66,
+      "pct_high_conf": 85.4
     },
     {
       "org_name": "West Sussex County Council",
@@ -2880,7 +3484,11 @@
       "elected_unknown": 3,
       "pct_female_elected": 38.8,
       "avg_turnout": 47.1,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 327,
+      "conf_medium": 0,
+      "conf_low": 35,
+      "pct_high_conf": 90.3
     },
     {
       "org_name": "Wigan",
@@ -2899,7 +3507,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 28.0,
       "avg_turnout": 38.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 121,
+      "conf_medium": 0,
+      "conf_low": 10,
+      "pct_high_conf": 92.4
     },
     {
       "org_name": "Winchester",
@@ -2918,7 +3530,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 46.7,
       "avg_turnout": 51.8,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 74,
+      "conf_medium": 0,
+      "conf_low": 2,
+      "pct_high_conf": 97.4
     },
     {
       "org_name": "Wokingham",
@@ -2937,7 +3553,11 @@
       "elected_unknown": 1,
       "pct_female_elected": 44.4,
       "avg_turnout": 47.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 87,
+      "conf_medium": 0,
+      "conf_low": 11,
+      "pct_high_conf": 88.8
     },
     {
       "org_name": "Wolverhampton",
@@ -2956,7 +3576,11 @@
       "elected_unknown": 5,
       "pct_female_elected": 25.0,
       "avg_turnout": 34.3,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 67,
+      "conf_medium": 0,
+      "conf_low": 29,
+      "pct_high_conf": 69.8
     },
     {
       "org_name": "Worthing",
@@ -2975,7 +3599,11 @@
       "elected_unknown": 0,
       "pct_female_elected": 53.8,
       "avg_turnout": 48.9,
-      "by_election_count": 0
+      "by_election_count": 0,
+      "conf_high": 58,
+      "conf_medium": 0,
+      "conf_low": 7,
+      "pct_high_conf": 89.2
     }
   ],
   "by_party": [
@@ -2990,7 +3618,11 @@
       "elected_female": 304,
       "elected_male": 1121,
       "elected_unknown": 34,
-      "pct_female_elected": 21.3
+      "pct_female_elected": 21.3,
+      "conf_high": 4302,
+      "conf_medium": 36,
+      "conf_low": 486,
+      "pct_high_conf": 89.2
     },
     {
       "party": "Conservative and Unionist Party",
@@ -3003,7 +3635,11 @@
       "elected_female": 239,
       "elected_male": 541,
       "elected_unknown": 27,
-      "pct_female_elected": 30.6
+      "pct_female_elected": 30.6,
+      "conf_high": 4146,
+      "conf_medium": 49,
+      "conf_low": 578,
+      "pct_high_conf": 86.9
     },
     {
       "party": "Green Party",
@@ -3016,7 +3652,11 @@
       "elected_female": 273,
       "elected_male": 293,
       "elected_unknown": 23,
-      "pct_female_elected": 48.2
+      "pct_female_elected": 48.2,
+      "conf_high": 3949,
+      "conf_medium": 56,
+      "conf_low": 503,
+      "pct_high_conf": 87.6
     },
     {
       "party": "Labour Party",
@@ -3029,7 +3669,11 @@
       "elected_female": 389,
       "elected_male": 427,
       "elected_unknown": 52,
-      "pct_female_elected": 47.7
+      "pct_female_elected": 47.7,
+      "conf_high": 3741,
+      "conf_medium": 40,
+      "conf_low": 447,
+      "pct_high_conf": 88.5
     },
     {
       "party": "Liberal Democrats",
@@ -3042,7 +3686,11 @@
       "elected_female": 297,
       "elected_male": 510,
       "elected_unknown": 45,
-      "pct_female_elected": 36.8
+      "pct_female_elected": 36.8,
+      "conf_high": 3559,
+      "conf_medium": 36,
+      "conf_low": 358,
+      "pct_high_conf": 90.0
     },
     {
       "party": "Independent",
@@ -3055,7 +3703,11 @@
       "elected_female": 33,
       "elected_male": 65,
       "elected_unknown": 2,
-      "pct_female_elected": 33.7
+      "pct_female_elected": 33.7,
+      "conf_high": 697,
+      "conf_medium": 9,
+      "conf_low": 90,
+      "pct_high_conf": 87.6
     },
     {
       "party": "Labour and Co-operative Party",
@@ -3068,7 +3720,11 @@
       "elected_female": 101,
       "elected_male": 96,
       "elected_unknown": 3,
-      "pct_female_elected": 51.3
+      "pct_female_elected": 51.3,
+      "conf_high": 623,
+      "conf_medium": 7,
+      "conf_low": 45,
+      "pct_high_conf": 92.3
     },
     {
       "party": "Trade Unionist and Socialist Coalition",
@@ -3081,7 +3737,11 @@
       "elected_female": 0,
       "elected_male": 0,
       "elected_unknown": 0,
-      "pct_female_elected": null
+      "pct_female_elected": null,
+      "conf_high": 251,
+      "conf_medium": 2,
+      "conf_low": 33,
+      "pct_high_conf": 87.8
     },
     {
       "party": "Workers Party of Britain",
@@ -3094,7 +3754,11 @@
       "elected_female": 0,
       "elected_male": 5,
       "elected_unknown": 0,
-      "pct_female_elected": 0.0
+      "pct_female_elected": 0.0,
+      "conf_high": 62,
+      "conf_medium": 0,
+      "conf_low": 7,
+      "pct_high_conf": 89.9
     },
     {
       "party": "Newham Independents Party",
@@ -3107,7 +3771,11 @@
       "elected_female": 4,
       "elected_male": 18,
       "elected_unknown": 2,
-      "pct_female_elected": 18.2
+      "pct_female_elected": 18.2,
+      "conf_high": 60,
+      "conf_medium": 2,
+      "conf_low": 4,
+      "pct_high_conf": 90.9
     },
     {
       "party": "Social Democratic Party",
@@ -3120,7 +3788,11 @@
       "elected_female": 0,
       "elected_male": 1,
       "elected_unknown": 0,
-      "pct_female_elected": 0.0
+      "pct_female_elected": 0.0,
+      "conf_high": 45,
+      "conf_medium": 0,
+      "conf_low": 3,
+      "pct_high_conf": 93.8
     },
     {
       "party": "Aspire",
@@ -3133,7 +3805,11 @@
       "elected_female": 1,
       "elected_male": 7,
       "elected_unknown": 25,
-      "pct_female_elected": 12.5
+      "pct_female_elected": 12.5,
+      "conf_high": 13,
+      "conf_medium": 0,
+      "conf_low": 32,
+      "pct_high_conf": 28.9
     },
     {
       "party": "Tower Hamlets Independents",
@@ -3146,7 +3822,11 @@
       "elected_female": 0,
       "elected_male": 0,
       "elected_unknown": 0,
-      "pct_female_elected": null
+      "pct_female_elected": null,
+      "conf_high": 12,
+      "conf_medium": 0,
+      "conf_low": 31,
+      "pct_high_conf": 27.9
     },
     {
       "party": "Redbridge Independents",
@@ -3159,7 +3839,11 @@
       "elected_female": 2,
       "elected_male": 3,
       "elected_unknown": 4,
-      "pct_female_elected": 40.0
+      "pct_female_elected": 40.0,
+      "conf_high": 14,
+      "conf_medium": 0,
+      "conf_low": 28,
+      "pct_high_conf": 33.3
     },
     {
       "party": "Havering Residents Association",
@@ -3172,7 +3856,11 @@
       "elected_female": 1,
       "elected_male": 0,
       "elected_unknown": 0,
-      "pct_female_elected": 100.0
+      "pct_female_elected": 100.0,
+      "conf_high": 31,
+      "conf_medium": 0,
+      "conf_low": 4,
+      "pct_high_conf": 88.6
     },
     {
       "party": "Kingston Independent Residents Group",
@@ -3185,7 +3873,11 @@
       "elected_female": 1,
       "elected_male": 1,
       "elected_unknown": 0,
-      "pct_female_elected": 50.0
+      "pct_female_elected": 50.0,
+      "conf_high": 27,
+      "conf_medium": 2,
+      "conf_low": 5,
+      "pct_high_conf": 79.4
     }
   ],
   "by_region": [
@@ -3200,7 +3892,11 @@
       "elected_female": 724,
       "elected_male": 989,
       "elected_unknown": 102,
-      "pct_female_elected": 42.3
+      "pct_female_elected": 42.3,
+      "conf_high": 7843,
+      "conf_medium": 121,
+      "conf_low": 1032,
+      "pct_high_conf": 87.2
     },
     {
       "region": "South East (England)",
@@ -3213,7 +3909,11 @@
       "elected_female": 271,
       "elected_male": 493,
       "elected_unknown": 16,
-      "pct_female_elected": 35.5
+      "pct_female_elected": 35.5,
+      "conf_high": 3563,
+      "conf_medium": 32,
+      "conf_low": 335,
+      "pct_high_conf": 90.7
     },
     {
       "region": "East of England",
@@ -3226,7 +3926,11 @@
       "elected_female": 177,
       "elected_male": 443,
       "elected_unknown": 20,
-      "pct_female_elected": 28.5
+      "pct_female_elected": 28.5,
+      "conf_high": 2907,
+      "conf_medium": 24,
+      "conf_low": 301,
+      "pct_high_conf": 89.9
     },
     {
       "region": "West Midlands (England)",
@@ -3239,7 +3943,11 @@
       "elected_female": 126,
       "elected_male": 320,
       "elected_unknown": 48,
-      "pct_female_elected": 28.3
+      "pct_female_elected": 28.3,
+      "conf_high": 1972,
+      "conf_medium": 25,
+      "conf_low": 416,
+      "pct_high_conf": 81.7
     },
     {
       "region": "Yorkshire and The Humber",
@@ -3252,7 +3960,11 @@
       "elected_female": 119,
       "elected_male": 311,
       "elected_unknown": 6,
-      "pct_female_elected": 27.7
+      "pct_female_elected": 27.7,
+      "conf_high": 2050,
+      "conf_medium": 20,
+      "conf_low": 188,
+      "pct_high_conf": 90.8
     },
     {
       "region": "North West (England)",
@@ -3265,7 +3977,11 @@
       "elected_female": 128,
       "elected_male": 315,
       "elected_unknown": 17,
-      "pct_female_elected": 28.9
+      "pct_female_elected": 28.9,
+      "conf_high": 2002,
+      "conf_medium": 17,
+      "conf_low": 223,
+      "pct_high_conf": 89.3
     },
     {
       "region": "North East (England)",
@@ -3278,7 +3994,11 @@
       "elected_female": 90,
       "elected_male": 206,
       "elected_unknown": 9,
-      "pct_female_elected": 30.4
+      "pct_female_elected": 30.4,
+      "conf_high": 1221,
+      "conf_medium": 7,
+      "conf_low": 141,
+      "pct_high_conf": 89.2
     },
     {
       "region": "South West (England)",
@@ -3291,7 +4011,11 @@
       "elected_female": 35,
       "elected_male": 69,
       "elected_unknown": 8,
-      "pct_female_elected": 33.7
+      "pct_female_elected": 33.7,
+      "conf_high": 460,
+      "conf_medium": 0,
+      "conf_low": 75,
+      "pct_high_conf": 86.0
     },
     {
       "region": "East Midlands (England)",
@@ -3304,7 +4028,11 @@
       "elected_female": 5,
       "elected_male": 9,
       "elected_unknown": 0,
-      "pct_female_elected": 35.7
+      "pct_female_elected": 35.7,
+      "conf_high": 73,
+      "conf_medium": 1,
+      "conf_low": 4,
+      "pct_high_conf": 93.6
     },
     {
       "region": "Wales",
@@ -3317,7 +4045,11 @@
       "elected_female": 1,
       "elected_male": 1,
       "elected_unknown": 0,
-      "pct_female_elected": 50.0
+      "pct_female_elected": 50.0,
+      "conf_high": 12,
+      "conf_medium": 0,
+      "conf_low": 1,
+      "pct_high_conf": 92.3
     }
   ]
 }

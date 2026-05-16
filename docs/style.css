@@ -306,6 +306,32 @@ footer {
 footer a { color: #7ab3d8; }
 footer a:hover { color: #fff; }
 
+/* ── Confidence badge in table ───────────────────────────────────────────── */
+.conf-cell { white-space: nowrap; }
+.conf-badge {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.conf-high { background: #2e7d32; }
+.conf-med  { background: #f9a825; }
+.conf-low  { background: #c62828; }
+.conf-none { background: #bbb; }
+
+/* Map info box confidence line */
+.mi-conf {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: #777;
+}
+.mi-conf-pct {
+  font-weight: 600;
+  color: #444;
+}
+
 /* ── Methodology tile ────────────────────────────────────────────────────── */
 .methodology-tile {
   background: #fff8e1;

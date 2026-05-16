@@ -31,15 +31,16 @@ function toHex([r, g, b]) {
  *         "0% female, 50% unknown" = washed blue-grey
  *         "50% female, 50% unknown" = washed purple-grey
  */
-function councilColor(female, male, unknown) {
+function councilColor(female, male, conf_low, conf_medium, total) {
   const known = female + male;
-  const total = known + unknown;
   if (total === 0) return toHex(C_NODATA);
 
-  const femalePct    = known > 0 ? female / known : 0.5;
-  const genderRGB    = lerp3(C_MALE, C_FEMALE, femalePct);
-  const unknownRatio = unknown / total;
-  return toHex(lerp3(genderRGB, C_UNKNOWN, unknownRatio));
+  const femalePct = known > 0 ? female / known : 0.5;
+  const genderRGB = lerp3(C_MALE, C_FEMALE, femalePct);
+  // Saturation driven by confidence, not unknowns.
+  // conf_low pulls fully to grey; conf_medium pulls half-way.
+  const greyRatio = total > 0 ? (conf_low + conf_medium * 0.5) / total : 0;
+  return toHex(lerp3(genderRGB, C_UNKNOWN, greyRatio));
 }
 
 // ── App state ─────────────────────────────────────────────────────────────
@@ -120,12 +121,6 @@ function renderSummaryCards() {
       label: '% Female elected',
       sub: `${s.elected_female.toLocaleString()} of ${knownElected.toLocaleString()} with known gender`,
     },
-    {
-      value: s.unknown_candidates.toLocaleString(),
-      cls: 'unknown',
-      label: 'Uncategorised gender',
-      sub: pctStr(s.unknown_candidates, s.total_candidates) + ' of all candidates',
-    },
   ];
 
   document.getElementById('summary-cards').innerHTML = cards.map(c => `
@@ -167,18 +162,21 @@ function initMap() {
 
 function getModeCounts(council, mode) {
   if (mode === 'elected') {
+    // Confidence not tracked per elected subset — use zero so map stays vivid
     return {
-      female:  council.elected_female  || 0,
-      male:    council.elected_male    || 0,
-      unknown: council.elected_unknown || 0,
-      total:   council.elected_total   || 0,
+      female:    council.elected_female  || 0,
+      male:      council.elected_male    || 0,
+      total:     council.elected_total   || 0,
+      conf_low:  0,
+      conf_medium: 0,
     };
   }
   return {
-    female:  council.female,
-    male:    council.male,
-    unknown: council.unknown,
-    total:   council.total,
+    female:    council.female,
+    male:      council.male,
+    total:     council.total,
+    conf_low:  council.conf_low  || 0,
+    conf_medium: council.conf_medium || 0,
   };
 }
 
@@ -188,8 +186,8 @@ function styleFeature(feature) {
   if (!council) {
     fillColor = toHex(C_NODATA);
   } else {
-    const { female, male, unknown } = getModeCounts(council, currentMapMode);
-    fillColor = councilColor(female, male, unknown);
+    const { female, male, conf_low, conf_medium, total } = getModeCounts(council, currentMapMode);
+    fillColor = councilColor(female, male, conf_low, conf_medium, total);
   }
   return { fillColor, fillOpacity: 0.85, color: '#fff', weight: 0.5 };
 }
@@ -223,12 +221,14 @@ function updateInfoBox(feature) {
     return;
   }
 
-  const unknownPct = Math.round(council.unknown / council.total * 100);
-  const warnHtml   = unknownPct >= 30
-    ? `<div class="mi-warn">&#9888; ${unknownPct}% Uncategorised gender — treat percentages with caution</div>`
+  const femalePctStr  = council.pct_female         !== null ? council.pct_female + '%'         : '—';
+  const electedPctStr = council.pct_female_elected !== null ? council.pct_female_elected + '%' : '—';
+  const highConfPct   = council.pct_high_conf      !== null ? council.pct_high_conf + '%'      : '—';
+  const unclassified  = council.unknown || 0;
+
+  const unclassRow = unclassified > 0
+    ? `<tr><td>Unclassified</td><td style="color:#aaa">${unclassified}</td></tr>`
     : '';
-  const femalePctStr   = council.pct_female         !== null ? council.pct_female + '%'         : '—';
-  const electedPctStr  = council.pct_female_elected !== null ? council.pct_female_elected + '%' : '—';
 
   box.innerHTML = `
     <strong>${council.org_name}</strong>
@@ -236,13 +236,13 @@ function updateInfoBox(feature) {
       <tr><td class="mi-section" colspan="2">Candidates (${council.total})</td></tr>
       <tr><td>Female</td><td>${council.female} <span style="color:#c9304f">(${femalePctStr})</span></td></tr>
       <tr><td>Male</td><td>${council.male}</td></tr>
-      <tr><td>Uncategorised</td><td>${council.unknown} (${unknownPct}%)</td></tr>
+      ${unclassRow}
       <tr><td class="mi-section" colspan="2">Elected (${council.elected_total})</td></tr>
       <tr><td>Female</td><td>${council.elected_female} <span style="color:#c9304f">(${electedPctStr})</span></td></tr>
       <tr><td>Male</td><td>${council.elected_male}</td></tr>
     </table>
     ${council.avg_turnout ? `<div style="margin-top:5px;font-size:.77rem;color:#666">Avg turnout: ${council.avg_turnout}%</div>` : ''}
-    ${warnHtml}
+    <div class="mi-conf">Confidence: High ${council.conf_high||0} &middot; Med ${council.conf_medium||0} &middot; Low ${council.conf_low||0} &nbsp;<span class="mi-conf-pct">${highConfPct} high</span></div>
   `;
 }
 
@@ -263,21 +263,19 @@ const COL_MALE    = '#2171b5';
 const COL_UNKNOWN = '#b0bec5';
 
 /**
- * For each item, compute [female%, male%, unknown%] as stacked percentages.
+ * For each item, compute [female%, male%] as stacked percentages (known gender only).
  * Stores raw counts as parallel arrays for tooltip use.
  */
-function toStackedPct(items, fKey, mKey, uKey) {
+function toStackedPct(items, fKey, mKey) {
   return items.map(item => {
     const f = item[fKey] || 0;
     const m = item[mKey] || 0;
-    const u = item[uKey] || 0;
-    const t = f + m + u;
-    if (t === 0) return { f: 0, m: 0, u: 0, nf: 0, nm: 0, nu: 0, t: 0 };
+    const t = f + m;
+    if (t === 0) return { f: 0, m: 0, nf: 0, nm: 0, t: 0 };
     return {
       f: +(f / t * 100).toFixed(1),
       m: +(m / t * 100).toFixed(1),
-      u: +(u / t * 100).toFixed(1),
-      nf: f, nm: m, nu: u, t,
+      nf: f, nm: m, t,
     };
   });
 }
@@ -295,8 +293,7 @@ function buildChart(canvasId, scrollId, labels, rows) {
     label,
     data: rows.map(r => r[key]),
     backgroundColor: color,
-    // store raw counts and totals as extra arrays for tooltip
-    _rawN: rows.map(r => r['n' + key] !== undefined ? r['n' + key] : (key === 'f' ? r.nf : key === 'm' ? r.nm : r.nu)),
+    _rawN: rows.map(r => key === 'f' ? r.nf : r.nm),
     _totN: rows.map(r => r.t),
   });
 
@@ -305,9 +302,8 @@ function buildChart(canvasId, scrollId, labels, rows) {
     data: {
       labels,
       datasets: [
-        makeDataset('Female',  'f', COL_FEMALE,  rows),
-        makeDataset('Male',    'm', COL_MALE,    rows),
-        makeDataset('Uncategorised', 'u', COL_UNKNOWN, rows),
+        makeDataset('Female', 'f', COL_FEMALE, rows),
+        makeDataset('Male',   'm', COL_MALE,   rows),
       ],
     },
     options: {
@@ -361,11 +357,11 @@ function renderPartyCharts() {
 
   buildChart(
     'chart-party-cands',   'scroll-party-cands',
-    labels, toStackedPct(parties, 'female', 'male', 'unknown')
+    labels, toStackedPct(parties, 'female', 'male')
   );
   buildChart(
     'chart-party-elected', 'scroll-party-elected',
-    labels, toStackedPct(parties, 'elected_female', 'elected_male', 'elected_unknown')
+    labels, toStackedPct(parties, 'elected_female', 'elected_male')
   );
 }
 
@@ -375,11 +371,11 @@ function renderRegionCharts() {
 
   buildChart(
     'chart-region-cands',   'scroll-region-cands',
-    labels, toStackedPct(regions, 'female', 'male', 'unknown')
+    labels, toStackedPct(regions, 'female', 'male')
   );
   buildChart(
     'chart-region-elected', 'scroll-region-elected',
-    labels, toStackedPct(regions, 'elected_female', 'elected_male', 'elected_unknown')
+    labels, toStackedPct(regions, 'elected_female', 'elected_male')
   );
 }
 
@@ -442,16 +438,17 @@ function renderTable(filter = '') {
   });
 
   document.getElementById('table-body').innerHTML = rows.map(c => {
-    const unknownPct = c.total > 0 ? Math.round(c.unknown / c.total * 100) : 0;
-
     const pctCls = p => {
       if (p === null || p === undefined) return 'pct-neutral';
       return p >= 50 ? 'pct-high-female' : p < 30 ? 'pct-high-male' : 'pct-neutral';
     };
 
-    const unknownCell = unknownPct >= 30
-      ? `<span class="unknown-cell">${c.unknown}</span><span class="unknown-badge">&#9888;&nbsp;${unknownPct}%</span>`
-      : `${c.unknown}`;
+    const hc = c.pct_high_conf;
+    const confBadgeCls = hc === null || hc === undefined ? 'conf-none'
+      : hc >= 80 ? 'conf-high' : hc >= 60 ? 'conf-med' : 'conf-low';
+    const confCell = hc !== null && hc !== undefined
+      ? `${hc}%<span class="conf-badge ${confBadgeCls}"></span>`
+      : '—';
 
     const turnout = c.avg_turnout !== null ? c.avg_turnout + '%' : '—';
 
@@ -460,7 +457,7 @@ function renderTable(filter = '') {
       <td>${c.total}</td>
       <td>${c.female}</td>
       <td class="pct-cell ${pctCls(c.pct_female)}">${c.pct_female !== null ? c.pct_female + '%' : '—'}</td>
-      <td>${unknownCell}</td>
+      <td class="conf-cell">${confCell}</td>
       <td>${c.elected_total}</td>
       <td>${c.elected_female}</td>
       <td class="pct-cell ${pctCls(c.pct_female_elected)}">${c.pct_female_elected !== null ? c.pct_female_elected + '%' : '—'}</td>

@@ -121,10 +121,11 @@ def _empty_acc():
         'elected_male': 0, 'elected_unknown': 0,
         'turnout_sum': 0.0, 'turnout_count': 0,
         'by_election_count': 0,
+        'conf_high': 0, 'conf_medium': 0, 'conf_low': 0,
     }
 
 
-def _add(d, key, gender, elected, turnout, by_election):
+def _add(d, key, gender, elected, turnout, by_election, conf='low'):
     if key not in d:
         d[key] = _empty_acc()
     e = d[key]
@@ -138,6 +139,8 @@ def _add(d, key, gender, elected, turnout, by_election):
         e['turnout_count'] += 1
     if by_election:
         e['by_election_count'] += 1
+    conf_key = conf if conf in ('high', 'medium', 'low') else 'low'
+    e['conf_' + conf_key] += 1
 
 
 def _safe_pct(num, denom):
@@ -155,15 +158,18 @@ def _clean_nuts1(raw):
 # ---------------------------------------------------------------------------
 
 def main():
-    # Load gender lookup: person_id → {gender, method}
+    # Load gender lookup: person_id → {gender, method, conf}
     gender_lookup = {}
     with open(GENDERS_IN, encoding='utf-8-sig', newline='') as f:
         for row in csv.DictReader(f):
             pid = row['person_id']
             if pid not in gender_lookup:
+                raw_conf = row.get('confidence', '').strip().lower()
+                conf = raw_conf if raw_conf in ('high', 'medium', 'low') else 'low'
                 gender_lookup[pid] = {
                     'gender': row['predicted_gender'],
                     'method': row['prediction_method'],
+                    'conf':   conf,
                 }
 
     lad_lookup = build_lad_lookup(GEOJSON_IN)
@@ -185,8 +191,10 @@ def main():
             party  = row['party_name'].strip() or 'Unknown'
             nuts1  = _clean_nuts1(row.get('nuts1', ''))
 
-            gender = gender_lookup.get(pid, {}).get('gender', 'unknown')
-            method = gender_lookup.get(pid, {}).get('method', 'unknown')
+            g_entry = gender_lookup.get(pid, {})
+            gender = g_entry.get('gender', 'unknown')
+            method = g_entry.get('method', 'unknown')
+            conf   = g_entry.get('conf', 'low')
             if gender not in ('male', 'female'):
                 gender = 'unknown'
 
@@ -212,15 +220,15 @@ def main():
                 elif gender == 'male': e_male += 1
                 else: e_unknown += 1
 
-            _add(councils, org, gender, elected, turnout, by_election)
+            _add(councils, org, gender, elected, turnout, by_election, conf)
             if org not in council_meta:
                 council_meta[org] = {'nuts1': nuts1}
             elif nuts1:
                 council_meta[org]['nuts1'] = nuts1
 
-            _add(parties, party, gender, elected, turnout, by_election)
+            _add(parties, party, gender, elected, turnout, by_election, conf)
             if nuts1:
-                _add(regions, nuts1, gender, elected, turnout, by_election)
+                _add(regions, nuts1, gender, elected, turnout, by_election, conf)
 
             # Ward-level candidate data for drilldown
             ward_label = row.get('post_label', '').strip()
@@ -285,6 +293,10 @@ def main():
             'pct_female_elected': _safe_pct(d['elected_female'], ekn),
             'avg_turnout':        round(d['turnout_sum'] / d['turnout_count'], 1) if d['turnout_count'] else None,
             'by_election_count':  d['by_election_count'],
+            'conf_high':          d['conf_high'],
+            'conf_medium':        d['conf_medium'],
+            'conf_low':           d['conf_low'],
+            'pct_high_conf':      _safe_pct(d['conf_high'], d['total']),
         }
 
     def party_obj(p):
@@ -300,7 +312,13 @@ def main():
             'pct_female':         _safe_pct(d['female'], kn),
             'elected_total':      d['elected_total'],
             'elected_female':     d['elected_female'],
-            'elected_male':       d['elected_male'],            'elected_unknown':     d['elected_unknown'],            'pct_female_elected': _safe_pct(d['elected_female'], ekn),
+            'elected_male':       d['elected_male'],
+            'elected_unknown':    d['elected_unknown'],
+            'pct_female_elected': _safe_pct(d['elected_female'], ekn),
+            'conf_high':          d['conf_high'],
+            'conf_medium':        d['conf_medium'],
+            'conf_low':           d['conf_low'],
+            'pct_high_conf':      _safe_pct(d['conf_high'], d['total']),
         }
 
     def region_obj(r):
@@ -319,6 +337,10 @@ def main():
             'elected_male':       d['elected_male'],
             'elected_unknown':    d['elected_unknown'],
             'pct_female_elected': _safe_pct(d['elected_female'], ekn),
+            'conf_high':          d['conf_high'],
+            'conf_medium':        d['conf_medium'],
+            'conf_low':           d['conf_low'],
+            'pct_high_conf':      _safe_pct(d['conf_high'], d['total']),
         }
 
     kn_total  = female + male
@@ -329,6 +351,10 @@ def main():
         [party_obj(p) for p, d in parties.items() if d['total'] >= 30],
         key=lambda x: -x['total']
     )
+
+    conf_high_total  = sum(d['conf_high']  for d in councils.values())
+    conf_medium_total = sum(d['conf_medium'] for d in councils.values())
+    conf_low_total    = sum(d['conf_low']   for d in councils.values())
 
     output = {
         'generated': str(date.today()),
@@ -343,6 +369,10 @@ def main():
             'elected_male':        e_male,
             'elected_unknown':     e_unknown,
             'pct_female_elected':  _safe_pct(e_female, ekn_total),
+            'conf_high':           conf_high_total,
+            'conf_medium':         conf_medium_total,
+            'conf_low':            conf_low_total,
+            'pct_high_conf':       _safe_pct(conf_high_total, total),
         },
         'by_council': sorted([council_obj(o) for o in councils], key=lambda x: x['org_name']),
         'by_party':   party_list,

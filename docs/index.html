@@ -60,7 +60,7 @@
         <div class="legend-hue-block">
           <div class="legend-row-label"><small>High confidence (gender known)</small></div>
           <div class="legend-bar confident-bar"></div>
-          <div class="legend-row-label"><small>Low confidence (many Uncategorised)</small></div>
+          <div class="legend-row-label"><small>Low confidence (many low-confidence predictions)</small></div>
           <div class="legend-bar uncertain-bar"></div>
           <div class="legend-axis-labels">
             <span>All male</span><span>50/50</span><span>All female</span>
@@ -68,7 +68,7 @@
         </div>
         <p class="legend-note">
           <strong>Hue</strong> shows gender balance among candidates with a known gender (blue&nbsp;=&nbsp;male, pink&nbsp;=&nbsp;female).
-          <strong>Saturation</strong> reflects certainty: washed-out areas have many Uncategorised candidates — a&nbsp;0%&nbsp;female area coloured pale blue-grey is <em>not</em> the same as one in deep blue.
+          <strong>Saturation</strong> reflects prediction confidence: washed-out areas have many low- or medium-confidence predictions — the gender balance figure is less certain there.
         </p>
         <p class="legend-note" style="color:#888">Grey areas had no elections in this dataset.</p>
         <div id="map-info" class="map-info-box">
@@ -116,7 +116,7 @@
     </div>
     <p class="table-note">
       Click a council row to drill down into ward-by-ward results. Click column headers to sort.
-      <span class="unknown-note">Uncategorised</span> = gender could not be determined using the gender_guesser library or the ONS baby names dataset — high values make percentage figures less reliable.
+      <strong>Confidence</strong> shows what % of gender predictions are high-confidence — low values mean gender balance figures are less reliable.
     </p>
     <div class="table-wrapper">
       <table id="council-table">
@@ -126,7 +126,7 @@
             <th class="sortable" data-col="total"             data-type="num">Candidates</th>
             <th class="sortable" data-col="female"            data-type="num">&#9792; Cands</th>
             <th class="sortable" data-col="pct_female"        data-type="num">% Female</th>
-            <th class="sortable" data-col="unknown"           data-type="num">Uncategorised</th>
+            <th class="sortable" data-col="pct_high_conf"       data-type="num">Confidence</th>
             <th class="sortable" data-col="elected_total"     data-type="num">Elected</th>
             <th class="sortable" data-col="elected_female"    data-type="num">&#9792; Elected</th>
             <th class="sortable" data-col="pct_female_elected" data-type="num">% &#9792; Elected</th>
