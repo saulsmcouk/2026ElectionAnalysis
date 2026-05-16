@@ -157,7 +157,7 @@ def _clean_nuts1(raw):
 def main():
     # Load gender lookup: person_id → {gender, method}
     gender_lookup = {}
-    with open(GENDERS_IN, encoding='utf-8', newline='') as f:
+    with open(GENDERS_IN, encoding='utf-8-sig', newline='') as f:
         for row in csv.DictReader(f):
             pid = row['person_id']
             if pid not in gender_lookup:
