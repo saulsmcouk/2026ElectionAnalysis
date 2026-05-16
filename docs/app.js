@@ -1088,7 +1088,8 @@ function openCandidateModal(cand, councilName, wardName) {
         <span class="method-sm">${methodLabels[cand.m] || cand.m || 'Unknown'}</span>
         ${confCell(cand.cf)}
       </div>
-      <p class="cand-disclaimer">Gender is predicted from name data and should not be treated as self-identified gender. Source: <a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a>.</p>
+      <p class="cand-disclaimer">Gender is predicted algorithmically from name data and should not be treated as the candidate&rsquo;s self-identified gender.</p>
+      <p class="cand-disclaimer">All candidate data (votes, election results, contact details, photos, statements) is sourced from <a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a> and is reproduced here as-is. No guarantees are made as to its accuracy or completeness. For authoritative results please refer to the relevant local council.</p>
     </div>
   `;
   overlay.hidden = false;
