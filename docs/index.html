@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script>if(localStorage.getItem('methDismissed')){document.addEventListener('DOMContentLoaded',function(){var t=document.getElementById('methodology-tile');if(t)t.hidden=true;});}</script>
+<script>if(localStorage.getItem('methDismissed')){document.addEventListener('DOMContentLoaded',function(){var t=document.getElementById('methodology-tile');if(t)t.style.display='none';});}</script>
 
 <header>
   <div class="header-inner">
@@ -22,7 +22,7 @@
   <!-- Methodology tile -->
   <section class="panel methodology-tile" id="methodology-tile">
     <div class="meth-icon">⚠️</div>
-    <button class="meth-dismiss" aria-label="Dismiss" onclick="document.getElementById('methodology-tile').hidden=true;localStorage.setItem('methDismissed','1')">✕</button>
+    <button class="meth-dismiss" aria-label="Dismiss" onclick="this.closest('#methodology-tile').style.display='none';localStorage.setItem('methDismissed','1')">✕</button>
     <div class="meth-body">
       <h2>Gender assignment methodology.</h2>
       <p>
