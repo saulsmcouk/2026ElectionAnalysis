@@ -386,6 +386,8 @@ function initTable() {
 
   wireModalHandlers();
 
+  document.getElementById('btn-export-table').addEventListener('click', exportCouncilTable);
+
   document.getElementById('table-body').addEventListener('click', e => {
     const row = e.target.closest('tr[data-council-slug]');
     if (!row) return;
@@ -420,7 +422,7 @@ function initTable() {
   if (defaultTh) defaultTh.classList.add('sorted-asc');
 }
 
-function renderTable(filter = '') {
+function getSortedFilteredRows(filter) {
   let rows = filter
     ? tableData.filter(c => c.org_name.toLowerCase().includes(filter))
     : tableData.slice();
@@ -436,6 +438,11 @@ function renderTable(filter = '') {
     }
     return tableSortDir === 'asc' ? va - vb : vb - va;
   });
+  return rows;
+}
+
+function renderTable(filter = '') {
+  const rows = getSortedFilteredRows(filter);
 
   document.getElementById('table-body').innerHTML = rows.map(c => {
     const pctCls = p => {
@@ -544,9 +551,15 @@ function renderWardList(council, payload) {
     `;
   }).join('');
 
-  openModal(council.org_name, `<div class="ward-grid">${cards}</div>`);
+  openModal(council.org_name, `
+    <div class="modal-export-row">
+      <button class="btn-export" id="btn-export-wards">&#8659;&nbsp;Export XLSX</button>
+    </div>
+    <div class="ward-grid">${cards}</div>
+  `);
 
   const body = document.getElementById('modal-body');
+  body.querySelector('#btn-export-wards').addEventListener('click', () => exportWardList(council, wards));
   body.querySelectorAll('.ward-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const ward = wards[Number(btn.dataset.wardIndex)];
@@ -608,7 +621,10 @@ function openWardDetail(council, payload, ward) {
     : '—';
 
   const html = `
-    <button class="modal-back" id="modal-back">&#8592; Back to wards</button>
+    <div class="ward-detail-bar">
+      <button class="modal-back" id="modal-back">&#8592; Back to wards</button>
+      <button class="btn-export" id="btn-export-ward-detail">&#8659;&nbsp;Export XLSX</button>
+    </div>
     <div class="ward-results-title">${ward.ward}</div>
     <div class="ward-results-meta">Seats: ${ward.seats || '—'} | Candidates: ${candidates.length} | Turnout: ${turnout}</div>
     <table class="results-table">
@@ -631,4 +647,101 @@ function openWardDetail(council, payload, ward) {
   document.getElementById('modal-back').addEventListener('click', () => {
     renderWardList(council, payload);
   });
+  document.getElementById('btn-export-ward-detail').addEventListener('click', () => {
+    exportWardDetail(council, ward, candidates);
+  });
+}
+
+// ── XLSX Export ────────────────────────────────────────────────────────────
+function buildMethodologySheet(contextLabel) {
+  const rows = [
+    ['2026 England Local Elections — Gender Analysis'],
+    [''],
+    ['Gender Assignment Methodology'],
+    [''],
+    ['Most candidates (~77%) had no gender recorded in the source data.'],
+    ['Gender was predicted in three stages:'],
+    [''],
+    ['Stage 1 — gender_guesser (open-source name database) and the ONS historical baby names dataset (1904–2024),'],
+    ['          using birth year where available to account for names whose gender balance has shifted over time'],
+    ['          (e.g. "Ashley", "Kim").'],
+    ['Stage 2 — Claude Sonnet 4.6 classified names that remained unresolved after stage 1.'],
+    ['Stage 3 — ~5% of candidates remain Unclassified (primarily uncommon or non-Western names).'],
+    [''],
+    ['Percentages are calculated only among candidates with a known gender.'],
+    ['Gender is treated as binary (male/female) for prediction purposes.'],
+    [''],
+    ['Data Sources'],
+    ['Election data: Democracy Club (democracyclub.org.uk)'],
+    ['ONS data: Office for National Statistics, licensed under the Open Government Licence v.3.0'],
+    ['Contains OS data © Crown copyright and database right [2026]'],
+    [''],
+    ['Exported view:', contextLabel],
+    ['Generated:', new Date().toLocaleString('en-GB')],
+  ];
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols'] = [{ wch: 90 }, { wch: 40 }];
+  return ws;
+}
+
+function exportToXlsx(filename, headers, dataRows, contextLabel) {
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, buildMethodologySheet(contextLabel), 'Methodology');
+
+  const ws2 = XLSX.utils.aoa_to_sheet([headers, ...dataRows]);
+  ws2['!cols'] = headers.map(h => ({ wch: Math.max(String(h).length + 4, 12) }));
+  ws2['!autofilter'] = { ref: ws2['!ref'] };
+  XLSX.utils.book_append_sheet(wb, ws2, 'Data');
+
+  XLSX.writeFile(wb, filename);
+}
+
+function exportCouncilTable() {
+  const filter = document.getElementById('table-search').value.trim().toLowerCase();
+  const rows = getSortedFilteredRows(filter);
+  const headers = [
+    'Council', 'Candidates', 'Female Cands', '% Female Cands',
+    'Confidence %', 'Elected', 'Female Elected', '% Female Elected', 'Avg Turnout %',
+  ];
+  const dataRows = rows.map(c => [
+    c.org_name, c.total, c.female, c.pct_female, c.pct_high_conf,
+    c.elected_total, c.elected_female, c.pct_female_elected, c.avg_turnout,
+  ]);
+  const label = filter ? `Councils filtered by "${filter}"` : 'All 156 councils';
+  exportToXlsx('council-gender-breakdown.xlsx', headers, dataRows, label);
+}
+
+function exportWardList(council, wards) {
+  const headers = ['Ward', 'Seats', 'Total Candidates', 'Female', 'Male', 'Unclassified', 'Turnout %'];
+  const dataRows = wards.map(ward => {
+    const counts = ward.candidates.reduce((acc, c) => {
+      if (c.g === 'female') acc.f++;
+      else if (c.g === 'male') acc.m++;
+      else acc.u++;
+      return acc;
+    }, { f: 0, m: 0, u: 0 });
+    return [ward.ward, ward.seats ?? null, ward.candidates.length, counts.f, counts.m, counts.u, ward.turnout_pct ?? null];
+  });
+  exportToXlsx(
+    `${council.org_name.replace(/[^\w-]/g, '_')}-wards.xlsx`,
+    headers, dataRows,
+    `${council.org_name} — Ward summary`,
+  );
+}
+
+function exportWardDetail(council, ward, candidates) {
+  const totalVotes = candidates.reduce((sum, c) => sum + (Number(c.v) || 0), 0);
+  const methodText = { existing: 'Recorded', gender_guesser: 'gender_guesser', ons: 'ONS names', claude: 'Claude AI', unknown: 'Unclassified' };
+  const headers = ['Name', 'Party', 'Votes', '% Votes', 'Elected', 'Gender', 'Assignment Method'];
+  const dataRows = candidates.map(c => {
+    const pct = totalVotes > 0 ? +((Number(c.v) || 0) / totalVotes * 100).toFixed(1) : null;
+    return [
+      c.n || '', c.p || '', c.v ?? null, pct,
+      c.e ? 'Yes' : 'No',
+      c.g || 'unclassified',
+      methodText[c.m] || c.m || 'Unclassified',
+    ];
+  });
+  const slug = `${council.org_name}-${ward.ward}`.replace(/[^\w-]/g, '_');
+  exportToXlsx(`${slug}.xlsx`, headers, dataRows, `${council.org_name} — ${ward.ward}`);
 }

@@ -514,6 +514,47 @@ footer a:hover { color: #fff; }
 /* Clickable table rows */
 #council-table tbody tr { cursor: pointer; }
 
+/* ── Export button ───────────────────────────────────────────────────────── */
+.btn-export {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .12s;
+}
+.btn-export:hover { background: #2e2e50; }
+
+/* Table header: search + export button side by side */
+.table-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ward detail: back button + export button in one bar */
+.ward-detail-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.ward-detail-bar .modal-back { margin-bottom: 0; }
+
+/* Export button inside modal (ward list) */
+.modal-export-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
 /* ── Responsive additions ─────────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .methodology-tile { flex-direction: column; gap: 10px; }

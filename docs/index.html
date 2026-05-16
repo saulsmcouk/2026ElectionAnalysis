@@ -112,7 +112,10 @@
   <section class="panel" id="table-section">
     <div class="panel-header">
       <h2>By council</h2>
-      <input id="table-search" type="search" placeholder="Filter councils&hellip;" autocomplete="off">
+      <div class="table-controls">
+        <input id="table-search" type="search" placeholder="Filter councils&hellip;" autocomplete="off">
+        <button class="btn-export" id="btn-export-table">&#8659;&nbsp;Export XLSX</button>
+      </div>
     </div>
     <p class="table-note">
       Click a council row to drill down into ward-by-ward results. Click column headers to sort.
@@ -155,14 +158,15 @@
 
 <footer>
   <div class="footer-inner">
-    <p>Election data: <a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a> &middot; Gender prediction uses ONS baby names data and the gender_guesser library &middot; ~16% of candidates have unresolved gender.</p>
-    <p>Source: Office for National Statistics licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v.3.0</a></p>
-    <p>Contains OS data &copy; Crown copyright and database right [2026]</p>
+    <p>Election data: <a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a> &middot; Gender predicted using <strong>gender_guesser</strong>, ONS baby names &amp; <strong>Claude Sonnet 4.6</strong> &middot; ~5% of candidates remain unclassified</p>
+    <p>ONS data licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v.3.0</a> &middot; Contains OS data &copy; Crown copyright and database right [2026]</p>
+    <p><a href="https://github.com/saulsmcouk/2026ElectionAnalysis" target="_blank" rel="noopener">View source on GitHub</a></p>
   </div>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
