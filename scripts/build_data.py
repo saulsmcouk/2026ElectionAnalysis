@@ -292,6 +292,8 @@ def main():
             'elected_male':       d['elected_male'],
             'elected_unknown':    d['elected_unknown'],
             'pct_female_elected': _safe_pct(d['elected_female'], ekn),
+            'female_win_rate':    _safe_pct(d['elected_female'], d['female']),
+            'male_win_rate':      _safe_pct(d['elected_male'],   d['male']),
             'avg_turnout':        round(d['turnout_sum'] / d['turnout_count'], 1) if d['turnout_count'] else None,
             'by_election_count':  d['by_election_count'],
             'conf_high':          d['conf_high'],

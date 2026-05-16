@@ -274,6 +274,67 @@ function wireMapToggle() {
   });
 }
 // ── Council map selection ────────────────────────────────────────────────
+function renderCouncilStats(council) {
+  const panel = document.getElementById('council-stats');
+  if (!panel) return;
+  const c = council;  // by_council entry (pre-computed fields)
+  const kn   = (c.female || 0) + (c.male || 0);
+  const fwr  = c.female_win_rate !== null && c.female_win_rate !== undefined ? c.female_win_rate + '%' : '&mdash;';
+  const mwr  = c.male_win_rate   !== null && c.male_win_rate   !== undefined ? c.male_win_rate   + '%' : '&mdash;';
+
+  let sentenceHtml = '';
+  if (c.female_win_rate !== null && c.male_win_rate !== null &&
+      c.female_win_rate !== undefined && c.male_win_rate !== undefined) {
+    const diff = +(c.female_win_rate - c.male_win_rate).toFixed(1);
+    const s    = appData.summary;
+    const natFWR = s.national_female_win_rate;
+    const natMWR = s.national_male_win_rate;
+    if (Math.abs(diff) < 0.1) {
+      sentenceHtml = `<p class="party-sentence">In <strong>${escHtml(c.org_name)}</strong>, female and male candidates had the same win rate (${c.female_win_rate}%).</p>`;
+    } else {
+      sentenceHtml = `<p class="party-sentence">In <strong>${escHtml(c.org_name)}</strong>, female candidates had a ${Math.abs(diff)}&thinsp;pp ${diff > 0 ? 'higher' : 'lower'} win rate than male candidates (${c.female_win_rate}% vs ${c.male_win_rate}%).</p>`;
+    }
+    if (natFWR !== null && natFWR !== undefined) {
+      const diffNat = +(c.female_win_rate - natFWR).toFixed(1);
+      sentenceHtml += `<p class="party-sentence">The female win rate here (${c.female_win_rate}%) ${diffNat >= 0 ? 'was above' : 'was below'} the national female win rate (${natFWR}%) by <strong>${Math.abs(diffNat)}&thinsp;pp</strong>.</p>`;
+    }
+  }
+
+  panel.innerHTML = `
+    <div class="council-stats-header">
+      <span class="council-stats-name">${escHtml(c.org_name)} &mdash; all parties</span>
+    </div>
+    <div class="council-stats-grid">
+      <div class="council-stat-tile">
+        <div class="pst-value">${(c.total || 0).toLocaleString()}</div>
+        <div class="pst-label">Total candidates</div>
+      </div>
+      <div class="council-stat-tile">
+        <div class="pst-value female">${(c.female || 0).toLocaleString()}</div>
+        <div class="pst-label">Female candidates<br><span class="pst-sub">${pctStr(c.female, kn)} of known gender</span></div>
+      </div>
+      <div class="council-stat-tile">
+        <div class="pst-value male">${(c.male || 0).toLocaleString()}</div>
+        <div class="pst-label">Male candidates<br><span class="pst-sub">${pctStr(c.male, kn)} of known gender</span></div>
+      </div>
+      <div class="council-stat-tile">
+        <div class="pst-value">${(c.elected_total || 0).toLocaleString()}</div>
+        <div class="pst-label">Elected</div>
+      </div>
+      <div class="council-stat-tile">
+        <div class="pst-value female">${(c.elected_female || 0).toLocaleString()}</div>
+        <div class="pst-label">Female elected<br><span class="pst-sub">${fwr} win rate</span></div>
+      </div>
+      <div class="council-stat-tile">
+        <div class="pst-value male">${(c.elected_male || 0).toLocaleString()}</div>
+        <div class="pst-label">Male elected<br><span class="pst-sub">${mwr} win rate</span></div>
+      </div>
+    </div>
+    ${sentenceHtml}
+  `;
+  panel.hidden = false;
+}
+
 function handleCouncilSelect(feature) {
   const council = ladLookup[feature.properties.LAD25CD];
   if (!council) return;
@@ -296,6 +357,7 @@ function handleCouncilSelect(feature) {
   document.getElementById('btn-clear-selection').addEventListener('click', clearCouncilSelection);
 
   renderPartyChartsForCouncil(council);
+  renderCouncilStats(council);
 }
 
 function clearCouncilSelection() {
@@ -304,6 +366,8 @@ function clearCouncilSelection() {
   councilPartyData    = null;
   const _pd = document.getElementById('party-detail');
   if (_pd) _pd.hidden = true;
+  const _cs = document.getElementById('council-stats');
+  if (_cs) _cs.hidden = true;
   if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   renderPartyCharts();
 }

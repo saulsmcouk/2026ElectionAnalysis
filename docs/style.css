@@ -647,6 +647,40 @@ footer a:hover { color: #fff; }
   border-radius: 6px;
 }
 
+/* ── Council stats panel (shown below map when a council is selected) ─── */
+#council-stats {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+.council-stats-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.council-stats-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.council-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+@media (max-width: 600px) {
+  .council-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.council-stat-tile {
+  background: #f7f8fb;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.council-stat-tile .pst-value { font-size: 1.35rem; font-weight: 700; }
+.council-stat-tile .pst-label { font-size: 0.82rem; color: #555; margin-top: 2px; }
+.council-stat-tile .pst-sub   { font-size: 0.75rem; color: #888; }
+
 /* Table header: search + export button side by side */
 .table-controls {
   display: flex;
