@@ -327,6 +327,7 @@ function tmplTableRows(rows) {
       <td>${c.elected_total}</td>
       <td>${c.elected_female}</td>
       <td class="pct-cell ${pctCls(c.pct_female_elected)}">${c.pct_female_elected !== null ? c.pct_female_elected + '%' : '\u2014'}</td>
+      <td class="num">${c.inc_total > 0 ? c.inc_retention_pct + '%' : '\u2014'}</td>
       <td>${turnout}</td>
       <td>${elecBadge}</td>
     </tr>`;
@@ -418,6 +419,7 @@ function tmplWardCards(wards) {
         <strong>${ward.ward}</strong>
         <div class="ward-meta">Seats: ${ward.seats || '\u2014'} | Candidates: ${ward.candidates.length}</div>
         <div class="ward-meta">F ${ward.female_count} | M ${ward.male_count} | U ${ward.unknown_count}</div>
+        ${ward.inc_total > 0 ? `<div class="ward-meta">Inc: ${ward.inc_total} stood \u00b7 ${ward.inc_elected} held \u00b7 ${ward.inc_defeated} lost</div>` : ''}
         <div class="ward-meta">${turnout}</div>
       </button>
     `;
