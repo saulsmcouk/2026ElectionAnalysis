@@ -144,6 +144,10 @@ function tmplCouncilStats(c, kn, fwr, mwr, sentenceHtml) {
 // ── Region detail panel ───────────────────────────────────────────────────
 
 function tmplRegionDetail(r, name, fwrStr, mwrStr, knownN, sentenceF, sentenceM, sentenceG) {
+  const retPct  = r.inc_retention_pct != null ? r.inc_retention_pct + '%' : '\u2014';
+  const incFPct = r.inc_female_pct    != null ? r.inc_female_pct    + '% female' : '';
+  const newFPct = r.new_female_elected_pct != null ? r.new_female_elected_pct + '% female' : '';
+  const hasInc  = r.inc_total > 0;
   return `
     <div class="party-detail-header">
       <span class="party-detail-name">${escHtml(name)}</span>
@@ -171,6 +175,26 @@ function tmplRegionDetail(r, name, fwrStr, mwrStr, knownN, sentenceF, sentenceM,
         <div class="pst-label">Male elected<br><span class="pst-sub">${mwrStr} win rate</span></div>
       </div>
     </div>
+    ${hasInc ? `
+    <h4 class="drilldown-inc-heading">Seat changes</h4>
+    <div class="party-stat-grid">
+      <div class="party-stat-tile">
+        <div class="pst-value">${(r.inc_total || 0).toLocaleString()}</div>
+        <div class="pst-label">Incumbents stood${incFPct ? '<br><span class="pst-sub">' + escHtml(incFPct) + '</span>' : ''}</div>
+      </div>
+      <div class="party-stat-tile sc-held">
+        <div class="pst-value">${(r.inc_elected || 0).toLocaleString()}</div>
+        <div class="pst-label">Re-elected<br><span class="pst-sub">${escHtml(retPct)} retention</span></div>
+      </div>
+      <div class="party-stat-tile sc-lost">
+        <div class="pst-value">${(r.inc_defeated || 0).toLocaleString()}</div>
+        <div class="pst-label">Incumbents defeated</div>
+      </div>
+      <div class="party-stat-tile sc-new">
+        <div class="pst-value">${(r.new_elected || 0).toLocaleString()}</div>
+        <div class="pst-label">New councillors elected${newFPct ? '<br><span class="pst-sub">' + escHtml(newFPct) + '</span>' : ''}</div>
+      </div>
+    </div>` : ''}
     ${sentenceF ? `<p class="party-sentence">${sentenceF}</p>` : ''}
     ${sentenceM ? `<p class="party-sentence">${sentenceM}</p>` : ''}
     ${sentenceG ? `<p class="party-sentence">${sentenceG}</p>` : ''}
@@ -214,6 +238,31 @@ function tmplPartyDetail(name, dr, fwrStr, mwrStr, seatsStr, wardsStr, knownN, t
     ${sentenceE ? `<p class="party-sentence">${sentenceE}</p>` : ''}
     ${sentenceF ? `<p class="party-sentence">${sentenceF}</p>` : ''}
     ${sentenceG ? `<p class="party-sentence">${sentenceG}</p>` : ''}
+    ${dr.inc_total > 0 ? (() => {
+      const retPct  = dr.inc_retention_pct != null ? dr.inc_retention_pct + '%' : '\u2014';
+      const incFPct = dr.inc_female_pct    != null ? dr.inc_female_pct    + '% female' : '';
+      const newFPct = dr.new_female_elected_pct != null ? dr.new_female_elected_pct + '% female' : '';
+      return `
+    <h4 class="drilldown-inc-heading">Seat changes</h4>
+    <div class="party-stat-grid">
+      <div class="party-stat-tile">
+        <div class="pst-value">${(dr.inc_total || 0).toLocaleString()}</div>
+        <div class="pst-label">Incumbents stood${incFPct ? '<br><span class="pst-sub">' + escHtml(incFPct) + '</span>' : ''}</div>
+      </div>
+      <div class="party-stat-tile sc-held">
+        <div class="pst-value">${(dr.inc_elected || 0).toLocaleString()}</div>
+        <div class="pst-label">Re-elected<br><span class="pst-sub">${escHtml(retPct)} retention</span></div>
+      </div>
+      <div class="party-stat-tile sc-lost">
+        <div class="pst-value">${(dr.inc_defeated || 0).toLocaleString()}</div>
+        <div class="pst-label">Incumbents defeated</div>
+      </div>
+      <div class="party-stat-tile sc-new">
+        <div class="pst-value">${(dr.new_elected || 0).toLocaleString()}</div>
+        <div class="pst-label">New councillors elected${newFPct ? '<br><span class="pst-sub">' + escHtml(newFPct) + '</span>' : ''}</div>
+      </div>
+    </div>`;
+    })() : ''}
     ${candidateSectionHtml}
   `;
 }
@@ -361,12 +410,6 @@ function tmplCandidateModal(cand, councilName, wardName) {
 
 function tmplWardCards(wards) {
   return wards.map((ward, i) => {
-    const counts = ward.candidates.reduce((acc, c) => {
-      if (c.g === 'female') acc.f += 1;
-      else if (c.g === 'male') acc.m += 1;
-      else acc.u += 1;
-      return acc;
-    }, { f: 0, m: 0, u: 0 });
     const turnout = ward.turnout_pct !== null && ward.turnout_pct !== undefined
       ? `Turnout: ${ward.turnout_pct}%`
       : 'Turnout: \u2014';
@@ -374,7 +417,7 @@ function tmplWardCards(wards) {
       <button class="ward-btn" data-ward-index="${i}">
         <strong>${ward.ward}</strong>
         <div class="ward-meta">Seats: ${ward.seats || '\u2014'} | Candidates: ${ward.candidates.length}</div>
-        <div class="ward-meta">F ${counts.f} | M ${counts.m} | U ${counts.u}</div>
+        <div class="ward-meta">F ${ward.female_count} | M ${ward.male_count} | U ${ward.unknown_count}</div>
         <div class="ward-meta">${turnout}</div>
       </button>
     `;
@@ -397,18 +440,14 @@ function tmplWardDetail(ward, candidates, totalVotes) {
     ? `${ward.turnout_pct}%`
     : '\u2014';
 
-  // Incumbent mini-summary
-  const incCands   = candidates.filter(c => c.inc);
-  const incElected = incCands.filter(c => c.e).length;
-  const incDef     = incCands.length - incElected;
-  const newElected = candidates.filter(c => !c.inc && c.e).length;
-  const incSummary = incCands.length > 0
+  // Incumbent mini-summary (values pre-computed in build_data.py)
+  const incSummary = ward.inc_total > 0
     ? `<div class="ward-inc-summary">
-        <strong>Incumbents:</strong> ${incCands.length} stood
-        &middot; <span class="inc-badge inc-badge--held">${incElected} HELD</span>
-        &middot; <span class="inc-badge inc-badge--lost">${incDef} LOST</span>
+        <strong>Incumbents:</strong> ${ward.inc_total} stood
+        &middot; <span class="inc-badge inc-badge--held">${ward.inc_elected} HELD</span>
+        &middot; <span class="inc-badge inc-badge--lost">${ward.inc_defeated} LOST</span>
         &nbsp;&nbsp;<strong>New elected:</strong>
-        <span class="inc-badge inc-badge--new">${newElected} NEW</span>
+        <span class="inc-badge inc-badge--new">${ward.new_elected} NEW</span>
       </div>`
     : '';
 

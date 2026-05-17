@@ -65,28 +65,16 @@ function exportWardList(council, wards) {
     'Ward', 'Seats', 'Total Candidates', 'Female', 'Male', 'Unclassified',
     'Incumbents Stood', 'Re-elected', 'Defeated', 'Turnout %',
   ];
-  const dataRows = wards.map(ward => {
-    const counts = ward.candidates.reduce((acc, c) => {
-      if (c.g === 'female') acc.f++;
-      else if (c.g === 'male') acc.m++;
-      else acc.u++;
-      if (c.inc) {
-        acc.incTotal++;
-        if (c.e) acc.incElected++;
-      }
-      return acc;
-    }, { f: 0, m: 0, u: 0, incTotal: 0, incElected: 0 });
-    return [
-      ward.ward, ward.seats ?? null, ward.candidates.length,
-      counts.f, counts.m, counts.u,
-      counts.incTotal, counts.incElected, counts.incTotal - counts.incElected,
-      ward.turnout_pct ?? null,
-    ];
-  });
+  const dataRows = wards.map(ward => [
+    ward.ward, ward.seats ?? null, ward.candidates.length,
+    ward.female_count ?? null, ward.male_count ?? null, ward.unknown_count ?? null,
+    ward.inc_total ?? 0, ward.inc_elected ?? 0, ward.inc_defeated ?? 0,
+    ward.turnout_pct ?? null,
+  ]);
   exportToXlsx(
     `${council.org_name.replace(/[^\w-]/g, '_')}-wards.xlsx`,
     headers, dataRows,
-    `${council.org_name} — Ward summary`,
+    `${council.org_name} \u2014 Ward summary`,
   );
 }
 
@@ -112,4 +100,120 @@ function exportWardDetail(council, ward, candidates) {
   });
   const slug = `${council.org_name}-${ward.ward}`.replace(/[^\w-]/g, '_');
   exportToXlsx(`${slug}.xlsx`, headers, dataRows, `${council.org_name} — ${ward.ward}`);
+}
+
+// ── Party / Region section XLSX export ────────────────────────────────────
+
+function exportPartyExcel(parties, contextLabel, partyDetail) {
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, buildMethodologySheet(contextLabel), 'Methodology');
+
+  const candHeaders = ['Party', 'Total Candidates', 'Female', 'Male', 'Unclassified', '% Female'];
+  const candRows = parties.map(p => [
+    p.party, p.total, p.female, p.male, p.unknown ?? 0, p.pct_female ?? null,
+  ]);
+  const wsCands = XLSX.utils.aoa_to_sheet([candHeaders, ...candRows]);
+  wsCands['!cols'] = candHeaders.map(() => ({ wch: 18 }));
+  wsCands['!autofilter'] = { ref: wsCands['!ref'] };
+  XLSX.utils.book_append_sheet(wb, wsCands, 'Candidates by party');
+
+  const elecHeaders = [
+    'Party', 'Elected Total', 'Female Elected', 'Male Elected', '% Female Elected',
+    'Female Win Rate %', 'Male Win Rate %',
+    'Incumbents Stood', 'Re-elected', 'Defeated', 'New Elected', 'Retention %',
+  ];
+  const elecRows = parties.map(p => [
+    p.party, p.elected_total, p.elected_female, p.elected_male, p.pct_female_elected ?? null,
+    p.female_win_rate ?? null, p.male_win_rate ?? null,
+    p.inc_total ?? null, p.inc_elected ?? null, p.inc_defeated ?? null,
+    p.new_elected ?? null, p.inc_retention_pct ?? null,
+  ]);
+  const wsElec = XLSX.utils.aoa_to_sheet([elecHeaders, ...elecRows]);
+  wsElec['!cols'] = elecHeaders.map(() => ({ wch: 18 }));
+  wsElec['!autofilter'] = { ref: wsElec['!ref'] };
+  XLSX.utils.book_append_sheet(wb, wsElec, 'Elected by party');
+
+  if (partyDetail) {
+    const pdRows = [
+      ['Field', 'Value'],
+      ['Party', partyDetail.party],
+      ['Total candidates', partyDetail.total],
+      ['Female candidates', partyDetail.female],
+      ['Male candidates', partyDetail.male],
+      ['% Female', partyDetail.pct_female],
+      ['Elected total', partyDetail.elected_total],
+      ['Female elected', partyDetail.elected_female],
+      ['Male elected', partyDetail.elected_male],
+      ['% Female elected', partyDetail.pct_female_elected],
+      ['Female win rate %', partyDetail.female_win_rate ?? null],
+      ['Male win rate %', partyDetail.male_win_rate ?? null],
+      ['Incumbents stood', partyDetail.inc_total ?? null],
+      ['Re-elected', partyDetail.inc_elected ?? null],
+      ['Defeated', partyDetail.inc_defeated ?? null],
+      ['New elected', partyDetail.new_elected ?? null],
+      ['Retention %', partyDetail.inc_retention_pct ?? null],
+    ];
+    const wsPD = XLSX.utils.aoa_to_sheet(pdRows);
+    wsPD['!cols'] = [{ wch: 24 }, { wch: 16 }];
+    XLSX.utils.book_append_sheet(wb, wsPD, 'Party drilldown');
+  }
+
+  const suffix = contextLabel !== 'England' ? '-' + contextLabel.replace(/[^\w]/g, '_') : '';
+  XLSX.writeFile(wb, `party-gender-breakdown${suffix}.xlsx`);
+}
+
+function exportRegionExcel(regions, contextLabel, regionDetail) {
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, buildMethodologySheet(contextLabel), 'Methodology');
+
+  const candHeaders = ['Region', 'Total Candidates', 'Female', 'Male', '% Female'];
+  const candRows = regions.map(r => [r.region, r.total, r.female, r.male, r.pct_female ?? null]);
+  const wsCands = XLSX.utils.aoa_to_sheet([candHeaders, ...candRows]);
+  wsCands['!cols'] = candHeaders.map(() => ({ wch: 20 }));
+  wsCands['!autofilter'] = { ref: wsCands['!ref'] };
+  XLSX.utils.book_append_sheet(wb, wsCands, 'Candidates by region');
+
+  const elecHeaders = [
+    'Region', 'Elected Total', 'Female Elected', 'Male Elected', '% Female Elected',
+    'Female Win Rate %', 'Male Win Rate %',
+    'Incumbents Stood', 'Re-elected', 'Defeated', 'New Elected', 'Retention %',
+  ];
+  const elecRows = regions.map(r => [
+    r.region, r.elected_total, r.elected_female, r.elected_male, r.pct_female_elected ?? null,
+    r.female_win_rate ?? null, r.male_win_rate ?? null,
+    r.inc_total ?? null, r.inc_elected ?? null, r.inc_defeated ?? null,
+    r.new_elected ?? null, r.inc_retention_pct ?? null,
+  ]);
+  const wsElec = XLSX.utils.aoa_to_sheet([elecHeaders, ...elecRows]);
+  wsElec['!cols'] = elecHeaders.map(() => ({ wch: 20 }));
+  wsElec['!autofilter'] = { ref: wsElec['!ref'] };
+  XLSX.utils.book_append_sheet(wb, wsElec, 'Elected by region');
+
+  if (regionDetail) {
+    const rdRows = [
+      ['Field', 'Value'],
+      ['Region', regionDetail.region],
+      ['Total candidates', regionDetail.total],
+      ['Female candidates', regionDetail.female],
+      ['Male candidates', regionDetail.male],
+      ['% Female', regionDetail.pct_female],
+      ['Elected total', regionDetail.elected_total],
+      ['Female elected', regionDetail.elected_female],
+      ['Male elected', regionDetail.elected_male],
+      ['% Female elected', regionDetail.pct_female_elected],
+      ['Female win rate %', regionDetail.female_win_rate ?? null],
+      ['Male win rate %', regionDetail.male_win_rate ?? null],
+      ['Incumbents stood', regionDetail.inc_total ?? null],
+      ['Re-elected', regionDetail.inc_elected ?? null],
+      ['Defeated', regionDetail.inc_defeated ?? null],
+      ['New elected', regionDetail.new_elected ?? null],
+      ['Retention %', regionDetail.inc_retention_pct ?? null],
+    ];
+    const wsRD = XLSX.utils.aoa_to_sheet(rdRows);
+    wsRD['!cols'] = [{ wch: 24 }, { wch: 16 }];
+    XLSX.utils.book_append_sheet(wb, wsRD, 'Region drilldown');
+  }
+
+  const suffix = contextLabel !== 'England' ? '-' + contextLabel.replace(/[^\w]/g, '_') : '';
+  XLSX.writeFile(wb, `region-gender-breakdown${suffix}.xlsx`);
 }

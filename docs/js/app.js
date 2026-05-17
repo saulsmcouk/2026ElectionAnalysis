@@ -14,13 +14,92 @@ let selectedCouncilName  = null;  // org_name of selected council, or null
 let selectedPartyName    = null;  // party name of selected bar, or null
 let selectedRegionName   = null;  // region (NUTS1) of selected bar, or null
 let councilPartyData     = null;  // aggregated partyMap from current council's ward JSON
+let councilPartyIncData  = null;  // party_inc map from current council's ward JSON
 let _candClickList       = [];    // candidate objects for the latest rendered candidate rows
+let _exportTarget        = null;  // 'party' or 'region' — which section the export modal is for
+
+// ── URL state encoding/restoring ──────────────────────────────────────────
+function encodeState() {
+  const state = {};
+  if (selectedRegionName)  state.r = selectedRegionName;
+  if (selectedCouncilName) state.c = selectedCouncilName;
+  if (selectedPartyName)   state.p = selectedPartyName;
+  if (currentMapMode !== 'candidates') state.m = currentMapMode;
+  const filter = document.getElementById('table-search')?.value?.trim();
+  if (filter) state.sf = filter;
+  if (tableSortCol !== 'org_name') state.sc = tableSortCol;
+  if (tableSortDir !== 'asc')      state.sd = tableSortDir;
+  if (!Object.keys(state).length) {
+    history.replaceState(null, '', location.pathname + location.search);
+    return;
+  }
+  try {
+    const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(state))));
+    history.replaceState(null, '', '#' + b64);
+  } catch (_) {}
+}
+
+async function restoreUrlState() {
+  const hash = location.hash.slice(1);
+  if (!hash) return;
+  let state;
+  try {
+    state = JSON.parse(decodeURIComponent(escape(atob(hash))));
+  } catch (_) { return; }
+
+  // Map mode
+  if (state.m) {
+    currentMapMode = state.m;
+    document.querySelectorAll('#map-toggle .toggle').forEach(b => {
+      b.classList.toggle('active', b.dataset.mode === state.m);
+    });
+    if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
+  }
+
+  // Table sort/filter (silent — no encodeState loop)
+  if (state.sc) tableSortCol = state.sc;
+  if (state.sd) tableSortDir = state.sd;
+  const searchEl = document.getElementById('table-search');
+  if (state.sf && searchEl) searchEl.value = state.sf;
+
+  // Region selection (sets chart context for party charts)
+  if (state.r) handleRegionSelect(state.r);
+
+  // Council selection (async — loads ward data before party can be selected)
+  if (state.c) await selectCouncilByName(state.c);
+
+  // Party selection
+  if (state.p) handlePartySelect(state.p);
+
+  // Update table with restored filter/sort
+  renderTable((state.sf || '').toLowerCase());
+}
+
+async function selectCouncilByName(name) {
+  const council = appData.by_council.find(c => c.org_name === name);
+  if (!council) return;
+
+  selectedPartyName = null;
+  hidePanel('party-detail');
+  selectedCouncilName = council.org_name;
+  if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
+
+  document.getElementById('party-heading').innerHTML =
+    `By party \u2014 <strong>${council.org_name}</strong>` +
+    ` <button class="btn-clear-selection" id="btn-clear-selection">\u2715 All England</button>`;
+  document.getElementById('btn-clear-selection').addEventListener('click', clearCouncilSelection);
+
+  await renderPartyChartsForCouncil(council);
+  renderCouncilStats(council);
+  renderSeatChanges(council, council.org_name);
+  updateBreadcrumb();
+}
 
 // ── Boot ──────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   fetch('data/councils.json?v=' + Date.now())
     .then(r => r.json())
-    .then(data => {
+    .then(async data => {
       appData = data;
       buildLadLookup();
       renderSummaryCards();
@@ -31,6 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
       initTable();
       wireMapToggle();
       wireMethModal();
+      wireExportModal();
+      await restoreUrlState();
+      wireExportModal();
+      restoreUrlState();
     })
     .catch(err => {
       document.querySelector('main').innerHTML =
@@ -211,6 +294,7 @@ function wireMapToggle() {
     btn.classList.add('active');
     currentMapMode = btn.dataset.mode;
     if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
+    encodeState();
   });
 }
 // ── Council map selection ────────────────────────────────────────────────
@@ -268,12 +352,14 @@ function handleCouncilSelect(feature) {
   renderCouncilStats(council);
   renderSeatChanges(council, council.org_name);
   updateBreadcrumb();
+  encodeState();
 }
 
 function clearCouncilSelection() {
   selectedPartyName   = null;
   selectedCouncilName = null;
   councilPartyData    = null;
+  councilPartyIncData = null;
   hidePanel('party-detail');
   hidePanel('council-stats');
   if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
@@ -287,6 +373,7 @@ function clearCouncilSelection() {
     renderSeatChanges(appData.summary, 'England');
   }
   updateBreadcrumb();
+  encodeState();
 }
 
 // ── Region bar selection ──────────────────────────────────────────────────
@@ -311,6 +398,7 @@ function handleRegionSelect(name) {
   renderSeatChanges(appData.by_region.find(x => x.region === name) || {}, name);
   renderTable(document.getElementById('table-search').value.trim().toLowerCase());
   updateBreadcrumb();
+  encodeState();
 }
 
 function clearRegionSelection() {
@@ -324,6 +412,7 @@ function clearRegionSelection() {
   renderSeatChanges(appData.summary, 'England');
   renderTable(document.getElementById('table-search').value.trim().toLowerCase());
   updateBreadcrumb();
+  encodeState();
 }
 
 function renderRegionDetail(name) {
@@ -390,8 +479,7 @@ async function renderPartyChartsForCouncil(council) {
     if (selectedCouncilName !== council.org_name) return;
 
     const partyMap = {};
-    for (const ward of payload.wards || []) {
-      const seenParties = new Set();
+    for (const ward of payload.wards || []) {      const seenParties = new Set();
       for (const cand of ward.candidates || []) {
         const party = cand.p || 'Unknown';
         if (!partyMap[party]) {
@@ -420,6 +508,7 @@ async function renderPartyChartsForCouncil(council) {
       }
     }
     councilPartyData = partyMap;
+    councilPartyIncData = payload.party_inc || null;
     const parties = Object.values(partyMap)
       .sort((a, b) => (b.female + b.male) - (a.female + a.male));
     const labels = parties.map(p => p.party);
@@ -448,6 +537,7 @@ function handlePartySelect(name) {
   buildChart('chart-party-elected', 'scroll-party-elected', [name], toStackedPct([source], 'elected_female', 'elected_male'), handlePartySelect);
   renderPartyDetail(name);
   updateBreadcrumb();
+  encodeState();
 }
 
 function clearPartySelection() {
@@ -465,6 +555,7 @@ function clearPartySelection() {
     renderPartyCharts(selectedRegionName || undefined);
   }
   updateBreadcrumb();
+  encodeState();
 }
 
 function renderPartyDetail(name) {
@@ -478,7 +569,10 @@ function renderPartyDetail(name) {
   let femaleWinRate, maleWinRate;
 
   if (isCouncil && councilPartyData && councilPartyData[name]) {
-    dr = councilPartyData[name];
+    dr = { ...councilPartyData[name] };
+    // Merge pre-computed per-party incumbency stats from ward JSON (no frontend calc)
+    const pi = councilPartyIncData && councilPartyIncData[name];
+    if (pi) Object.assign(dr, pi);
     femaleWinRate = calcWinRate(dr.elected_female, dr.female);
     maleWinRate   = calcWinRate(dr.elected_male,   dr.male);
 
@@ -683,6 +777,7 @@ function initTable() {
 
   document.getElementById('table-search').addEventListener('input', e => {
     renderTable(e.target.value.trim().toLowerCase());
+    encodeState();
   });
 
   document.querySelectorAll('#council-table th.sortable').forEach(th => {
@@ -699,6 +794,7 @@ function initTable() {
       });
       th.classList.add(tableSortDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
       renderTable(document.getElementById('table-search').value.trim().toLowerCase());
+      encodeState();
     });
   });
 
@@ -872,8 +968,7 @@ function openWardDetail(council, payload, ward) {
 }
 
 // ── Methodology modal ─────────────────────────────────────────────────────
-function wireMethModal() {
-  const modal   = document.getElementById('meth-modal');
+function wireMethModal() {  const modal   = document.getElementById('meth-modal');
   const closeBtn = document.getElementById('meth-modal-close');
 
   function openMeth(e) { if (e) e.preventDefault(); modal.hidden = false; document.body.style.overflow = 'hidden'; }
@@ -886,6 +981,101 @@ function wireMethModal() {
   if (closeBtn)   closeBtn.addEventListener('click', closeMeth);
   modal.addEventListener('click', e => { if (e.target === modal) closeMeth(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeMeth(); });
+}
+
+// ── Export choice modal ───────────────────────────────────────────────────
+function wireExportModal() {
+  const modal    = document.getElementById('export-modal');
+  const closeBtn = document.getElementById('export-modal-close');
+
+  function closeExport() { modal.hidden = true; document.body.style.overflow = ''; }
+
+  closeBtn.addEventListener('click', closeExport);
+  modal.addEventListener('click', e => { if (e.target === modal) closeExport(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeExport(); });
+
+  document.getElementById('btn-export-party').addEventListener('click', () => {
+    _exportTarget = 'party';
+    document.getElementById('export-modal-title').textContent = 'Export \u2014 By party';
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  });
+
+  document.getElementById('btn-export-region').addEventListener('click', () => {
+    _exportTarget = 'region';
+    document.getElementById('export-modal-title').textContent = 'Export \u2014 By region';
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  });
+
+  document.getElementById('export-choice-excel').addEventListener('click', () => {
+    closeExport();
+    if (_exportTarget === 'party') doPartyExcelExport();
+    else doRegionExcelExport();
+  });
+
+  document.getElementById('export-choice-png').addEventListener('click', async () => {
+    closeExport();
+    const sectionId = _exportTarget === 'party' ? 'party-section' : 'region-section';
+    await doSectionPngExport(sectionId, _exportTarget);
+  });
+}
+
+function doPartyExcelExport() {
+  const isCouncil = !!selectedCouncilName;
+  const isRegion  = !!selectedRegionName;
+  let parties, contextLabel;
+  if (isCouncil && councilPartyData) {
+    parties = Object.values(councilPartyData).sort((a, b) => (b.female + b.male) - (a.female + a.male));
+    // Merge inc data into each party row
+    if (councilPartyIncData) {
+      parties = parties.map(p => {
+        const pi = councilPartyIncData[p.party];
+        return pi ? { ...p, ...pi } : p;
+      });
+    }
+    contextLabel = selectedCouncilName;
+  } else if (isRegion && appData.by_region_by_party && appData.by_region_by_party[selectedRegionName]) {
+    parties = appData.by_region_by_party[selectedRegionName];
+    contextLabel = selectedRegionName;
+  } else {
+    parties = appData.by_party;
+    contextLabel = 'England';
+  }
+  const partyDetail = selectedPartyName
+    ? parties.find(p => p.party === selectedPartyName) || null
+    : null;
+  exportPartyExcel(parties, contextLabel, partyDetail);
+}
+
+function doRegionExcelExport() {
+  const contextLabel = selectedRegionName || 'England';
+  const regionDetail = selectedRegionName
+    ? appData.by_region.find(r => r.region === selectedRegionName) || null
+    : null;
+  exportRegionExcel(appData.by_region, contextLabel, regionDetail);
+}
+
+async function doSectionPngExport(sectionId, target) {
+  const el = document.getElementById(sectionId);
+  if (!el || typeof html2canvas === 'undefined') {
+    alert('PNG export is not available \u2014 html2canvas failed to load.');
+    return;
+  }
+  try {
+    const canvas = await html2canvas(el, {
+      backgroundColor: '#ffffff',
+      scale: 2,
+      useCORS: true,
+      logging: false,
+    });
+    const a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = `${target}-gender-breakdown.png`;
+    a.click();
+  } catch (err) {
+    alert('PNG export failed: ' + err.message);
+  }
 }
 
 // ── XLSX Export ────────────────────────────────────────────────────────────

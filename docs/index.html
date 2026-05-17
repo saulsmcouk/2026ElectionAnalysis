@@ -104,7 +104,10 @@
 
   <!-- PARTY CHARTS -->
   <section class="panel" id="party-section">
-    <h2 id="party-heading">By party <span class="subtitle-small">— parties with &ge;30 candidates, sorted by total. Each bar&nbsp;=&nbsp;100% of that party&rsquo;s candidates/elected.</span></h2>
+    <div class="panel-header-row">
+      <h2 id="party-heading">By party <span class="subtitle-small">— parties with &ge;30 candidates, sorted by total. Each bar&nbsp;=&nbsp;100% of that party&rsquo;s candidates/elected.</span></h2>
+      <button class="btn-section-export" id="btn-export-party" title="Export party section">&#8659;&nbsp;Export</button>
+    </div>
     <div class="chart-pair">
       <div class="chart-box">
         <h3>Candidates &mdash; gender breakdown</h3>
@@ -121,7 +124,10 @@
 
   <!-- REGION CHARTS -->
   <section class="panel" id="region-section">
-    <h2 id="region-heading">By region</h2>
+    <div class="panel-header-row">
+      <h2 id="region-heading">By region</h2>
+      <button class="btn-section-export" id="btn-export-region" title="Export region section">&#8659;&nbsp;Export</button>
+    </div>
     <div class="chart-pair">
       <div class="chart-box">
         <h3>Candidates &mdash; gender breakdown</h3>
@@ -268,6 +274,27 @@
   </div>
 </div>
 
+<!-- Export choice modal -->
+<div id="export-modal" hidden>
+  <div class="export-modal-box">
+    <button class="modal-close" id="export-modal-close" aria-label="Close">&times;</button>
+    <h3 id="export-modal-title">Export</h3>
+    <p class="export-modal-desc">Choose a format:</p>
+    <div class="export-choice-row">
+      <button class="export-choice-btn" id="export-choice-excel">
+        <div class="ecb-icon">&#8659;</div>
+        <div class="ecb-label">Excel (.xlsx)</div>
+        <div class="ecb-desc">All chart data + visible drilldown in tabular form</div>
+      </button>
+      <button class="export-choice-btn" id="export-choice-png">
+        <div class="ecb-icon">&#128247;</div>
+        <div class="ecb-label">Image (.png)</div>
+        <div class="ecb-desc">Screenshot of the current section</div>
+      </button>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
     <p>Election data: <a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a> &middot; Incumbent data: <a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a> &middot; Gender predicted using <strong>gender_guesser</strong>, ONS baby names &amp; <strong>Claude Sonnet 4.6</strong> &middot; &lt;0.3% of candidates remain unclassified</p>
@@ -279,6 +306,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/charts.js"></script>
 <script src="js/export.js"></script>

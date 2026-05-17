@@ -571,7 +571,88 @@ footer a:hover { color: #fff; }
 }
 .btn-export:hover { background: #2e2e50; }
 
-/* Clear map selection pill */
+/* ── Panel header row (heading + export button side-by-side) ─────────────── */
+.panel-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.panel-header-row h2 { margin-bottom: 0; flex: 1; }
+.btn-section-export {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: #f0f2f8;
+  color: #333;
+  border: 1px solid #cdd2e0;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .12s;
+}
+.btn-section-export:hover { background: #dde0ef; }
+
+/* ── Export choice modal ─────────────────────────────────────────────────── */
+#export-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#export-modal[hidden] { display: none; }
+.export-modal-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  width: 500px;
+  max-width: calc(100vw - 32px);
+  position: relative;
+  box-shadow: 0 8px 40px rgba(0,0,0,.22);
+}
+.export-modal-box h3 { margin: 0 0 6px; font-size: 1.2rem; }
+.export-modal-desc { color: #555; margin: 0 0 20px; font-size: 0.9rem; }
+.export-choice-row {
+  display: flex;
+  gap: 14px;
+}
+.export-choice-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 16px;
+  background: #f7f8fc;
+  border: 2px solid #dde0e8;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  text-align: center;
+}
+.export-choice-btn:hover { border-color: #3949ab; background: #eef0f8; }
+.ecb-icon { font-size: 1.8rem; line-height: 1; }
+.ecb-label { font-weight: 600; font-size: 0.95rem; color: #222; }
+.ecb-desc { font-size: 0.78rem; color: #666; line-height: 1.4; }
+
+/* ── Incumbency heading in drilldown panels ──────────────────────────────── */
+.drilldown-inc-heading {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #555;
+  margin: 18px 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
 .btn-clear-selection {
   display: inline-flex;
   align-items: center;

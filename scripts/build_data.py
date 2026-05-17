@@ -592,8 +592,35 @@ def main():
     os.makedirs(wards_dir, exist_ok=True)
     for org, ward_dict in wards.items():
         # Sort candidates within each ward by rank (then by name)
+        # and pre-compute per-ward summary counts (avoids frontend calculations)
         for w in ward_dict.values():
             w['candidates'].sort(key=lambda c: (c['r'] if c['r'] else 999, c['n']))
+            cands = w['candidates']
+            w['female_count']  = sum(1 for c in cands if c['g'] == 'female')
+            w['male_count']    = sum(1 for c in cands if c['g'] == 'male')
+            w['unknown_count'] = sum(1 for c in cands if c['g'] == 'unknown')
+            w['inc_total']     = sum(1 for c in cands if c.get('inc'))
+            w['inc_elected']   = sum(1 for c in cands if c.get('inc') and c['e'])
+            w['inc_defeated']  = w['inc_total'] - w['inc_elected']
+            w['new_elected']   = sum(1 for c in cands if not c.get('inc') and c['e'])
+
+        # Pre-compute per-party inc summary for this council
+        party_inc = {}
+        for w in ward_dict.values():
+            for c in w['candidates']:
+                p = c['p']
+                if p not in party_inc:
+                    party_inc[p] = {'inc_total': 0, 'inc_elected': 0, 'new_elected': 0}
+                if c.get('inc'):
+                    party_inc[p]['inc_total'] += 1
+                    if c['e']:
+                        party_inc[p]['inc_elected'] += 1
+                elif c['e']:
+                    party_inc[p]['new_elected'] += 1
+        for d in party_inc.values():
+            d['inc_defeated']     = d['inc_total'] - d['inc_elected']
+            d['inc_retention_pct'] = _safe_pct(d['inc_elected'], d['inc_total'])
+
         # Use a safe filename: strip non-alphanumeric chars
         safe = re.sub(r'[^a-z0-9]+', '-', org.lower()).strip('-')
         ward_path = os.path.join(wards_dir, safe + '.json')
@@ -603,7 +630,7 @@ def main():
             key=lambda x: x['ward']
         )
         with open(ward_path, 'w', encoding='utf-8') as f:
-            json.dump({'org': org, 'wards': ward_list}, f, separators=(',', ':'), ensure_ascii=False)
+            json.dump({'org': org, 'party_inc': party_inc, 'wards': ward_list}, f, separators=(',', ':'), ensure_ascii=False)
 
     print(f'Wrote ward files for {len(wards)} councils → {wards_dir}/')
 
