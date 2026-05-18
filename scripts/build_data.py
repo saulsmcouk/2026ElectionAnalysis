@@ -20,6 +20,17 @@ from datetime import date
 from glob import glob
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
+
+# ---------------------------------------------------------------------------
+# Build flags
+# ---------------------------------------------------------------------------
+
+# Set to True to exclude Welsh councils from all outputs.
+# Welsh councils present in the dataset: Newport, Powys.
+EXCLUDE_WALES = True
+_WALES_COUNCILS = {'Newport City Council', 'Powys County Council'}
+
+# ---------------------------------------------------------------------------
 CSV_IN              = os.path.join(ROOT, 'dc_data.csv')
 GENDERS_IN          = os.path.join(ROOT, 'genders.csv')
 INCUMBENTS_IN       = os.path.join(ROOT, 'scripts', 'data', 'incumbents.json')
@@ -268,6 +279,8 @@ def main():
         for row in reader:
             pid    = row['person_id'].strip()
             org    = row['organisation_name'].strip()
+            if EXCLUDE_WALES and org in _WALES_COUNCILS:
+                continue
             party  = row['party_name'].strip() or 'Unknown'
             nuts1  = _clean_nuts1(row.get('nuts1', ''))
 
