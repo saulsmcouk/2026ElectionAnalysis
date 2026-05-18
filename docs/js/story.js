@@ -423,9 +423,9 @@ function renderStats(stats) {
     },
     {
       vars: '% female Labour candidates vs women&rsquo;s win rate',
-      r: c.pct_female_vs_f_win_rate.r,
-      n: c.pct_female_vs_f_win_rate.n,
-      dir: c.pct_female_vs_f_win_rate.direction,
+      r: c.pct_f_cands_vs_f_win_rate.r,
+      n: c.pct_f_cands_vs_f_win_rate.n,
+      dir: c.pct_f_cands_vs_f_win_rate.direction,
       interp: 'Where Labour fields <em>fewer</em> women, those women tend to win more often &mdash; a selection effect. Councils fielding more women inevitably place some in less winnable wards.',
     },
     {
@@ -449,7 +449,7 @@ function renderStats(stats) {
     </div>`;
   }).join('');
 
-  const selR = c.pct_female_vs_f_win_rate.r.toFixed(2);
+  const selR = c.pct_f_cands_vs_f_win_rate.r.toFixed(2);
   document.getElementById('p6-finding').innerHTML =
     `<strong>The selection effect (r&thinsp;=&thinsp;${selR})</strong> is the most practically significant finding. ` +
     `Labour fields more women in councils where it is stronger, but in those councils some women are ` +
