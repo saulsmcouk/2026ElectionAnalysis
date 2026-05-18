@@ -535,27 +535,60 @@ async function doExport(partyMap, regionLabour) {
     }));
     XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(regionRows), 'Labour By Region');
 
-    // Sheet 4: Methodology
+    // Sheet 4: Methodology & Citations
     XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([
-      ['Data Source', 'Description', 'Licence'],
-      ['Democracy Club', 'Candidate and election results data (May 2026)', 'CC BY 4.0'],
-      ['opencouncildata.co.uk', '2025 sitting councillor data — used for incumbency matching', 'See website'],
-      ['ONS Baby Names 1904-2024', 'Used for name-based gender prediction', 'Open Government Licence v3.0'],
-      ['OS LAD Boundaries (May 2025)', 'Council boundary map data', 'Open Government Licence v3.0'],
+      ['DATA SOURCES & LICENCES'],
       [],
-      ['Gender methodology'],
-      ['Gender is predicted algorithmically from candidate first names in three stages:'],
-      ['1. gender_guesser library (open-source name database)'],
-      ['2. ONS historical baby names dataset (year-aware, 1904-2024)'],
-      ['3. Claude Sonnet 4.6 (AI) for remaining unresolved names'],
-      ['63 candidates (<0.3%) remain unclassified and are excluded from percentages.'],
-      ['Gender is treated as binary for analysis purposes and is not self-reported.'],
+      ['Source', 'Description', 'Licence / Copyright'],
+      [
+        'Democracy Club (democracyclub.org.uk)',
+        'Candidate and election results data, May 2026 English local elections',
+        'Creative Commons Attribution 4.0 International (CC BY 4.0). https://creativecommons.org/licenses/by/4.0/',
+      ],
+      [
+        'opencouncildata.co.uk',
+        '2025 sitting councillor composition, scraped May 2026. Used for incumbency matching and election type classification.',
+        'See opencouncildata.co.uk for terms.',
+      ],
+      [
+        'Office for National Statistics — Baby Names (England and Wales) 1904–2024',
+        'Used for name-based gender prediction (stage 2 of 3).',
+        'Open Government Licence v3.0. Contains public sector information licensed under the Open Government Licence v3.0. http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+      ],
+      [
+        'OS Local Authority Districts Boundaries (May 2025)',
+        'Council boundary polygons used in the Data Explorer map.',
+        'Contains OS data © Crown copyright and database right [2026]. Contains Royal Mail data © Royal Mail copyright and database right [2026]. Contains public sector information licensed under the Open Government Licence v3.0. http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+      ],
       [],
-      ['Notes'],
-      ['Labour figures combine "Labour Party" and "Labour and Co-operative Party" candidates.'],
-      ['Welsh councils (Newport City Council, Powys County Council) are excluded.'],
-      ['Incumbency: candidates matched against 2025 sitting councillors by council + ward + name.'],
-    ]), 'Methodology');
+      ['GENDER ASSIGNMENT METHODOLOGY'],
+      [],
+      ['Around 77% of candidates had no gender recorded in the Democracy Club source data.'],
+      ['Gender was predicted algorithmically from candidate first names in three stages:'],
+      [],
+      ['Stage', 'Method', 'Notes'],
+      ['1', 'gender_guesser library', 'Open-source name database covering common international first names. Produces high or medium confidence results.'],
+      ['2', 'ONS historical baby names dataset (1904–2024)', 'Year-aware lookup — accounts for names whose gender balance has shifted over time (e.g. Ashley, Kim). Applied where stage 1 failed and a birth year was available.'],
+      ['3', 'Claude Sonnet 4.6 (AI)', 'Used for ~4,000 names unresolved by stages 1 and 2. The model classified first names by likely gender based on cultural and linguistic context.'],
+      [],
+      ['63 candidates (<0.3%) remain unclassified and are excluded from all percentages.'],
+      ['Gender is treated as binary (male/female) for analysis purposes only.'],
+      ['This is not self-identified gender and should not be treated as such.'],
+      [],
+      ['INCUMBENCY METHODOLOGY'],
+      [],
+      ['A candidate is classified as an incumbent if all three conditions are met:'],
+      ['1. Council match — 2026 council name matched to a 2025 sitting councillor record (names normalised before matching).'],
+      ['2. Ward match — 2026 ward matched against 2025 ward names. Exact match first; fuzzy match (difflib, cutoff 0.6) if exact fails, restricted to wards sharing the same first word.'],
+      ['3. Name match — SOPN name vs sitting councillor name using difflib.SequenceMatcher, threshold >= 0.80.'],
+      ['Incumbents who chose not to re-stand are NOT counted. "Defeated" covers only those who stood in 2026 and lost.'],
+      [],
+      ['NOTES'],
+      [],
+      ['Labour figures combine "Labour Party" and "Labour and Co-operative Party" candidates throughout.'],
+      ['Welsh councils (Newport City Council, Powys County Council) are excluded from all figures.'],
+      ['Correlations are Pearson r computed at ward level. East Midlands excluded from regional analysis (14 Labour candidates).'],
+    ]), 'Methodology & Citations');
 
     XLSX.writeFile(wb, 'labour-gender-2026-england.xlsx');
   } catch (err) {
