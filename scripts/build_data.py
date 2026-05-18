@@ -385,18 +385,29 @@ def main():
     # Serialise
     def _inc_fields(d):
         """Return the incumbency-derived fields for any accumulator dict."""
-        inc_total   = d['inc_total']
-        inc_elected = d['inc_elected']
-        inc_kn      = d['inc_female'] + d['inc_male']
-        new_kn      = d['new_female_elected'] + d['new_male_elected']
+        inc_total        = d['inc_total']
+        inc_elected      = d['inc_elected']
+        inc_kn           = d['inc_female'] + d['inc_male']
+        new_kn           = d['new_female_elected'] + d['new_male_elected']
+        inc_f_elec       = d['inc_female_elected']
+        inc_m_elec       = d['inc_male_elected']
         return {
-            'inc_total':            inc_total,
-            'inc_elected':          inc_elected,
-            'inc_defeated':         inc_total - inc_elected,
-            'new_elected':          d['new_elected'],
-            'inc_female_pct':       _safe_pct(d['inc_female'], inc_kn),
-            'new_female_elected_pct': _safe_pct(d['new_female_elected'], new_kn),
-            'inc_retention_pct':    _safe_pct(inc_elected, inc_total),
+            'inc_total':                inc_total,
+            'inc_elected':              inc_elected,
+            'inc_defeated':             inc_total - inc_elected,
+            'new_elected':              d['new_elected'],
+            'inc_female_pct':           _safe_pct(d['inc_female'], inc_kn),
+            'new_female_elected_pct':   _safe_pct(d['new_female_elected'], new_kn),
+            'inc_retention_pct':        _safe_pct(inc_elected, inc_total),
+            # Gender-specific incumbency breakdown
+            'inc_female_elected':       inc_f_elec,
+            'inc_male_elected':         inc_m_elec,
+            'inc_female_defeated':      d['inc_female'] - inc_f_elec,
+            'inc_male_defeated':        d['inc_male'] - inc_m_elec,
+            'inc_female_retention_pct': _safe_pct(inc_f_elec, d['inc_female']),
+            'inc_male_retention_pct':   _safe_pct(inc_m_elec, d['inc_male']),
+            'new_female_elected':       d['new_female_elected'],
+            'new_male_elected':         d['new_male_elected'],
         }
 
     def council_obj(org):
@@ -560,6 +571,48 @@ def main():
     councils_full    = sum(1 for c in council_list if c.get('election_type') == 'full')
     councils_partial = sum(1 for c in council_list if c.get('election_type') == 'partial')
 
+    # -----------------------------------------------------------------------
+    # Election-type × party accumulators (built from ward candidate data)
+    # -----------------------------------------------------------------------
+    et_org_lookup = {c['org_name']: c['election_type'] for c in council_list if c.get('election_type')}
+    eltype_acc = {}  # {election_type: {party_name: acc}}
+    for org, ward_dict in wards.items():
+        et = et_org_lookup.get(org)
+        if not et:
+            continue
+        if et not in eltype_acc:
+            eltype_acc[et] = {}
+        for w in ward_dict.values():
+            for c in w['candidates']:
+                _add(eltype_acc[et], c['p'], c['g'] if c['g'] in ('female','male') else 'unknown',
+                     c['e'], None, False, c.get('cf','low'), incumbent=c.get('inc', False))
+
+    def etype_party_obj(p, d):
+        kn  = d['female'] + d['male']
+        ekn = d['elected_female'] + d['elected_male']
+        return {
+            'party':              p,
+            'total':              d['total'],
+            'female':             d['female'],
+            'male':               d['male'],
+            'pct_female':         _safe_pct(d['female'], kn),
+            'elected_total':      d['elected_total'],
+            'elected_female':     d['elected_female'],
+            'elected_male':       d['elected_male'],
+            'pct_female_elected': _safe_pct(d['elected_female'], ekn),
+            'female_win_rate':    _safe_pct(d['elected_female'], d['female']),
+            'male_win_rate':      _safe_pct(d['elected_male'],   d['male']),
+            **_inc_fields(d),
+        }
+
+    by_election_type_by_party = {
+        et: sorted(
+            [etype_party_obj(p, d) for p, d in pd.items() if d['total'] >= 5],
+            key=lambda x: -x['total']
+        )
+        for et, pd in eltype_acc.items()
+    }
+
     output = {
         'generated': str(date.today()),
         'summary': {
@@ -593,6 +646,7 @@ def main():
             )
             for r, rp in region_parties.items()
         },
+        'by_election_type_by_party': by_election_type_by_party,
     }
 
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -646,6 +700,26 @@ def main():
             json.dump({'org': org, 'party_inc': party_inc, 'wards': ward_list}, f, separators=(',', ':'), ensure_ascii=False)
 
     print(f'Wrote ward files for {len(wards)} councils → {wards_dir}/')
+
+    # Write flat candidate list for story.html XLSX export
+    all_cands = []
+    for org in sorted(wards):
+        for ward_label in sorted(wards[org]):
+            for c in wards[org][ward_label]['candidates']:
+                all_cands.append({
+                    'council': org,
+                    'ward':    ward_label,
+                    'n':       c['n'],
+                    'p':       c['p'],
+                    'g':       c['g'],
+                    'v':       c['v'],
+                    'e':       c['e'],
+                    'inc':     c.get('inc', False),
+                })
+    all_cands_path = os.path.join(OUT_DIR, 'all_candidates.json')
+    with open(all_cands_path, 'w', encoding='utf-8') as f:
+        json.dump(all_cands, f, separators=(',', ':'), ensure_ascii=False)
+    print(f'Wrote {all_cands_path} ({len(all_cands):,} candidates)')
 
     shutil.copy2(GEOJSON_IN, GEOJSON_OUT)
     print(f'Copied GeoJSON → {GEOJSON_OUT}')

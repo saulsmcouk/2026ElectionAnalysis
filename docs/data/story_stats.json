@@ -1,0 +1,166 @@
+{
+  "ward_count_total": 2971,
+  "ward_count_labour": 2873,
+  "ward_count_both_genders": 984,
+  "national_lab_f_win_rate": 25.2,
+  "national_lab_m_win_rate": 19.4,
+  "national_lab_gap_pp": 5.8,
+  "correlations": {
+    "turnout_vs_f_win_rate": {
+      "r": -0.1715,
+      "n": 1180,
+      "label": "Turnout vs Labour female win rate",
+      "direction": "negative"
+    },
+    "pct_f_cands_vs_f_win_rate": {
+      "r": -0.2025,
+      "n": 1679,
+      "label": "% Labour female candidates vs Labour female win rate",
+      "direction": "negative"
+    },
+    "council_size_vs_f_win_rate": {
+      "r": 0.0022,
+      "n": 1611,
+      "label": "Council size vs Labour female win rate",
+      "direction": "negligible"
+    },
+    "turnout_vs_gender_gap": {
+      "r": 0.0483,
+      "n": 651,
+      "label": "Turnout vs Labour female−male win rate gap",
+      "direction": "negligible"
+    },
+    "pct_f_cands_vs_gender_gap": {
+      "r": -0.0089,
+      "n": 984,
+      "label": "% Labour female candidates vs female−male win gap",
+      "direction": "negligible"
+    }
+  },
+  "by_election_type": {
+    "partial": {
+      "lab_f_win_rate": 15.7,
+      "lab_m_win_rate": 14.0,
+      "f_minus_m": 1.7,
+      "lab_f_total": 833,
+      "lab_m_total": 1243,
+      "wards": 1448
+    },
+    "full": {
+      "lab_f_win_rate": 32.1,
+      "lab_m_win_rate": 24.5,
+      "f_minus_m": 7.6,
+      "lab_f_total": 1131,
+      "lab_m_total": 1465,
+      "wards": 1307
+    }
+  },
+  "by_region_outperformance": [
+    {
+      "region": "London",
+      "lab_f_win_rate": 42.7,
+      "lab_m_win_rate": 34.6,
+      "f_minus_m": 8.1,
+      "lab_f_total": 834,
+      "lab_m_total": 982,
+      "wards": 679
+    },
+    {
+      "region": "South West (England)",
+      "lab_f_win_rate": 26.2,
+      "lab_m_win_rate": 21.9,
+      "f_minus_m": 4.3,
+      "lab_f_total": 42,
+      "lab_m_total": 64,
+      "wards": 73
+    },
+    {
+      "region": "North West (England)",
+      "lab_f_win_rate": 22.2,
+      "lab_m_win_rate": 18.2,
+      "f_minus_m": 4.0,
+      "lab_f_total": 171,
+      "lab_m_total": 286,
+      "wards": 381
+    },
+    {
+      "region": "North East (England)",
+      "lab_f_win_rate": 10.2,
+      "lab_m_win_rate": 6.8,
+      "f_minus_m": 3.4,
+      "lab_f_total": 128,
+      "lab_m_total": 177,
+      "wards": 123
+    },
+    {
+      "region": "South East (England)",
+      "lab_f_win_rate": 10.9,
+      "lab_m_win_rate": 8.4,
+      "f_minus_m": 2.5,
+      "lab_f_total": 247,
+      "lab_m_total": 417,
+      "wards": 570
+    },
+    {
+      "region": "West Midlands (England)",
+      "lab_f_win_rate": 17.9,
+      "lab_m_win_rate": 16.2,
+      "f_minus_m": 1.7,
+      "lab_f_total": 195,
+      "lab_m_total": 296,
+      "wards": 278
+    },
+    {
+      "region": "Yorkshire and The Humber",
+      "lab_f_win_rate": 11.5,
+      "lab_m_win_rate": 11.4,
+      "f_minus_m": 0.1,
+      "lab_f_total": 192,
+      "lab_m_total": 245,
+      "wards": 208
+    },
+    {
+      "region": "East of England",
+      "lab_f_win_rate": 4.8,
+      "lab_m_win_rate": 5.6,
+      "f_minus_m": -0.8,
+      "lab_f_total": 227,
+      "lab_m_total": 376,
+      "wards": 547
+    },
+    {
+      "region": "East Midlands (England)",
+      "lab_f_win_rate": 22.2,
+      "lab_m_win_rate": 40.0,
+      "f_minus_m": -17.8,
+      "lab_f_total": 9,
+      "lab_m_total": 5,
+      "wards": 13
+    }
+  ],
+  "narrative_flags": {
+    "women_outperform_nationally": true,
+    "national_gap_pp": 5.8,
+    "best_region_for_women": "London",
+    "worst_region_for_women": "East Midlands (England)",
+    "regions_women_outperform": [
+      "London",
+      "South West (England)",
+      "North West (England)",
+      "North East (England)",
+      "South East (England)",
+      "West Midlands (England)",
+      "Yorkshire and The Humber"
+    ],
+    "regions_men_outperform": [
+      "East of England",
+      "East Midlands (England)"
+    ],
+    "election_type_favours_women": "full",
+    "turnout_r_direction": "negative",
+    "selection_r_direction": "negative",
+    "council_size_r_direction": "negligible",
+    "turnout_gap_r_direction": "negligible",
+    "selection_gap_r_direction": "negligible"
+  }
+}
