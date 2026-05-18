@@ -426,7 +426,7 @@ function renderStats(stats) {
       r: c.pct_f_cands_vs_f_win_rate.r,
       n: c.pct_f_cands_vs_f_win_rate.n,
       dir: c.pct_f_cands_vs_f_win_rate.direction,
-      interp: 'Where Labour fields <em>fewer</em> women, those women tend to win more often &mdash; a selection effect. Councils fielding more women inevitably place some in less winnable wards.',
+      interp: 'Where Labour fields fewer women, those women tend to win more often. Where Labour fields more women, the win rate falls. The reason for this pattern is unclear from the data alone.',
     },
     {
       vars: 'Council size vs Labour women&rsquo;s win rate',
@@ -451,12 +451,9 @@ function renderStats(stats) {
 
   const selR = c.pct_f_cands_vs_f_win_rate.r.toFixed(2);
   document.getElementById('p6-finding').innerHTML =
-    `<strong>The selection effect (r&thinsp;=&thinsp;${selR})</strong> is the most practically significant finding. ` +
-    `Labour fields more women in councils where it is stronger, but in those councils some women are ` +
-    `placed in harder-to-win wards, reducing the headline female win rate. ` +
-    `This is <em>not</em> evidence that women are less electable &mdash; rather, it reflects a deliberate ` +
-    `effort to increase female candidacy that inevitably places some women in long-shot contests. ` +
-    `Where Labour women are fielded selectively, they win.`;
+    `The negative correlation (r&thinsp;=&thinsp;${selR}) between the proportion of female Labour candidates ` +
+    `and Labour women&rsquo;s win rate is the most notable statistical finding, but its cause is unknown. ` +
+    `Multiple explanations are consistent with this pattern and the data alone cannot distinguish between them.`;
 }
 
 // ── Region dropdown wiring ────────────────────────────────────────────────────
