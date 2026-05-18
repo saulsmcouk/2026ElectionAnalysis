@@ -186,70 +186,8 @@
       <h2 id="meth-modal-title">Methodology</h2>
       <button class="modal-close" id="meth-modal-close" aria-label="Close">&times;</button>
     </div>
-    <div class="modal-body meth-modal-body">
-
-      <div class="meth-section">
-        <h3>Gender assignment</h3>
-        <p>Around 77% of candidates had no gender recorded in the Democracy Club source data. Gender was predicted algorithmically in three stages:</p>
-        <ol>
-          <li><strong>gender_guesser library</strong> &mdash; an open-source name database covering common first names internationally. Applied first, produces &ldquo;high&rdquo; or &ldquo;medium&rdquo; confidence results.</li>
-          <li><strong>ONS historical baby names dataset (1904&ndash;2024)</strong> &mdash; used for names not resolved by stage 1, and where a birth year was available. Year-aware lookup accounts for names whose gender balance has shifted over time (e.g. &ldquo;Ashley&rdquo;, &ldquo;Kim&rdquo;).</li>
-          <li><strong>Claude Sonnet 4.6 (AI)</strong> &mdash; used for the remaining 4,059 names that could not be resolved by stages 1 or 2. The AI was asked to classify first names by likely gender based on cultural and linguistic context.</li>
-        </ol>
-        <p><strong>63 candidates (&lt;0.3%) remain unclassified</strong> &mdash; primarily names where gender could not be determined with confidence. All gender percentages are calculated only among candidates with a known gender.</p>
-        <p><em>Gender is treated as binary (male/female) for prediction purposes. This does not reflect the full spectrum of gender identity and should not be treated as a candidate&rsquo;s self-identified gender.</em></p>
-      </div>
-
-      <div class="meth-section">
-        <h3>Incumbency</h3>
-        <p>Incumbent status indicates whether a 2026 candidate was a sitting councillor in the same ward and council as of 2025. A candidate is classified as an incumbent if and only if all three conditions are met:</p>
-        <ol>
-          <li><strong>Council match</strong> &mdash; the candidate&rsquo;s 2026 council (from Democracy Club data) is matched to a council entry in the 2025 sitting councillor data (from <a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a>, scraped May 2026). Council names are normalised by stripping prefixes (&ldquo;London Borough of&rdquo;, &ldquo;Royal Borough of&rdquo;) and suffixes (&ldquo;County Council&rdquo;, &ldquo;Borough Council&rdquo; etc.) before matching.</li>
-          <li><strong>Ward match</strong> &mdash; the candidate&rsquo;s 2026 ward name (from Democracy Club&rsquo;s <code>post_label</code> field) is matched against the ward names in the 2025 data. Exact match is tried first; if that fails, fuzzy matching (<code>difflib.get_close_matches</code> with cutoff 0.6) is attempted, but only where the first word of both ward names matches &mdash; this prevents cross-area false positives caused by ward boundary reorganisations. Ward matches that required fuzzy lookup are logged for review.</li>
-          <li><strong>Name match</strong> &mdash; the candidate&rsquo;s official SOPN name is compared against the names of sitting councillors in the matched ward using <code>difflib.SequenceMatcher</code>. A match is accepted if the ratio is &ge; 0.80. This threshold handles middle names present in SOPN data but absent from the 2025 councillor records (e.g. &ldquo;John Robert Smith&rdquo; matching &ldquo;John Smith&rdquo;) and minor spelling differences.</li>
-        </ol>
-        <h4>Coverage and limitations</h4>
-        <ul>
-          <li>316 councils scraped from opencouncildata.co.uk (deduped by name). 156 councils in the Democracy Club 2026 data are matched against these.</li>
-          <li>3.4% of candidates are in councils with no 2025 data (primarily East Surrey and West Surrey, which are newly created councils for 2026 and have no 2025 sitting councillors).</li>
-          <li>6.0% of candidates are in wards where no ward match could be found &mdash; typically due to ward boundary reorganisations creating entirely new ward names.</li>
-          <li><strong>Incumbents who chose not to re-stand are not counted.</strong> The &ldquo;Defeated&rdquo; figure only covers incumbents who stood in 2026 and lost their seat. We cannot reliably distinguish a councillor who retired from one whose seat was simply not up for election in 2026 (in multi-member wards, seats rotate).</li>
-        </ul>
-      </div>
-
-      <div class="meth-section">
-        <h3>Election type (full vs partial)</h3>
-        <p>English councils use one of three election cycles:</p>
-        <ul>
-          <li><strong>Whole council (Full)</strong> &mdash; all seats elected at once, every four years. 222 of 316 councils in England use this model.</li>
-          <li><strong>By thirds (Partial)</strong> &mdash; roughly one third of seats contested each year for three consecutive years, then a fallow year. 87 councils use this model.</li>
-          <li><strong>By halves (Partial)</strong> &mdash; half of seats contested in alternate years. 7 councils use this model (typically those with two councillors per ward).</li>
-        </ul>
-        <p>Election type for each council is read directly from the <code>Election Model</code> metadata field in the <a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a> dataset. Of the 156 councils in this dataset, 152 were matched; the 4 unmatched councils (East Surrey, West Surrey, Newport City, Powys) are newly created or Welsh authorities not present in the source data and are shown as &ldquo;Unknown&rdquo;.</p>
-        <p>This classification affects interpretation: a council with 54 seats electing 18 in 2026 (partial, by thirds) is not inherently less female-friendly than one electing all 54 &mdash; different seats were at stake.</p>
-      </div>
-
-      <div class="meth-section">
-        <h3>Data sources</h3>
-        <ul>
-          <li><strong><a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a></strong> &mdash; candidate and election result data, licensed under CC BY 4.0.</li>
-          <li><strong><a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a></strong> &mdash; 2025 sitting councillor composition, used for incumbency matching.</li>
-          <li><strong>ONS baby names dataset (1904&ndash;2024)</strong> &mdash; licensed under the Open Government Licence v.3.0.</li>
-          <li><strong>OS LAD boundaries (May 2025)</strong> &mdash; Contains OS data &copy; Crown copyright and database right [2026], licensed under the Open Government Licence v.3.0.</li>
-        </ul>
-      </div>
-
-      <div class="meth-section">
-        <h3>Known limitations</h3>
-        <ul>
-          <li>Gender is predicted from names and is not self-reported. It is treated as binary for analysis purposes only.</li>
-          <li>Predictions are imperfect; the confidence field (High/Medium/Low) indicates reliability. Areas with many Low-confidence predictions have less reliable gender balance figures.</li>
-          <li>Some councils (county councils) do not map to a single LAD boundary and are excluded from the choropleth map but included in all other statistics.</li>
-          <li>Incumbent matching cannot identify incumbents in newly created or renamed councils/wards. Ward boundary reorganisations (several councils underwent changes for 2026) mean some incumbents are undetectable.</li>
-          <li>Re-election rates and new councillor counts reflect only contested elections in this dataset. Uncontested returns and by-elections after the main election are not included.</li>
-        </ul>
-      </div>
-
+    <div class="modal-body meth-modal-body" id="meth-modal-body">
+      <!-- Populated by tmplMethodology() in views.js -->
     </div>
   </div>
 </div>
@@ -312,6 +250,12 @@
 <script src="js/charts.js"></script>
 <script src="js/export.js"></script>
 <script src="js/views.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var el = document.getElementById('meth-modal-body');
+  if (el) el.innerHTML = tmplMethodology();
+});
+</script>
 <script src="js/app.js"></script>
 </body>
 </html>

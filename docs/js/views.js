@@ -502,6 +502,98 @@ function tmplWardDetail(ward, candidates, totalVotes) {
 
 // ── Breadcrumb strip ──────────────────────────────────────────────────────
 
+// ── Centralised methodology content ──────────────────────────────────────
+// Single source of truth for methodology text used by both index.html
+// (modal body) and story.html (collapsible footer section).
+
+function tmplMethodology() {
+  return `
+    <div class="meth-section">
+      <h3>Gender assignment</h3>
+      <p>Around 77% of candidates had no gender recorded in the Democracy Club source data. Gender was predicted algorithmically in three stages:</p>
+      <ol>
+        <li><strong>gender_guesser library</strong> &mdash; an open-source name database covering common first names internationally. Applied first; produces &ldquo;high&rdquo; or &ldquo;medium&rdquo; confidence results.</li>
+        <li><strong>ONS historical baby names (1904&ndash;2024)</strong> &mdash; used for names not resolved by stage&nbsp;1, and where a birth year was available. Year-aware lookup accounts for names whose gender balance has shifted over time (e.g. &ldquo;Ashley&rdquo;, &ldquo;Kim&rdquo;).</li>
+        <li><strong>Claude Sonnet 4.6 (AI)</strong> &mdash; used for the remaining ~4,000 names unresolved by stages 1 or 2. The model was asked to classify first names by likely gender by reviewing the Democracy Club data.</li>
+      </ol>
+      <p><strong>63 candidates (&lt;0.3%) remain unclassified</strong> &mdash; primarily names where gender could not be determined with confidence. All gender percentages are calculated only among candidates with a known gender.</p>
+      <p><em>Gender is treated as binary (male/female) for prediction purposes.</em></p>
+    </div>
+
+    <div class="meth-section">
+      <h3>Incumbency</h3>
+      <p>Incumbent status indicates whether a 2026 candidate was a sitting councillor in the same ward and council as of 2025. A candidate is classified as an incumbent if and only if all three conditions are met:</p>
+      <ol>
+        <li><strong>Council match</strong> &mdash; the candidate&rsquo;s 2026 council (from Democracy Club data) is matched to a council entry in the 2025 sitting councillor data (from <a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a>, scraped May 2026). Council names are normalised by stripping prefixes (&ldquo;London Borough of&rdquo;, &ldquo;Royal Borough of&rdquo;) and suffixes (&ldquo;County Council&rdquo;, &ldquo;Borough Council&rdquo; etc.) before matching.</li>
+        <li><strong>Ward match</strong> &mdash; the candidate&rsquo;s 2026 ward name is matched against the 2025 ward names. Exact match is tried first; if that fails, fuzzy matching (<code>difflib.get_close_matches</code>, cutoff&nbsp;0.6) is attempted, restricted to wards sharing the same first word to prevent cross-area false positives from boundary reorganisations. Ward matches that required fuzzy lookup are logged for review.</li>
+        <li><strong>Name match</strong> &mdash; the SOPN name is compared against sitting councillors in the matched ward using <code>difflib.SequenceMatcher</code>. A match is accepted at ratio &ge;&thinsp;0.80, handling middle names and minor spelling differences.</li>
+      </ol>
+      <h4>Coverage and limitations</h4>
+      <ul>
+        <li>316 councils scraped from opencouncildata.co.uk (deduped by name). 154 councils in the Democracy Club 2026 data are matched against these.</li>
+        <li>3.4% of candidates are in councils with no 2025 data (primarily East Surrey and West Surrey, which are newly created councils for 2026).</li>
+        <li>6.0% of candidates are in wards where no ward match could be found &mdash; typically due to ward boundary reorganisations creating entirely new ward names.</li>
+        <li><strong>Incumbents who chose not to re-stand are not counted.</strong> &ldquo;Defeated&rdquo; covers only incumbents who stood in 2026 and lost their seat.</li>
+      </ul>
+    </div>
+
+    <div class="meth-section">
+      <h3>Party groupings</h3>
+      <p>&ldquo;Labour&rdquo; figures combine <strong>Labour Party</strong> and <strong>Labour and Co&#8209;operative Party</strong> candidates. Labour Co-op candidates stand on a joint Labour ticket and are functionally indistinguishable from Labour candidates at election time. This merging is applied at the data-build stage and reflected consistently across all views.</p>
+    </div>
+
+    <div class="meth-section">
+      <h3>Election type (full vs partial)</h3>
+      <p>English councils use one of three election cycles:</p>
+      <ul>
+        <li><strong>Whole council (Full)</strong> &mdash; all seats elected at once, every four years.</li>
+        <li><strong>By thirds (Partial)</strong> &mdash; roughly one third of seats contested each year for three consecutive years, then a fallow year.</li>
+        <li><strong>By halves (Partial)</strong> &mdash; half of seats contested in alternate years.</li>
+      </ul>
+      <p>Election type is read from the <code>Election Model</code> field in the <a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a> dataset. Of the 154 councils in this dataset, 150 were matched; the 4 unmatched councils (East Surrey, West Surrey, Newport City, Powys) are newly created or Welsh authorities and are shown as &ldquo;Unknown&rdquo;.</p>
+    </div>
+
+    <div class="meth-section">
+      <h3>Data sources &amp; licences</h3>
+      <ul>
+        <li>
+          <strong><a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a></strong> &mdash;
+          candidate and election result data, licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>.
+        </li>
+        <li>
+          <strong><a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a></strong> &mdash;
+          2025 sitting councillor composition, used for incumbency matching and election type classification.
+        </li>
+        <li>
+          <strong>ONS baby names dataset (1904&ndash;2024)</strong> &mdash;
+          Office for National Statistics. Licensed under the
+          <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>.
+          Contains public sector information licensed under the Open Government Licence v3.0.
+        </li>
+        <li>
+          <strong>OS Local Authority District boundaries (May 2025)</strong> &mdash;
+          Contains OS data &copy; Crown copyright and database right [2026].
+          Source: Office for National Statistics licensed under the Open Government Licence v3.0.
+          Used for the choropleth map in the Data Explorer.
+        </li>
+      </ul>
+    </div>
+
+    <div class="meth-section">
+      <h3>Known limitations</h3>
+      <ul>
+        <li>Gender is predicted from names and is not self-reported. It is treated as binary for analysis purposes only.</li>
+        <li>Predictions are imperfect; the confidence field (High/Medium/Low) indicates reliability. Areas with many low-confidence predictions have less reliable gender balance figures.</li>
+        <li>Some county councils do not map to a single LAD boundary and are excluded from the choropleth map but included in all other statistics.</li>
+        <li>Incumbent matching cannot identify incumbents in newly created or renamed councils/wards.</li>
+        <li>Incumbent matching is generally weak: if a councillor moved ward, or the ward name changed significantly, this is not well handled. </li>
+        <li>Re-election rates reflect only contested elections in this dataset. Uncontested returns and post-election by-elections are not included.</li>
+      </ul>
+    </div>
+  `;
+}
+
 function tmplBreadcrumb(parts) {
   let html = '';
   for (let i = 0; i < parts.length; i++) {

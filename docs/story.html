@@ -125,39 +125,8 @@
 
     <details class="footer-meth">
       <summary>Methodology &amp; data sources</summary>
-      <div class="meth-body">
-
-        <h4>Gender assignment</h4>
-        <p>Around 77% of candidates had no gender recorded in the Democracy Club source data. Gender was predicted algorithmically in three stages:</p>
-        <ol>
-          <li><strong>gender_guesser library</strong> &mdash; an open-source name database covering common first names internationally. Applied first; produces &#8220;high&#8221; or &#8220;medium&#8221; confidence results.</li>
-          <li><strong>ONS historical baby names (1904&ndash;2024)</strong> &mdash; used for names not resolved by stage&nbsp;1, and where a birth year was available. Year-aware lookup accounts for names whose gender balance has shifted over time (e.g. &#8220;Ashley&#8221;, &#8220;Kim&#8221;).</li>
-          <li><strong>Claude Sonnet 4.6 (AI)</strong> &mdash; used for the remaining ~4,000 names unresolved by stages 1 or 2. The model was asked to classify first names by likely gender based on cultural and linguistic context.</li>
-        </ol>
-        <p><strong>63 candidates (&lt;0.3%) remain unclassified.</strong> All gender percentages are calculated only among candidates with a known gender.</p>
-        <p><em>Gender is treated as binary (male/female) for prediction purposes and is not self-identified gender.</em></p>
-
-        <h4>Incumbency</h4>
-        <p>A candidate is classified as an incumbent if they were a sitting councillor in the same ward and council as of 2025. Three conditions must all be met:</p>
-        <ol>
-          <li><strong>Council match</strong> &mdash; the 2026 council name is matched to a council entry in the 2025 sitting councillor data (from <a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a>, scraped May&nbsp;2026). Names are normalised by stripping prefixes and suffixes before matching.</li>
-          <li><strong>Ward match</strong> &mdash; the 2026 ward name is matched against the 2025 ward names. Exact match is tried first; if that fails, fuzzy matching (<code>difflib.get_close_matches</code>, cutoff&nbsp;0.6) is attempted, restricted to wards sharing the same first word to prevent cross-area false positives from boundary reorganisations.</li>
-          <li><strong>Name match</strong> &mdash; the SOPN name is compared against sitting councillors in the matched ward using <code>difflib.SequenceMatcher</code>. A match is accepted at ratio &ge;&#8202;0.80, handling middle names and minor spelling differences.</li>
-        </ol>
-        <p>316 councils were scraped from opencouncildata.co.uk; 154 councils in the 2026 data are matched against these. <strong>Incumbents who chose not to re-stand are not counted</strong> &mdash; &#8220;Defeated&#8221; covers only those who stood and lost.</p>
-
-        <h4>Election type (full vs partial)</h4>
-        <p>Election type is read from the <code>Election Model</code> field in the <a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a> dataset. Of the 154 councils, 150 were matched; the 4 unmatched councils (East Surrey, West Surrey, Newport City, Powys) are newly created or Welsh authorities shown as &#8220;Unknown&#8221;.</p>
-        <p>Whole-council elections (all seats at once) are marked <em>Full</em>; by-thirds and by-halves elections are marked <em>Partial</em>.</p>
-
-        <h4>Data sources</h4>
-        <ul class="meth-source-list">
-          <li><strong><a href="https://democracyclub.org.uk" target="_blank" rel="noopener">Democracy Club</a></strong> &mdash; candidate and election result data, licensed under CC BY 4.0.</li>
-          <li><strong><a href="https://opencouncildata.co.uk" target="_blank" rel="noopener">opencouncildata.co.uk</a></strong> &mdash; 2025 sitting councillor composition, used for incumbency matching and election type classification.</li>
-          <li><strong>ONS baby names dataset (1904&ndash;2024)</strong> &mdash; Office for National Statistics, licensed under the Open Government Licence v.3.0.</li>
-          <li><strong>OS LAD boundaries (May 2025)</strong> &mdash; Contains OS data &copy; Crown copyright and database right [2026], Open Government Licence v.3.0. Used in the <a href="index.html">Data Explorer</a> map.</li>
-        </ul>
-
+      <div class="meth-body" id="meth-details-body">
+        <!-- Populated by tmplMethodology() in views.js, called from story.js -->
       </div>
     </details>
 
@@ -167,6 +136,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/views.js"></script>
 <script src="js/story.js"></script>
 </body>
 </html>

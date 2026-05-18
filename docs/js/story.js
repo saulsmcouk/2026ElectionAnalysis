@@ -2,24 +2,14 @@
 'use strict';
 
 // ── Constants ────────────────────────────────────────────────────────────────
-const LABOUR_KEYS = new Set(['Labour Party', 'Labour and Co-operative Party']);
-
+// Party display names → canonical data keys as output by build_data.py.
+// Labour + Labour Co-op are merged at build time; all other names are raw CSV values.
 const PARTY_DISPLAY = [
-  { key: 'Labour',       matchFn: k => LABOUR_KEYS.has(k) },
-  { key: 'Conservative', matchFn: k => k === 'Conservative and Unionist Party' },
-  { key: 'Lib Dems',     matchFn: k => k === 'Liberal Democrats' },
-  { key: 'Green',        matchFn: k => k === 'Green Party' },
-  { key: 'Reform UK',    matchFn: k => k === 'Reform UK' },
-];
-
-// Fields to sum when merging two party entries (e.g. Labour + Lab Co-op)
-const SUM_FIELDS = [
-  'total','female','male','unknown',
-  'elected_total','elected_female','elected_male','elected_unknown',
-  'inc_total','inc_elected','inc_defeated','new_elected',
-  'inc_female_elected','inc_male_elected',
-  'inc_female_defeated','inc_male_defeated',
-  'new_female_elected','new_male_elected',
+  { key: 'Labour',       dataKey: 'Labour' },
+  { key: 'Conservative', dataKey: 'Conservative and Unionist Party' },
+  { key: 'Lib Dems',     dataKey: 'Liberal Democrats' },
+  { key: 'Green',        dataKey: 'Green Party' },
+  { key: 'Reform UK',    dataKey: 'Reform UK' },
 ];
 
 const COL_FEMALE = '#d6496f';
@@ -42,35 +32,15 @@ function gapStr(f,m) {
   return `<span class="${cls}">${sign(g)}${g}pp</span>`;
 }
 
-// ── Party merge ───────────────────────────────────────────────────────────────
-// Merges two party-stat objects (e.g. Labour Party + Labour Co-op) by
-// summing raw counts and recomputing all derived pct/rate fields.
-function mergePartyEntries(partyList, matchFn) {
-  const rows = partyList.filter(p => matchFn(p.party));
-  if (!rows.length) return null;
-  if (rows.length === 1) return Object.assign({}, rows[0]);
-  const m = Object.assign({}, rows[0]);
-  for (const f of SUM_FIELDS) m[f] = rows.reduce((s, r) => s + (r[f] || 0), 0);
-  const kn  = m.female + m.male;
-  const ekn = m.elected_female + m.elected_male;
-  m.pct_female           = pct(m.female, kn);
-  m.pct_female_elected   = pct(m.elected_female, ekn);
-  m.female_win_rate      = pct(m.elected_female, m.female);
-  m.male_win_rate        = pct(m.elected_male, m.male);
-  m.inc_retention_pct    = pct(m.inc_elected, m.inc_total);
-  const iFt = m.inc_female_elected + m.inc_female_defeated;
-  const iMt = m.inc_male_elected + m.inc_male_defeated;
-  m.inc_female_retention_pct = pct(m.inc_female_elected, iFt);
-  m.inc_male_retention_pct   = pct(m.inc_male_elected, iMt);
-  m.inc_female_pct           = pct(iFt, iFt + iMt);
-  const nKn = m.new_female_elected + m.new_male_elected;
-  m.new_female_elected_pct   = pct(m.new_female_elected, nKn);
-  return m;
-}
-
+// ── Party lookup ──────────────────────────────────────────────────────────────
+// Labour + Labour Co-op are merged at build time in build_data.py.
+// All merging happens on the backend; frontend just looks up canonical names.
 function buildPartyMap(partyList) {
   const map = {};
-  for (const pd of PARTY_DISPLAY) map[pd.key] = mergePartyEntries(partyList, pd.matchFn);
+  for (const pd of PARTY_DISPLAY) {
+    const found = partyList.find(p => p.party === pd.dataKey);
+    map[pd.key] = found ? Object.assign({}, found) : null;
+  }
   return map;
 }
 
@@ -611,11 +581,11 @@ async function init() {
     const lab      = partyMap['Labour'];
     const summary  = councils.summary;
 
-    // Merged Labour lookup by region
+    // Labour by region — merged at build time, look up directly
     const regionLabour = {};
     for (const [rname, rp] of Object.entries(councils.by_region_by_party)) {
-      const merged = mergePartyEntries(rp, k => LABOUR_KEYS.has(k));
-      if (merged) regionLabour[rname] = merged;
+      const found = rp.find(p => p.party === 'Labour');
+      if (found) regionLabour[rname] = found;
     }
 
     // Party map per election type
@@ -623,6 +593,10 @@ async function init() {
     for (const [et, plist] of Object.entries(councils.by_election_type_by_party || {})) {
       etPartyMap[et] = buildPartyMap(plist);
     }
+
+    // Inject centralised methodology (defined in views.js)
+    const methEl = document.getElementById('meth-details-body');
+    if (methEl) methEl.innerHTML = tmplMethodology();
 
     renderHero(lab, summary);
     renderCandidates(lab, summary, partyMap);

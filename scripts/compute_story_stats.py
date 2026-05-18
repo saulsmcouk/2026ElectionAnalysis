@@ -2,7 +2,7 @@
 compute_story_stats.py  —  Ward-level statistical analysis for story.html.
 
 Reads all ward JSON files + councils.json. For each ward, extracts Labour
-candidate data (merging 'Labour Party' and 'Labour and Co-operative Party').
+candidate data (party name 'Labour', as merged by build_data.py).
 Computes Pearson correlations and grouped comparisons. Outputs
 docs/data/story_stats.json which story.js reads at runtime.
 
@@ -20,7 +20,7 @@ COUNCILS_IN = os.path.join(ROOT, 'docs', 'data', 'councils.json')
 WARDS_DIR   = os.path.join(ROOT, 'docs', 'data', 'wards')
 OUT_PATH    = os.path.join(ROOT, 'docs', 'data', 'story_stats.json')
 
-LABOUR_NAMES = {'Labour Party', 'Labour and Co-operative Party'}
+LABOUR_NAMES = {'Labour'}  # Canonical name after merging in build_data.py
 
 # ---------------------------------------------------------------------------
 # Helpers

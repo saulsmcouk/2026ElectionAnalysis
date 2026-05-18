@@ -30,6 +30,13 @@ ROOT = os.path.join(os.path.dirname(__file__), '..')
 EXCLUDE_WALES = True
 _WALES_COUNCILS = {'Newport City Council', 'Powys County Council'}
 
+# Party name canonicalisation applied at build time so all outputs use
+# a single consistent name for merged groupings.
+_PARTY_ALIASES = {
+    'Labour Party':                   'Labour',
+    'Labour and Co-operative Party':  'Labour',
+}
+
 # ---------------------------------------------------------------------------
 CSV_IN              = os.path.join(ROOT, 'dc_data.csv')
 GENDERS_IN          = os.path.join(ROOT, 'genders.csv')
@@ -282,6 +289,7 @@ def main():
             if EXCLUDE_WALES and org in _WALES_COUNCILS:
                 continue
             party  = row['party_name'].strip() or 'Unknown'
+            party  = _PARTY_ALIASES.get(party, party)
             nuts1  = _clean_nuts1(row.get('nuts1', ''))
 
             g_entry = gender_lookup.get(pid, {})
